@@ -1,0 +1,6 @@
+{
+  "@blt_0th4_color/dsgn": {
+    "functionBody": "if ($Utilization < 0.6) {\r\n  return \"#d9534f\";\r\n} else if ($Utilization >= 0.6  && $Utilization < 0.8) {\r\n  return \"#f0ad4e\";\r\n} else {\r\n  return \"#5cb85c\";\r\n}\r\n",
+    "functionId": "fn_inline_TimesheetWorkAnalysisByPeriod_blt_0th4_color"
+  }
+}

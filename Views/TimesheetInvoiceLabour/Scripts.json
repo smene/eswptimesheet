@@ -1,0 +1,6 @@
+{
+  "@grdxLineItems_caption_DocDate/dsgn": {
+    "functionBody": "var sDate = new Date($selectedDate);\r\nvar myD = sDate.getMonth() + 1;\r\nreturn sDate.getDate() + \"/\" + myD + \"/\" + sDate.getFullYear();\r\n",
+    "functionId": "fn_inline_TimesheetInvoiceLabour_grdxLineItems_caption_DocDate"
+  }
+}

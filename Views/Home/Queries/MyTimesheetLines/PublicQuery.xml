@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<ESPublicQuery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SQL><![CDATA[Declare @fResourceGID uniqueidentifier = (Select R.GID from ESTMResource R Inner Join ESGOUser U on U.fPersonLinkGID=R.fPersonGID and U.GID=##(ESUSERGID))
+
+SELECT ESTMTaskItem.GID AS fTimeSheetLineGID, 
+       TimeSheets.Date AS Date, 
+       TimeSheets.fAssignedToGID AS fAssignedToGID, 
+       ESTMTaskItem.fTaskGID AS fTimeSheetGID, 
+       ESTMResource.Description AS Representative, 
+       ESTMTaskItem.NumericField1 AS LabourTime, 
+       ESTMTaskItem.NumericField2 AS LabourBillable, 
+       ESTMTaskItem.NumericField3 AS Overtime, 
+       FK_ESTMTaskItem_ESGOProject.Code AS ProjectCode, 
+       FK_ESTMTaskItem_ESGOProject.Name AS PorjectName, 
+       FK_ESTMTaskItem_ESFITradeAccount.Code AS CustomerCode, 
+       FK_ESTMTaskItem_ESFITradeAccount.Name AS CustomerName, 
+       FK_ESTMTaskItem_ESTMTaskCategoryValue3GID.InternationalID AS Linestate_InterID, 
+       FK_ESTMTaskItem_ESTMTaskCategoryValue5GID.Code AS ReasoningCode
+FROM ESTMTaskItem AS ESTMTaskItem 
+     INNER JOIN (
+                SELECT ESTMTask.GID AS fTaskGID, 
+                       ESTMTask.fAssignedToGID AS fAssignedToGID, 
+                       cast(ESTMTask.RegistrationDate as date) AS Date, 
+                       Sum(ESTMTask.NumericField1) AS Availability, 
+                       Sum(ESTMTask.Completeness) AS Completeness
+                FROM ESTMTask AS ESTMTask 
+                     INNER JOIN (
+                                SELECT ESTMTaskTypeGroup.fTaskTypeGID AS fTaskTypeGID
+                                FROM ESTMTaskTypeGroup AS ESTMTaskTypeGroup 
+                                WHERE (ESTMTaskTypeGroup.fTaskGroupCode = 'Timesheet')) AS TaskTypeGroup
+                       ON ESTMTask.fTaskTypeGID = TaskTypeGroup.fTaskTypeGID 
+                WHERE (ESTMTask.fCompanyCode = ##(ESCOMPANY))
+                       AND (ESEqual(ESTMTask.RegistrationDate, @RegistrationDate))
+                       AND (ESTMTask.fAssignedToGID = @fResourceGID)
+                      
+                GROUP BY ESTMTask.GID, ESTMTask.fAssignedToGID, cast(ESTMTask.RegistrationDate as date)) AS TimeSheets
+       ON ESTMTaskItem.fTaskGID = TimeSheets.fTaskGID 
+     LEFT JOIN ESTMTaskCategoryValue AS FK_ESTMTaskItem_ESTMTaskCategoryValue2GID
+       ON ESTMTaskItem.fCategoryValue2GID = FK_ESTMTaskItem_ESTMTaskCategoryValue2GID.GID 
+     LEFT JOIN ESGOProject AS FK_ESTMTaskItem_ESGOProject
+       ON ESTMTaskItem.fProjectGID = FK_ESTMTaskItem_ESGOProject.GID 
+     LEFT JOIN ESTMTaskCategoryValue AS FK_ESTMTaskItem_ESTMTaskCategoryValue3GID
+       ON ESTMTaskItem.fCategoryValue3GID = FK_ESTMTaskItem_ESTMTaskCategoryValue3GID.GID 
+     LEFT JOIN ESFITradeAccount AS FK_ESTMTaskItem_ESFITradeAccount
+       ON ESTMTaskItem.fTradeAccountGID = FK_ESTMTaskItem_ESFITradeAccount.GID 
+     LEFT JOIN ESTMTaskCategoryValue AS FK_ESTMTaskItem_ESTMTaskCategoryValue5GID
+       ON ESTMTaskItem.fCategoryValue5GID = FK_ESTMTaskItem_ESTMTaskCategoryValue5GID.GID 
+     INNER JOIN ESTMResource AS ESTMResource
+       ON TimeSheets.fAssignedToGID = ESTMResource.GID 
+WHERE (FK_ESTMTaskItem_ESTMTaskCategoryValue2GID.StringField1 = '1')
+      
+]]></SQL>
+  <SQLforPaging><![CDATA[]]></SQLforPaging>
+  <Table>ESTMTaskItem</Table>
+  <Params>
+    <Param>
+      <ID>RegistrationDate</ID>
+      <Type>Entersoft.Framework.Platform.ESDateRange, QueryProcess</Type>
+      <ODSTag>1700363E-F17D-4B4B-8642-E1CE22B6C16C</ODSTag>
+    </Param>
+  </Params>
+</ESPublicQuery>

@@ -1,0 +1,6 @@
+{
+  "@bullet_color/dsgn": {
+    "functionBody": "if ($VariancePct < 0) {\r\n  return \"#d9534f\";\r\n} else if ($VariancePct > 0 && $Target > 0) {\r\n  return \"#5cb85c\";\r\n} else {\r\n  return null;\r\n}",
+    "functionId": "fn_inline_TimesheetWorkAnalysisByProject_bullet_color"
+  }
+}

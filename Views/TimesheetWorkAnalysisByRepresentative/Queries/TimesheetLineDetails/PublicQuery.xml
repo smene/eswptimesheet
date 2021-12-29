@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<ESPublicQuery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SQL><![CDATA[SELECT Timesheets.Code AS Code, 
+       FK_ESTMTaskItem_ESTMTaskCategoryValue1GID.Code AS Workplace, 
+       StateCategoryValue.StateCode AS StateCode, 
+       FK_ESTMTaskItem_ESGOProject.Code AS ProjectCode, 
+       FK_ESTMTaskItem_ESGOProject.Name AS ProjectName, 
+       ESTMTaskItem.NumericField1 AS WorkingHours, 
+       ESTMTaskItem.NumericField2 AS BillableHours, 
+       ESTMTaskItem.NumericField3 AS Overtime, 
+       FK_ESTMTaskItem_ESFITradeAccount.Code+' - '+FK_ESTMTaskItem_ESFITradeAccount.Name AS Customer
+FROM ESTMTaskItem AS ESTMTaskItem 
+     LEFT JOIN ESTMTaskCategoryValue AS FK_ESTMTaskItem_ESTMTaskCategoryValue2GID
+       ON ESTMTaskItem.fCategoryValue2GID = FK_ESTMTaskItem_ESTMTaskCategoryValue2GID.GID 
+     INNER JOIN (
+                SELECT ESTMTask.GID AS fTaskGID, 
+                       ESTMTask.Code AS Code, 
+                       ESTMTask.RegistrationDate AS RegistrationDate, 
+                       ESTMTask.fAssignedToGID AS fAssignedToGID
+                FROM ESTMTask AS ESTMTask 
+                     INNER JOIN (
+                                SELECT ESTMTaskTypeGroup.fTaskTypeGID AS fTaskTypeGID
+                                FROM ESTMTaskTypeGroup AS ESTMTaskTypeGroup 
+                                WHERE (ESTMTaskTypeGroup.fTaskGroupCode = 'Timesheet')) AS TaskTypeGroup
+                       ON ESTMTask.fTaskTypeGID = TaskTypeGroup.fTaskTypeGID 
+                WHERE (ESTMTask.fCompanyCode = ##(ESCOMPANY))
+                       AND (ESEqual(ESTMTask.fAssignedToGID, @fAssignedToGID))
+                       AND (ESEqual(ESTMTask.RegistrationDate, @RegistrationDate1))) AS Timesheets
+       ON ESTMTaskItem.fTaskGID = Timesheets.fTaskGID 
+     INNER JOIN (
+                SELECT ESTMTaskCategoryValue.GID AS GID, 
+                       ESTMTaskCategoryValue.Code AS StateCode
+                FROM ESTMTaskCategoryValue AS ESTMTaskCategoryValue 
+                     INNER JOIN (
+                                SELECT TC.GID AS GID
+                                FROM ESTMTaskCategory AS TC 
+                                WHERE (TC.Code = 'TimeSheet_State')) AS TaskCategory
+                       ON ESTMTaskCategoryValue.fTaskCategoryGID = TaskCategory.GID 
+                WHERE (ESTMTaskCategoryValue.InternationalID IN ('ES.TSState_Submitted', 'ES.TSState_Invoiced') )) AS StateCategoryValue
+       ON ESTMTaskItem.fCategoryValue3GID = StateCategoryValue.GID 
+     LEFT JOIN ESTMTaskCategoryValue AS FK_ESTMTaskItem_ESTMTaskCategoryValue1GID
+       ON ESTMTaskItem.fCategoryValue1GID = FK_ESTMTaskItem_ESTMTaskCategoryValue1GID.GID 
+     LEFT JOIN ESGOProject AS FK_ESTMTaskItem_ESGOProject
+       ON ESTMTaskItem.fProjectGID = FK_ESTMTaskItem_ESGOProject.GID 
+     LEFT JOIN ESFITradeAccount AS FK_ESTMTaskItem_ESFITradeAccount
+       ON ESTMTaskItem.fTradeAccountGID = FK_ESTMTaskItem_ESFITradeAccount.GID 
+WHERE (FK_ESTMTaskItem_ESTMTaskCategoryValue2GID.StringField1 = '1')
+      
+]]></SQL>
+  <SQLforPaging><![CDATA[]]></SQLforPaging>
+  <Table>ESTMTaskItem</Table>
+  <Params>
+    <Param>
+      <ID>fAssignedToGID</ID>
+      <Type>System.Guid, mscorlib</Type>
+      <ODSTag>93E6CA13-D219-4A19-8EA8-147B2454F82F</ODSTag>
+    </Param>
+    <Param>
+      <ID>RegistrationDate1</ID>
+      <Type>System.DateTime, mscorlib</Type>
+      <ODSTag>1700363E-F17D-4B4B-8642-E1CE22B6C16C</ODSTag>
+    </Param>
+  </Params>
+</ESPublicQuery>

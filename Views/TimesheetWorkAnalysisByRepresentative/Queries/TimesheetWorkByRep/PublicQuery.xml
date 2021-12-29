@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<ESPublicQuery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SQL><![CDATA[SELECT TSTimePerTaskAndRep.fAssignedToGID AS fAssignedToGID, 
+       ESTMResource.Description AS Representative, 
+       TSTimePerTaskAndRep.LabourTime AS LabourTime, 
+       TSTimePerTaskAndRep.LabourBillable AS LabourBillable, 
+       TSTimePerTaskAndRep.Overtime AS Overtime, 
+       TSTimePerTaskAndRep.LabourwithoutProject AS LabourwithoutProject, 
+       TSTimePerTaskAndRep.Availability AS Availability, 
+       case when isnull(TSTimePerTaskAndRep.Availability,0)=0 then null else TSTimePerTaskAndRep.LabourTime/TSTimePerTaskAndRep.Availability end AS Utilization
+FROM (
+                SELECT TimeSheetLines.fAssignedToGID AS fAssignedToGID, 
+                       Sum(TimeSheetLines.LabourTime) AS LabourTime, 
+                       Sum(TimeSheetLines.LabourBillable) AS LabourBillable, 
+                       Sum(TimeSheetLines.Overtime) AS Overtime, 
+                       Sum(TimeSheetLines.LabourwithoutProject) AS LabourwithoutProject, 
+                       Sum(TimeSheetLines.Availability) AS Availability
+                FROM (
+                                SELECT TI.fTaskGID AS fTaskGID, 
+                                       Max(TimeSheets.fAssignedToGID) AS fAssignedToGID, 
+                                       Sum(TI.NumericField1) AS LabourTime, 
+                                       Sum(TI.NumericField2) AS LabourBillable, 
+                                       Sum(TI.NumericField3) AS Overtime, 
+                                       Sum(case when TI.fProjectGID is null then TI.NumericField1 else 0 end) AS LabourwithoutProject, 
+                                       Max(TimeSheets.Availability) AS Availability
+                                FROM ESTMTaskItem AS TI 
+                                     INNER JOIN (
+                                                SELECT T.GID AS fTaskGID, 
+                                                       T.fAssignedToGID AS fAssignedToGID, 
+                                                       T.NumericField1 AS Availability
+                                                FROM ESTMTask AS T 
+                                                     INNER JOIN (
+                                                                SELECT ESTMTaskTypeGroup.fTaskTypeGID AS fTaskTypeGID
+                                                                FROM ESTMTaskTypeGroup AS ESTMTaskTypeGroup 
+                                                                WHERE (ESTMTaskTypeGroup.fTaskGroupCode = 'Timesheet')) AS TTG
+                                                       ON T.fTaskTypeGID = TTG.fTaskTypeGID 
+                                                WHERE (T.fCompanyCode = ##(ESCOMPANY))
+                                                       AND (ESEqual(T.fAssignedToGID, @fAssignedToGID))
+                                                       AND (ESEqual(T.RegistrationDate, @RegistrationDate))) AS TimeSheets
+                                       ON TI.fTaskGID = TimeSheets.fTaskGID 
+                                     LEFT JOIN ESTMTaskCategoryValue AS TCV2
+                                       ON TI.fCategoryValue2GID = TCV2.GID 
+                                     INNER JOIN (
+                                                SELECT TCV.GID AS GID
+                                                FROM ESTMTaskCategoryValue AS TCV 
+                                                     INNER JOIN (
+                                                                SELECT TC.GID AS GID
+                                                                FROM ESTMTaskCategory AS TC 
+                                                                WHERE (TC.Code = 'TimeSheet_State')) AS TC
+                                                       ON TCV.fTaskCategoryGID = TC.GID 
+                                                WHERE (TCV.InternationalID IN ('ES.TSState_Submitted', 'ES.TSState_Invoiced') )) AS SCV
+                                       ON TI.fCategoryValue3GID = SCV.GID 
+                                WHERE (TCV2.StringField1 = '1')
+                                      
+                                GROUP BY TI.fTaskGID) AS TimeSheetLines 
+                GROUP BY TimeSheetLines.fAssignedToGID) AS TSTimePerTaskAndRep 
+     INNER JOIN ESTMResource AS ESTMResource
+       ON TSTimePerTaskAndRep.fAssignedToGID = ESTMResource.GID 
+]]></SQL>
+  <SQLforPaging><![CDATA[]]></SQLforPaging>
+  <Table>TSTimePerTaskAndRep</Table>
+  <Params>
+    <Param>
+      <ID>fAssignedToGID</ID>
+      <Type>System.Guid, mscorlib</Type>
+      <ODSTag>93E6CA13-D219-4A19-8EA8-147B2454F82F</ODSTag>
+    </Param>
+    <Param>
+      <ID>RegistrationDate</ID>
+      <Type>Entersoft.Framework.Platform.ESDateRange, QueryProcess</Type>
+      <ODSTag>1700363E-F17D-4B4B-8642-E1CE22B6C16C</ODSTag>
+    </Param>
+  </Params>
+</ESPublicQuery>

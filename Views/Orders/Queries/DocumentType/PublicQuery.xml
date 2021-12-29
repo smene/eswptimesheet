@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<ESPublicQuery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SQL><![CDATA[SELECT TOP 1 fProformaInvoiceServiceDocTypeGID fDocumentTypeGID                 
+FROM ESGOServiceProfile SP                      
+INNER JOIN (                                 
+SELECT US.fServiceProfileGID                                 
+FROM ESGOUserSite AS US                                 
+ WHERE US.fUserGID = ##(ESUSERGID)                                       
+  AND US.fCompanySiteGID = ##(ESBranchGID)) US on US.fServiceProfileGID=SP.GID
+
+]]></SQL>
+  <SQLforPaging><![CDATA[]]></SQLforPaging>
+  <Table>ESFIDocumentType</Table>
+  <Params />
+</ESPublicQuery>

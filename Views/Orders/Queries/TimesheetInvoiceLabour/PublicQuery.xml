@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<ESPublicQuery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SQL><![CDATA[SELECT DT.GID AS fDocumentGID, 
+       DT.ADRegistrationDate AS ADRegistrationDate, 
+       DT.ADCode AS ADCode, 
+       DT.NetValue AS NetValue, 
+       DT.VATValue AS VATValue, 
+       DT.ADTotalValue AS ADTotalValue, 
+       DT.fTradeAccountGID AS fTradeAccountGID, 
+       TA.Code+' - '+TA.Name AS Customer, 
+       DS.Description AS Title, 
+       DT.ADTransitionState AS ADTransitionState, 
+       isnull(TranStep.Description,DT.fTransitionStepCode) AS TransitionStep
+FROM ESFIDocumentTrade AS DT 
+     INNER JOIN ESFITradeAccount AS TA
+       ON DT.fTradeAccountGID = TA.GID 
+     LEFT JOIN ESFIDocumentSeries AS DS
+       ON DT.fADDocumentSeriesGID = DS.GID 
+     LEFT JOIN ESGOSites AS S
+       ON DT.fADSiteGID = S.GID 
+     INNER JOIN (
+                SELECT ESGOServiceProfile.fProFormaInvoiceServiceDocTypeGID AS fProFormaInvoiceServiceDocTypeGID
+                FROM ESGOServiceProfile AS ESGOServiceProfile 
+                     INNER JOIN (
+                                SELECT ESGOUserSite.fServiceProfileGID AS fServiceProfileGID
+                                FROM ESGOUserSite AS ESGOUserSite 
+                                WHERE (ESGOUserSite.fUserGID = ##(ESUSERGID))
+                                       AND (ESGOUserSite.fCompanySiteGID = ##(ESBranchGID))) AS UserProfile
+                       ON ESGOServiceProfile.GID = UserProfile.fServiceProfileGID) AS SP
+       ON DT.fADDocumentTypeGID = SP.fProFormaInvoiceServiceDocTypeGID 
+     LEFT JOIN ESFIZTransitionStep AS TranStep
+       ON DT.fTransitionStepCode = TranStep.Code AND DT.fCompanyCode = TranStep.fCompanyCode 
+WHERE (DT.fCompanyCode = ##(ESCOMPANY))
+       AND (ESEqual(DT.ADRegistrationDate, @ADRegistrationDate))
+       AND (ESEqual(TA.Code, @CustomerCode))
+       AND (ESEqual(TA.Name, @CustomerName))
+       AND (ESEqual(S.GID, @fSiteGID))
+       AND (DT.ADTransitionState = 0)
+       AND (DT.ADCancelState = 0)
+       AND (ESEqual(DT.fTradeAccountGID, @fTradeAccountGID))
+      
+]]></SQL>
+  <SQLforPaging><![CDATA[]]></SQLforPaging>
+  <Table>ESFIDocumentTrade</Table>
+  <Params>
+    <Param>
+      <ID>ADRegistrationDate</ID>
+      <Type>Entersoft.Framework.Platform.ESDateRange, QueryProcess</Type>
+      <ODSTag>7F9E950D-6C69-4172-842A-BF34764F9464</ODSTag>
+    </Param>
+    <Param>
+      <ID>CustomerCode</ID>
+      <Type>System.String, mscorlib</Type>
+      <ODSTag>11AA2299-3F5E-4B2A-B530-6222866A7601</ODSTag>
+    </Param>
+    <Param>
+      <ID>CustomerName</ID>
+      <Type>System.String, mscorlib</Type>
+      <ODSTag>7699C12E-3B5F-47E8-B509-7AF97F4560B1</ODSTag>
+    </Param>
+    <Param>
+      <ID>fSiteGID</ID>
+      <Type>System.Guid, mscorlib</Type>
+      <ODSTag>332EFF39-C62C-406A-AB3B-3A4E6CCFDC24</ODSTag>
+    </Param>
+    <Param>
+      <ID>fTradeAccountGID</ID>
+      <Type>System.Guid, mscorlib</Type>
+      <ODSTag>7C9DE494-52FA-4B20-9FED-EA18E56A8C9D</ODSTag>
+    </Param>
+  </Params>
+</ESPublicQuery>

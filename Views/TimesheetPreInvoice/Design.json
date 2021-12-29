@@ -1,0 +1,102 @@
+{
+  "@DocGroupingValueList/properties/data/initialValue": {
+    "dsgn": {
+      "Columns": [
+        {
+          "Caption": "value",
+          "Kind": "String",
+          "Name": "value"
+        },
+        {
+          "Caption": "displayText",
+          "Kind": "String",
+          "Name": "displayText"
+        }
+      ]
+    }
+  },
+  "@EnumChargeable": {
+    "dsgn": {
+      "EnumType": "Entersoft.ERP.TaskManagement.Enums.Chargeable, ESTMEnums"
+    }
+  },
+  "@EnumChargeable/properties/data/initialValue": {
+    "dsgn": {
+      "Columns": [
+        {
+          "Caption": null,
+          "Kind": "Integer",
+          "Name": "value"
+        },
+        {
+          "Caption": null,
+          "Kind": "",
+          "Name": "name"
+        },
+        {
+          "Caption": null,
+          "Kind": "",
+          "Name": "displayText"
+        }
+      ]
+    }
+  },
+  "@grdxTSLines": {
+    "dsgnInfo": {
+      "maxSampleData": null,
+      "minSampleData": null
+    }
+  },
+  "@GroupingValue": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@pActions": {
+    "dsgnInfo": {
+      "sizesMetric": "empty",
+      "sizesVal": "2%,15%",
+      "visible": false
+    }
+  },
+  "@pageItems": {
+    "dsgnInfo": {
+      "sizesMetric": "empty",
+      "sizesVal": "auto,80%"
+    }
+  },
+  "@pGrid": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pParamFields": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pParams": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@TSLineStatusInterIDValueList/properties/data/initialValue": {
+    "dsgn": {
+      "Columns": [
+        {
+          "Caption": null,
+          "Kind": "String",
+          "Name": "value"
+        },
+        {
+          "Caption": null,
+          "Kind": "String",
+          "Name": "displayText"
+        }
+      ]
+    }
+  }
+}

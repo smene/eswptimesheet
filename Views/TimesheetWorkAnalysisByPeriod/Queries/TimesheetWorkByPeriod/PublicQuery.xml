@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<ESPublicQuery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SQL><![CDATA[SELECT TSTimePerTaskAndPeriod.Period AS Period, 
+       TSTimePerTaskAndPeriod.PeriodName AS PeriodName, 
+       TSTimePerTaskAndPeriod.LabourTime AS LabourTime, 
+       TSTimePerTaskAndPeriod.LabourBillable AS LabourBillable, 
+       TSTimePerTaskAndPeriod.Overtime AS Overtime, 
+       TSTimePerTaskAndPeriod.LabourwithoutProject AS LabourwithoutProject, 
+       TSTimePerTaskAndPeriod.Availability AS Availability, 
+       case when isnull(TSTimePerTaskAndPeriod.Availability,0)=0 then null else TSTimePerTaskAndPeriod.LabourTime/TSTimePerTaskAndPeriod.Availability end AS Utilization
+FROM (
+                SELECT TimeSheetLines.Period AS Period, 
+                       Max(TimeSheetLines.PeriodName) AS PeriodName, 
+                       Sum(TimeSheetLines.LabourTime) AS LabourTime, 
+                       Sum(TimeSheetLines.LabourBillable) AS LabourBillable, 
+                       Sum(TimeSheetLines.Overtime) AS Overtime, 
+                       Sum(TimeSheetLines.LabourwithoutProject) AS LabourwithoutProject, 
+                       Sum(TimeSheetLines.Availability) AS Availability
+                FROM (
+                                SELECT ESTMTaskItem.fTaskGID AS fTaskGID, 
+                                       Max(TimeSheets.Period) AS Period, 
+                                       Max(TimeSheets.PeriodName) AS PeriodName, 
+                                       Max(TimeSheets.Availability) AS Availability, 
+                                       Sum(ESTMTaskItem.NumericField1) AS LabourTime, 
+                                       Sum(ESTMTaskItem.NumericField2) AS LabourBillable, 
+                                       Sum(ESTMTaskItem.NumericField3) AS Overtime, 
+                                       Sum(case when ESTMTaskItem.fProjectGID is null then ESTMTaskItem.NumericField1 else 0 end) AS LabourwithoutProject
+                                FROM ESTMTaskItem AS ESTMTaskItem 
+                                     LEFT JOIN ESTMTaskCategoryValue AS FK_ESTMTaskItem_ESTMTaskCategoryValue2GID
+                                       ON ESTMTaskItem.fCategoryValue2GID = FK_ESTMTaskItem_ESTMTaskCategoryValue2GID.GID 
+                                     INNER JOIN (
+                                                SELECT ESTMTaskCategoryValue.GID AS GID
+                                                FROM ESTMTaskCategoryValue AS ESTMTaskCategoryValue 
+                                                     INNER JOIN (
+                                                                SELECT TC.GID AS GID
+                                                                FROM ESTMTaskCategory AS TC 
+                                                                WHERE (TC.Code = 'TimeSheet_State')) AS TaskCategory
+                                                       ON ESTMTaskCategoryValue.fTaskCategoryGID = TaskCategory.GID 
+                                                WHERE (ESTMTaskCategoryValue.InternationalID IN ('ES.TSState_Submitted', 'ES.TSState_Invoiced') )) AS StateCategoryValue
+                                       ON ESTMTaskItem.fCategoryValue3GID = StateCategoryValue.GID 
+                                     INNER JOIN (
+                                                SELECT ESTMTask.GID AS fTaskGID, 
+                                                       DA.Period AS Period, 
+                                                       DA.PeriodName AS PeriodName, 
+                                                       ESTMTask.NumericField1 AS Availability
+                                                FROM ESTMTask AS ESTMTask 
+                                                     INNER JOIN (
+                                                                SELECT ESTMTaskTypeGroup.fTaskTypeGID AS fTaskTypeGID
+                                                                FROM ESTMTaskTypeGroup AS ESTMTaskTypeGroup 
+                                                                WHERE (ESTMTaskTypeGroup.fTaskGroupCode = 'Timesheet')) AS TaskTypeGroup
+                                                       ON ESTMTask.fTaskTypeGID = TaskTypeGroup.fTaskTypeGID 
+                                                     Inner join
+                                                     ( Select DA.Date, DA.CalendarYear+' '+ESSTRToken(@PeriodGrouping,DA.MonthNumberOfYear) Period
+                                                         , DA.CalendarYear+' - '+(case @PeriodGrouping when 'DA.WeekNumberOfYear' then DA.WeekNumberOfYear
+                                                                                             when 'DA.CalendarQuarter' then 'Q'+cast(DA.CalendarQuarter as varchar)
+                                                                                         else FORMAT( DateAdd(month, cast(DA.MonthNumberOfYear as int), 0 ) - 1 , 'MMMM', ##(ESUSERLANGUAGE) )
+                                                                            end) PeriodName
+                                                     from ESGODateAnalysis DA
+                                                     where  DA.fCompanyCode=##(ESCOMPANY) and ESEqual(DA.Date,@RegistrationDate)
+                                                     
+                                                     ) DA on DA.Date = cast(ESTMTask.RegistrationDate as date)
+                                                WHERE (ESTMTask.fCompanyCode = ##(ESCOMPANY))
+                                                       AND (ESEqual(ESTMTask.fAssignedToGID, @fAssignedToGID))
+                                                       AND (ESEqual(ESTMTask.RegistrationDate, @RegistrationDate))) AS TimeSheets
+                                       ON ESTMTaskItem.fTaskGID = TimeSheets.fTaskGID 
+                                WHERE (FK_ESTMTaskItem_ESTMTaskCategoryValue2GID.StringField1 = '1')
+                                      
+                                GROUP BY ESTMTaskItem.fTaskGID) AS TimeSheetLines 
+                GROUP BY TimeSheetLines.Period) AS TSTimePerTaskAndPeriod 
+]]></SQL>
+  <SQLforPaging><![CDATA[]]></SQLforPaging>
+  <Table>TSTimePerTaskAndPeriod</Table>
+  <Params>
+    <Param>
+      <ID>fAssignedToGID</ID>
+      <Type>System.Guid, mscorlib</Type>
+      <ODSTag>93E6CA13-D219-4A19-8EA8-147B2454F82F</ODSTag>
+    </Param>
+    <Param>
+      <ID>PeriodGrouping</ID>
+      <Type>System.String, mscorlib</Type>
+    </Param>
+    <Param>
+      <ID>RegistrationDate</ID>
+      <Type>Entersoft.Framework.Platform.ESDateRange, QueryProcess</Type>
+      <ODSTag>1700363E-F17D-4B4B-8642-E1CE22B6C16C</ODSTag>
+    </Param>
+  </Params>
+</ESPublicQuery>

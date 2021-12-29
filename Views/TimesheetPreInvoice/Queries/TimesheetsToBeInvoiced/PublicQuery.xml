@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<ESPublicQuery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SQL><![CDATA[Declare @fLineStateGID uniqueidentifier = (SELECT TCV.GID AS fCategoryValueGID
+FROM ESTMTaskCategoryValue AS TCV 
+     INNER JOIN ESTMTaskCategory AS TC
+       ON TCV.fTaskCategoryGID = TC.GID 
+WHERE TC.Code = 'TimeSheet_State'
+       AND TCV.InternationalID ='ES.TSState_Submitted')
+
+SELECT case @DocGrouping
+       when '0' then isnull(TimesheetLines.ProjectCode,'') +' '+isnull(TimesheetLines.ProjectName,TimesheetLines.TAName)
+       when '1' then TimesheetLines.TACode+' '+TimesheetLines.TAName
+       else 
+       isnull(TAContract.Code,'') +' '+ isnull(TAContract.Description,TimesheetLines.TAName)
+       end AS GroupingFieldDesc, 
+       TimesheetLines.fTimesheetLineGID AS fTimesheetLineGID, 
+       TimesheetLines.fItemGID AS fItemGID, 
+       TimesheetLines.fProjectGID AS fProjectGID, 
+       TimesheetLines.fTaskGID AS fTaskGID, 
+       TimesheetLines.fTradeAccountGID AS fTradeAccountGID, 
+       TimesheetLines.fAddressGID AS fAddressGID, 
+       Timesheet.RegistrationDate AS ReportedDate, 
+       Rep.Code AS RepCode, 
+       Timesheet.Code AS TimesheetCode, 
+       TimesheetLines.ProjectCode AS ProjectCode, 
+       TimesheetLines.ProjectName AS ProjectName, 
+       TimesheetLines.TACode AS TACode, 
+       TimesheetLines.TAName AS TAName, 
+       TimesheetLines.Address AS Address, 
+       TimesheetLines.ChargeableHours AS ChargeableHours, 
+       ESFIItem.Code AS InvoiceItemCode, 
+       TAContract.fPriceListGID AS fContractPriceListGID, 
+       CT.fTradeAccountContractGID AS fTradeAccountContractGID, 
+       case when @DocGrouping='0' then TimesheetLines.fProjectGID 
+       when @DocGrouping='1' then TimesheetLines.fTradeAccountGID 
+       else CT.fTradeAccountContractGID end AS GroupingField, 
+       TAContract.Code AS ContractCode, 
+       TAContract.Description AS ContractDescr
+FROM (
+                ESKeySet(fTaskGID)
+                SELECT TI.GID AS fTimesheetLineGID, 
+                       TI.fTaskGID AS fTaskGID, 
+                       TI.fItemGID AS fItemGID, 
+                       TI.fAddressGID AS fAddressGID, 
+                       TI.fProjectGID AS fProjectGID, 
+                       TI.fTradeAccountGID AS fTradeAccountGID, 
+                       Project.Code AS ProjectCode, 
+                       Project.Name AS ProjectName, 
+                       TA.Code AS TACode, 
+                       TA.Name AS TAName, 
+                       TI.NumericField2 AS ChargeableHours, 
+                       Sites.Address1+' '+isnull(Sites.fPostalCode,'')+' '+isnull(Sites.fCityCode,'') AS Address, 
+                       TI.fTermServiceGID AS fTermServiceGID
+                FROM ESTMTaskItem AS TI 
+                     LEFT JOIN ESGOProject AS Project
+                       ON TI.fProjectGID = Project.GID 
+                     LEFT JOIN ESFITradeAccount AS TA
+                       ON TI.fTradeAccountGID = TA.GID 
+                     LEFT JOIN ESGOSites AS Sites
+                       ON TI.fAddressGID = Sites.GID 
+                     INNER JOIN ESTMTask AS TimesheetTask
+                       ON TI.fTaskGID = TimesheetTask.GID 
+                     INNER JOIN (
+                     SELECT TCV.GID 
+                     FROM ESTMTaskCategoryValue AS TCV 
+                          INNER JOIN ESTMTaskCategory AS TC
+                            ON TCV.fTaskCategoryGID = TC.GID 
+                     WHERE TC.Code = 'TimeSheet_HourType'
+                            AND TCV.StringField1='1'
+                     ) LabourTypes
+                     on LabourTypes.GID = TI.fCategoryValue2GID
+                WHERE (TI.fCategoryValue3GID = @fLineStateGID)
+                       AND (ESEqual(TimesheetTask.RegistrationDate, @ReportedDate))
+                       AND (TI.Chargeable = 1)
+                       AND (ESEqual(TI.fProjectGID, @fProjectGID))
+                       AND (ESEqual(TI.fTradeAccountGID, @fTradeAccountGID))
+                       AND (ESEqual(@DocGrouping, @DocGrouping))
+                       AND (TI.fCompanyCode = ##(ESCOMPANY))
+                       AND NOT (TI.fTradeAccountGID Is NULL)) AS TimesheetLines 
+     INNER JOIN ESTMTask AS Timesheet
+       ON TimesheetLines.fTaskGID = Timesheet.GID 
+     INNER JOIN ESFIItem AS ESFIItem
+       ON TimesheetLines.fItemGID = ESFIItem.GID 
+     LEFT JOIN ESTMTermService AS TermService
+       ON TimesheetLines.fTermServiceGID = TermService.GID 
+     LEFT JOIN ESTMResource AS Rep
+       ON Timesheet.fAssignedToGID = Rep.GID 
+     LEFT JOIN ESTMContractTerm AS CT
+       ON TermService.fContractTermGID = CT.fTaskGID 
+     LEFT JOIN ESFITradeAccountContract AS TAContract
+       ON CT.fTradeAccountContractGID = TAContract.GID 
+]]></SQL>
+  <SQLforPaging><![CDATA[]]></SQLforPaging>
+  <Table>TimesheetLines</Table>
+  <Params>
+    <Param>
+      <ID>ReportedDate</ID>
+      <Type>Entersoft.Framework.Platform.ESDateRange, QueryProcess</Type>
+      <ODSTag>1700363E-F17D-4B4B-8642-E1CE22B6C16C</ODSTag>
+    </Param>
+    <Param>
+      <ID>fProjectGID</ID>
+      <Type>System.Guid, mscorlib</Type>
+      <ODSTag>E108316F-D461-428D-A9DA-58E508F0DA39</ODSTag>
+    </Param>
+    <Param>
+      <ID>fTradeAccountGID</ID>
+      <Type>System.Guid, mscorlib</Type>
+      <ODSTag>D912BFF1-6B81-4594-84EA-3BBD412650B7</ODSTag>
+    </Param>
+    <Param>
+      <ID>DocGrouping</ID>
+      <Type>System.String, mscorlib</Type>
+    </Param>
+  </Params>
+</ESPublicQuery>

@@ -1,0 +1,125 @@
+{
+  "@bullet_color": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "bullet"
+    }
+  },
+  "@cap_bwf": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@cap_bwf_caption": {
+    "dsgn": {
+      "owner": "cap_bwf"
+    }
+  },
+  "@cap_project": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@cap_project_caption": {
+    "dsgn": {
+      "owner": "cap_project"
+    }
+  },
+  "@cap_project_caption1": {
+    "dsgn": {
+      "owner": "cap_project"
+    }
+  },
+  "@gp_qnkh": {
+    "dsgnInfo": {
+      "columns": {
+        "bands": [],
+        "count": null,
+        "mode": "advanced",
+        "template": null
+      },
+      "rows": {
+        "bands": [],
+        "count": null,
+        "mode": "advanced",
+        "template": null
+      }
+    }
+  },
+  "@grdx_bvd": {
+    "dsgnInfo": {
+      "maxSampleData": "10",
+      "minSampleData": "10"
+    }
+  },
+  "@grdx_hlhq": {
+    "dsgnInfo": {
+      "maxSampleData": null,
+      "minSampleData": null
+    }
+  },
+  "@p_4gl": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_Analysis": {
+    "dsgnInfo": {
+      "sizesMetric": "empty"
+    }
+  },
+  "@p_arvn": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_bxry": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_chart": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_drawer": {
+    "dsgnInfo": {
+      "sizesMetric": "empty",
+      "sizesVal": "1"
+    }
+  },
+  "@p_e16": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_en0t": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_hhvq": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pageItems": {
+    "dsgnInfo": {
+      "sizesMetric": "auto"
+    }
+  },
+  "@pie_axi": {
+    "dsgnInfo": {
+      "maxSampleData": null,
+      "minSampleData": null
+    }
+  }
+}

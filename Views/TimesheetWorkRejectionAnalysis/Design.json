@@ -1,0 +1,230 @@
+{
+  "@BillableHours": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@cap_3hkw": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@cap_3hkw_caption": {
+    "dsgn": {
+      "owner": "cap_3hkw"
+    }
+  },
+  "@cap_9k0m": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@cap_Project_caption": {
+    "dsgn": {
+      "owner": "cap_Project"
+    }
+  },
+  "@cap_Resource": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@cap1": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@EnumResourceType": {
+    "dsgn": {
+      "EnumType": "Entersoft.ERP.TaskManagement.Enums.ResourceType, ESTMEnums"
+    }
+  },
+  "@EnumResourceType/properties/data/initialValue": {
+    "dsgn": {
+      "Columns": [
+        {
+          "Caption": null,
+          "Kind": "Integer",
+          "Name": "value"
+        },
+        {
+          "Caption": null,
+          "Kind": "",
+          "Name": "name"
+        },
+        {
+          "Caption": null,
+          "Kind": "",
+          "Name": "displayText"
+        }
+      ]
+    }
+  },
+  "@grdx_z2qh": {
+    "dsgnInfo": {
+      "maxSampleData": "10",
+      "minSampleData": "10"
+    }
+  },
+  "@LabourHours": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@p_1xve": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_9rec": {
+    "dsgnInfo": {
+      "sizesMetric": "%",
+      "sizesVal": "100"
+    }
+  },
+  "@p_All": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_BillableHours": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_drawer": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_expand": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_grid": {
+    "dsgnInfo": {
+      "sizesMetric": "empty"
+    }
+  },
+  "@p_labour": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_LabourHours": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_RejectedBillable": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_RejectedBillableValues": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_RejectedLabour": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_RejectedLabourValues": {
+    "dsgnInfo": {
+      "sizesMetric": "auto"
+    }
+  },
+  "@p_Rejection": {
+    "dsgnInfo": {
+      "sizesMetric": "auto"
+    }
+  },
+  "@p_RejectionInfo": {
+    "dsgnInfo": {
+      "sizesMetric": "empty"
+    }
+  },
+  "@p_Rep": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_timesheet": {
+    "dsgnInfo": {
+      "sizesMetric": "empty",
+      "sizesVal": null
+    }
+  },
+  "@pageItems": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@RejectedBillable": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@RejectedBillablePCT": {
+    "dsgnInfo": {
+      "caption": null,
+      "captionColor": null
+    }
+  },
+  "@RejectedBillablePCT_captionColor": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "RejectedBillablePCT"
+    }
+  },
+  "@RejectedBillablePCT_captionColor1": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "RejectedBillablePCT"
+    }
+  },
+  "@RejectedLabour": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@RejectedLabourPCT": {
+    "dsgnInfo": {
+      "caption": null,
+      "captionColor": null
+    }
+  },
+  "@RejectedLabourPCT_captionColor": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "RejectedLabourPCT"
+    }
+  },
+  "@RejectedLabourPCT_captionColor1": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "RejectedLabourPCT"
+    }
+  },
+  "@RejectedLines_dv_fRejectReasonGID": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "RejectedLines_dv"
+    }
+  }
+}

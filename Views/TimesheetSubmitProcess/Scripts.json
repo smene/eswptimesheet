@@ -1,0 +1,18 @@
+{
+  "@OrderKPIcolor_filter/dsgn": {
+    "functionBody": "return row => $qty>= row.min && $qty<row.max ;",
+    "functionId": "fn_inline_TimesheetSubmitProcess_OrderKPIcolor_filter"
+  },
+  "@OrderQtyPCT_captionColor/dsgn": {
+    "functionBody": "if ($value < 0.6) \r\n    return 2\r\n else if ($value <0.8) \r\n    return 4\r\n else \r\n    return 3",
+    "functionId": "fn_inline_TimesheetSubmitProcess_OrderQtyPCT_captionColor1"
+  },
+  "@TurnoverKPIcolor_filter/dsgn": {
+    "functionBody": "return row => $turnover>= row.min && $turnover<row.max",
+    "functionId": "fn_inline_TimesheetSubmitProcess_TurnoverKPIcolor_filter"
+  },
+  "@TurnoverPCT_captionColor/dsgn": {
+    "functionBody": "if ($value < 0.6) \r\n    return 2\r\n else if ($value <0.8) \r\n    return 4\r\n else \r\n    return 3\r\n    ",
+    "functionId": "fn_inline_TimesheetSubmitProcess_TurnoverPCT_captionColor"
+  }
+}

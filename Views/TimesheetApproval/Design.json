@@ -1,0 +1,64 @@
+{
+  "@ActionsPanel": {
+    "dsgnInfo": {
+      "visible": true
+    }
+  },
+  "@Drawer": {
+    "dsgnInfo": {
+      "us_height": 748,
+      "us_width": 38
+    }
+  },
+  "@EnumChargeable": {
+    "dsgn": {
+      "EnumType": "Entersoft.ERP.TaskManagement.Enums.Chargeable, ESTMEnums"
+    }
+  },
+  "@EnumChargeable/properties/data/initialValue": {
+    "dsgn": {
+      "Columns": [
+        {
+          "Caption": null,
+          "Kind": "Integer",
+          "Name": "value"
+        },
+        {
+          "Caption": null,
+          "Kind": "",
+          "Name": "name"
+        },
+        {
+          "Caption": null,
+          "Kind": "",
+          "Name": "displayText"
+        }
+      ]
+    }
+  },
+  "@GD_Panel": {
+    "dsgnInfo": {
+      "sizesMetric": "empty"
+    }
+  },
+  "@pParamFields": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pParams": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null,
+      "us_height": 748,
+      "us_width": 38
+    }
+  },
+  "@TopLevelPanel": {
+    "dsgnInfo": {
+      "sizesMetric": "empty",
+      "sizesVal": "10%;90%"
+    }
+  }
+}

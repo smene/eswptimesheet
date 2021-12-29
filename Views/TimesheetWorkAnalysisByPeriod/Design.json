@@ -1,0 +1,261 @@
+{
+  "@blt_0th4_color": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "blt_0th4"
+    }
+  },
+  "@blt_0th4_color1": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "blt_0th4"
+    }
+  },
+  "@blt_7gs_color": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "blt_7gs"
+    }
+  },
+  "@btn_filter": {
+    "dsgnInfo": {
+      "us_height": 353.9375,
+      "us_width": 38
+    }
+  },
+  "@bubble_tooltipExpression": {
+    "dsgn": {
+      "owner": "bubble"
+    }
+  },
+  "@bubble_tooltipExpression1": {
+    "dsgn": {
+      "owner": "bubble"
+    }
+  },
+  "@cap_9azc": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@cap_lepg": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@cap_lepg_caption": {
+    "dsgn": {
+      "owner": "cap_lepg"
+    }
+  },
+  "@cap_PeriodName": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@cap_Project": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@cap_Project_caption": {
+    "dsgn": {
+      "owner": "cap_Project"
+    }
+  },
+  "@EnumChargeable": {
+    "dsgn": {
+      "EnumType": "Entersoft.ERP.TaskManagement.Enums.Chargeable, ESTMEnums"
+    }
+  },
+  "@EnumChargeable/properties/data/initialValue": {
+    "dsgn": {
+      "Columns": [
+        {
+          "Caption": null,
+          "Kind": "Integer",
+          "Name": "value"
+        },
+        {
+          "Caption": null,
+          "Kind": "",
+          "Name": "name"
+        },
+        {
+          "Caption": null,
+          "Kind": "",
+          "Name": "displayText"
+        }
+      ]
+    }
+  },
+  "@EnumResourceType": {
+    "dsgn": {
+      "EnumType": "Entersoft.ERP.TaskManagement.Enums.ResourceType, ESTMEnums"
+    }
+  },
+  "@EnumResourceType/properties/data/initialValue": {
+    "dsgn": {
+      "Columns": [
+        {
+          "Caption": null,
+          "Kind": "Integer",
+          "Name": "value"
+        },
+        {
+          "Caption": null,
+          "Kind": "",
+          "Name": "name"
+        },
+        {
+          "Caption": null,
+          "Kind": "",
+          "Name": "displayText"
+        }
+      ]
+    }
+  },
+  "@gp_6q1i": {
+    "dsgnInfo": {
+      "columns": {
+        "bands": [],
+        "count": null,
+        "mode": "advanced",
+        "template": null
+      },
+      "rows": {
+        "bands": [],
+        "count": null,
+        "mode": "advanced",
+        "template": null
+      }
+    }
+  },
+  "@gp_q69v": {
+    "dsgnInfo": {
+      "columns": {
+        "bands": [],
+        "count": null,
+        "mode": "advanced",
+        "template": null
+      },
+      "rows": {
+        "bands": [],
+        "count": null,
+        "mode": "advanced",
+        "template": null
+      }
+    }
+  },
+  "@grdx_kxd": {
+    "dsgnInfo": {
+      "maxSampleData": null,
+      "minSampleData": null
+    }
+  },
+  "@grdx_ssue": {
+    "dsgnInfo": {
+      "caption": null,
+      "maxSampleData": "5",
+      "minSampleData": "5",
+      "us_height": 652.75,
+      "us_width": 1424
+    }
+  },
+  "@grx_Analysis": {
+    "dsgnInfo": {
+      "maxSampleData": "10",
+      "minSampleData": "10",
+      "us_height": 833,
+      "us_width": 1268.78125
+    }
+  },
+  "@p_68f": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_Analysis": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null,
+      "us_height": 816,
+      "us_width": 1908.796875
+    }
+  },
+  "@p_awzl": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_bubblechart": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_drawer": {
+    "dsgnInfo": {
+      "sizesMetric": "empty",
+      "sizesVal": "1"
+    }
+  },
+  "@p_expand": {
+    "dsgnInfo": {
+      "sizesMetric": "auto"
+    }
+  },
+  "@p_qwd5": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_wjsx": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_xzvi": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pageItems": {
+    "dsgnInfo": {
+      "sizesMetric": "auto",
+      "us_height": 833,
+      "us_width": 1904
+    }
+  },
+  "@TimesheetLineDetails_dv_dsDataprovider": {
+    "dsgn": {
+      "owner": "TimesheetLineDetails_dv"
+    }
+  },
+  "@TimesheetLines_Period": {
+    "dsgn": {
+      "owner": "TimesheetLines"
+    }
+  },
+  "@VL_PeriodGrouping/properties/data/initialValue": {
+    "dsgn": {
+      "Columns": [
+        {
+          "Caption": null,
+          "Kind": "String",
+          "Name": "value"
+        },
+        {
+          "Caption": null,
+          "Kind": "String",
+          "Name": "displayText"
+        }
+      ]
+    }
+  }
+}

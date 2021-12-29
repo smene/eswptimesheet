@@ -1,0 +1,22 @@
+{
+  "@btnOpenRelDoc_caption/dsgn": {
+    "functionBody": "ISNULL($DocTitle, $DocCaption);",
+    "functionId": "fn_inline_ProjectISUD_btnOpenRelDoc_caption"
+  },
+  "@capFileTypeIcon_captionIcon2/dsgn": {
+    "functionBody": "var iconFType = $ftype;\r\n\r\nif ((iconFType === \".espak\")) {\r\n  return \"fas fa-file\";\r\n} else if ((iconFType === \".zip\")) {\r\n  return \"fas fa-file-archive\";\r\n} else if ((iconFType === \".ebl\")) {\r\n  return \"fa fa-file-pdf\";\r\n} else if ((iconFType === \".pdf\")) {\r\n  return \"fas fa-file-pdf\";\r\n} else if ((iconFType === \".pptx\")) {\r\n  return \"fas fa-file-powerpoint\";\r\n} else if ((iconFType === \".png\")) {\r\n  return \"fas fa-file-image\";\r\n} else if ((iconFType === \".json\")) {\r\n  return \"fas fa-scroll\";\r\n} else if ((iconFType === \".docx\")) {\r\n  return \"fas fa-file-word\";\r\n} else if ((iconFType === \".jpg\")) {\r\n  return \"fas fa-file-image\";\r\n} else {\r\n  return \"fas fa-file-alt\";\r\n}\r\n",
+    "functionId": "fn_inline_ProjectISUD_capFileTypeIcon_captionIcon2"
+  },
+  "@capRepInfo_caption_WorkingHours/dsgn": {
+    "functionBody": "return $WrkHrs.toFixed(2);",
+    "functionId": "fn_inline_CustomerList2_capRepInfo_caption_WorkingHours"
+  },
+  "@capVariancePctValue_captionColor/dsgn": {
+    "functionBody": "if ($VariancePct < 0) {\r\n  return 2;\r\n} else if ($VariancePct > 0 && $Target > 0) {\r\n  return 3;\r\n} else {\r\n  return null;\r\n}",
+    "functionId": "fn_inline_ProjectISUD_capVariancePctValue_captionColor"
+  },
+  "@capVarianceValue_captionColor/dsgn": {
+    "functionBody": "if ($Variance < 0) {\r\n  return 2;\r\n} else if ($Variance > 0 && $Target > 0) {\r\n  return 3;\r\n} else {\r\n  return null;\r\n}\r\n",
+    "functionId": "fn_inline_ProjectISUD_capVarianceValue_captionColor"
+  }
+}

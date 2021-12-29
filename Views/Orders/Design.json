@@ -1,0 +1,306 @@
+{
+  "@btn_Cancel": {
+    "dsgnInfo": {
+      "visible": null
+    }
+  },
+  "@btn_Cancel_visible": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "btn_Cancel"
+    }
+  },
+  "@btn_cx9": {
+    "dsgnInfo": {
+      "caption": "btn_cx9"
+    }
+  },
+  "@btn_Show": {
+    "dsgnInfo": {
+      "visible": null
+    }
+  },
+  "@btn_Show_visible": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "btn_Show"
+    }
+  },
+  "@cap_Canceled": {
+    "dsgnInfo": {
+      "visible": null
+    }
+  },
+  "@cap_Canceled_visible": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "cap_Canceled"
+    }
+  },
+  "@cap_Date": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@cap_InvCode": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@cap_InvDate": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@cap_InvValue": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@cap_InvValue_caption": {
+    "dsgn": {
+      "owner": "cap_InvValue"
+    }
+  },
+  "@cap_OrderCode": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@cap_PartialyTrans_caption": {
+    "dsgn": {
+      "owner": "cap_PartialyTrans"
+    }
+  },
+  "@cap_PartialyTrans_visible": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "cap_PartialyTrans"
+    }
+  },
+  "@cap_r8at": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@cap_r8at_caption": {
+    "dsgn": {
+      "owner": "cap_r8at"
+    }
+  },
+  "@cap_tglu": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@EnumADTransitionState": {
+    "dsgn": {
+      "EnumType": "Entersoft.ERP.Financials.Enums.ADTransitionState, ESFIEnums"
+    }
+  },
+  "@EnumADTransitionState/properties/data/initialValue": {
+    "dsgn": {
+      "Columns": [
+        {
+          "Caption": "value",
+          "Kind": "String",
+          "Name": "value"
+        },
+        {
+          "Caption": "displayText",
+          "Kind": "String",
+          "Name": "displayText"
+        },
+        {
+          "Caption": "icon",
+          "Kind": "Icon",
+          "Name": "icon"
+        },
+        {
+          "Caption": "name",
+          "Kind": "String",
+          "Name": "name"
+        }
+      ]
+    }
+  },
+  "@EnumCancelState": {
+    "dsgn": {
+      "EnumType": "Entersoft.ERP.Financials.Enums.CancelState, ESFIEnums"
+    }
+  },
+  "@EnumCancelState/properties/data/initialValue": {
+    "dsgn": {
+      "Columns": [
+        {
+          "Caption": "value",
+          "Kind": "String",
+          "Name": "value"
+        },
+        {
+          "Caption": "displayText",
+          "Kind": "String",
+          "Name": "displayText"
+        },
+        {
+          "Caption": "icon",
+          "Kind": "Icon",
+          "Name": "icon"
+        },
+        {
+          "Caption": "name",
+          "Kind": "String",
+          "Name": "name"
+        }
+      ]
+    }
+  },
+  "@frm_action": {
+    "dsgnInfo": {
+      "visible": null
+    }
+  },
+  "@grdx_7igy": {
+    "dsgnInfo": {
+      "maxSampleData": "5",
+      "minSampleData": "5"
+    }
+  },
+  "@grdxLineItems": {
+    "dsgnInfo": {
+      "maxSampleData": null,
+      "minSampleData": null
+    }
+  },
+  "@grdxLineItems_caption": {
+    "dsgn": {
+      "owner": "grdxLineItems"
+    }
+  },
+  "@grdxLineItems_caption_DocDate": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "grdxLineItems_caption"
+    }
+  },
+  "@grdxOrders": {
+    "dsgnInfo": {
+      "maxSampleData": null,
+      "minSampleData": null
+    }
+  },
+  "@groupingValue": {
+    "dsgnInfo": {
+      "caption": "fff"
+    }
+  },
+  "@p_0ahk": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_3d0p": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_All": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_ef64": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_GridX": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_iarq": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_Invoice": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_InvoiceInfo": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_nl2x": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_oime4": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_Order": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_OrderInfo": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_rx1n": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_u3ls": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pageItems": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pGrid": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pItemInfo": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pShowLI": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null,
+      "visible": null
+    }
+  }
+}

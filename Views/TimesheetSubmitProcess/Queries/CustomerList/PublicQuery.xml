@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<ESPublicQuery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SQL><![CDATA[SELECT ESFITradeAccount.GID AS GID, 
+       ESFITradeAccount.Code AS Code, 
+       ESFITradeAccount.Name AS Name
+FROM ESFITradeAccount AS ESFITradeAccount 
+WHERE (ESFITradeAccount.fCompanyCode = ##(ESCOMPANY))
+       AND (ESFITradeAccount.Inactive = 0)
+      
+]]></SQL>
+  <SQLforPaging><![CDATA[]]></SQLforPaging>
+  <Table>ESFITradeAccount</Table>
+  <Params />
+</ESPublicQuery>

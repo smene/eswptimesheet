@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<ESPublicQuery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SQL><![CDATA[SELECT ESTMStatusCollectionValue.GID AS fStatusGID, 
+       ESTMStatusCollectionValue.Code AS Code
+FROM ESTMTaskType AS ESTMTaskType 
+     INNER JOIN ESTMStatusCollectionValue AS ESTMStatusCollectionValue
+       ON ESTMTaskType.fStatusCollectionGID = ESTMStatusCollectionValue.fStatusCollectionGID 
+WHERE (ESTMStatusCollectionValue.Inactive = 0)
+       AND (ESTMTaskType.InternationalID = 'ES.Timesheet')
+      
+ORDER BY ESTMStatusCollectionValue.SeqNum
+]]></SQL>
+  <SQLforPaging><![CDATA[]]></SQLforPaging>
+  <Table>ESTMTaskType</Table>
+  <Params />
+</ESPublicQuery>

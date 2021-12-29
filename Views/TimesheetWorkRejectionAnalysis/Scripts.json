@@ -1,0 +1,14 @@
+{
+  "@RejectedBillablePCT_captionColor1/dsgn": {
+    "functionBody": "if ($pct < 0.1)\r\n    return 4;\r\nelse return 2;",
+    "functionId": "fn_inline_TimesheetWorkRejectionAnalysis_RejectedBillablePCT_captionColor1"
+  },
+  "@RejectedLabourPCT_captionColor1/dsgn": {
+    "functionBody": "if ($pct < 0.1)\r\n    return 4;\r\nelse return 2;",
+    "functionId": "fn_inline_TimesheetWorkRejectionAnalysis_RejectedLabourPCT_captionColor1"
+  },
+  "@RejectedLines_dv_fRejectReasonGID/dsgn": {
+    "functionBody": "ISNULL($reason,'*')",
+    "functionId": "fn_inline_TimesheetWorkRejectionAnalysis_RejectedLines_dv_fRejectReasonGID"
+  }
+}

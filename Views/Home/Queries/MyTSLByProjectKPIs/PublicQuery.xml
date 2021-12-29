@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<ESPublicQuery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SQL><![CDATA[DECLARE @fHourTypeGID uniqueidentifier = (SELECT
+  TC.GID AS fCategoryValueGID
+FROM ESTMTaskCategory AS TC
+WHERE TC.Code = 'TimeSheet_HourType')
+
+
+
+DECLARE @fResourceGID uniqueidentifier = (SELECT
+  R.GID
+FROM ESTMResource R
+INNER JOIN ESGOUser U
+  ON U.fPersonLinkGID = R.fPersonGID
+  AND U.GID = ##(ESUSERGID))
+
+SELECT T.fAssignedToGID AS fRepresentativeGID, 
+       Sum(TI.NumericField1) AS WorkingHours, 
+       Sum(TI.NumericField2) AS BillableHours, 
+       Sum(TI.NumericField3) AS Overtime
+FROM ESTMTaskItem AS TI 
+     LEFT JOIN ESTMTaskCategoryValue AS TCV2
+       ON TI.fCategoryValue2GID = TCV2.GID 
+     LEFT JOIN ESTMTaskCategoryValue AS TCV3
+       ON TI.fCategoryValue3GID = TCV3.GID 
+     LEFT JOIN ESTMTask AS T
+       ON TI.fTaskGID = T.GID 
+     INNER JOIN (
+                SELECT TCV.GID AS GID
+                FROM ESTMTaskCategoryValue AS TCV 
+                     INNER JOIN ESTMTaskCategory AS TC
+                       ON TCV.fTaskCategoryGID = TC.GID 
+                WHERE (TC.Code = 'TimeSheet_State')
+                       AND (TCV.InternationalID IN ('ES.TSState_Submitted', 'ES.TSState_Invoiced'))) AS ISS
+       ON TI.fCategoryValue3GID = ISS.GID 
+WHERE (ESEqual(TI.fCompanyCode, ##(ESCOMPANY)))
+       AND (TCV2.StringField1 = '1')
+       AND (TCV2.fTaskCategoryGID = @fHourTypeGID)
+       AND (ESEqual(TI.fProjectGID, @fProjectGID1))
+       AND (T.fAssignedToGID = @fResourceGID)
+      
+GROUP BY T.fAssignedToGID
+]]></SQL>
+  <SQLforPaging><![CDATA[]]></SQLforPaging>
+  <Table>ESTMTaskItem</Table>
+  <Params>
+    <Param>
+      <ID>fProjectGID1</ID>
+      <Type>System.Guid, mscorlib</Type>
+      <ODSTag>E108316F-D461-428D-A9DA-58E508F0DA39</ODSTag>
+    </Param>
+  </Params>
+</ESPublicQuery>

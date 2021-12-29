@@ -1,0 +1,387 @@
+{
+  "areas": [
+    {
+      "drawer": {
+        "enabled": true,
+        "options": {
+          "canOverlap": false,
+          "clickKeepsOverlapping": true,
+          "minSize": "3rem",
+          "opened": true,
+          "size": "3rem"
+        }
+      },
+      "menuSegments": [],
+      "placement": "top",
+      "widgets": [
+        {
+          "edge": "near",
+          "options": {
+            "action": {
+              "actionType": "custom"
+            },
+            "image": {},
+            "text": {
+              "alignment": "right",
+              "caption": "Entersoft Time Sheet",
+              "icon": "fa fa-clock",
+              "size": "2"
+            }
+          },
+          "type": "eswidgetlabel"
+        },
+        {
+          "edge": "center",
+          "options": {
+            "alignment": "center",
+            "size": "2",
+            "style": "sideline"
+          },
+          "type": "espagetitle"
+        },
+        {
+          "edge": "far",
+          "type": "essearchmenu"
+        },
+        {
+          "edge": "far",
+          "options": {
+            "displayMode": "popover",
+            "popupWidth": "30rem"
+          },
+          "type": "esnotifications"
+        },
+        {
+          "edge": "far",
+          "options": {
+            "action": {
+              "actionType": "custom"
+            },
+            "items": [
+              {
+                "edge": "near",
+                "type": "esthemes"
+              }
+            ],
+            "text": {
+              "icon": "fas fa-paint-brush",
+              "size": "2"
+            }
+          },
+          "type": "esbuttonmenu"
+        },
+        {
+          "edge": "far",
+          "options": {
+            "action": {
+              "actionType": "custom"
+            },
+            "items": [
+              {
+                "edge": "near",
+                "options": {
+                  "action": {
+                    "actionType": "custom"
+                  },
+                  "text": {
+                    "caption": "Ημ/νία εισόδου: $DATE ",
+                    "size": "0"
+                  }
+                },
+                "type": "eswidgetlabel"
+              },
+              {
+                "edge": "near",
+                "options": {
+                  "action": {
+                    "actionType": "custom"
+                  },
+                  "text": {
+                    "caption": "ID συνδρομής: $SUBSCRIPTIONID",
+                    "size": "0"
+                  }
+                },
+                "type": "eswidgetlabel"
+              },
+              {
+                "edge": "near",
+                "options": {
+                  "action": {
+                    "actionType": "custom"
+                  },
+                  "text": {
+                    "caption": "Έκδοση εφαρμογής: $APPVERSION | Ημ/νία έκδοσης: $RELEASEDATE",
+                    "size": "0"
+                  }
+                },
+                "type": "eswidgetlabel"
+              },
+              {
+                "edge": "near",
+                "type": "eswidgetseparator"
+              },
+              {
+                "edge": "near",
+                "options": {
+                  "action": {
+                    "actionType": "custom"
+                  },
+                  "text": {
+                    "caption": "Βάση: $DATABASE",
+                    "size": "0"
+                  }
+                },
+                "type": "eswidgetlabel"
+              },
+              {
+                "edge": "near",
+                "options": {
+                  "action": {
+                    "actionType": "custom"
+                  },
+                  "text": {
+                    "caption": "Εταιρεία: $COMPANY $COMPANYNAME $BRANCH | Υποκ.: $BRANCH $BRANCHNAME ",
+                    "size": "0"
+                  }
+                },
+                "type": "eswidgetlabel"
+              },
+              {
+                "edge": "near",
+                "type": "eswidgetseparator"
+              },
+              {
+                "edge": "near",
+                "options": {
+                  "action": {
+                    "actionType": "custom"
+                  },
+                  "text": {
+                    "caption": "EBS Version: $EBS_PRODUCT_VERSION",
+                    "size": "0"
+                  }
+                },
+                "type": "eswidgetlabel"
+              },
+              {
+                "edge": "near",
+                "options": {
+                  "action": {
+                    "actionType": "custom"
+                  },
+                  "text": {
+                    "caption": "EBS SN: $SN",
+                    "size": "0"
+                  }
+                },
+                "type": "eswidgetlabel"
+              },
+              {
+                "edge": "near",
+                "type": "eswidgetseparator"
+              },
+              {
+                "edge": "near",
+                "options": {
+                  "action": {
+                    "actionType": "custom"
+                  },
+                  "text": {
+                    "caption": "Custom version: $EBS_CUSTOMVER_VERSION | Ημ/νία έκδοσης: $EBS_CUSTOMVER_DATE",
+                    "size": "0"
+                  }
+                },
+                "type": "eswidgetlabel"
+              }
+            ],
+            "text": {
+              "icon": "fas fa-info-circle",
+              "size": "2"
+            }
+          },
+          "type": "esbuttonmenu"
+        },
+        {
+          "edge": "far",
+          "options": {
+            "action": {
+              "actionType": "custom"
+            },
+            "image": {
+              "borderRadius": "50%",
+              "height": "2.5rem",
+              "url": "$USER",
+              "width": "2.1rem"
+            },
+            "items": [
+              {
+                "align": "top-center",
+                "edge": "near",
+                "options": {
+                  "action": {
+                    "actionType": "custom"
+                  },
+                  "image": {
+                    "height": "5rem",
+                    "url": "$USER",
+                    "width": "3.5rem"
+                  },
+                  "text": {}
+                },
+                "type": "eswidgetlabel"
+              },
+              {
+                "align": "center-left",
+                "edge": "near",
+                "options": {
+                  "action": {
+                    "actionType": "custom"
+                  },
+                  "text": {
+                    "caption": "$USERNAME ",
+                    "size": "1"
+                  }
+                },
+                "type": "eswidgetlabel"
+              },
+              {
+                "edge": "near",
+                "type": "eswidgetseparator"
+              },
+              {
+                "edge": "near",
+                "options": {
+                  "action": {
+                    "actionType": "changepswd"
+                  },
+                  "text": {
+                    "caption": "Αλλαγή κωδικού πρόσβασης",
+                    "size": "0"
+                  }
+                },
+                "type": "eswidgetlabel"
+              },
+              {
+                "edge": "near",
+                "options": {
+                  "action": {
+                    "actionType": "tfa"
+                  },
+                  "text": {
+                    "caption": "Διαμόρφωση Two-Factor-Authentication",
+                    "size": "0"
+                  }
+                },
+                "type": "eswidgetlabel"
+              },
+              {
+                "edge": "near",
+                "type": "eswidgetseparator"
+              },
+              {
+                "edge": "near",
+                "options": {
+                  "action": {
+                    "actionType": "signout"
+                  },
+                  "text": {
+                    "caption": "Αποσύνδεση",
+                    "size": "0"
+                  }
+                },
+                "type": "eswidgetlabel"
+              }
+            ],
+            "popupHeight": "auto",
+            "popupWidth": "25vh"
+          },
+          "type": "esbuttonmenu"
+        }
+      ]
+    },
+    {
+      "drawer": {
+        "enabled": true,
+        "options": {
+          "canOverlap": false,
+          "clickKeepsOverlapping": false,
+          "minSize": "4rem",
+          "opened": false,
+          "size": "15rem"
+        }
+      },
+      "menuSegments": [
+        {
+          "fromLevel": 1,
+          "options": {
+            "accordionMode": true,
+            "autoOpenMenuItemId": "Home"
+          },
+          "toLevel": 2,
+          "type": "estree"
+        }
+      ],
+      "placement": "left",
+      "widgets": [
+        {
+          "edge": "near",
+          "options": {
+            "aligns": "fill-fill",
+            "expander": {
+              "label": {
+                "edge": "near",
+                "options": {
+                  "action": {
+                    "actionType": "custom"
+                  },
+                  "text": {
+                    "size": 2
+                  }
+                },
+                "type": "eswidgetlabel"
+              }
+            },
+            "gap": "0.7rem",
+            "paddingLeft": "1.3rem",
+            "sizes": "auto",
+            "widgets": [
+              {
+                "edge": "near",
+                "options": {
+                  "action": {
+                    "actionType": "toggleDrawer",
+                    "drawer": "left"
+                  },
+                  "text": {
+                    "icon": "fas fa-align-justify",
+                    "size": "2"
+                  }
+                },
+                "type": "eswidgetlabel"
+              }
+            ]
+          },
+          "type": "eswidgetpanel"
+        }
+      ]
+    },
+    {
+      "menuSegments": [],
+      "placement": "content",
+      "widgets": [
+        {
+          "edge": "far",
+          "options": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png"
+          },
+          "type": "eslogo"
+        }
+      ]
+    }
+  ],
+  "layout": [
+    "TTT",
+    "LM.",
+    "..."
+  ]
+}

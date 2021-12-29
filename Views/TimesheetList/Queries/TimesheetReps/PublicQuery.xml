@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<ESPublicQuery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SQL><![CDATA[SELECT ESTMResource.GID AS GID, 
+       ESTMResource.Code AS Code, 
+       ESTMResource.Description AS Description
+FROM ESTMResource AS ESTMResource 
+WHERE (ESTMResource.fCompanyCode = ##(ESCOMPANY))
+       AND (ESTMResource.ResourceType = 0)
+      
+ORDER BY ESTMResource.Code
+]]></SQL>
+  <SQLforPaging><![CDATA[]]></SQLforPaging>
+  <Table>ESTMResource</Table>
+  <Params />
+</ESPublicQuery>

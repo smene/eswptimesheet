@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<ESPublicQuery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SQL><![CDATA[SELECT Sum(TSLines.NumericField1) AS WorkingHours, 
+       Sum(TSLines.NumericField2) AS ChargeableHours, 
+       Max(ΤΑ.Code) AS Code
+FROM ESTMTaskItem AS TSLines 
+     INNER JOIN (
+                SELECT TS.GID AS fTaskGID
+                FROM ESTMTask AS TS 
+                     INNER JOIN (
+                                SELECT TTG.fTaskTypeGID AS fTaskTypeGID
+                                FROM ESTMTaskTypeGroup AS TTG 
+                                WHERE (TTG.fTaskGroupCode = 'TimeSheet')) AS TimesheetTaskTypes
+                       ON TS.fTaskTypeGID = TimesheetTaskTypes.fTaskTypeGID 
+                WHERE (TS.fCompanyCode = ##(ESCOMPANY))
+                       AND (ESEqual(TS.RegistrationDate, @TimePeriod))) AS TS
+       ON TSLines.fTaskGID = TS.fTaskGID 
+     LEFT JOIN ESFITradeAccount AS ΤΑ
+       ON TSLines.fTradeAccountGID = ΤΑ.GID 
+     LEFT JOIN ESTMTaskCategoryValue AS TCV2
+       ON TSLines.fCategoryValue2GID = TCV2.GID 
+WHERE (TSLines.fTradeAccountGID = @fTradeAccountGID)
+       AND (TCV2.StringField1 = '1')
+      
+GROUP BY TSLines.fTradeAccountGID
+]]></SQL>
+  <SQLforPaging><![CDATA[]]></SQLforPaging>
+  <Table>ESTMTaskItem</Table>
+  <Params>
+    <Param>
+      <ID>fTradeAccountGID</ID>
+      <Type>System.Guid, mscorlib</Type>
+      <ODSTag>D912BFF1-6B81-4594-84EA-3BBD412650B7</ODSTag>
+    </Param>
+    <Param>
+      <ID>TimePeriod</ID>
+      <Type>Entersoft.Framework.Platform.ESDateRange, QueryProcess</Type>
+      <ODSTag>1700363E-F17D-4B4B-8642-E1CE22B6C16C</ODSTag>
+    </Param>
+  </Params>
+</ESPublicQuery>

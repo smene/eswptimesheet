@@ -1,0 +1,70 @@
+<ESQueryDS>
+  <Queries>
+    <GID>a6801562-7de6-4284-b035-3c1ccbd29148</GID>
+    <NameInDB>Query_ESFIDocumentType</NameInDB>
+    <DisplayName>Φίλτρο Τύπος παραστατικού</DisplayName>
+    <Location>0</Location>
+    <frEntryTableGID>9ccb1c8f-18b0-47aa-be3f-8e84837ce1d8</frEntryTableGID>
+    <TopN>false</TopN>
+    <GroupingMode>0</GroupingMode>
+  </Queries>
+  <QryTables>
+    <GID>2699ef25-df0b-4f6a-81f0-b1e04e75244a</GID>
+    <frTableGID>9ccb1c8f-18b0-47aa-be3f-8e84837ce1d8</frTableGID>
+    <NameInDB>ESFIDocumentType</NameInDB>
+    <Alias>ESFIDocumentType</Alias>
+    <DisplayName>Τύπος παραστατικού</DisplayName>
+    <ODSTag>9CCB1C8F-18B0-47AA-BE3F-8E84837CE1D8</ODSTag>
+    <Path>\9ccb1c8f-18b0-47aa-be3f-8e84837ce1d8</Path>
+    <AddedBy>0</AddedBy>
+  </QryTables>
+  <QryExpressions>
+    <GID>498b89f8-65f0-4492-8f8f-201f64f8aaad</GID>
+    <Expression>SELECT TOP 1 fProformaInvoiceServiceDocTypeGID fDocumentTypeGID                 
+FROM ESGOServiceProfile SP                      
+INNER JOIN (                                 
+SELECT US.fServiceProfileGID                                 
+FROM ESGOUserSite AS US                                 
+ WHERE US.fUserGID = ##(ESUSERGID)                                       
+  AND US.fCompanySiteGID = ##(ESBranchGID)) US on US.fServiceProfileGID=SP.GID</Expression>
+  </QryExpressions>
+  <QryExpressions>
+    <GID>afc22e70-8aa5-430f-8d41-2be5bf5672a5</GID>
+    <Expression />
+  </QryExpressions>
+  <QryColumns>
+    <GID>e95dbdd7-07a1-4b00-9f89-a44dde10a9e2</GID>
+    <fQryTableGID>2699ef25-df0b-4f6a-81f0-b1e04e75244a</fQryTableGID>
+    <SeqNo>1</SeqNo>
+    <NameInDB>GID</NameInDB>
+    <Alias>fDocumentTypeGID</Alias>
+    <AddedBy>1</AddedBy>
+    <Visible>true</Visible>
+    <frColumnGID>b77ada2e-3835-47ac-9af6-12a521ed0ab6</frColumnGID>
+    <DisplayName>fDocumentTypeGID</DisplayName>
+    <ODSTag>B77ADA2E-3835-47AC-9AF6-12A521ED0AB6</ODSTag>
+    <DataType>7</DataType>
+    <Asked>false</Asked>
+  </QryColumns>
+  <QryJoins>
+    <GID>4353bf7b-5cca-4b0f-9b45-650aa1342448</GID>
+    <Level>0</Level>
+    <JoinType>0</JoinType>
+    <FirstTableIsMaster>false</FirstTableIsMaster>
+    <fBTableGID>2699ef25-df0b-4f6a-81f0-b1e04e75244a</fBTableGID>
+  </QryJoins>
+  <QryCriteria>
+    <GID>9e98171a-2a2c-4baa-97b6-fbf519172112</GID>
+    <InWhere>true</InWhere>
+    <SeqNo>1</SeqNo>
+    <Negative>false</Negative>
+  </QryCriteria>
+  <VersionInfo>
+    <Version>1</Version>
+  </VersionInfo>
+  <SQLAdditions>
+    <fPreSelectExprGID>498b89f8-65f0-4492-8f8f-201f64f8aaad</fPreSelectExprGID>
+    <fPostFromExprGID>afc22e70-8aa5-430f-8d41-2be5bf5672a5</fPostFromExprGID>
+    <InsteadOf>true</InsteadOf>
+  </SQLAdditions>
+</ESQueryDS>

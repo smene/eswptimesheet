@@ -1,0 +1,103 @@
+<ESQueryDS>
+  <Queries>
+    <GID>9f107833-1649-4c07-98c7-029501a8c768</GID>
+    <NameInDB>Query_ESTMTask</NameInDB>
+    <DisplayName>Φίλτρο Θέμα</DisplayName>
+    <Location>0</Location>
+    <frEntryTableGID>df054e95-2db9-4200-9cca-181aac9c85c9</frEntryTableGID>
+    <TopN>true</TopN>
+    <GroupingMode>0</GroupingMode>
+  </Queries>
+  <QryTables>
+    <GID>f19eb609-6a14-4ce4-8f41-b6bc37836678</GID>
+    <frTableGID>df054e95-2db9-4200-9cca-181aac9c85c9</frTableGID>
+    <NameInDB>ESTMTask</NameInDB>
+    <Alias>ESTMTask</Alias>
+    <DisplayName>Θέμα</DisplayName>
+    <ODSTag>DF054E95-2DB9-4200-9CCA-181AAC9C85C9</ODSTag>
+    <Path>\df054e95-2db9-4200-9cca-181aac9c85c9</Path>
+    <AddedBy>0</AddedBy>
+  </QryTables>
+  <QryExpressions>
+    <GID>a76cc665-d38e-4f96-b137-b7d5e462737c</GID>
+    <Expression>Select  ESTopN(@TopN) GID,Code,Name
+from ESFITradeAccount TA 
+where TA.fCompanyCode=##(ESCOMPANY)
+and ESEqual(Name,@CTRLVal)
+Order By TA.Name</Expression>
+  </QryExpressions>
+  <QryExpressions>
+    <GID>d4408710-d733-4c8e-af33-47bd30a04638</GID>
+    <Expression />
+  </QryExpressions>
+  <QryColumns>
+    <GID>d71dfa38-e0f9-428b-9b40-fd6b558928f1</GID>
+    <fQryTableGID>f19eb609-6a14-4ce4-8f41-b6bc37836678</fQryTableGID>
+    <SeqNo>2</SeqNo>
+    <NameInDB>Code</NameInDB>
+    <Alias>Code</Alias>
+    <AddedBy>1</AddedBy>
+    <Visible>true</Visible>
+    <frColumnGID>9bbc9cff-6458-4f74-bb9b-016e13e24084</frColumnGID>
+    <DisplayName>Κωδικός</DisplayName>
+    <ODSTag>9BBC9CFF-6458-4F74-BB9B-016E13E24084</ODSTag>
+    <DataType>6</DataType>
+    <Asked>false</Asked>
+  </QryColumns>
+  <QryColumns>
+    <GID>90e0350e-a3e2-40cc-8dfe-e06bd85a1e53</GID>
+    <fQryTableGID>f19eb609-6a14-4ce4-8f41-b6bc37836678</fQryTableGID>
+    <SeqNo>3</SeqNo>
+    <NameInDB>Description</NameInDB>
+    <Alias>Name</Alias>
+    <AddedBy>1</AddedBy>
+    <Visible>true</Visible>
+    <frColumnGID>ad77acb9-da9c-4a9b-820b-ac86ce2491f6</frColumnGID>
+    <DisplayName>Περιγραφή</DisplayName>
+    <ODSTag>AD77ACB9-DA9C-4A9B-820B-AC86CE2491F6</ODSTag>
+    <DataType>6</DataType>
+    <Asked>false</Asked>
+  </QryColumns>
+  <QryColumns>
+    <GID>f62528d8-9f9b-44ce-9c86-7a5585641b03</GID>
+    <fQryTableGID>f19eb609-6a14-4ce4-8f41-b6bc37836678</fQryTableGID>
+    <SeqNo>1</SeqNo>
+    <NameInDB>GID</NameInDB>
+    <Alias>GID</Alias>
+    <AddedBy>1</AddedBy>
+    <Visible>true</Visible>
+    <frColumnGID>401ee6c2-f16c-40e7-b331-da71728e520c</frColumnGID>
+    <DisplayName>Εσωτερικός κωδικός</DisplayName>
+    <ODSTag>401EE6C2-F16C-40E7-B331-DA71728E520C</ODSTag>
+    <DataType>7</DataType>
+    <Asked>false</Asked>
+  </QryColumns>
+  <QryJoins>
+    <GID>fc2c82c6-26a9-4ad8-9b3c-d671ed8c1377</GID>
+    <Level>0</Level>
+    <JoinType>0</JoinType>
+    <FirstTableIsMaster>false</FirstTableIsMaster>
+    <fBTableGID>f19eb609-6a14-4ce4-8f41-b6bc37836678</fBTableGID>
+  </QryJoins>
+  <QryCriteria>
+    <GID>fde891b1-532f-40a4-9964-6fd0f6a4c137</GID>
+    <InWhere>true</InWhere>
+    <SeqNo>1</SeqNo>
+    <Negative>false</Negative>
+  </QryCriteria>
+  <QryParameters>
+    <GID>e5a33dbb-abee-4e20-8d7f-bd0b550e4c62</GID>
+    <NameInDB>TopN</NameInDB>
+    <DisplayName>Πρώτες Ν εγγραφές</DisplayName>
+    <DataType>2</DataType>
+    <BuiltIn>true</BuiltIn>
+  </QryParameters>
+  <VersionInfo>
+    <Version>1</Version>
+  </VersionInfo>
+  <SQLAdditions>
+    <fPreSelectExprGID>a76cc665-d38e-4f96-b137-b7d5e462737c</fPreSelectExprGID>
+    <fPostFromExprGID>d4408710-d733-4c8e-af33-47bd30a04638</fPostFromExprGID>
+    <InsteadOf>true</InsteadOf>
+  </SQLAdditions>
+</ESQueryDS>

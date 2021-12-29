@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<ESPublicQuery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SQL><![CDATA[SELECT Query_ESFIDocumentTrade.fDocumentGID AS fDocumentGID, 
+       Query_ESFIDocumentTrade.ADRegistrationDate AS ADRegistrationDate, 
+       Query_ESFIDocumentTrade.ADCode AS ADCode, 
+       ESFITradeAccount.Code+' '+ESFITradeAccount.Name AS Customer, 
+       Query_ESFIDocumentTrade.ADTotalValue AS ADTotalValue, 
+       Query_ESFIDocumentTrade.VATValue AS VATValue, 
+       Query_ESFIDocumentTrade.NetValue AS NetValue, 
+       Query_ESFIDocumentTrade.fTradeAccountGID AS fTradeAccountGID, 
+       Query_ESFIDocumentTrade.Title AS Title, 
+       Query_ESFIDocumentTrade.ADTransitionState AS ADTransitionState, 
+       Query_ESFIDocumentTrade.TransitionStep AS TransitionStep, 
+       Query_ESFIDocumentTrade.ADCancelState AS ADCancelState
+FROM (
+                SELECT DT.GID AS fDocumentGID, 
+                       DT.ADRegistrationDate AS ADRegistrationDate, 
+                       DT.ADCode AS ADCode, 
+                       DT.NetValue AS NetValue, 
+                       DT.VATValue AS VATValue, 
+                       DT.ADTotalValue AS ADTotalValue, 
+                       DT.fTradeAccountGID AS fTradeAccountGID, 
+                       DS.Description AS Title, 
+                       DT.ADTransitionState AS ADTransitionState, 
+                       DT.ADCancelState AS ADCancelState, 
+                       isnull(TranStep.Description,DT.fTransitionStepCode) AS TransitionStep
+                FROM ESFIDocumentTrade AS DT 
+                     LEFT JOIN ESFIDocumentSeries AS DS
+                       ON DT.fADDocumentSeriesGID = DS.GID 
+                     LEFT JOIN ESGOSites AS S
+                       ON DT.fADSiteGID = S.GID 
+                     INNER JOIN (
+                                SELECT ESGOServiceProfile.fProFormaInvoiceServiceDocTypeGID AS fProFormaInvoiceServiceDocTypeGID
+                                FROM ESGOServiceProfile AS ESGOServiceProfile 
+                                     INNER JOIN (
+                                                SELECT ESGOUserSite.fServiceProfileGID AS fServiceProfileGID
+                                                FROM ESGOUserSite AS ESGOUserSite 
+                                                WHERE (ESGOUserSite.fUserGID = ##(ESUSERGID))
+                                                       AND (ESGOUserSite.fCompanySiteGID = ##(ESBranchGID))) AS UserProfile
+                                       ON ESGOServiceProfile.GID = UserProfile.fServiceProfileGID) AS SP
+                       ON DT.fADDocumentTypeGID = SP.fProFormaInvoiceServiceDocTypeGID 
+                     LEFT JOIN ESFIZTransitionStep AS TranStep
+                       ON DT.fTransitionStepCode = TranStep.Code AND DT.fCompanyCode = TranStep.fCompanyCode 
+                WHERE (DT.fCompanyCode = ##(ESCOMPANY))
+                       AND (ESEqual(DT.ADRegistrationDate, @ADRegistrationDate))
+                       AND (ESEqual(S.GID, @fSiteGID))
+                       AND (ESEqual(DT.fTradeAccountGID, @fTradeAccountGID))
+                       AND (DT.ADCancelState in (0,2))) AS Query_ESFIDocumentTrade 
+     INNER JOIN ESFITradeAccount AS ESFITradeAccount
+       ON Query_ESFIDocumentTrade.fTradeAccountGID = ESFITradeAccount.GID 
+]]></SQL>
+  <SQLforPaging><![CDATA[]]></SQLforPaging>
+  <Table>Query_ESFIDocumentTrade</Table>
+  <Params>
+    <Param>
+      <ID>ADRegistrationDate</ID>
+      <Type>Entersoft.Framework.Platform.ESDateRange, QueryProcess</Type>
+      <ODSTag>7F9E950D-6C69-4172-842A-BF34764F9464</ODSTag>
+    </Param>
+    <Param>
+      <ID>fSiteGID</ID>
+      <Type>System.Guid, mscorlib</Type>
+      <ODSTag>332EFF39-C62C-406A-AB3B-3A4E6CCFDC24</ODSTag>
+    </Param>
+    <Param>
+      <ID>fTradeAccountGID</ID>
+      <Type>System.Guid, mscorlib</Type>
+      <ODSTag>7C9DE494-52FA-4B20-9FED-EA18E56A8C9D</ODSTag>
+    </Param>
+  </Params>
+</ESPublicQuery>

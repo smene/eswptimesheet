@@ -1,0 +1,248 @@
+{
+  "@BillableTime": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@blt_BillablePCT_color": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "blt_BillablePCT"
+    }
+  },
+  "@blt_LabourPCT": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@blt_LabourPCT_color": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "blt_LabourPCT"
+    }
+  },
+  "@blt_TurnoverPCT_color": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "blt_TurnoverPCT"
+    }
+  },
+  "@cap_8ctn": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@cap_8ctn_caption": {
+    "dsgn": {
+      "owner": "cap_8ctn"
+    }
+  },
+  "@cap_Area": {
+    "dsgnInfo": {
+      "caption": "cap_61mg"
+    }
+  },
+  "@cap_BillableTime": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@cap_LabourTime": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@cap_lc25": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@cap_sl1": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@cap_TurnoverValue": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@cap_TurnoverValue_caption": {
+    "dsgn": {
+      "owner": "cap_TurnoverValue"
+    }
+  },
+  "@cap_xx96": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@chrt_4hzw": {
+    "dsgnInfo": {
+      "maxSampleData": null,
+      "minSampleData": null
+    }
+  },
+  "@grdx_s368": {
+    "dsgnInfo": {
+      "maxSampleData": "30",
+      "minSampleData": "30"
+    }
+  },
+  "@LabourTime": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@map_wwu": {
+    "dsgnInfo": {
+      "maxSampleData": "2",
+      "minSampleData": "2"
+    }
+  },
+  "@p_7tsg": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_barchart": {
+    "dsgnInfo": {
+      "sizesMetric": "%",
+      "sizesVal": "100"
+    }
+  },
+  "@p_barchart_Labour": {
+    "dsgnInfo": {
+      "sizesMetric": "auto"
+    }
+  },
+  "@p_Billable": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_BillablePCT": {
+    "dsgnInfo": {
+      "sizesMetric": "empty",
+      "sizesVal": "30%,70%"
+    }
+  },
+  "@p_BillableTime": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_chart": {
+    "dsgnInfo": {
+      "sizesMetric": "empty"
+    }
+  },
+  "@p_drawer": {
+    "dsgnInfo": {
+      "sizesMetric": "empty",
+      "sizesVal": "1"
+    }
+  },
+  "@p_expand": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_fh2g": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_grid": {
+    "dsgnInfo": {
+      "sizesMetric": "%",
+      "sizesVal": "100"
+    }
+  },
+  "@p_KPIs": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_Labour": {
+    "dsgnInfo": {
+      "sizesMetric": "empty"
+    }
+  },
+  "@p_LabourPCT": {
+    "dsgnInfo": {
+      "sizesMetric": "empty",
+      "sizesVal": "30%,70%"
+    }
+  },
+  "@p_LabourTime": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_map": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_popHeader": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_Turnover": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_TurnoverPCT": {
+    "dsgnInfo": {
+      "sizesMetric": "empty",
+      "sizesVal": "30%,70%"
+    }
+  },
+  "@p_TurnoverValue": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p2_Billable": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pageItems": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@VL_AreaGrouping/properties/data/initialValue": {
+    "dsgn": {
+      "Columns": [
+        {
+          "Caption": null,
+          "Kind": "String",
+          "Name": "value"
+        },
+        {
+          "Caption": null,
+          "Kind": "String",
+          "Name": "displayText"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,413 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataSetCommand RootNodeType="Entersoft.Framework.Windows.CustomCommands.DataSetCommand, ESCtxCmds" Version="2" CGID="91e883a9-1bfe-48b0-987a-8bd1711fec3b" HasMenuEntry="False" FormMode="NONE">
+  <ParamsNode CGID="925b7a5b-5c6f-43f9-a7fe-da7c2e367e17" ControlsWidth="200">
+    <ShowConditions CGID="4806b907-2c7c-4063-9aa9-55c8fcb6534c" />
+    <CheckConditions CGID="73ac02bc-0c8b-4976-bd1d-df8fe29b5af5" />
+    <Param ID="ApprovalParam" CaptionID="1b34ad56-657b-4da3-aedf-e8abad4b67b3" MultiSelect="False" />
+    <Param ID="RejectionComments" CaptionID="ba786852-76c2-4bad-97e8-db44406412c0" MultiSelect="False" />
+    <Param ID="fRejectionReasonGID" CaptionID="7bb28bf3-711c-4780-a25c-37c5633ab93f" Visible="False" MultiSelect="False" />
+    <ParamFile Filename="CommandParams.xml">
+      <Filter ID="CommandParams" Caption="" CaptionID="c82031d1-c2fc-4a66-ba7e-2ac202b17b7e" Version="1" FilterType="-1" AutoExecInterval="0" DrillDown="False" DrillColName="" LoadAllData="False" ShowAllCategory="False">
+        <Params>
+          <Param ID="ApprovalParam" AA="1" AddedByUser="True">
+            <Caption>Έγκριση</Caption>
+            <CaptionID>1b34ad56-657b-4da3-aedf-e8abad4b67b3</CaptionID>
+            <Tooltip>
+            </Tooltip>
+            <MultiValued>True</MultiValued>
+            <DefaultValue>
+              <DefValue>True</DefValue>
+            </DefaultValue>
+            <ControlType>ctBoolean</ControlType>
+            <ParameterType>System.Boolean, mscorlib</ParameterType>
+            <Visible>True</Visible>
+            <Visibility>Always</Visibility>
+            <Required>False</Required>
+            <Precision>3</Precision>
+            <ODSTag>
+            </ODSTag>
+            <Tags>
+            </Tags>
+          </Param>
+          <Param ID="RejectionComments" AA="2" AddedByUser="True">
+            <Caption>RejectionComments</Caption>
+            <CaptionID>ba786852-76c2-4bad-97e8-db44406412c0</CaptionID>
+            <Tooltip>
+            </Tooltip>
+            <MultiValued>True</MultiValued>
+            <DefaultValue />
+            <ControlType>ctString</ControlType>
+            <ParameterType>System.String, mscorlib</ParameterType>
+            <Visible>True</Visible>
+            <Visibility>Always</Visibility>
+            <Required>False</Required>
+            <Precision>3</Precision>
+            <ODSTag>
+            </ODSTag>
+            <Tags>
+            </Tags>
+          </Param>
+          <Param ID="fRejectionReasonGID" AA="3" AddedByUser="True">
+            <Caption>fRejectionReasonGID</Caption>
+            <CaptionID>7bb28bf3-711c-4780-a25c-37c5633ab93f</CaptionID>
+            <Tooltip>
+            </Tooltip>
+            <MultiValued>True</MultiValued>
+            <DefaultValue />
+            <ControlType>ctGUID</ControlType>
+            <ParameterType>System.Guid, mscorlib</ParameterType>
+            <Visible>False</Visible>
+            <Visibility>Never</Visibility>
+            <Required>False</Required>
+            <Precision>3</Precision>
+            <ODSTag>
+            </ODSTag>
+            <Tags>
+            </Tags>
+          </Param>
+        </Params>
+        <ESReports />
+        <Translations>
+          <ESCaptionsDS xmlns="http://tempuri.org/ESCaptionsDS.xsd">
+            <Captions>
+              <ID>1b34ad56-657b-4da3-aedf-e8abad4b67b3</ID>
+              <Suffix>C</Suffix>
+              <LangID>el</LangID>
+              <Caption>Έγκριση</Caption>
+            </Captions>
+            <Captions>
+              <ID>91007aca-69e4-42c5-a76e-e590f01ed869</ID>
+              <Suffix>C</Suffix>
+              <LangID>el</LangID>
+              <Caption>RejectionReason</Caption>
+            </Captions>
+            <Captions>
+              <ID>ba786852-76c2-4bad-97e8-db44406412c0</ID>
+              <Suffix>C</Suffix>
+              <LangID>el</LangID>
+              <Caption>RejectionComments</Caption>
+            </Captions>
+            <Captions>
+              <ID>77d181bb-08b2-4184-8a62-2a0e5a5b418c</ID>
+              <Suffix>C</Suffix>
+              <LangID>el</LangID>
+              <Caption>GID</Caption>
+            </Captions>
+            <Captions>
+              <ID>7bb28bf3-711c-4780-a25c-37c5633ab93f</ID>
+              <Suffix>C</Suffix>
+              <LangID>el</LangID>
+              <Caption>fRejectionReasonGID</Caption>
+            </Captions>
+          </ESCaptionsDS>
+        </Translations>
+      </Filter>
+    </ParamFile>
+  </ParamsNode>
+  <Profiles CGID="bf40dc2a-5183-46c7-8ebf-326ecb5ff943">
+    <Profile CGID="3804ffb8-eda7-4f04-883a-8178b9eda8ad" UILess="True">
+      <SourceDataSet />
+      <TargetEntity EntityID="ESTMServiceRequest_TimeSheet_DEF" />
+      <SaveExpression CGID="9037ac9c-163d-4685-a20a-657ec457eb63">
+        <Supplier>
+          <EnumValue Type="Entersoft.Framework.Platform.Helper.SaveEnum, ESEntity" Value="SAVE_AND_ACTIONS" />
+        </Supplier>
+      </SaveExpression>
+      <RootRule CGID="523dd407-bc8f-4a55-a0ba-818969f4a159" Source="TimesheetsForApproval" Target="ESTMTask" TargetKey="GID">
+        <ExecuteSimpleConditions CGID="bcf153a8-183f-431f-8c56-6c6e527b55d8" />
+        <Variables CGID="5c11209a-3f10-4110-9801-52b8a7da1fad" />
+        <Rules CGID="7eec2805-1984-4c4a-8903-83635e3dce75">
+          <Rule CGID="e2856dab-ba5d-4b01-9229-aff476bc35be" Target="FK_ESTMTaskItem_ESTMTask" TargetKey="GID">
+            <ExecuteSimpleConditions CGID="848b5593-9cd5-45b5-ae98-97b46ccfd6a8" />
+            <Variables CGID="a164f440-280e-4cbf-80fb-deae8bfee33d" />
+            <Rules CGID="016c7c6d-c0ad-4d99-80ea-b8266fe04bc9" />
+            <Conditions CGID="e5e4d28a-7b72-4b81-83ca-831ab7661d2d" />
+            <Assignments CGID="f3b24eaa-2ae4-4636-819a-9d5e69651d3a">
+              <Assign CGID="e22adbe3-5e27-4540-9cf0-46e871ec9e6b" Column="GID">
+                <Supplier>
+                  <SourceValue>fTimesheetLineGID</SourceValue>
+                </Supplier>
+                <Conditions CGID="4cb6448d-d936-49f6-add6-6f5ecb4b50f1" />
+              </Assign>
+              <Assign CGID="c23d918d-7d5a-4cf6-87ed-94c8dbcbf07a" Column="fCategoryValue3GID">
+                <Supplier CGID="a2d4fd3c-acee-4a30-bfd1-1e59f99e8105">
+                  <Param CGID="e2726afd-a562-4a9e-87a9-8304cab59f8c" ParamName="IF">
+                    <Supplier CGID="f69f23e3-6d9c-4178-86ff-db678a8e688d">
+                      <Param CGID="60de85b9-d0e6-4e4e-8eeb-a80477c989dc" ParamName="$ApprovalParam">
+                        <Supplier>
+                          <CommandParamValue>ApprovalParam</CommandParamValue>
+                        </Supplier>
+                      </Param>
+                      <ExpressionValue>safeBool($ApprovalParam) = True</ExpressionValue>
+                    </Supplier>
+                  </Param>
+                  <Param CGID="12879aa2-21c9-45b4-bd39-16aa7ad2e77c" ParamName="THEN">
+                    <Supplier CGID="88f1058f-131b-4d51-a5ca-ab9246df5785">
+                      <SQLSelectValue SQLCached="True">SELECT TCV.GID 
+FROM ESTMTaskCategoryValue AS TCV 
+     INNER JOIN ESTMTaskCategory AS TC
+       ON TCV.fTaskCategoryGID = TC.GID 
+WHERE TC.Code = 'TimeSheet_State'
+       AND TCV.InternationalID = 'ES.TSState_Submitted'
+</SQLSelectValue>
+                    </Supplier>
+                  </Param>
+                  <Param CGID="46439c33-08db-41ea-8318-f3473cfaa1c2" ParamName="ELSE">
+                    <Supplier CGID="c3a0d420-356b-4af6-a025-966f20c51233">
+                      <SQLSelectValue SQLCached="True">SELECT TCV.GID 
+FROM ESTMTaskCategoryValue AS TCV 
+     INNER JOIN ESTMTaskCategory AS TC
+       ON TCV.fTaskCategoryGID = TC.GID 
+WHERE TC.Code = 'TimeSheet_State'
+       AND TCV.InternationalID = 'ES.TSState_Cancelled'</SQLSelectValue>
+                    </Supplier>
+                  </Param>
+                  <BuiltInFunction Type="IfThenElseFunction" />
+                </Supplier>
+                <Conditions CGID="d088ff74-f0a8-4e29-8035-3cdf7763637f" />
+              </Assign>
+              <Assign CGID="f59fb3d9-9258-4d7e-ac7c-b9812a7def4a" Column="fResourceGID">
+                <Supplier CGID="ec2f7500-017a-4c69-b5a7-d1a30bbeb71d">
+                  <SQLSelectValue SQLCached="True">SELECT
+  top 1 R.GID
+FROM ESTMResource R
+INNER JOIN ESGOUser U
+  ON U.fPersonLinkGID = R.fPersonGID
+  AND U.GID = ##(ESUSERGID)</SQLSelectValue>
+                </Supplier>
+                <Conditions CGID="018cb3d1-cfc0-4ad6-9810-605e26c47d0f" />
+              </Assign>
+              <Assign CGID="262032f7-1d30-4f3b-8dda-ee55c10f3623" StandardCast="StringToGuid" Column="fCategoryValue5GID">
+                <Supplier>
+                  <CommandParamValue>fRejectionReasonGID</CommandParamValue>
+                </Supplier>
+                <Conditions CGID="212315a0-103d-4916-945f-e527463a21e5">
+                  <Condition CGID="d57ffa50-9e10-41d4-85e4-2f39a142804a">
+                    <Supplier CGID="f69f23e3-6d9c-4178-86ff-db678a8e688d">
+                      <Param CGID="60de85b9-d0e6-4e4e-8eeb-a80477c989dc" ParamName="$ApprovalParam">
+                        <Supplier>
+                          <CommandParamValue>ApprovalParam</CommandParamValue>
+                        </Supplier>
+                      </Param>
+                      <ExpressionValue>safeBool($ApprovalParam) = False</ExpressionValue>
+                    </Supplier>
+                    <FormatParams CGID="117d5afc-1554-4660-9924-fa913545f346" />
+                  </Condition>
+                </Conditions>
+              </Assign>
+              <Assign CGID="f8256f03-5909-47de-92e6-56d8d3086019" Column="StringField1">
+                <Supplier>
+                  <CommandParamValue>RejectionComments</CommandParamValue>
+                </Supplier>
+                <Conditions CGID="a290e146-5b21-42b5-99c5-38ebdb565d6b">
+                  <Condition CGID="8b1abda1-20c3-428e-bf2d-de453382abf4">
+                    <Supplier CGID="4d05e38d-04df-4b7e-9ceb-c05c43ce0aac">
+                      <Param CGID="572e28b2-d1b2-4cc8-b9e1-0a66948a83de" ParamName="$ApprovalParam">
+                        <Supplier>
+                          <CommandParamValue>ApprovalParam</CommandParamValue>
+                        </Supplier>
+                      </Param>
+                      <ExpressionValue>safeBool($ApprovalParam) = False</ExpressionValue>
+                    </Supplier>
+                    <FormatParams CGID="166c3158-2230-4fdb-ac78-0a7bb1bfa18a" />
+                  </Condition>
+                </Conditions>
+              </Assign>
+              <Assign CGID="88691cbf-302e-4e0f-8693-e844677e5f63" StandardCast="StringToGuid" Column="fCategoryValue5GID">
+                <Supplier>
+                  <CommandParamValue>fRejectionReasonGID</CommandParamValue>
+                </Supplier>
+                <Conditions CGID="da358f54-1b95-45e7-8ab3-5ee0634a5926">
+                  <Condition CGID="e404af42-bf60-414b-97ea-a8bda96706b0">
+                    <Supplier CGID="f9cd006b-53b5-4117-a19c-4a278a1f46ae">
+                      <Param CGID="c89fe5d7-73f3-41d3-a53e-8ccc9fbaa4b2" ParamName="$ApprovalParam">
+                        <Supplier>
+                          <CommandParamValue>ApprovalParam</CommandParamValue>
+                        </Supplier>
+                      </Param>
+                      <ExpressionValue>safeBool($ApprovalParam) = False</ExpressionValue>
+                    </Supplier>
+                    <FormatParams CGID="48187289-4a15-4137-b7b1-a1efcc737244" />
+                  </Condition>
+                </Conditions>
+              </Assign>
+              <Assign CGID="0a2ea701-e883-4ee1-8090-bb4e7f96c17e" Inactive="True" Column="fCategoryValue5GID">
+                <Supplier>
+                  <CommandParamValue>fRejectionReasonGID</CommandParamValue>
+                </Supplier>
+                <Conditions CGID="64f6552e-a900-44f0-8e25-4d742ee39300">
+                  <Condition CGID="3173a3fe-93fc-409a-8102-6d0c88045d5e">
+                    <Supplier CGID="d1809ce2-dc6f-4c1f-8275-c4008737c462">
+                      <Param CGID="c80b87ca-509f-4a70-8434-a2fe83eb0987" ParamName="$ApprovalParam">
+                        <Supplier>
+                          <CommandParamValue>ApprovalParam</CommandParamValue>
+                        </Supplier>
+                      </Param>
+                      <ExpressionValue>safeBool($ApprovalParam) = False</ExpressionValue>
+                    </Supplier>
+                    <FormatParams CGID="04b7a153-3ad5-4e10-b9a8-4501c6b6359d" />
+                  </Condition>
+                </Conditions>
+              </Assign>
+            </Assignments>
+            <OrderByNodes CGID="6d29af1d-59d4-4138-9d2e-b5a4e3da04af" />
+            <GroupByNodes CGID="0b823b39-e6df-480b-bf8a-56888921eccc">
+              <GroupAtMostEntries CGID="16da9d6b-2322-44ba-9ef0-8667b76ae9fb">
+                <Supplier>
+                  <ConstantValue>0</ConstantValue>
+                </Supplier>
+              </GroupAtMostEntries>
+            </GroupByNodes>
+            <MultiplyByNodes CGID="808aa274-1595-48bd-b193-59fce7e15576" />
+            <RowActions CGID="385e7285-03e7-4bd4-a11f-31bb0dae2423" />
+          </Rule>
+        </Rules>
+        <Conditions CGID="5b753ba7-8ae4-488b-bb0d-f0fe7f76e7e5">
+          <Condition CGID="f9f437d5-dbbb-4d03-8e8f-34c051ae72ed" Inactive="True">
+            <Supplier CGID="c75fd754-79c9-48a7-8293-2eeecf9cafaf">
+              <ExpressionValue>'1=0
+return True</ExpressionValue>
+            </Supplier>
+            <FormatParams CGID="0ad1c10a-ef51-40bc-bb45-60a7950be805" />
+          </Condition>
+        </Conditions>
+        <Assignments CGID="a6bff563-8228-4d8b-b59b-468407a587ae">
+          <Assign CGID="45aa8c41-ced3-4b39-b59f-64d9ff3edbc9" Column="GID">
+            <Supplier>
+              <SourceValue>fTaskGID</SourceValue>
+            </Supplier>
+            <Conditions CGID="48c42b12-ec1d-4486-b849-dd9e91e616fd" />
+          </Assign>
+        </Assignments>
+        <OrderByNodes CGID="0b890481-a20e-4374-9ee4-bd47e572b900" />
+        <GroupByNodes CGID="a608a80a-1ece-459c-8f09-e3f6540ad99c">
+          <GroupBy CGID="fc76945c-f89f-4438-9ba9-c96ac6886797">
+            <Supplier>
+              <SourceValue>fTaskGID</SourceValue>
+            </Supplier>
+          </GroupBy>
+          <GroupAtMostEntries CGID="7feda851-a005-4053-8ef5-02336149f1d9">
+            <Supplier>
+              <ConstantValue>0</ConstantValue>
+            </Supplier>
+          </GroupAtMostEntries>
+        </GroupByNodes>
+        <MultiplyByNodes CGID="13785de9-8f38-4451-badd-03252e5918d6" />
+        <RowActions CGID="8c51cccb-f686-4df8-9772-d473ea8b7176" />
+      </RootRule>
+      <MapExceptions CGID="2876e6b6-62b0-4b00-9ee4-7d9af96a075b" />
+      <LoginCredentials CGID="a9ec075c-2d29-4142-a393-1e07e1ad3735" />
+    </Profile>
+  </Profiles>
+  <ExecuteConditions CGID="9234af91-7d3b-4ab4-81a2-475a23bcc9ac" />
+  <ShowSimpleConditions CGID="2117aaf0-67a2-4794-b098-9418749b3f63" />
+  <ExecuteMessageConditions CGID="c673b658-b607-4fb9-9d21-e1a034516d72" />
+  <ValidityConditions CGID="5170b3f8-42b5-4894-bd08-703832781439">
+    <SimpleCondition CGID="c0bf82e6-de76-4836-8ef0-34b3642d38a8" Inactive="True">
+      <Supplier CGID="dbe889b2-31e4-4fe1-963d-2832cbe1a254">
+        <Param CGID="14c0613d-2c92-4a8c-9376-8150b841df9a" ParamName="$UserRole">
+          <Supplier CGID="be2edead-bda3-466e-823c-c0691595ca24">
+            <SQLSelectValue>SELECT
+  RRR.fResRoleCode
+FROM ESTMResourceRelRole RRR
+INNER JOIN (SELECT
+  R.GID
+FROM ESTMResource R
+INNER JOIN ESGOUser U
+  ON U.fPersonLinkGID = R.fPersonGID
+  AND U.GID = ##(ESUSERGID)) AuthorizedRepUser
+  ON AuthorizedRepUser.GID = RRR.fResourceGID</SQLSelectValue>
+          </Supplier>
+        </Param>
+        <ExpressionValue>'SafeSTR($UserRole) &lt;&gt; "TimesheetApproval"
+return True</ExpressionValue>
+      </Supplier>
+    </SimpleCondition>
+    <SimpleCondition CGID="6b555bbd-7f85-409a-8b8c-6d182d40707a" Inactive="True">
+      <Supplier CGID="0947fc02-75d2-4919-9b2f-51a8d84bc779">
+        <ExpressionValue>'1=0
+return True</ExpressionValue>
+      </Supplier>
+    </SimpleCondition>
+  </ValidityConditions>
+  <UserGroups>
+  </UserGroups>
+  <CommandAvailability />
+  <SourceDataSet />
+  <Translations>
+    <ESCaptionsDS xmlns="http://tempuri.org/ESCaptionsDS.xsd">
+  <Captions>
+    <ID>e2856dab-ba5d-4b01-9229-aff476bc35be</ID>
+    <Suffix>Title</Suffix>
+    <LangID>el</LangID>
+    <Caption>Approve/Reject timesheet line</Caption>
+  </Captions>
+  <Captions>
+    <ID>16da9d6b-2322-44ba-9ef0-8667b76ae9fb</ID>
+    <Suffix>Title</Suffix>
+    <LangID>el</LangID>
+    <Caption>Maximum Entries</Caption>
+  </Captions>
+  <Captions>
+    <ID>7feda851-a005-4053-8ef5-02336149f1d9</ID>
+    <Suffix>Title</Suffix>
+    <LangID>el</LangID>
+    <Caption>Maximum Entries</Caption>
+  </Captions>
+  <Captions>
+    <ID>c0bf82e6-de76-4836-8ef0-34b3642d38a8</ID>
+    <Suffix>Title</Suffix>
+    <LangID>el</LangID>
+    <Caption>No authorisation</Caption>
+  </Captions>
+  <Captions>
+    <ID>1b34ad56-657b-4da3-aedf-e8abad4b67b3</ID>
+    <Suffix>C</Suffix>
+    <LangID>el</LangID>
+    <Caption>Έγκριση</Caption>
+  </Captions>
+  <Captions>
+    <ID>91007aca-69e4-42c5-a76e-e590f01ed869</ID>
+    <Suffix>C</Suffix>
+    <LangID>el</LangID>
+    <Caption>RejectionReason</Caption>
+  </Captions>
+  <Captions>
+    <ID>ba786852-76c2-4bad-97e8-db44406412c0</ID>
+    <Suffix>C</Suffix>
+    <LangID>el</LangID>
+    <Caption>RejectionComments</Caption>
+  </Captions>
+  <Captions>
+    <ID>77d181bb-08b2-4184-8a62-2a0e5a5b418c</ID>
+    <Suffix>C</Suffix>
+    <LangID>el</LangID>
+    <Caption>GID</Caption>
+  </Captions>
+  <Captions>
+    <ID>91e883a9-1bfe-48b0-987a-8bd1711fec3b</ID>
+    <Suffix>Caption</Suffix>
+    <LangID>el</LangID>
+    <Caption>Approve/Reject timsheet line</Caption>
+  </Captions>
+  <Captions>
+    <ID>6b555bbd-7f85-409a-8b8c-6d182d40707a</ID>
+    <Suffix>Title</Suffix>
+    <LangID>el</LangID>
+    <Caption>test</Caption>
+  </Captions>
+  <Captions>
+    <ID>f9f437d5-dbbb-4d03-8e8f-34c051ae72ed</ID>
+    <Suffix>Message</Suffix>
+    <LangID>el</LangID>
+    <Caption>test</Caption>
+  </Captions>
+  <Captions>
+    <ID>7bb28bf3-711c-4780-a25c-37c5633ab93f</ID>
+    <Suffix>C</Suffix>
+    <LangID>el</LangID>
+    <Caption>fRejectionReasonGID</Caption>
+  </Captions>
+</ESCaptionsDS>
+  </Translations>
+</DataSetCommand>

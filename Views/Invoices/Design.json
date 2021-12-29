@@ -1,0 +1,461 @@
+{
+  "@btn_Cancel": {
+    "dsgnInfo": {
+      "visible": null
+    }
+  },
+  "@btn_Cancel_visible": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "btn_Cancel"
+    }
+  },
+  "@btn_cx9": {
+    "dsgnInfo": {
+      "caption": "btn_cx9"
+    }
+  },
+  "@btn_Show": {
+    "dsgnInfo": {
+      "visible": null
+    }
+  },
+  "@btn_Show_visible": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "btn_Show"
+    }
+  },
+  "@btn_ShowPrint": {
+    "dsgnInfo": {
+      "visible": null
+    }
+  },
+  "@btn_ShowPrint_visible": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "btn_ShowPrint"
+    }
+  },
+  "@cap_5xx": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@cap_5xx_caption": {
+    "dsgn": {
+      "owner": "cap_5xx"
+    }
+  },
+  "@cap_90pd": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@cap_90pd_caption": {
+    "dsgn": {
+      "owner": "cap_90pd"
+    }
+  },
+  "@cap_Canceled": {
+    "dsgnInfo": {
+      "visible": null
+    }
+  },
+  "@cap_Canceled_visible": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "cap_Canceled"
+    }
+  },
+  "@cap_Date": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@cap_fp1": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@cap_InvCode": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@cap_InvDate": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@cap_iod3": {
+    "dsgnInfo": {
+      "caption": "cap_iod3"
+    }
+  },
+  "@cap_OrderCode": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@cap_OrderValue": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@cap_OrderValue_caption": {
+    "dsgn": {
+      "owner": "cap_OrderValue"
+    }
+  },
+  "@cap_PartialyTrans_caption": {
+    "dsgn": {
+      "owner": "cap_PartialyTrans"
+    }
+  },
+  "@cap_PartialyTrans_visible": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "cap_PartialyTrans"
+    }
+  },
+  "@cap_PrintTitle": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@cap_tglu": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@cap_TitleCodeDoc": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@cap_TitleCodeDoc_caption": {
+    "dsgn": {
+      "owner": "cap_TitleCodeDoc"
+    }
+  },
+  "@cap_z9w": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@EnumADTransitionState": {
+    "dsgn": {
+      "EnumType": "Entersoft.ERP.Financials.Enums.ADTransitionState, ESFIEnums"
+    }
+  },
+  "@EnumADTransitionState/properties/data/initialValue": {
+    "dsgn": {
+      "Columns": [
+        {
+          "Caption": "value",
+          "Kind": "String",
+          "Name": "value"
+        },
+        {
+          "Caption": "displayText",
+          "Kind": "String",
+          "Name": "displayText"
+        },
+        {
+          "Caption": "icon",
+          "Kind": "Icon",
+          "Name": "icon"
+        },
+        {
+          "Caption": "name",
+          "Kind": "String",
+          "Name": "name"
+        }
+      ]
+    }
+  },
+  "@EnumCancelState": {
+    "dsgn": {
+      "EnumType": "Entersoft.ERP.Financials.Enums.CancelState, ESFIEnums"
+    }
+  },
+  "@EnumCancelState/properties/data/initialValue": {
+    "dsgn": {
+      "Columns": [
+        {
+          "Caption": "value",
+          "Kind": "String",
+          "Name": "value"
+        },
+        {
+          "Caption": "displayText",
+          "Kind": "String",
+          "Name": "displayText"
+        },
+        {
+          "Caption": "icon",
+          "Kind": "Icon",
+          "Name": "icon"
+        },
+        {
+          "Caption": "name",
+          "Kind": "String",
+          "Name": "name"
+        }
+      ]
+    }
+  },
+  "@EnumPrinting_Enum": {
+    "dsgn": {
+      "EnumType": "Entersoft.ERP.Financials.DS.Printing_Enum, ESFIDocumentsISUD"
+    }
+  },
+  "@EnumPrinting_Enum/properties/data/initialValue": {
+    "dsgn": {
+      "Columns": [
+        {
+          "Caption": null,
+          "Kind": "Integer",
+          "Name": "value"
+        },
+        {
+          "Caption": null,
+          "Kind": "",
+          "Name": "name"
+        },
+        {
+          "Caption": null,
+          "Kind": "",
+          "Name": "displayText"
+        }
+      ]
+    }
+  },
+  "@EnumPrintType/properties/data/initialValue": {
+    "dsgn": {
+      "Columns": [
+        {
+          "Caption": "value",
+          "Kind": "String",
+          "Name": "value"
+        },
+        {
+          "Caption": "Icon",
+          "Kind": "Icon",
+          "Name": "icon"
+        }
+      ]
+    }
+  },
+  "@frm_action": {
+    "dsgnInfo": {
+      "visible": null
+    }
+  },
+  "@grdx_0zj": {
+    "dsgnInfo": {
+      "maxSampleData": "10",
+      "minSampleData": "10"
+    }
+  },
+  "@grdx_982": {
+    "dsgnInfo": {
+      "maxSampleData": "2",
+      "minSampleData": "2",
+      "us_height": 102,
+      "us_width": 560
+    }
+  },
+  "@grdx_RelatedDoc": {
+    "dsgnInfo": {
+      "maxSampleData": "5",
+      "minSampleData": "5"
+    }
+  },
+  "@grdxLineItems": {
+    "dsgnInfo": {
+      "maxSampleData": null,
+      "minSampleData": null
+    }
+  },
+  "@grdxLineItems_caption": {
+    "dsgn": {
+      "owner": "grdxLineItems"
+    }
+  },
+  "@grdxLineItems_caption_DocDate": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "grdxLineItems_caption"
+    }
+  },
+  "@grdxOrders": {
+    "dsgnInfo": {
+      "maxSampleData": null,
+      "minSampleData": null
+    }
+  },
+  "@groupingValue": {
+    "dsgnInfo": {
+      "caption": "fff"
+    }
+  },
+  "@p_0ahk": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_6y4": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_all": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_ef64": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_ga2o": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_GridX": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_hcm": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_invInfo": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_invoice": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_lcj": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_mbdg": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_nl2x": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_oime4": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_Order": {
+    "dsgnInfo": {
+      "sizesMetric": "auto",
+      "sizesVal": null
+    }
+  },
+  "@p_OrderInfo": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_printInfo": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_RelatedDocHeader": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_RelatedDocs": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_rx1n": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_sg1": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_u3ls": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_wnyb": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pageItems": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pGrid": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pItemInfo": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pShowLI": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null,
+      "visible": null
+    }
+  }
+}

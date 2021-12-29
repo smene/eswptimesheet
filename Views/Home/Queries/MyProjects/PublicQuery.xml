@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<ESPublicQuery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SQL><![CDATA[Declare @fUserPersonGID uniqueidentifier = (Select fPersonLinkGID from ESGOUser U where U.GID=##(ESUSERGID))
+Declare @Today as date = (Select cast(getdate() as date))
+SELECT Prj.GID AS ProjectGID, 
+       Prj.Code AS Code, 
+       Prj.Name AS Name, 
+       Prj.StartDate AS StartDate, 
+       Prj.FinishDate AS FinishDate, 
+       PrjSite.Latitude AS Latitude, 
+       PrjSite.Longitude AS Longitude, 
+       TA.Name AS CustomerName, 
+       P.EMailAddress AS EMailAddress, 
+       PersonSite.Address1 AS Address1, 
+       PersonSite.fPostalCode AS fPostalCode, 
+       PersonSite.fCityCode AS fCityCode, 
+       PersonSite.Area AS Area, 
+       PersonSite.Telephone1 AS Telephone1, 
+       PersonSite.Telephone2 AS Telephone2
+FROM ESGOProject AS Prj 
+     INNER JOIN ESGOProjectTeam AS PT
+       ON Prj.GID = PT.fProjectGID 
+     LEFT JOIN ESGOSites AS PrjSite
+       ON Prj.fTradeAccountSiteGID = PrjSite.GID 
+     LEFT JOIN ESFITradeAccount AS TA
+       ON Prj.fTradeAccountGID = TA.GID 
+     LEFT JOIN ESGOPerson AS P
+       ON TA.fPersonCodeGID = P.GID 
+     INNER JOIN ESGOSites AS PersonSite
+       ON P.fMainAddressGID = PersonSite.GID 
+WHERE (PT.fPersonGID = @fUserPersonGID)
+       AND (@Today between Prj.StartDate and Prj.FinishDate)
+      
+]]></SQL>
+  <SQLforPaging><![CDATA[]]></SQLforPaging>
+  <Table>ESGOProject</Table>
+  <Params />
+</ESPublicQuery>

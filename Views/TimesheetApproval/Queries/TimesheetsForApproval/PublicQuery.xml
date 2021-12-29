@@ -1,0 +1,179 @@
+<?xml version="1.0"?>
+<ESPublicQuery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SQL><![CDATA[Declare @fLineStateGID uniqueidentifier = (SELECT TCV.GID AS fCategoryValueGID
+FROM ESTMTaskCategoryValue AS TCV 
+     INNER JOIN ESTMTaskCategory AS TC
+       ON TCV.fTaskCategoryGID = TC.GID 
+WHERE TC.Code = 'TimeSheet_State'
+       AND TCV.InternationalID = 'ES.TSState_ToBeApproved')
+
+
+Declare @LogInRepGID uniqueidentifier =(
+SELECT
+  R.GID
+FROM ESTMResource R
+INNER JOIN ESGOUser U
+  ON U.fPersonLinkGID = R.fPersonGID
+  AND u.fCompanyCode = ##(ESCOMPANY)
+  AND U.GID = ##(ESUSERGID)
+INNER JOIN ESTMResourceRelRole RRR
+	ON RRR.fResourceGID = R.GID
+	AND RRR.fResRoleCode = 'Timesheet_Approval')
+
+If ##(Timesheet_Approval)='1' AND @LogInRepGID is not null
+Begin 
+(
+
+SELECT TimesheetLines.fTaskGID AS fTaskGID, 
+       TimesheetLines.fTimesheetLineGID AS fTimesheetLineGID, 
+       Timesheet.RegistrationDate AS ReportedDate, 
+       Rep.Code AS RepCode, 
+       Timesheet.Code AS TimesheetCode, 
+       TimesheetLines.WP_Code AS WP_Code, 
+       TimesheetLines.HourType_Code AS HourType_Code, 
+       TimesheetLines.ProjectCode AS ProjectCode, 
+       TimesheetLines.ProjectName AS ProjectName, 
+       TimesheetLines.TACode AS TACode, 
+       TimesheetLines.TAName AS TAName, 
+       TimesheetLines.AddressCode AS AddressCode, 
+       TimesheetLines.AddressDescription AS AddressDescription, 
+       TimesheetLines.StartDateTime AS StartDateTime, 
+       TimesheetLines.EndDateTime AS EndDateTime, 
+       TimesheetLines.WorkingHours AS WorkingHours, 
+       TimesheetLines.ChargeableHours AS ChargeableHours, 
+       TimesheetLines.Overtime AS Overtime, 
+       TimesheetLines.Chargeable AS Chargeable, 
+       TimesheetLines.Comments AS Comments
+FROM (
+                SELECT TI.fTaskGID AS fTaskGID, 
+                       TI.fProjectGID AS fProjectGID, 
+                       TI.fTradeAccountGID AS fTradeAccountGID, 
+                       TI.GID AS fTimesheetLineGID, 
+                       WorkPlace.Code AS WP_Code, 
+                       HourType.Code AS HourType_Code, 
+                       Project.Code AS ProjectCode, 
+                       Project.Name AS ProjectName, 
+                       TA.Code AS TACode, 
+                       TA.Name AS TAName, 
+                       Sites.Code AS AddressCode, 
+                       Sites.Description AS AddressDescription, 
+                       TI.DateField1 AS StartDateTime, 
+                       TI.DateField2 AS EndDateTime, 
+                       TI.NumericField1 AS WorkingHours, 
+                       TI.NumericField2 AS ChargeableHours, 
+                       TI.NumericField3 AS Overtime, 
+                       TI.Chargeable AS Chargeable, 
+                       TI.Comments AS Comments
+                FROM ESTMTaskItem AS TI 
+                     LEFT JOIN ESTMTaskCategoryValue AS WorkPlace
+                       ON TI.fCategoryValue1GID = WorkPlace.GID 
+                     LEFT JOIN ESTMTaskCategoryValue AS HourType
+                       ON TI.fCategoryValue2GID = HourType.GID 
+                     LEFT JOIN ESGOProject AS Project
+                       ON TI.fProjectGID = Project.GID 
+                     LEFT JOIN ESFITradeAccount AS TA
+                       ON TI.fTradeAccountGID = TA.GID 
+                     LEFT JOIN ESGOSites AS Sites
+                       ON TI.fAddressGID = Sites.GID 
+                WHERE (TI.fCategoryValue3GID = @fLineStateGID)
+                       AND (TI.Chargeable = 1)
+                       AND NOT (TI.fTradeAccountGID Is NULL)
+                       AND (ESEqual(TI.fTradeAccountGID, @fTradeAccountGID))
+                       AND (ESEqual(TI.fProjectGID, @fProjectGID))) AS TimesheetLines 
+     INNER JOIN ESTMTask AS Timesheet
+       ON TimesheetLines.fTaskGID = Timesheet.GID 
+     LEFT JOIN ESTMResource AS Rep
+       ON Timesheet.fAssignedToGID = Rep.GID 
+)
+End
+
+ELSE If ##(Timesheet_Approval)='2' AND @LogInRepGID is not null
+Begin 
+(SELECT TI.fTaskGID AS fTaskGID, 
+       TI.fProjectGID AS fProjectGID, 
+       TI.fTradeAccountGID AS fTradeAccountGID, 
+       TI.GID AS fTimesheetLineGID, 
+       WorkPlace.Code AS WP_Code, 
+       HourType.Code AS HourType_Code, 
+       Project.Code AS ProjectCode, 
+       Project.Name AS ProjectName, 
+       TA.Code AS TACode, 
+       TA.Name AS TAName, 
+       Sites.Code AS AddressCode, 
+       Sites.Description AS AddressDescription, 
+       TI.DateField1 AS StartDateTime, 
+       TI.DateField2 AS EndDateTime, 
+       TI.NumericField1 AS WorkingHours, 
+       TI.NumericField2 AS ChargeableHours, 
+       TI.NumericField3 AS Overtime, 
+       TI.Chargeable AS Chargeable, 
+       TI.Comments AS Comments
+FROM ESTMTaskItem AS TI 
+     LEFT JOIN ESTMTaskCategoryValue AS WorkPlace
+       ON TI.fCategoryValue1GID = WorkPlace.GID 
+     LEFT JOIN ESTMTaskCategoryValue AS HourType
+       ON TI.fCategoryValue2GID = HourType.GID 
+     LEFT JOIN ESGOProject AS Project
+       ON TI.fProjectGID = Project.GID 
+     LEFT JOIN ESFITradeAccount AS TA
+       ON TI.fTradeAccountGID = TA.GID 
+     LEFT JOIN ESGOSites AS Sites
+       ON TI.fAddressGID = Sites.GID 
+     INNER JOIN ESTMTask AS T
+       ON TI.fTaskGID = T.GID 
+     INNER JOIN (
+                SELECT RGM.fResourceGID AS fResourceGID
+                FROM (
+                                SELECT RGM.fResourceGroupGID AS fResourceGroupGID
+                                FROM ESTMResourceGroupMember AS RGM 
+                                WHERE (RGM.IsGroupLeader = 1)
+                                       AND (RGM.fCompanyCode = ##(ESCOMPANY))
+                                       AND (RGM.fResourceGID = @LogInRepGID)) AS LG 
+                     INNER JOIN ESTMResourceGroupMember AS RGM
+                       ON LG.fResourceGroupGID = RGM.fResourceGroupGID 
+                WHERE (RGM.fCompanyCode = ##(ESCOMPANY))) AS RGM
+       ON T.fAssignedToGID = RGM.fResourceGID 
+WHERE (TI.fCategoryValue3GID = @fLineStateGID)
+       AND (TI.Chargeable = 1)
+       AND NOT (TI.fTradeAccountGID Is NULL)
+       AND (ESEqual(TI.fTradeAccountGID, @fTradeAccountGID))
+       AND (ESEqual(TI.fProjectGID, @fProjectGID))
+      
+)
+End
+ElSE
+SELECT NULL AS fTaskGID, 
+       NULL AS fTimesheetLineGID, 
+       NULL AS WP_Code, 
+       NULL AS HourType_Code, 
+       NULL AS ProjectCode, 
+       NULL AS ProjectName, 
+       NULL AS TACode, 
+       NULL AS TAName, 
+       NULL AS AddressCode, 
+       NULL AS AddressDescription, 
+       NULL AS StartDateTime, 
+       NULL AS EndDateTime, 
+       NULL AS WorkingHours, 
+       NULL AS ChargeableHours, 
+       NULL AS Overtime, 
+       NULL AS Chargeable, 
+       NULL AS Comments
+WHERE 1=0
+
+]]></SQL>
+  <SQLforPaging><![CDATA[]]></SQLforPaging>
+  <Table>TL_ToBeApprovedByAuthorizedRep</Table>
+  <Params>
+    <Param>
+      <ID>fTradeAccountGID</ID>
+      <Type>System.Guid, mscorlib</Type>
+      <ODSTag>D912BFF1-6B81-4594-84EA-3BBD412650B7</ODSTag>
+    </Param>
+    <Param>
+      <ID>fProjectGID</ID>
+      <Type>System.Guid, mscorlib</Type>
+      <ODSTag>E108316F-D461-428D-A9DA-58E508F0DA39</ODSTag>
+    </Param>
+  </Params>
+</ESPublicQuery>

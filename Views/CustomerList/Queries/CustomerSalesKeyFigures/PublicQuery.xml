@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<ESPublicQuery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SQL><![CDATA[SELECT ESFISalesItemEntry_ESFIItemPeriodics.fTradeAccountGID AS fTradeAccountGID, 
+       Sum(ESFISalesItemEntry_ESFIItemPeriodics.ESFIItemPeriodics_TurnOver) AS ESFIItemPeriodics_TurnOver, 
+       count(distinct ESFISalesItemEntry_ESFIItemPeriodics.fDocumentGID) AS TransactionCount
+FROM ESFISalesItemEntry_ESFIItemPeriodics AS ESFISalesItemEntry_ESFIItemPeriodics 
+WHERE (ESEqual(ESFISalesItemEntry_ESFIItemPeriodics.fTradeAccountGID, @fTradeAccountGID))
+       AND (ESEqual(ESFISalesItemEntry_ESFIItemPeriodics.RegistrationDate, @TimePeriod))
+      
+GROUP BY ESFISalesItemEntry_ESFIItemPeriodics.fTradeAccountGID
+]]></SQL>
+  <SQLforPaging><![CDATA[]]></SQLforPaging>
+  <Table>ESFISalesItemEntry_ESFIItemPeriodics</Table>
+  <Params>
+    <Param>
+      <ID>fTradeAccountGID</ID>
+      <Type>System.Guid, mscorlib</Type>
+      <ODSTag>2B36FBE7-1616-41CD-B930-52CD9E7A76CA</ODSTag>
+    </Param>
+    <Param>
+      <ID>TimePeriod</ID>
+      <Type>Entersoft.Framework.Platform.ESDateRange, QueryProcess</Type>
+      <ODSTag>C4E595C8-7FCC-4B95-AA6D-733D2881C8D1</ODSTag>
+    </Param>
+  </Params>
+</ESPublicQuery>

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<ESPublicQuery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SQL><![CDATA[SELECT ESGOZRegionGroup.Code AS Code, 
+       ESGOZRegionGroup.Description AS Description
+FROM ESGOZRegionGroup AS ESGOZRegionGroup 
+ORDER BY ESGOZRegionGroup.Code
+]]></SQL>
+  <SQLforPaging><![CDATA[]]></SQLforPaging>
+  <Table>ESGOZRegionGroup</Table>
+  <Params />
+</ESPublicQuery>

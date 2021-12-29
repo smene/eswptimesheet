@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<ESPublicQuery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SQL><![CDATA[SELECT ES00Documents.GID AS fDocumentGID, 
+       ES00Documents.Title AS Title, 
+       ES00Documents.Caption AS Caption, 
+       ES00Documents.FType AS FType
+FROM ES00DocsLocation() AS ES00Documents 
+WHERE (ESEqual(ES00Documents.fGID, @fGID))
+      
+]]></SQL>
+  <SQLforPaging><![CDATA[]]></SQLforPaging>
+  <Table>ES00Documents</Table>
+  <Params>
+    <Param>
+      <ID>fGID</ID>
+      <Type>System.Guid, mscorlib</Type>
+      <ODSTag>95BC5E8F-6980-432C-9721-B401761F471C</ODSTag>
+    </Param>
+  </Params>
+</ESPublicQuery>

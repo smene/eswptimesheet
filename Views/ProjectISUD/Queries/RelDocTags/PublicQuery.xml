@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<ESPublicQuery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SQL><![CDATA[SELECT ES00ZDocumentCategory.Code AS Code, 
+       ES00ZDocumentCategory.Description AS Description
+FROM ES00ZDocumentCategory AS ES00ZDocumentCategory 
+WHERE (ES00ZDocumentCategory.Inactive = 0)
+      
+]]></SQL>
+  <SQLforPaging><![CDATA[]]></SQLforPaging>
+  <Table>ES00ZDocumentCategory</Table>
+  <Params />
+</ESPublicQuery>

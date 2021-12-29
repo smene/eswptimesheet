@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<ESPublicQuery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SQL><![CDATA[SELECT DTInv.GID AS InvoiceGID, 
+       DTInv.ADCode AS InvCode, 
+       DTInv.ADRegistrationDate AS InvDate, 
+       DTInv.NetValue AS InvNetValue, 
+       ESFIDocumentTrade.GID AS OrderGID, 
+       ESFIDocumentTrade.ADCode AS OrderCode, 
+       ESFIDocumentTrade.ADRegistrationDate AS OrderDate, 
+       ESFIDocumentTrade.NetValue AS OrderNetValue, 
+       ##(ESFICALYEARBASECURRENCYSYMBOL) AS Currency
+FROM ESFIDocumentTrade AS DTInv 
+     INNER JOIN ESFILineRelatedDocument AS ESFILineRelatedDocument
+       ON DTInv.GID = ESFILineRelatedDocument.fDocumentGID 
+     INNER JOIN ESFIDocumentTrade AS ESFIDocumentTrade
+       ON ESFILineRelatedDocument.fRefDocGID = ESFIDocumentTrade.GID 
+WHERE (ESEqual(DTInv.GID, @InvoiceGID))
+      
+]]></SQL>
+  <SQLforPaging><![CDATA[]]></SQLforPaging>
+  <Table>ESFIDocumentTrade</Table>
+  <Params>
+    <Param>
+      <ID>InvoiceGID</ID>
+      <Type>System.Guid, mscorlib</Type>
+      <ODSTag>A233B4F7-E186-4060-B47C-B5E65159DEE0</ODSTag>
+    </Param>
+  </Params>
+</ESPublicQuery>

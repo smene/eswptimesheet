@@ -1,0 +1,463 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataSetCommand RootNodeType="Entersoft.Framework.Windows.CustomCommands.DataSetCommand, ESCtxCmds" Version="2" CGID="b054284d-53d9-458c-855a-985c480afe75" HasMenuEntry="False" FormMode="NONE">
+  <ParamsNode CGID="d0b331c4-f95c-40bc-a459-239496d7f684" ControlsWidth="200">
+    <ShowConditions CGID="f45de93d-eea3-4f8e-91ac-5f8d31287d09" />
+    <CheckConditions CGID="9ce01cdb-b89a-414c-b175-c4ff1672188d" />
+    <Param ID="Grouping" CaptionID="cf99aec4-a7f0-4aab-b443-710571a0cff4" MultiSelect="False" />
+    <ParamFile Filename="CommandParams.xml">
+      <Filter ID="CommandParams" Caption="" CaptionID="a381cba8-8b26-4357-bf41-46840c276171" Version="1" FilterType="-1" AutoExecInterval="0" DrillDown="False" DrillColName="" LoadAllData="False" ShowAllCategory="False">
+        <Params>
+          <Param ID="Grouping" AA="1" AddedByUser="True">
+            <Caption>Grouping</Caption>
+            <CaptionID>cf99aec4-a7f0-4aab-b443-710571a0cff4</CaptionID>
+            <Tooltip>
+            </Tooltip>
+            <MultiValued>True</MultiValued>
+            <DefaultValue />
+            <ControlType>ctInteger</ControlType>
+            <ParameterType>System.Int32, mscorlib</ParameterType>
+            <Visible>True</Visible>
+            <Visibility>Always</Visibility>
+            <Required>False</Required>
+            <Precision>3</Precision>
+            <ODSTag>
+            </ODSTag>
+            <Tags>
+            </Tags>
+          </Param>
+        </Params>
+        <ESReports />
+        <Translations>
+          <ESCaptionsDS xmlns="http://tempuri.org/ESCaptionsDS.xsd">
+            <Captions>
+              <ID>fce21c52-64cf-4094-a670-ab0be50d3dd6</ID>
+              <Suffix>C</Suffix>
+              <LangID>el</LangID>
+              <Caption>fDocumentTypeGID</Caption>
+            </Captions>
+            <Captions>
+              <ID>8bc88ee0-0b0c-4f7a-8e35-5d9bb5a35c11</ID>
+              <Suffix>C</Suffix>
+              <LangID>el</LangID>
+              <Caption>fDocumentSeriesGID</Caption>
+            </Captions>
+            <Captions>
+              <ID>db1b37e4-4355-4d68-b488-0ea20de9e33f</ID>
+              <Suffix>C</Suffix>
+              <LangID>el</LangID>
+              <Caption>MinDate</Caption>
+            </Captions>
+            <Captions>
+              <ID>a6d9c3e1-fadb-4d09-bbdb-e0720e1043a4</ID>
+              <Suffix>C</Suffix>
+              <LangID>el</LangID>
+              <Caption>MaxDate</Caption>
+            </Captions>
+            <Captions>
+              <ID>cf99aec4-a7f0-4aab-b443-710571a0cff4</ID>
+              <Suffix>C</Suffix>
+              <LangID>el</LangID>
+              <Caption>Grouping</Caption>
+            </Captions>
+          </ESCaptionsDS>
+        </Translations>
+      </Filter>
+    </ParamFile>
+  </ParamsNode>
+  <Profiles CGID="9d17a2fd-092f-4528-a0ba-e0f0d628d892">
+    <Profile CGID="80f3ed8d-aa00-4f0c-a63d-6f0e1b59b704">
+      <SourceDataSet />
+      <TargetEntity EntityID="ESFIDocumentTrade_SalesQV_DEF" />
+      <SaveExpression CGID="d6e3f04a-7f30-48f5-b257-0d499904e7af">
+        <Supplier>
+          <EnumValue Type="Entersoft.Framework.Platform.Helper.SaveEnum, ESEntity" Value="SAVE_AND_ACTIONS" />
+        </Supplier>
+      </SaveExpression>
+      <RootRule CGID="6c80ae14-7825-4e13-837f-6d455e4436bb" Source="TimesheetsToBeInvoiced" Target="ESFIDocumentTrade">
+        <ExecuteSimpleConditions CGID="61221600-a1a1-4359-b684-4c37b1bcce9f" />
+        <Variables CGID="00bc06b0-d0c1-4ed2-9509-f75d78b77233" />
+        <Rules CGID="c5a9c989-028c-4820-9731-fef8d7864862">
+          <Rule CGID="fff3db26-9902-46ea-97cc-6cb9b9fe0e76" Target="FK_ESFILineItem_ESFIDocumentTrade">
+            <ExecuteSimpleConditions CGID="54dee86e-ae25-42fc-91b7-c7e160d10e16" />
+            <Variables CGID="9537b0f5-a02e-4eea-8b4b-218d0b34c092" />
+            <Rules CGID="2372f4be-6774-467f-8854-ad79fdfcb4cd" />
+            <Conditions CGID="5ae3b4d4-2504-45b5-a0bc-493075cf944b" />
+            <Assignments CGID="88e95bc4-248a-4874-8ba7-20319e60553f">
+              <Assign CGID="46dda146-0809-4d64-be73-f1ebbba039fc" Column="LineType">
+                <Supplier>
+                  <EnumValue Type="Entersoft.Framework.Platform.ESFILineItem_LineType_LineType, ESSessionCtx" Value="Normal" />
+                </Supplier>
+                <Conditions CGID="0c18aad1-1fd7-46d8-9f48-3999a7dc90b9" />
+              </Assign>
+              <Assign CGID="aa5a54cb-0e84-4aea-9b46-fa2b82f84345" Column="fItemGID">
+                <Supplier>
+                  <SourceValue>fItemGID</SourceValue>
+                </Supplier>
+                <Conditions CGID="8d14b738-b2b1-4fa2-95ad-d8c5ede0d26e" />
+              </Assign>
+              <Assign CGID="851fcba7-e58a-49c2-80ff-9df01716ef6b" Column="Quantity">
+                <Supplier>
+                  <SourceValue>ChargeableHours</SourceValue>
+                </Supplier>
+                <Conditions CGID="4d2a9b1f-2ff2-4c18-bb76-bb1bede6e2a8" />
+              </Assign>
+              <Assign CGID="01989119-00ec-42d4-971e-623bd7160df5" Column="Reasoning">
+                <Supplier>
+                  <SourceValue>TimesheetCode</SourceValue>
+                </Supplier>
+                <Conditions CGID="f0364546-2379-4401-b4ac-52ea72cf99f5" />
+              </Assign>
+              <Assign CGID="08f69e46-7d58-4052-a769-a5ae13ff9994" Column="fProjectGID">
+                <Supplier>
+                  <SourceValue>fProjectGID</SourceValue>
+                </Supplier>
+                <Conditions CGID="b9c7ff7d-3c12-448b-af97-d08dd5f30474">
+                  <Condition CGID="2ef7bb15-579c-4eca-9ee3-e40f7f6e261e" StandardCast="GreaterThanZero">
+                    <Supplier>
+                      <CommandParamValue>Grouping</CommandParamValue>
+                    </Supplier>
+                    <FormatParams CGID="d264cad2-624d-4ba3-9ea3-478f3babe84f" />
+                  </Condition>
+                </Conditions>
+              </Assign>
+              <Assign CGID="ef1db344-8782-4665-a8e8-b0d10dd866fa" Column="fTaskGID">
+                <Supplier>
+                  <SourceValue>fTaskGID</SourceValue>
+                </Supplier>
+                <Conditions CGID="10c85e0d-1c21-4056-aba2-c6a0e6b771ae" />
+              </Assign>
+              <Assign CGID="45a71abc-27ca-4808-9cfa-0c79e25e3831" Column="fTaskItemGID">
+                <Supplier>
+                  <SourceValue>fTimesheetLineGID</SourceValue>
+                </Supplier>
+                <Conditions CGID="77fc03a7-db32-4a70-832f-d66894b73d0e" />
+              </Assign>
+            </Assignments>
+            <OrderByNodes CGID="2ba13cc4-1c8e-4c03-a087-956f145cecf9" />
+            <GroupByNodes CGID="b7ab6e66-a388-40b1-99a3-d9ed202e8435">
+              <GroupAtMostEntries CGID="00da1370-284e-4891-8175-ff11015fa726">
+                <Supplier>
+                  <ConstantValue>0</ConstantValue>
+                </Supplier>
+              </GroupAtMostEntries>
+            </GroupByNodes>
+            <MultiplyByNodes CGID="c05f800a-4a64-483e-b032-9f0ac67374de" />
+            <RowActions CGID="bd9c46d7-2293-4d04-b544-d8ed4c075768" />
+          </Rule>
+        </Rules>
+        <Conditions CGID="c7dd204a-ff80-4972-bd42-31ac484f5f8c" />
+        <Assignments CGID="c5ce3ac2-9024-4de4-af9c-bec37659820c">
+          <Assign CGID="808e535a-983b-4680-8e34-bac25532884c" Column="fADDocumentTypeGID">
+            <Supplier>
+              <MultiplierValue>PreInvoiceDocSeries.fProFormaInvoiceServiceDocTypeGID</MultiplierValue>
+            </Supplier>
+            <Conditions CGID="60bab5d4-6330-4389-be5d-7666be2f97fe" />
+          </Assign>
+          <Assign CGID="c01d8237-0210-424f-b609-fb9d78ed1980" Column="fADDocumentSeriesGID">
+            <Supplier>
+              <MultiplierValue>PreInvoiceDocSeries.fProFormaInvoiceServiceDocSeriesGID</MultiplierValue>
+            </Supplier>
+            <Conditions CGID="4b9d6d65-7897-4e76-86ec-e96a0b5a9923" />
+          </Assign>
+          <Assign CGID="26f82fb1-57af-44b6-9cbd-b0b85d6986da" Column="fTradeAccountGID">
+            <Supplier>
+              <SourceValue>fTradeAccountGID</SourceValue>
+            </Supplier>
+            <Conditions CGID="acf4afab-0809-474d-9031-74afdf250085" />
+          </Assign>
+          <Assign CGID="fa7a14b6-63ba-4f88-9c79-7b513955ee2e" Column="fADProjectGID">
+            <Supplier>
+              <SourceValue>GroupingField</SourceValue>
+            </Supplier>
+            <Conditions CGID="e3c7d554-0616-4e85-b70c-f1a1be4bd5cd">
+              <Condition CGID="192dcbe0-6cab-41b5-aeff-813ec660a423" StandardCast="EqualToZero">
+                <Supplier>
+                  <CommandParamValue>Grouping</CommandParamValue>
+                </Supplier>
+                <FormatParams CGID="adca1018-7646-4226-a87f-407c5a87a2e7" />
+              </Condition>
+            </Conditions>
+          </Assign>
+          <Assign CGID="6f19e9a4-6d69-4f49-9316-60763fb20d88" Column="fTradeAccountContractGID">
+            <Supplier>
+              <SourceValue>GroupingField</SourceValue>
+            </Supplier>
+            <Conditions CGID="375b8cc9-2bad-4cb4-8d0c-20719fea3fd7">
+              <Condition CGID="5edf0849-53ca-47d3-bd30-9c7cb322c0c8">
+                <Supplier CGID="2821a608-15fe-49e2-b032-f1da2cd68ee5">
+                  <Param CGID="36db1d57-9fae-4df3-846e-6bf7ff3273f1" ParamName="$Grouping">
+                    <Supplier>
+                      <CommandParamValue>Grouping</CommandParamValue>
+                    </Supplier>
+                  </Param>
+                  <ExpressionValue>safeSTR($Grouping)="2"</ExpressionValue>
+                </Supplier>
+                <FormatParams CGID="c3c280a3-71f2-40ba-b419-24e1374a4c81" />
+              </Condition>
+            </Conditions>
+          </Assign>
+          <Assign CGID="11d7c775-5c30-4cc7-8bf2-2c2be99cfb3a" Inactive="True" Column="fPriceListGID">
+            <Supplier>
+              <SourceValue>fContractPriceListGID</SourceValue>
+            </Supplier>
+            <Conditions CGID="db98f6d1-0ce5-4e1d-bc37-63c7dff01ff6">
+              <Condition CGID="359d8bee-dbda-4527-ad6d-cfff591564cd">
+                <Supplier CGID="7692a63a-188c-4dff-9d32-025ad4fa3fae">
+                  <Param CGID="d44ce7fa-c0de-4fd9-9270-d0407e744068" ParamName="$Grouping">
+                    <Supplier>
+                      <CommandParamValue>Grouping</CommandParamValue>
+                    </Supplier>
+                  </Param>
+                  <ExpressionValue>safeSTR($Grouping)="2"</ExpressionValue>
+                </Supplier>
+                <FormatParams CGID="1ddcb85e-92db-47f3-9e1e-fd186b8ea2aa" />
+              </Condition>
+              <Condition CGID="b0f9a5d6-33c9-403f-9ac1-4d3d90b04edd" StandardCast="IsNotNull">
+                <Supplier>
+                  <SourceValue>fContractPriceListGID</SourceValue>
+                </Supplier>
+                <FormatParams CGID="f9bf9837-e27a-43a5-8fea-6a051eba1747" />
+              </Condition>
+            </Conditions>
+          </Assign>
+        </Assignments>
+        <OrderByNodes CGID="0345dd3a-189e-414f-bd5e-d9776337c87d" />
+        <GroupByNodes CGID="326f20db-571e-4eb6-b7f5-1c17f5851e65">
+          <GroupBy CGID="78fafa63-161b-4c4a-8247-6edc3c3f5cf9">
+            <Supplier>
+              <SourceValue>GroupingField</SourceValue>
+            </Supplier>
+          </GroupBy>
+          <GroupBy CGID="70a47aea-7bd6-490d-9a68-4b72782caed9">
+            <Supplier>
+              <SourceValue>fTradeAccountGID</SourceValue>
+            </Supplier>
+          </GroupBy>
+          <GroupAtMostEntries CGID="531f919b-c10b-488c-a9bd-db6e6a671e04">
+            <Supplier>
+              <ConstantValue>0</ConstantValue>
+            </Supplier>
+          </GroupAtMostEntries>
+        </GroupByNodes>
+        <MultiplyByNodes CGID="771c0fd0-6f47-416e-bbd2-be7f47c554eb">
+          <MultiplyBy CGID="0cf41c9c-bf0a-4ae3-8d2f-9e6a0ce0dd08" MultiplyID="PreInvoiceDocSeries">
+            <Supplier CGID="66f6c4f8-2e1c-45ba-b749-6ad09537f953">
+              <SQLSelectValue SQLCached="True">SELECT
+  SP.fProFormaInvoiceServiceDocTypeGID,
+  SP.fProFormaInvoiceServiceDocSeriesGID
+FROM ESGOServiceProfile SP
+INNER JOIN (SELECT
+  US.fServiceProfileGID
+FROM ESGOUserSite US
+WHERE US.fUserGID = ##(ESUSERGID)
+AND US.fCompanySiteGID = ##(ESBranchGID)) USP
+  ON USP.fServiceProfileGID = SP.GID</SQLSelectValue>
+            </Supplier>
+          </MultiplyBy>
+        </MultiplyByNodes>
+        <RowActions CGID="98432050-60a8-47ea-827b-d40b84c0448f" />
+      </RootRule>
+      <MapExceptions CGID="df115619-3dd6-4468-8a73-b3565698a123" />
+      <LoginCredentials CGID="a0a66fbf-dbb4-412a-9482-57b523f703d9" />
+      <ShowFormConditions CGID="7bc678d3-34f0-4fb3-809c-6edea16f6447" />
+    </Profile>
+    <Profile CGID="1b403c34-f820-4239-8dc8-822364724423">
+      <SourceDataSet />
+      <TargetEntity EntityID="ESTMServiceRequest_TimeSheet_DEF" />
+      <SaveExpression CGID="7ec688f8-ac4e-4073-ba53-a6272a2dec90">
+        <Supplier>
+          <EnumValue Type="Entersoft.Framework.Platform.Helper.SaveEnum, ESEntity" Value="SAVE_AND_ACTIONS" />
+        </Supplier>
+      </SaveExpression>
+      <RootRule CGID="8ffb28ba-f3ce-4085-8eea-0743cb2396e2" Source="TimesheetsToBeInvoiced" Target="ESTMTask" TargetKey="GID">
+        <ExecuteSimpleConditions CGID="c8f7826b-4ab7-4e41-be4f-6069e35fcb71" />
+        <Variables CGID="dc3cd3e4-75d8-4462-ba63-10d3c60b22a4" />
+        <Rules CGID="a8848a73-6619-4e8a-93b8-ca9e4e295558">
+          <Rule CGID="51b4d1c9-0282-4153-b64e-bb1b94e6325f" Target="FK_ESTMTaskItem_ESTMTask" TargetKey="GID">
+            <ExecuteSimpleConditions CGID="6e673349-3327-43b8-88c4-3e18e06b24de" />
+            <Variables CGID="8b896fed-4670-464e-93f8-ee4e46b05f6f" />
+            <Rules CGID="2ee36ae5-658e-4a26-9d1c-89fd2cbcd984" />
+            <Conditions CGID="a99d7ecf-4f91-4dfc-a66e-b8d46b67d386" />
+            <Assignments CGID="638a9878-f21f-4d42-9c66-b0c45a9458d8">
+              <Assign CGID="fd734d3c-ef5d-4f49-a76f-f15cbc853f56" Column="GID">
+                <Supplier>
+                  <SourceValue>fTimesheetLineGID</SourceValue>
+                </Supplier>
+                <Conditions CGID="fc55f7ea-278b-4b3e-a3d3-26fc2aa77e33" />
+              </Assign>
+              <Assign CGID="03f26d35-4a87-44ea-9665-5f3615cdc002" Column="fCategoryValue3GID">
+                <Supplier CGID="d15b2437-b977-4a49-b314-2c785ba73fe2">
+                  <SQLSelectValue SQLCached="True">SELECT
+  TCV.GID
+FROM ESTMTaskCategoryValue TCV
+WHERE fTaskCategoryGID = (SELECT
+  GID
+FROM ESTMTaskCategory
+WHERE code = 'TimeSheet_State')
+AND TCV.InternationalID = 'ES.TSState_Invoiced'</SQLSelectValue>
+                </Supplier>
+                <Conditions CGID="6a95da98-f16f-414c-a86a-2a149a45dc01" />
+              </Assign>
+            </Assignments>
+            <OrderByNodes CGID="fcc1699f-f9c7-4309-9ee1-d9bbc7f557b4" />
+            <GroupByNodes CGID="c4dd7cca-5496-401a-92f5-f3938a2f0afc">
+              <GroupAtMostEntries CGID="5576ef00-86fa-43b8-948f-377e5b881b50">
+                <Supplier>
+                  <ConstantValue>0</ConstantValue>
+                </Supplier>
+              </GroupAtMostEntries>
+            </GroupByNodes>
+            <MultiplyByNodes CGID="3183beb0-836f-4d81-a27a-96a69c0b827d" />
+            <RowActions CGID="a86b2901-5483-451e-a881-344510dc6b1f" />
+          </Rule>
+        </Rules>
+        <Conditions CGID="97464f81-ca7e-4668-bedc-a296661965d7" />
+        <Assignments CGID="6a8e1bc0-9f7f-4376-b0d2-00d406eb0748">
+          <Assign CGID="d9e58146-81e0-4bbf-9c3c-7452ab28d547" Column="GID">
+            <Supplier>
+              <SourceValue>fTaskGID</SourceValue>
+            </Supplier>
+            <Conditions CGID="405a36db-4274-4cca-aafe-d1a45dc4ef5b" />
+          </Assign>
+        </Assignments>
+        <OrderByNodes CGID="59536105-9661-45fd-8f9e-d4767edbf0bb" />
+        <GroupByNodes CGID="947b427b-03ff-4b23-bdd6-ea9d8a75445b">
+          <GroupBy CGID="b670a1b9-9d22-4c84-b96f-6833e2559dd9">
+            <Supplier>
+              <SourceValue>fTaskGID</SourceValue>
+            </Supplier>
+          </GroupBy>
+          <GroupAtMostEntries CGID="70d0dc36-7c35-44dc-bcad-b0ee8aebb24d">
+            <Supplier>
+              <ConstantValue>0</ConstantValue>
+            </Supplier>
+          </GroupAtMostEntries>
+        </GroupByNodes>
+        <MultiplyByNodes CGID="1215c470-728f-40fb-bf29-cd0addea0d4f" />
+        <RowActions CGID="9ad27bd4-66a2-41ad-ac4f-36882c308bec" />
+      </RootRule>
+      <MapExceptions CGID="627386fe-4889-45a5-a375-32c347f03176" />
+      <LoginCredentials CGID="ff28d2e7-5d0f-45ed-a2b4-19be6d881912" />
+      <ShowFormConditions CGID="ed550cf9-86ee-4cd0-b499-642bc2b15c31" />
+    </Profile>
+  </Profiles>
+  <ExecuteConditions CGID="b493d10d-9358-402d-a841-3ff062b89daa" />
+  <ShowSimpleConditions CGID="b4415d2a-8938-4f04-b634-e35df76a587e" />
+  <ExecuteMessageConditions CGID="219ef3f9-c862-4093-8289-28fcf3187ae2" />
+  <ValidityConditions CGID="81eda683-d9a1-4cc7-9323-996ffa9ba9f6">
+    <SimpleCondition CGID="f08a7ec4-7ad1-4d76-9c28-159a08bf64db" StandardCast="IsNotNull">
+      <Supplier CGID="aff012c4-690f-495d-8b82-f81460639564">
+        <ExpressionValue>1=1</ExpressionValue>
+      </Supplier>
+    </SimpleCondition>
+    <SimpleCondition CGID="89041187-871b-4543-bc6f-9913fd3c6ce9" StandardCast="IsNotNull">
+      <Supplier CGID="f222b91d-5ec1-49bf-8a69-792389d7a270">
+        <ExpressionValue>1=1</ExpressionValue>
+      </Supplier>
+    </SimpleCondition>
+  </ValidityConditions>
+  <UserGroups>
+  </UserGroups>
+  <CommandAvailability />
+  <SourceDataSet />
+  <Translations>
+    <ESCaptionsDS xmlns="http://tempuri.org/ESCaptionsDS.xsd">
+  <Captions>
+    <ID>fce21c52-64cf-4094-a670-ab0be50d3dd6</ID>
+    <Suffix>C</Suffix>
+    <LangID>el</LangID>
+    <Caption>fDocumentTypeGID</Caption>
+  </Captions>
+  <Captions>
+    <ID>8bc88ee0-0b0c-4f7a-8e35-5d9bb5a35c11</ID>
+    <Suffix>C</Suffix>
+    <LangID>el</LangID>
+    <Caption>fDocumentSeriesGID</Caption>
+  </Captions>
+  <Captions>
+    <ID>db1b37e4-4355-4d68-b488-0ea20de9e33f</ID>
+    <Suffix>C</Suffix>
+    <LangID>el</LangID>
+    <Caption>MinDate</Caption>
+  </Captions>
+  <Captions>
+    <ID>a6d9c3e1-fadb-4d09-bbdb-e0720e1043a4</ID>
+    <Suffix>C</Suffix>
+    <LangID>el</LangID>
+    <Caption>MaxDate</Caption>
+  </Captions>
+  <Captions>
+    <ID>b054284d-53d9-458c-855a-985c480afe75</ID>
+    <Suffix>Caption</Suffix>
+    <LangID>el</LangID>
+    <Caption>Pre-Invoice timesheet lines</Caption>
+  </Captions>
+  <Captions>
+    <ID>f08a7ec4-7ad1-4d76-9c28-159a08bf64db</ID>
+    <Suffix>Title</Suffix>
+    <LangID>el</LangID>
+    <Caption>Δεν έχει οριστεί  προφίλ υπηρεσιών ή τύπος παραστατικού τιμολόγησης υπηρεσιών.</Caption>
+  </Captions>
+  <Captions>
+    <ID>89041187-871b-4543-bc6f-9913fd3c6ce9</ID>
+    <Suffix>Title</Suffix>
+    <LangID>el</LangID>
+    <Caption>Δεν έχει οριστεί  προφίλ υπηρεσιών ή σειρά τύπου παραστατικού τιμολόγησης υπηρεσιών.</Caption>
+  </Captions>
+  <Captions>
+    <ID>80f3ed8d-aa00-4f0c-a63d-6f0e1b59b704</ID>
+    <Suffix>Title</Suffix>
+    <LangID>el</LangID>
+    <Caption>Create one doc per grouping</Caption>
+  </Captions>
+  <Captions>
+    <ID>531f919b-c10b-488c-a9bd-db6e6a671e04</ID>
+    <Suffix>Title</Suffix>
+    <LangID>el</LangID>
+    <Caption>Maximum Entries</Caption>
+  </Captions>
+  <Captions>
+    <ID>fff3db26-9902-46ea-97cc-6cb9b9fe0e76</ID>
+    <Suffix>Title</Suffix>
+    <LangID>el</LangID>
+    <Caption>Generate line items - grouping by item</Caption>
+  </Captions>
+  <Captions>
+    <ID>00da1370-284e-4891-8175-ff11015fa726</ID>
+    <Suffix>Title</Suffix>
+    <LangID>el</LangID>
+    <Caption>Maximum Entries</Caption>
+  </Captions>
+  <Captions>
+    <ID>cf99aec4-a7f0-4aab-b443-710571a0cff4</ID>
+    <Suffix>C</Suffix>
+    <LangID>el</LangID>
+    <Caption>Grouping</Caption>
+  </Captions>
+  <Captions>
+    <ID>1b403c34-f820-4239-8dc8-822364724423</ID>
+    <Suffix>Title</Suffix>
+    <LangID>el</LangID>
+    <Caption>Update timesheet line state</Caption>
+  </Captions>
+  <Captions>
+    <ID>70d0dc36-7c35-44dc-bcad-b0ee8aebb24d</ID>
+    <Suffix>Title</Suffix>
+    <LangID>el</LangID>
+    <Caption>Maximum Entries</Caption>
+  </Captions>
+  <Captions>
+    <ID>51b4d1c9-0282-4153-b64e-bb1b94e6325f</ID>
+    <Suffix>Title</Suffix>
+    <LangID>el</LangID>
+    <Caption>Set timesheet line state = preinvoiced</Caption>
+  </Captions>
+  <Captions>
+    <ID>5576ef00-86fa-43b8-948f-377e5b881b50</ID>
+    <Suffix>Title</Suffix>
+    <LangID>el</LangID>
+    <Caption>Maximum Entries</Caption>
+  </Captions>
+</ESCaptionsDS>
+  </Translations>
+</DataSetCommand>

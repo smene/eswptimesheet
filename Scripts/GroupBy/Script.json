@@ -1,0 +1,20 @@
+{
+  "args": [
+    {
+      "name": "dataprovider"
+    },
+    {
+      "name": "keyField"
+    },
+    {
+      "name": "topField"
+    },
+    {
+      "name": "metrics"
+    },
+    {
+      "name": "topN"
+    }
+  ],
+  "id": "GroupBy"
+}

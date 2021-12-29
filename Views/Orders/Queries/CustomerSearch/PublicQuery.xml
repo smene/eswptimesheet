@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<ESPublicQuery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SQL><![CDATA[Select  ESTopN(@TopN) GID,Code,Name
+from ESFITradeAccount TA 
+where TA.fCompanyCode=##(ESCOMPANY)
+and ESEqual(Name,@CTRLVal)
+Order By TA.Name
+
+]]></SQL>
+  <SQLforPaging><![CDATA[]]></SQLforPaging>
+  <Table>ESTMTask</Table>
+  <Params>
+    <Param>
+      <ID>TopN</ID>
+      <Type>System.Int32, mscorlib</Type>
+    </Param>
+  </Params>
+</ESPublicQuery>

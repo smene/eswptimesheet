@@ -1,0 +1,392 @@
+{
+  "@btn_Map": {
+    "dsgnInfo": {
+      "visible": null
+    }
+  },
+  "@btn_Map_visible": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "btn_Map"
+    }
+  },
+  "@btn_Map_visible1": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "btn_Map"
+    }
+  },
+  "@capActivity_caption": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "capActivity"
+    }
+  },
+  "@capBuBa_caption": {
+    "dsgn": {
+      "owner": "capBuBa"
+    }
+  },
+  "@capBuBa_caption_BA": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "capBuBa_caption"
+    }
+  },
+  "@capBuBa_caption_BU": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "capBuBa_caption"
+    }
+  },
+  "@capBuBa_caption_Sep": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "capBuBa_caption"
+    }
+  },
+  "@capBuBa_visible": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "capBuBa"
+    }
+  },
+  "@capChargeableHours": {
+    "dsgnInfo": {
+      "us_height": 24,
+      "us_width": 300
+    }
+  },
+  "@capChargeableHoursValue": {
+    "dsgnInfo": {
+      "caption": null,
+      "us_height": 36,
+      "us_width": 300
+    }
+  },
+  "@capCustomerInfo_caption": {
+    "dsgn": {
+      "owner": "capCustomerInfo"
+    }
+  },
+  "@capRepInfo": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@capRepInfo_caption": {
+    "dsgn": {
+      "owner": "capRepInfo"
+    }
+  },
+  "@capRepInfo_caption_WorkingHours": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "capRepInfo_caption"
+    }
+  },
+  "@capRepInfo_captionIcon": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "capRepInfo"
+    }
+  },
+  "@capSalesPerson_caption": {
+    "dsgn": {
+      "owner": "capSalesPerson"
+    }
+  },
+  "@capSalesPerson_caption_Code": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "capSalesPerson_caption"
+    }
+  },
+  "@capSalesPerson_caption_Name": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "capSalesPerson_caption"
+    }
+  },
+  "@capStateIcon_captionColor": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "capStateIcon"
+    }
+  },
+  "@capStateIcon_captionIcon": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "capStateIcon"
+    }
+  },
+  "@capTurnover": {
+    "dsgnInfo": {
+      "us_height": 24,
+      "us_width": 300
+    }
+  },
+  "@capTurnoverValue": {
+    "dsgnInfo": {
+      "caption": null,
+      "us_height": 36,
+      "us_width": 300
+    }
+  },
+  "@capTurnoverValue_caption": {
+    "dsgn": {
+      "owner": "capTurnoverValue"
+    }
+  },
+  "@capWorkingHours": {
+    "dsgnInfo": {
+      "us_height": 24,
+      "us_width": 300
+    }
+  },
+  "@capWorkingHoursValue": {
+    "dsgnInfo": {
+      "caption": null,
+      "us_height": 36,
+      "us_width": 300
+    }
+  },
+  "@capWorkPlaceValue": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@cd/properties/data/initialValue": {
+    "dsgn": {
+      "Columns": [
+        {
+          "Caption": null,
+          "Kind": "String",
+          "Name": "value"
+        },
+        {
+          "Caption": null,
+          "Kind": "String",
+          "Name": "displayText"
+        },
+        {
+          "Caption": null,
+          "Kind": "Integer",
+          "Name": "intValue"
+        }
+      ]
+    }
+  },
+  "@Drawer": {
+    "dsgnInfo": {
+      "us_height": 905,
+      "us_width": 36
+    }
+  },
+  "@EnumTradeAccountType": {
+    "dsgn": {
+      "EnumType": "Entersoft.ERP.Financials.Enums.TradeAccountType, ESFIEnums"
+    }
+  },
+  "@EnumTradeAccountType/properties/data/initialValue": {
+    "dsgn": {
+      "Columns": [
+        {
+          "Caption": null,
+          "Kind": "Integer",
+          "Name": "value"
+        },
+        {
+          "Caption": null,
+          "Kind": "",
+          "Name": "name"
+        },
+        {
+          "Caption": null,
+          "Kind": "",
+          "Name": "displayText"
+        }
+      ]
+    }
+  },
+  "@grdx_CustomerList": {
+    "dsgnInfo": {
+      "maxSampleData": "6",
+      "minSampleData": "1"
+    }
+  },
+  "@LnrP_KPIs": {
+    "dsgnInfo": {
+      "sizesMetric": "empty"
+    }
+  },
+  "@Map_Template": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pageItems": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pChargeableHours": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null,
+      "us_height": 71.1875,
+      "us_width": 300
+    }
+  },
+  "@pCustomer": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pCustomerContactInfo": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pCustomerDimensions": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pCustomerInfo": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pCustomerPhoto": {
+    "dsgnInfo": {
+      "sizesMetric": "auto"
+    }
+  },
+  "@pKpi": {
+    "dsgnInfo": {
+      "sizesMetric": "empty"
+    }
+  },
+  "@pnlBillHrs": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pnlGrid": {
+    "dsgnInfo": {
+      "sizesMetric": "empty",
+      "sizesVal": null,
+      "us_height": 905,
+      "us_width": 1252.078125
+    }
+  },
+  "@pnlKPIs": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pnlWorkingHours": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pnlWorkplace": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pnlWorkplace_DateParam": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pnlWorkplace_Timesheets": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pParamFields": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pParams": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null,
+      "us_height": 748,
+      "us_width": 38
+    }
+  },
+  "@pTurnover": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null,
+      "us_height": 71.1875,
+      "us_width": 300
+    }
+  },
+  "@pTurnoverSymbol": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pValues": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pWorkingHours": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null,
+      "us_height": 71.1875,
+      "us_width": 300
+    }
+  },
+  "@Site_Adress": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@Site_City": {
+    "dsgnInfo": {
+      "caption": "scope."
+    }
+  },
+  "@Site_PostalCode": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@timesheet_grid": {
+    "dsgnInfo": {
+      "maxSampleData": "10",
+      "minSampleData": "1",
+      "us_height": 892,
+      "us_width": 653.171875
+    }
+  },
+  "@TimesheetLinesFilteredByState_Linestate_InterID": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "TimesheetLinesFilteredByState"
+    }
+  }
+}

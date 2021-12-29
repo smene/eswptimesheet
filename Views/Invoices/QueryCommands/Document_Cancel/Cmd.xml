@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataSetCommand RootNodeType="Entersoft.Framework.Windows.CustomCommands.DataSetCommand, ESCtxCmds" Version="2" CGID="2120e6ed-b233-40cd-954e-18eb7cbe5096" HasMenuEntry="False" FormMode="NONE">
+  <ParamsNode CGID="9b3af355-2590-4624-abb5-9757e5a8b771" ControlsWidth="200">
+    <ShowConditions CGID="4792f390-5ee0-4d4e-966f-e459c39cb54d" />
+    <CheckConditions CGID="ad8fe66c-1df6-427b-ab79-64cf1a4ffc31" />
+    <Param ID="Reasoning" CaptionID="c857e21c-ac69-4d52-8555-80efc63a2130" MultiSelect="False" />
+    <Param ID="Date" CaptionID="46c84675-4adc-4678-830c-f03cde17eb32" MultiSelect="False" />
+    <Param ID="fSeriesGID" CaptionID="be5e1983-070b-41a1-a55f-5cc582af2a35" Visible="False" MultiSelect="False" />
+    <ParamFile Filename="CommandParams.xml">
+      <Filter ID="CommandParams" Caption="" CaptionID="734505e6-7c36-447b-8067-16221a645d23" Version="1" FilterType="-1" AutoExecInterval="0" DrillDown="False" DrillColName="" LoadAllData="False" ShowAllCategory="False">
+        <Params>
+          <Param ID="Reasoning" AA="1" AddedByUser="True">
+            <Caption>Reasoning</Caption>
+            <CaptionID>c857e21c-ac69-4d52-8555-80efc63a2130</CaptionID>
+            <Tooltip>
+            </Tooltip>
+            <MultiValued>True</MultiValued>
+            <DefaultValue />
+            <ControlType>ctString</ControlType>
+            <ParameterType>System.String, mscorlib</ParameterType>
+            <Visible>True</Visible>
+            <Visibility>Always</Visibility>
+            <Required>False</Required>
+            <Precision>3</Precision>
+            <ODSTag>
+            </ODSTag>
+            <Tags>
+            </Tags>
+          </Param>
+          <Param ID="Date" AA="2" AddedByUser="True">
+            <Caption>Date</Caption>
+            <CaptionID>46c84675-4adc-4678-830c-f03cde17eb32</CaptionID>
+            <Tooltip>
+            </Tooltip>
+            <MultiValued>True</MultiValued>
+            <DefaultValue />
+            <ControlType>ctDate</ControlType>
+            <ParameterType>System.DateTime, mscorlib</ParameterType>
+            <Visible>True</Visible>
+            <Visibility>Always</Visibility>
+            <Required>False</Required>
+            <Precision>3</Precision>
+            <ODSTag>
+            </ODSTag>
+            <Tags>
+            </Tags>
+          </Param>
+          <Param ID="fSeriesGID" AA="3" AddedByUser="True">
+            <Caption>fSeriesGID</Caption>
+            <CaptionID>be5e1983-070b-41a1-a55f-5cc582af2a35</CaptionID>
+            <Tooltip>
+            </Tooltip>
+            <MultiValued>True</MultiValued>
+            <DefaultValue />
+            <ControlType>ctGUID</ControlType>
+            <ParameterType>System.Guid, mscorlib</ParameterType>
+            <Visible>False</Visible>
+            <Visibility>Never</Visibility>
+            <Required>False</Required>
+            <Precision>3</Precision>
+            <ODSTag>
+            </ODSTag>
+            <Tags>
+            </Tags>
+          </Param>
+        </Params>
+        <ESReports />
+        <Translations>
+          <ESCaptionsDS xmlns="http://tempuri.org/ESCaptionsDS.xsd">
+            <Captions>
+              <ID>07a8bcfd-c366-451c-8138-5a519a037404</ID>
+              <Suffix>C</Suffix>
+              <LangID>el</LangID>
+              <Caption>fSeriesGID</Caption>
+            </Captions>
+            <Captions>
+              <ID>bee42380-bb72-42bd-a419-cfb2f01f66c5</ID>
+              <Suffix>C</Suffix>
+              <LangID>el</LangID>
+              <Caption>fDocumentGID</Caption>
+            </Captions>
+            <Captions>
+              <ID>c857e21c-ac69-4d52-8555-80efc63a2130</ID>
+              <Suffix>C</Suffix>
+              <LangID>el</LangID>
+              <Caption>Reasoning</Caption>
+            </Captions>
+            <Captions>
+              <ID>46c84675-4adc-4678-830c-f03cde17eb32</ID>
+              <Suffix>C</Suffix>
+              <LangID>el</LangID>
+              <Caption>Date</Caption>
+            </Captions>
+            <Captions>
+              <ID>be5e1983-070b-41a1-a55f-5cc582af2a35</ID>
+              <Suffix>C</Suffix>
+              <LangID>el</LangID>
+              <Caption>fSeriesGID</Caption>
+            </Captions>
+          </ESCaptionsDS>
+        </Translations>
+      </Filter>
+    </ParamFile>
+  </ParamsNode>
+  <Profiles CGID="63da457f-a049-4adb-8480-5849ca13c8cd">
+    <Profile CGID="271a6923-20be-4d53-96e3-33c5174a668e" Save="False">
+      <SourceDataSet />
+      <TargetEntity EntityID="ES00List" />
+      <SaveExpression CGID="3d844f04-fa73-4a46-918f-6cb9fb12fdc0">
+        <Supplier>
+          <EnumValue Type="Entersoft.Framework.Platform.Helper.SaveEnum, ESEntity" Value="SAVE_AND_ACTIONS" />
+        </Supplier>
+      </SaveExpression>
+      <RootRule CGID="37b3948d-0123-49ec-a13a-c7c52c8dee13" Source="Documents" Target="ES00List">
+        <ExecuteSimpleConditions CGID="785f0ed1-4ec7-4b0d-9741-a5725f3a8a08" />
+        <Variables CGID="5b1c4e16-ca9a-4c83-b11c-f274ee192d3d" />
+        <Rules CGID="2a83064d-97b0-4422-b42a-587134e26e3c" />
+        <Conditions CGID="fed4b3db-37b2-4f31-82a5-1ccc0477b942" />
+        <Assignments CGID="cdeef4f5-eae6-49c6-9061-b9978479dde7" />
+        <OrderByNodes CGID="0cb288a7-a214-442f-b032-6287dc13fa59" />
+        <GroupByNodes CGID="c2931d7f-de1a-412d-adf7-433e40f4ad7f">
+          <GroupAtMostEntries CGID="7a5a8602-9bc5-4103-9251-66a2b5a70eeb">
+            <Supplier>
+              <ConstantValue>0</ConstantValue>
+            </Supplier>
+          </GroupAtMostEntries>
+        </GroupByNodes>
+        <MultiplyByNodes CGID="1629b09c-378c-4975-9d3a-411ddbcc6708" />
+        <RowActions CGID="8f3481c9-3fac-4b1d-b99a-30b911de6ae7">
+          <RowAction CGID="1350c1ec-b2ec-43d1-9441-bead685da2a5" ExecLevel="Dataset" trigger="TargetOnPreSave">
+            <Conditions CGID="7f5a2468-ddb0-457f-b697-56ee4fbae3b7" />
+            <CommandRowAction Type="StaticMethodRowAction-CancelDocument" CGID="6341d560-479e-4e0c-af7a-61a99c30661a">
+              <Param CGID="2d7daae4-6453-47bc-8e04-a5155a6f54f4" ParamName="documentGID">
+                <Supplier>
+                  <SourceValue>fDocumentGID</SourceValue>
+                </Supplier>
+              </Param>
+              <Param CGID="f4ef40e4-9e31-4f8d-941a-33c42da36ac6" ParamName="seriesGID">
+                <Supplier>
+                  <CommandParamValue>fSeriesGID</CommandParamValue>
+                </Supplier>
+              </Param>
+              <Param CGID="41e6c18e-4212-4fc6-a050-c8027cc1dfd6" ParamName="registrationDate">
+                <Supplier>
+                  <CommandParamValue>Date</CommandParamValue>
+                </Supplier>
+              </Param>
+              <Param CGID="b15e0f64-6a2e-4196-9328-cbc849848b3b" ParamName="reasoning">
+                <Supplier>
+                  <CommandParamValue>Reasoning</CommandParamValue>
+                </Supplier>
+              </Param>
+              <MethodInfoType>Entersoft.ERP.Financials.DS.AllDocumentHeadersObj, ESFIDocumentsISUD</MethodInfoType>
+              <MethodInfoName>CancelDocument</MethodInfoName>
+            </CommandRowAction>
+          </RowAction>
+        </RowActions>
+      </RootRule>
+      <MapExceptions CGID="b11c8d76-569b-4736-a6d2-df859f6dd2e6" />
+      <LoginCredentials CGID="76e3f30b-8a14-4fbf-bc25-dfd7f0f2b4f2" />
+      <ShowFormConditions CGID="62a48a4c-5bb5-433c-9990-f5c150fc86f0" />
+    </Profile>
+  </Profiles>
+  <ExecuteConditions CGID="b9922f37-bef5-41bd-8165-b04b30ba8706" />
+  <ShowSimpleConditions CGID="557dad07-ce7b-4cd8-a21a-c0933183390a" />
+  <ExecuteMessageConditions CGID="4099aaa8-ef14-4aef-a5d6-21e12b537340" />
+  <ValidityConditions CGID="bf0e19a3-90c3-400a-bca1-18f6936c953a" />
+  <UserGroups>
+  </UserGroups>
+  <CommandAvailability />
+  <SourceDataSet />
+  <Translations>
+    <ESCaptionsDS xmlns="http://tempuri.org/ESCaptionsDS.xsd">
+  <Captions>
+    <ID>07a8bcfd-c366-451c-8138-5a519a037404</ID>
+    <Suffix>C</Suffix>
+    <LangID>el</LangID>
+    <Caption>fSeriesGID</Caption>
+  </Captions>
+  <Captions>
+    <ID>bee42380-bb72-42bd-a419-cfb2f01f66c5</ID>
+    <Suffix>C</Suffix>
+    <LangID>el</LangID>
+    <Caption>fDocumentGID</Caption>
+  </Captions>
+  <Captions>
+    <ID>c857e21c-ac69-4d52-8555-80efc63a2130</ID>
+    <Suffix>C</Suffix>
+    <LangID>el</LangID>
+    <Caption>Reasoning</Caption>
+  </Captions>
+  <Captions>
+    <ID>46c84675-4adc-4678-830c-f03cde17eb32</ID>
+    <Suffix>C</Suffix>
+    <LangID>el</LangID>
+    <Caption>Date</Caption>
+  </Captions>
+  <Captions>
+    <ID>2120e6ed-b233-40cd-954e-18eb7cbe5096</ID>
+    <Suffix>Caption</Suffix>
+    <LangID>el</LangID>
+    <Caption>Document_Cancel</Caption>
+  </Captions>
+  <Captions>
+    <ID>271a6923-20be-4d53-96e3-33c5174a668e</ID>
+    <Suffix>Title</Suffix>
+    <LangID>el</LangID>
+    <Caption>Dummy List</Caption>
+  </Captions>
+  <Captions>
+    <ID>1350c1ec-b2ec-43d1-9441-bead685da2a5</ID>
+    <Suffix>Title</Suffix>
+    <LangID>el</LangID>
+    <Caption>Exec doc cancelling service</Caption>
+  </Captions>
+  <Captions>
+    <ID>be5e1983-070b-41a1-a55f-5cc582af2a35</ID>
+    <Suffix>C</Suffix>
+    <LangID>el</LangID>
+    <Caption>fSeriesGID</Caption>
+  </Captions>
+  <Captions>
+    <ID>7a5a8602-9bc5-4103-9251-66a2b5a70eeb</ID>
+    <Suffix>Title</Suffix>
+    <LangID>el</LangID>
+    <Caption>Maximum Entries</Caption>
+  </Captions>
+</ESCaptionsDS>
+  </Translations>
+</DataSetCommand>

@@ -1,0 +1,16 @@
+{
+    "ESWebAppID": "eswptimesheet",
+    "ProductVersion": {
+        "Major": 1,
+        "Minor": 0,
+        "Patch": 0
+    },
+    "MinEBSVersion": {
+        "Release": 5,
+        "Major": 0,
+        "Minor": 12,
+        "Patch": 0
+    },
+    "ReleaseDate": "2021-12-21T13:00:00.0000000Z",
+    "CRCCheck": ""
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<ESPublicQuery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SQL><![CDATA[SELECT ESTopN(@TopN) Prj.GID AS fProjectGID, 
+       Prj.Code AS Code, 
+       Prj.Name AS Name, 
+       Prj.StartDate AS StartDate, 
+       Prj.FinishDate AS FinishDate
+FROM ESGOProject AS Prj 
+WHERE (Prj.fCompanyCode = ##(ESCOMPANY))
+      
+]]></SQL>
+  <SQLforPaging><![CDATA[]]></SQLforPaging>
+  <Table>ESGOProject</Table>
+  <Params>
+    <Param>
+      <ID>TopN</ID>
+      <Type>System.Int32, mscorlib</Type>
+    </Param>
+  </Params>
+</ESPublicQuery>

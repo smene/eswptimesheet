@@ -1,0 +1,113 @@
+{
+  "id": "0",
+  "items": [
+    {
+      "icon": "fas fa-home",
+      "id": "Home",
+      "text": "Χώρος εργασίας",
+      "url": "Home"
+    },
+    {
+      "icon": "far fa-building",
+      "id": "CustomerList",
+      "text": "Λίστα πελατών",
+      "url": "CustomerList"
+    },
+    {
+      "icon": "fas fa-file-signature",
+      "id": "ProjectList",
+      "text": "Λίστα έργων",
+      "url": "ProjectList"
+    },
+    {
+      "icon": "fas fa-calendar-alt",
+      "id": "TimesheetList",
+      "text": "Λίστα timesheets",
+      "url": "TimesheetList"
+    },
+    {
+      "icon": "fas fa-chalkboard-teacher",
+      "id": "ApproveTimesheet",
+      "items": [
+        {
+          "id": "ApproveProcess",
+          "text": "Διαδικασία έγκρισης",
+          "url": "TimesheetApproval"
+        },
+        {
+          "id": "WorkRejectionAnalysis",
+          "text": "Ανάλυση απόρριψης εργασίας",
+          "url": "TimesheetWorkRejectionAnalysis"
+        }
+      ],
+      "text": "Έγκριση εργασίας"
+    },
+    {
+      "icon": "fas fa-file-invoice-dollar",
+      "id": "InvoicingProcess",
+      "items": [
+        {
+          "id": "InvoiceConfirmation",
+          "text": "Παραγγελία τιμολόγησης",
+          "url": "TimesheetPreInvoice"
+        },
+        {
+          "id": "Invoice",
+          "text": "Τιμολόγηση",
+          "url": "TimesheetInvoiceLabour"
+        },
+        {
+          "id": "TimesheetSubmitProcess",
+          "text": "Πορεία τιμολόγησης εργασίας",
+          "url": "TimesheetSubmitProcess"
+        }
+      ],
+      "text": "Διαδικασία τιμολόγησης"
+    },
+    {
+      "icon": "fas fa-money-bill",
+      "id": "SalesDocuments",
+      "items": [
+        {
+          "id": "Orders",
+          "text": "Παραγγελίες",
+          "url": "Orders"
+        },
+        {
+          "id": "Invoices",
+          "text": "Τιμολόγια",
+          "url": "Invoices"
+        }
+      ],
+      "text": "Παραστατικά"
+    },
+    {
+      "icon": "fas fa-chart-bar",
+      "id": "WorkAnalysis",
+      "items": [
+        {
+          "id": "AnalysisByPeriod",
+          "text": "Ανά περίοδο",
+          "url": "TimesheetWorkAnalysisByPeriod"
+        },
+        {
+          "id": "AnalysisByRepresentative",
+          "text": "Ανά εκπρόσωπο",
+          "url": "TimesheetWorkAnalysisByRepresentative"
+        },
+        {
+          "id": "AnalysisByProject",
+          "text": "Ανά έργο",
+          "url": "TimesheetWorkAnalysisByProject"
+        },
+        {
+          "id": "AnalysisByGeoDimension",
+          "text": "Ανά γεωγραφική διάσταση",
+          "url": "TimesheetGeoAnalysis"
+        }
+      ],
+      "text": "Ανάλυση χρόνου εργασίας"
+    }
+  ],
+  "text": "root"
+}

@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<ESPublicQuery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SQL><![CDATA[SELECT ESFITradeAccount.GID AS fTradeAccountGID, 
+       ESFITradeAccount.Code AS Code, 
+       ESFITradeAccount.Name AS Name, 
+       FK_ESGOPerson_ESGOSites.fRegionGroupCode AS fRegionGroupCode, 
+       FK_ESGOPerson_ESGOSites.Latitude AS Latitude, 
+       FK_ESGOPerson_ESGOSites.Longitude AS Longitude, 
+       FK_ESGOPerson_ESGOSites.Address1 AS Address1, 
+       FK_ESGOPerson_ESGOSites.fPostalCode AS fPostalCode, 
+       FK_ESGOPerson_ESGOSites.fCityCode AS fCityCode, 
+       FK_ESGOPerson_ESGOSites.Telephone1 AS Telephone1, 
+       FK_ESGOPerson_PersonCode1.EMailAddress AS EMailAddress, 
+       ESFITradeAccount.Type AS Type
+FROM ESFITradeAccount AS ESFITradeAccount 
+     LEFT JOIN ESGOPerson AS FK_ESGOPerson_PersonCode1
+       ON ESFITradeAccount.fPersonCodeGID = FK_ESGOPerson_PersonCode1.GID 
+     INNER JOIN ESGOSites AS FK_ESGOPerson_ESGOSites
+       ON FK_ESGOPerson_PersonCode1.fMainAddressGID = FK_ESGOPerson_ESGOSites.GID 
+WHERE (ESFITradeAccount.fCompanyCode = ##(ESCOMPANY))
+       AND (ESEqual(ESFITradeAccount.Code, @Code))
+       AND (ESEqual(ESFITradeAccount.Name, @Name))
+       AND (ESEqual(FK_ESGOPerson_ESGOSites.fRegionGroupCode, @fRegionGroupCode))
+       AND (ESFITradeAccount.Type = 0)
+      
+]]></SQL>
+  <SQLforPaging><![CDATA[]]></SQLforPaging>
+  <Table>ESFITradeAccount</Table>
+  <Params>
+    <Param>
+      <ID>Code</ID>
+      <Type>System.String, mscorlib</Type>
+      <ODSTag>11AA2299-3F5E-4B2A-B530-6222866A7601</ODSTag>
+    </Param>
+    <Param>
+      <ID>Name</ID>
+      <Type>System.String, mscorlib</Type>
+      <ODSTag>7699C12E-3B5F-47E8-B509-7AF97F4560B1</ODSTag>
+    </Param>
+    <Param>
+      <ID>fRegionGroupCode</ID>
+      <Type>System.String, mscorlib</Type>
+      <ODSTag>0A4E1034-EF5A-4334-9E4C-D0E13D22DCCC</ODSTag>
+    </Param>
+  </Params>
+</ESPublicQuery>

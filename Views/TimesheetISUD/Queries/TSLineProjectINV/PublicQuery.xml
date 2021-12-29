@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<ESPublicQuery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SQL><![CDATA[
+Select ESTopN(@TopN) * 
+
+from
+
+(
+
+(SELECT Project.GID AS fProjectGID, 
+       Project.Code AS ProjectCode, 
+       Project.Name AS ProjectName, 
+       TA.Name AS TAName, 
+       Project.StartDate AS StartDate, 
+       Project.FinishDate AS FinishDate
+FROM ESGOProject AS Project 
+     LEFT JOIN ESFITradeAccount AS TA
+       ON Project.fTradeAccountGID = TA.GID 
+     INNER JOIN (
+                SELECT PT.fProjectGID AS fProjectGID
+                FROM ESGOProjectTeam AS PT 
+                     RIGHT JOIN (
+                                SELECT U.fPersonLinkGID AS fPersonLinkGID
+                                FROM ESGOUser AS U 
+                                WHERE (U.GID = ##(ESUSERGID))) AS LogInUser
+                       ON PT.fPersonGID = LogInUser.fPersonLinkGID) AS MyProjects
+       ON Project.GID = MyProjects.fProjectGID 
+WHERE (Project.fCompanyCode = ##(ESCOMPANY))
+       AND (Project.Inactive = 0)
+       AND (##(Timesheet_MyProjects) = 'True')
+      
+)
+
+UNION 
+
+(SELECT Project.GID AS fProjectGID, 
+       Project.Code AS ProjectCode, 
+       Project.Name AS ProjectName, 
+       TA.Name AS TAName, 
+       Project.StartDate AS StartDate, 
+       Project.FinishDate AS FinishDate
+FROM ESGOProject AS Project 
+     LEFT JOIN ESFITradeAccount AS TA
+       ON Project.fTradeAccountGID = TA.GID 
+WHERE (Project.fCompanyCode = ##(ESCOMPANY))
+       AND (Project.Inactive = 0)
+       AND (##(Timesheet_MyProjects) = 'False')
+      
+)
+
+) Projects
+
+Order By StartDate Desc
+
+
+]]></SQL>
+  <SQLforPaging><![CDATA[]]></SQLforPaging>
+  <Table>Projects</Table>
+  <Params>
+    <Param>
+      <ID>TopN</ID>
+      <Type>System.Int32, mscorlib</Type>
+    </Param>
+  </Params>
+</ESPublicQuery>

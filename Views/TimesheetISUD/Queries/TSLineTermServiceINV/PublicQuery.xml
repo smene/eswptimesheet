@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<ESPublicQuery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SQL><![CDATA[SELECT fTermServiceGID,
+       TermType, 
+       Code, 
+       Description, 
+       PlannedStartDate, 
+       PlannedClosedDate
+FROM 
+(
+
+(SELECT TS.GID AS fTermServiceGID, 
+       ContractTermService.TermType AS TermType, 
+       ContractTermService.Code AS Code, 
+       TS.Description AS Description, 
+       NULL AS PlannedStartDate, 
+       NULL AS PlannedClosedDate, 
+       2 AS TermServiceOrdering
+FROM ESTMTermService AS TS 
+     INNER JOIN (
+                SELECT T.GID AS fTaskGID, 
+                       TTG.Description AS TermType, 
+                       T.Code AS Code
+                FROM ESTMTask AS T 
+                     INNER JOIN (
+                                SELECT TTGroup.fTaskTypeGID AS fTaskTypeGID, 
+                                       TT.Description AS Description
+                                FROM ESTMTaskTypeGroup AS TTGroup 
+                                     INNER JOIN ESTMTaskType AS TT
+                                       ON TTGroup.fTaskTypeGID = TT.GID 
+                                WHERE (TTGroup.fTaskGroupCode IN ('Menu_SpecialTerm'))) AS TTG
+                       ON T.fTaskTypeGID = TTG.fTaskTypeGID 
+                     INNER JOIN ESTMStatusCollectionValue AS SCV
+                       ON T.fStatusGID = SCV.GID 
+                WHERE (T.fCompanyCode = ##(ESCOMPANY))
+                       AND (SCV.InternationalID = 'ES.TMPL_Active')) AS ContractTermService
+       ON TS.fContractTermGID = ContractTermService.fTaskGID 
+WHERE (TS.Inactive = 0)
+      
+)
+
+UNION
+
+(SELECT TS.GID AS fTermServiceGID, 
+       ContractTermService.TermType AS TermType, 
+       ContractTermService.Code AS Code, 
+       TS.Description AS Description, 
+       ContractTermService.PlannedStartDate AS PlannedStartDate, 
+       ContractTermService.PlannedClosedDate AS PlannedClosedDate, 
+       1 AS TermServiceOrdering
+FROM ESTMTermService AS TS 
+     INNER JOIN (
+                SELECT T.GID AS fTaskGID, 
+                       TTG.Description AS TermType, 
+                       T.Code AS Code, 
+                       T.PlannedStartDate AS PlannedStartDate, 
+                       T.PlannedClosedDate AS PlannedClosedDate
+                FROM ESTMTask AS T 
+                     INNER JOIN (
+                                SELECT TTGroup.fTaskTypeGID AS fTaskTypeGID, 
+                                       TT.Description AS Description
+                                FROM ESTMTaskTypeGroup AS TTGroup 
+                                     INNER JOIN ESTMTaskType AS TT
+                                       ON TTGroup.fTaskTypeGID = TT.GID 
+                                WHERE (TTGroup.fTaskGroupCode IN ('Menu_Entitlement'))) AS TTG
+                       ON T.fTaskTypeGID = TTG.fTaskTypeGID 
+                     INNER JOIN ESTMStatusCollectionValue AS SCV
+                       ON T.fStatusGID = SCV.GID 
+                WHERE (T.fCompanyCode = ##(ESCOMPANY))
+                       AND (GETDate() BETWEEN T.PlannedStartDate AND T.PlannedClosedDate)
+                       AND (SCV.InternationalID = 'ES.EntActive')
+                       AND (T.fTradeAccountGID = @fTradeAccountGID)) AS ContractTermService
+       ON TS.fContractTermGID = ContractTermService.fTaskGID 
+WHERE (TS.Inactive = 0)
+      
+) ) TermServices
+order by TermServiceOrdering asc
+
+]]></SQL>
+  <SQLforPaging><![CDATA[]]></SQLforPaging>
+  <Table>TradeAccountTermService</Table>
+  <Params>
+    <Param>
+      <ID>fTradeAccountGID</ID>
+      <Type>System.Guid, mscorlib</Type>
+      <ODSTag>E6B94E41-701D-42C2-A0C9-FCF97F973988</ODSTag>
+    </Param>
+  </Params>
+</ESPublicQuery>

@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<ESPublicQuery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SQL><![CDATA[SELECT DTOR.GID AS OrderGID, 
+       DTOR.ADCode AS OrderCode, 
+       DTOR.ADRegistrationDate AS OrderDate, 
+       DTInv.GID AS InvGID, 
+       DTInv.ADCode AS InvCode, 
+       DTInv.ADRegistrationDate AS InvDate, 
+       DTInv.NetValue AS InvNetValue, 
+       ##(ESFICALYEARBASECURRENCYSYMBOL) AS Currency
+FROM ESFIDocumentTrade AS DTOR 
+     LEFT JOIN ESFILineRelatedDocument AS LRD
+       ON DTOR.GID = LRD.fRefDocGID 
+     LEFT JOIN ESFIDocumentTrade AS DTInv
+       ON LRD.fDocumentGID = DTInv.GID AND 0 = DTInv.ADCancelState 
+WHERE (ESEqual(DTOR.GID, @OrderGID))
+       AND (DTInv.GID is not null)
+      
+]]></SQL>
+  <SQLforPaging><![CDATA[]]></SQLforPaging>
+  <Table>ESFIDocumentTrade</Table>
+  <Params>
+    <Param>
+      <ID>OrderGID</ID>
+      <Type>System.Guid, mscorlib</Type>
+      <ODSTag>A233B4F7-E186-4060-B47C-B5E65159DEE0</ODSTag>
+    </Param>
+  </Params>
+</ESPublicQuery>

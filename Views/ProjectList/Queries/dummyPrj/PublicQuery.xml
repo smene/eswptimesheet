@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<ESPublicQuery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SQL><![CDATA[SELECT ESGOProject.Code AS Code, 
+       ESGOProject.Name AS Name, 
+       ESGOProject.GID AS GID, 
+       ESGOProject.StartDate AS StartDate, 
+       ESGOProject.FinishDate AS FinishDate
+FROM ESGOProject AS ESGOProject 
+]]></SQL>
+  <SQLforPaging><![CDATA[]]></SQLforPaging>
+  <Table>ESGOProject</Table>
+  <Params />
+</ESPublicQuery>

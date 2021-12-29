@@ -1,0 +1,118 @@
+{
+  "@btn_sc8p": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@EnumADTransitionState": {
+    "dsgn": {
+      "EnumType": "Entersoft.ERP.Financials.Enums.ADTransitionState, ESFIEnums"
+    }
+  },
+  "@EnumADTransitionState/properties/data/initialValue": {
+    "dsgn": {
+      "Columns": [
+        {
+          "Caption": null,
+          "Kind": "Integer",
+          "Name": "value"
+        },
+        {
+          "Caption": null,
+          "Kind": "",
+          "Name": "name"
+        },
+        {
+          "Caption": null,
+          "Kind": "",
+          "Name": "displayText"
+        }
+      ]
+    }
+  },
+  "@grdxLineItems": {
+    "dsgnInfo": {
+      "caption": null,
+      "maxSampleData": null,
+      "minSampleData": null
+    }
+  },
+  "@grdxLineItems_caption": {
+    "dsgn": {
+      "owner": "grdxLineItems"
+    }
+  },
+  "@grdxLineItems_caption_DocDate": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "grdxLineItems_caption"
+    }
+  },
+  "@grdxOrders": {
+    "dsgnInfo": {
+      "maxSampleData": null,
+      "minSampleData": null
+    }
+  },
+  "@groupingValue": {
+    "dsgnInfo": {
+      "caption": "fff"
+    }
+  },
+  "@p_Action": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null,
+      "visible": null
+    }
+  },
+  "@p_ef64": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_GridX": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_mllg": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_u3ls": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pageItems": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pGrid": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pItemInfo": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pShowLI": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null,
+      "visible": null
+    }
+  }
+}

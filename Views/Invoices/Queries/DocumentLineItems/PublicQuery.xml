@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<ESPublicQuery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SQL><![CDATA[SELECT LIX.fTaskGID AS fTaskGID, 
+       LI.LineNumber AS LineNumber, 
+       I.Code AS ItemCode, 
+       I.Description AS ItemDescr, 
+       LI.Price AS Price, 
+       LI.Quantity AS Quantity, 
+       IMU.fMUCode AS fMUCode, 
+       LI.NetValue AS NetValue, 
+       LI.CurrencyVATValue AS CurrencyVATValue, 
+       LI.TotalValue AS TotalValue, 
+       T.Code AS TaskCode
+FROM ESFILineItem AS LI 
+     LEFT JOIN ESFIItem AS I
+       ON LI.fItemGID = I.GID 
+     LEFT JOIN ESMMItemMU AS IMU
+       ON LI.fItemMUGID = IMU.GID 
+     LEFT JOIN ESFILineItemEx AS LIX
+       ON LI.GID = LIX.fLineItemGID 
+     LEFT JOIN ESTMTask AS T
+       ON LIX.fTaskGID = T.GID 
+WHERE (LI.fDocumentGID = @fDocumentGID)
+      
+]]></SQL>
+  <SQLforPaging><![CDATA[]]></SQLforPaging>
+  <Table>ESFILineItem</Table>
+  <Params>
+    <Param>
+      <ID>fDocumentGID</ID>
+      <Type>System.Guid, mscorlib</Type>
+      <ODSTag>6B133CAF-83BC-474B-9314-031AD45F6386</ODSTag>
+    </Param>
+  </Params>
+</ESPublicQuery>

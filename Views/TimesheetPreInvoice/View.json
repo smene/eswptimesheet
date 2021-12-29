@@ -1,0 +1,998 @@
+{
+  "hasFixedHeight": true,
+  "id": "TimesheetPreInvoice",
+  "items": [
+    {
+      "id": "popItems",
+      "items": [],
+      "typeName": "Group"
+    },
+    {
+      "id": "shelvedItems",
+      "items": [],
+      "typeName": "Group"
+    },
+    {
+      "id": "availableItems",
+      "items": [],
+      "typeName": "Group"
+    },
+    {
+      "id": "pageItems",
+      "items": [
+        {
+          "id": "pContent",
+          "items": [
+            {
+              "id": "pActions",
+              "items": [
+                {
+                  "id": "empty",
+                  "properties": {},
+                  "typeName": "Empty"
+                },
+                {
+                  "id": "btn_PreInvoice",
+                  "options": {
+                    "btnSize": "normal",
+                    "transparent": true
+                  },
+                  "properties": {
+                    "caption": "Προ-τιμολόγηση",
+                    "captionIcon": "fas fa-file-invoice",
+                    "overflowMode": "noWrapAndEllipsis",
+                    "popupHeight": "50vh",
+                    "popupWidth": "50vw",
+                    "size": "auto"
+                  },
+                  "typeName": "Button"
+                }
+              ],
+              "options": {},
+              "properties": {
+                "aligns": "fill-fill",
+                "gapx": "0.7rem",
+                "gapy": "0.7rem",
+                "orientation": "horizontal",
+                "size": "auto",
+                "sizes": "2%,10%",
+                "visible": {
+                  "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                  "fromComponent": "TimesheetsToBeInvoiced_dv",
+                  "fromPropertyPath": "dataprovider.current.item.fTimesheetLineGID"
+                },
+                "wrap": false
+              },
+              "typeName": "Panel"
+            },
+            {
+              "id": "pGrid",
+              "items": [
+                {
+                  "id": "grdxTSLines",
+                  "items": [
+                    {
+                      "id": "frm_GridGroupPanel",
+                      "items": [
+                        {
+                          "id": "GroupingValue",
+                          "options": {},
+                          "properties": {
+                            "caption": {
+                              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                              "fromComponent": "scope",
+                              "fromPropertyPath": "item.GroupingFieldDesc"
+                            },
+                            "overflowMode": "noWrapAndEllipsis"
+                          },
+                          "typeName": "Caption"
+                        }
+                      ],
+                      "options": {},
+                      "properties": {
+                        "overflowMode": "noWrapAndEllipsis",
+                        "visible": true
+                      },
+                      "typeName": "Frame"
+                    }
+                  ],
+                  "options": {},
+                  "properties": {
+                    "columns": [
+                      {
+                        "caption": "Ημερομηνία",
+                        "dataField": "ReportedDate",
+                        "dataType": "date",
+                        "esInfo": {
+                          "colTemplateId": null,
+                          "groupTemplateId": null
+                        },
+                        "format": "dd/MM/yyyy",
+                        "width": "auto"
+                      },
+                      {
+                        "caption": "Κωδικός Timesheet",
+                        "dataField": "TimesheetCode",
+                        "dataType": "string",
+                        "esInfo": {
+                          "colTemplateId": null,
+                          "groupTemplateId": null
+                        },
+                        "width": "auto"
+                      },
+                      {
+                        "caption": "Εκπρόσωπος",
+                        "dataField": "RepCode",
+                        "dataType": "string",
+                        "esInfo": {
+                          "colTemplateId": null,
+                          "groupTemplateId": null
+                        }
+                      },
+                      {
+                        "caption": "Κωδικός έργου",
+                        "dataField": "ProjectCode",
+                        "dataType": "string",
+                        "esInfo": {
+                          "colTemplateId": null,
+                          "groupTemplateId": null
+                        },
+                        "width": "auto"
+                      },
+                      {
+                        "caption": "Ονομασία έργου",
+                        "dataField": "ProjectName",
+                        "dataType": "string",
+                        "esInfo": {
+                          "colTemplateId": null,
+                          "groupTemplateId": null
+                        }
+                      },
+                      {
+                        "caption": "Κωδικός συν/νου",
+                        "dataField": "TACode",
+                        "dataType": "string",
+                        "esInfo": {
+                          "colTemplateId": null,
+                          "groupTemplateId": null
+                        }
+                      },
+                      {
+                        "caption": "Επωνυμία συν/νου",
+                        "dataField": "TAName",
+                        "dataType": "string",
+                        "esInfo": {
+                          "colTemplateId": null,
+                          "groupTemplateId": null
+                        }
+                      },
+                      {
+                        "caption": "Δ/νση",
+                        "dataField": "Address",
+                        "dataType": "string",
+                        "esInfo": {
+                          "colTemplateId": null,
+                          "groupTemplateId": null
+                        },
+                        "name": "Δ/νση"
+                      },
+                      {
+                        "caption": "Ώρες χρέωσης",
+                        "dataField": "ChargeableHours",
+                        "dataType": "number",
+                        "esInfo": {
+                          "colTemplateId": null,
+                          "groupTemplateId": null
+                        },
+                        "format": "#,##0.##"
+                      },
+                      {
+                        "caption": "Yπηρεσία",
+                        "dataField": "InvoiceItemCode",
+                        "dataType": "string",
+                        "esInfo": {
+                          "colTemplateId": null,
+                          "groupTemplateId": null
+                        }
+                      },
+                      {
+                        "dataField": "GroupingFieldDesc",
+                        "dataType": "string",
+                        "esInfo": {
+                          "colTemplateId": null,
+                          "groupTemplateId": "frm_GridGroupPanel"
+                        },
+                        "groupIndex": 0,
+                        "visible": false
+                      }
+                    ],
+                    "dataprovider": {
+                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                      "fromComponent": "TimesheetsToBeInvoiced_dv",
+                      "fromPropertyPath": "dataprovider"
+                    },
+                    "dxOptions": {
+                      "focusedRowEnabled": true,
+                      "groupPanel": {
+                        "visible": false
+                      },
+                      "paging": {
+                        "enabled": false,
+                        "pageSize": 30
+                      },
+                      "scrolling": {
+                        "mode": "virtual"
+                      },
+                      "selection": {
+                        "mode": "multiple",
+                        "showCheckBoxesMode": "always"
+                      },
+                      "showBorders": false,
+                      "showColumnLines": false,
+                      "showRowLines": true
+                    },
+                    "overflowMode": "noWrapAndEllipsis",
+                    "selectionMode": "multiple",
+                    "size": "1"
+                  },
+                  "typeName": "GridXpress"
+                }
+              ],
+              "options": {},
+              "properties": {
+                "aligns": "fill-fill",
+                "gapx": "0.7rem",
+                "gapy": "0.7rem",
+                "orientation": "horizontal",
+                "size": "1",
+                "sizes": "auto",
+                "wrap": false
+              },
+              "typeName": "Panel"
+            }
+          ],
+          "properties": {
+            "aligns": "fill-fill",
+            "gapx": "0.7rem",
+            "gapy": "0.7rem",
+            "orientation": "vertical",
+            "size": "1",
+            "sizes": "auto",
+            "wrap": false
+          },
+          "typeName": "Panel"
+        },
+        {
+          "id": "Drawer",
+          "items": [
+            {
+              "id": "frm_ParamFields",
+              "items": [
+                {
+                  "id": "pParamFields",
+                  "items": [
+                    {
+                      "id": "RegDate",
+                      "properties": {
+                        "caption": "Ημερομηνία",
+                        "items": [
+                          {
+                            "text": "Τρέχουσα εβδομάδα",
+                            "value": "ESDateRange(Week)"
+                          },
+                          {
+                            "text": "Προηγούμενη εβδομάδα",
+                            "value": "ESDateRange(Week, -1)"
+                          },
+                          {
+                            "text": "Τρέχων μήνας",
+                            "value": "ESDateRange(Month)"
+                          },
+                          {
+                            "text": "Τρέχον 3μηνο",
+                            "value": "ESDateRange(Quarter)"
+                          },
+                          {
+                            "text": "Εφέτος",
+                            "value": "ESDateRange(Year)"
+                          },
+                          {
+                            "text": "Πέρυσι",
+                            "value": "ESDateRange(Year, -1)"
+                          }
+                        ],
+                        "overflowMode": "noWrapAndEllipsis"
+                      },
+                      "typeName": "DateRange"
+                    },
+                    {
+                      "id": "lkpCustomer",
+                      "options": {
+                        "popKind": "popup"
+                      },
+                      "properties": {
+                        "caption": "Συναλλασσόμενος",
+                        "columns": [
+                          {
+                            "caption": "Κωδικός",
+                            "dataField": "Code",
+                            "dataType": "string"
+                          },
+                          {
+                            "caption": "Επωνυμία/Ονοματεπώνυμο",
+                            "dataField": "CTRLVAL",
+                            "dataType": "string"
+                          }
+                        ],
+                        "dataprovider": {
+                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                          "fromComponent": "CustomersInv_dv",
+                          "fromPropertyPath": "dataprovider"
+                        },
+                        "displayText": {
+                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                          "fromComponent": "lkpCustomer_displayTextVC2",
+                          "fromPropertyPath": "result"
+                        },
+                        "gridOptions": {
+                          "focusedRowEnabled": true,
+                          "paging": {
+                            "enabled": false,
+                            "pageSize": 30
+                          },
+                          "scrolling": {
+                            "mode": "virtual"
+                          }
+                        },
+                        "overflowMode": "noWrapAndEllipsis",
+                        "popupHeight": "30rem",
+                        "selectionMode": "multiple",
+                        "singleSelectable": false
+                      },
+                      "typeName": "Lookup"
+                    },
+                    {
+                      "id": "mccProject",
+                      "options": {
+                        "mode": "ComboBox"
+                      },
+                      "properties": {
+                        "caption": "Έργο",
+                        "columns": [
+                          {
+                            "caption": "Κωδικός",
+                            "dataField": "Code",
+                            "dataType": "string"
+                          },
+                          {
+                            "caption": "Ονομασία",
+                            "dataField": "Name",
+                            "dataType": "string"
+                          },
+                          {
+                            "caption": "Εναρξη",
+                            "dataField": "StartDate",
+                            "dataType": "date",
+                            "format": "dd/MM/yyyy"
+                          },
+                          {
+                            "caption": "Λήξη",
+                            "dataField": "FinishDate",
+                            "dataType": "date",
+                            "format": "dd/MM/yyyy"
+                          }
+                        ],
+                        "dataprovider": {
+                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                          "fromComponent": "TimesheetProjects_dv",
+                          "fromPropertyPath": "dataprovider"
+                        },
+                        "displayText": {
+                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                          "fromComponent": "mccProject_displayTextVC",
+                          "fromPropertyPath": "result"
+                        },
+                        "gridOptions": {
+                          "focusedRowEnabled": true,
+                          "paging": {
+                            "enabled": false,
+                            "pageSize": 30
+                          },
+                          "scrolling": {
+                            "mode": "virtual"
+                          }
+                        },
+                        "overflowMode": "noWrapAndEllipsis",
+                        "popupHeight": "20rem",
+                        "popupWidth": "60rem",
+                        "selectionMode": "multiple",
+                        "singleSelectable": true,
+                        "valueMember": "fProjectGID"
+                      },
+                      "typeName": "MulticolumnCombo"
+                    },
+                    {
+                      "id": "mccDocGrouping",
+                      "options": {
+                        "mode": "ComboBox"
+                      },
+                      "properties": {
+                        "caption": "Ομαδοποίηση παραστατικών",
+                        "columns": [
+                          {
+                            "caption": "displayText",
+                            "dataField": "displayText",
+                            "dataType": "string"
+                          }
+                        ],
+                        "dataprovider": {
+                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                          "fromComponent": "DocGroupingValueList",
+                          "fromPropertyPath": "dataprovider"
+                        },
+                        "displayText": {
+                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                          "fromComponent": "DocGroupingValueList",
+                          "fromPropertyPath": "dataprovider.current.item.displayText"
+                        },
+                        "gridOptions": {
+                          "focusedRowEnabled": true,
+                          "paging": {
+                            "enabled": false,
+                            "pageSize": 30
+                          },
+                          "scrolling": {
+                            "mode": "virtual"
+                          }
+                        },
+                        "overflowMode": "noWrapAndEllipsis",
+                        "popupHeight": "20rem",
+                        "popupWidth": "30rem",
+                        "selectionMode": "single",
+                        "singleSelectable": false,
+                        "valueMember": "value"
+                      },
+                      "typeName": "MulticolumnCombo"
+                    },
+                    {
+                      "id": "btnExecQuery",
+                      "options": {
+                        "btnSize": "normal",
+                        "transparent": true
+                      },
+                      "properties": {
+                        "caption": "Αποδοχή",
+                        "captionIcon": "fas fa-play",
+                        "disabled": false,
+                        "overflowMode": "noWrapAndEllipsis",
+                        "popupHeight": "50vh",
+                        "popupWidth": "50vw",
+                        "visible": true
+                      },
+                      "typeName": "Button"
+                    }
+                  ],
+                  "options": {},
+                  "properties": {
+                    "aligns": "fill-fill",
+                    "gapx": "0.7rem",
+                    "gapy": "0.7rem",
+                    "orientation": "vertical",
+                    "sizes": "auto",
+                    "wrap": false
+                  },
+                  "typeName": "Panel"
+                }
+              ],
+              "options": {},
+              "properties": {
+                "borderColor": "1",
+                "borderPosition": "allAround",
+                "borderStyle": "solid",
+                "borderWidth": "normal",
+                "framePadding": "2",
+                "overflowMode": "noWrapAndEllipsis"
+              },
+              "typeName": "Frame"
+            },
+            {
+              "id": "pParams",
+              "items": [
+                {
+                  "id": "btn_open",
+                  "options": {
+                    "btnSize": "normal",
+                    "transparent": true
+                  },
+                  "properties": {
+                    "align": "top-left",
+                    "captionIcon": "fas fa-filter",
+                    "clickToggle": {
+                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                      "fromComponent": "Drawer",
+                      "fromPropertyPath": "opened"
+                    },
+                    "overflowMode": "noWrapAndEllipsis",
+                    "popupHeight": "50vh",
+                    "popupWidth": "50vw"
+                  },
+                  "typeName": "Button"
+                }
+              ],
+              "options": {},
+              "properties": {
+                "aligns": "fill-fill",
+                "gapx": "0.7rem",
+                "gapy": "0.7rem",
+                "orientation": "horizontal",
+                "sizes": "auto",
+                "wrap": false
+              },
+              "typeName": "Panel"
+            }
+          ],
+          "options": {
+            "drawerSize": "20rem",
+            "openedStateMode": "shrink",
+            "position": "right",
+            "revealMode": "expand"
+          },
+          "properties": {},
+          "typeName": "Drawer"
+        }
+      ],
+      "options": {},
+      "properties": {
+        "aligns": "fill-fill",
+        "gapx": "0.7rem",
+        "gapy": "0.7rem",
+        "orientation": "horizontal",
+        "wrap": false
+      },
+      "typeName": "Panel"
+    }
+  ],
+  "layoutName": "general",
+  "uilessItems": {
+    "datasources": [
+      {
+        "id": "TimesheetsToBeInvoiced",
+        "options": {
+          "extraColumns": {},
+          "queryId": "TimesheetsToBeInvoiced"
+        },
+        "properties": {
+          "autoRun": false,
+          "params": {
+            "DocGrouping": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "bindingGroup": "Parameters",
+              "fromComponent": "mccDocGrouping",
+              "fromPropertyPath": "value",
+              "initialValue": "0"
+            },
+            "fProjectGID": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "bindingGroup": "Parameters",
+              "fromComponent": "mccProject",
+              "fromPropertyPath": "value"
+            },
+            "fTradeAccountGID": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "bindingGroup": "Parameters",
+              "fromComponent": "CustomersInv_dv",
+              "fromPropertyPath": "dataprovider.selected.values.GID"
+            },
+            "ReportedDate": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "bindingGroup": "Parameters",
+              "fromComponent": "RegDate",
+              "fromPropertyPath": "value",
+              "initialValue": "ESDateRange(Year)"
+            },
+            "TSLineStatusInterID": null
+          }
+        },
+        "typeName": "PQ"
+      },
+      {
+        "id": "TimesheetsToBeInvoiced_dv",
+        "properties": {
+          "dsDataprovider": {
+            "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+            "fromComponent": "TimesheetsToBeInvoiced",
+            "fromPropertyPath": "dataprovider"
+          },
+          "sort": [
+            "ReportedDate",
+            "RepCode"
+          ]
+        },
+        "typeName": "Dataview"
+      },
+      {
+        "id": "EnumChargeable",
+        "properties": {
+          "data": {
+            "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+            "fromComponent": "EnumChargeable",
+            "fromPropertyPath": "data",
+            "initialValue": {
+              "data": [
+                {
+                  "displayText": "Όχι",
+                  "name": "No",
+                  "value": 0
+                },
+                {
+                  "displayText": "Ναι",
+                  "name": "Yes",
+                  "value": 1
+                },
+                {
+                  "displayText": "Παρεχόμενη υπηρεσία",
+                  "name": "TermService",
+                  "value": 2
+                }
+              ],
+              "schema": [
+                "value",
+                "name",
+                "displayText"
+              ]
+            }
+          }
+        },
+        "typeName": "Dataview"
+      },
+      {
+        "id": "DocGroupingValueList",
+        "properties": {
+          "data": {
+            "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+            "fromComponent": "DocGroupingValueList",
+            "fromPropertyPath": "data",
+            "initialValue": {
+              "data": [
+                {
+                  "displayText": "Έργο",
+                  "value": "0"
+                },
+                {
+                  "displayText": "Πελάτης",
+                  "value": "1"
+                },
+                {
+                  "displayText": "Σύμβαση",
+                  "value": "2"
+                }
+              ],
+              "schema": [
+                "value",
+                "displayText"
+              ]
+            }
+          },
+          "firstAutoSelected": true
+        },
+        "typeName": "Dataview"
+      },
+      {
+        "id": "TSLineStatusInterIDValueList",
+        "properties": {
+          "data": {
+            "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+            "fromComponent": "TSLineStatusInterIDValueList",
+            "fromPropertyPath": "data",
+            "initialValue": {
+              "data": [
+                {
+                  "displayText": "Προς έγκριση",
+                  "value": "ES.TSState_ToBeApproved"
+                },
+                {
+                  "displayText": "Υποβλήθηκε",
+                  "value": "ES.TSState_Submitted"
+                },
+                {
+                  "displayText": "Ακυρώθηκε",
+                  "value": "ES.TSState_Cancelled"
+                }
+              ],
+              "schema": [
+                "value",
+                "displayText"
+              ]
+            }
+          },
+          "firstAutoSelected": true
+        },
+        "typeName": "Dataview"
+      },
+      {
+        "id": "TimesheetProjects",
+        "options": {
+          "extraColumns": {},
+          "queryId": "TimesheetProjects"
+        },
+        "properties": {
+          "autoRun": false,
+          "params": {
+            "TopN": 200
+          }
+        },
+        "typeName": "PQ"
+      },
+      {
+        "id": "TimesheetProjects_dv",
+        "properties": {
+          "dsDataprovider": {
+            "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+            "fromComponent": "TimesheetProjects",
+            "fromPropertyPath": "dataprovider"
+          }
+        },
+        "typeName": "Dataview"
+      },
+      {
+        "id": "CustomersInv",
+        "options": {
+          "extraColumns": {},
+          "queryId": "CustomersInv"
+        },
+        "properties": {
+          "autoRun": false,
+          "params": {
+            "CTRLVAL": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "lkpCustomer",
+              "fromPropertyPath": "searchText"
+            },
+            "TopN": 1000
+          }
+        },
+        "typeName": "PQ"
+      },
+      {
+        "id": "CustomersInv_dv",
+        "properties": {
+          "dsDataprovider": {
+            "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+            "fromComponent": "CustomersInv",
+            "fromPropertyPath": "dataprovider"
+          }
+        },
+        "typeName": "Dataview"
+      }
+    ],
+    "otherUIlessItems": [
+      {
+        "id": "viewProps",
+        "typeName": "ViewProps"
+      }
+    ],
+    "services": [
+      {
+        "id": "preInvoiceLabour",
+        "options": {
+          "automationId": "TSConfirmationOrderLabour",
+          "automationKind": "Query",
+          "serviceType": "automation"
+        },
+        "properties": {
+          "serviceParams": {
+            "automationParams": {
+              "Grouping": {
+                "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                "fromComponent": "mccDocGrouping",
+                "fromPropertyPath": "value"
+              }
+            },
+            "sourceRows": {
+              "TimesheetsToBeInvoiced": {
+                "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                "fromComponent": "TimesheetsToBeInvoiced_dv",
+                "fromPropertyPath": "dataprovider.selected.items"
+              }
+            }
+          }
+        },
+        "typeName": "Service"
+      }
+    ],
+    "ui_logic": [
+      {
+        "id": "mccProject_displayTextVC",
+        "options": {
+          "functionName": "strFormat"
+        },
+        "properties": {
+          "args": {
+            "Code": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "TimesheetProjects_dv",
+              "fromPropertyPath": "dataprovider.current.item.Code"
+            },
+            "expr": "$Code - $Name",
+            "Name": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "TimesheetProjects_dv",
+              "fromPropertyPath": "dataprovider.current.item.Name"
+            }
+          }
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "bind_btnExecQuery",
+        "options": {
+          "functionName": "bind"
+        },
+        "properties": {
+          "args": {
+            "bindingGroup": "Parameters"
+          },
+          "triggers": [
+            {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "btnExecQuery",
+              "fromPropertyPath": "clickToggle"
+            }
+          ]
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "assignTo_btn_open",
+        "options": {
+          "functionName": "assignTo"
+        },
+        "properties": {
+          "args": {
+            "path": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "Drawer",
+              "fromPropertyPath": "opened"
+            },
+            "value": "!drawer.opened"
+          },
+          "triggers": [
+            {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "btn_open",
+              "fromPropertyPath": "clickToggle"
+            }
+          ]
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "assignTo_btnExecQuery",
+        "options": {
+          "functionName": "assignTo"
+        },
+        "properties": {
+          "args": {
+            "path": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "Drawer",
+              "fromPropertyPath": "opened"
+            },
+            "value": false
+          },
+          "triggers": [
+            {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "btnExecQuery",
+              "fromPropertyPath": "clickToggle"
+            }
+          ]
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "execService_btn_PreInvoice",
+        "options": {
+          "functionName": "execService"
+        },
+        "properties": {
+          "args": {
+            "id": "preInvoiceLabour",
+            "mode": "enforce"
+          },
+          "triggers": [
+            {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "btn_PreInvoice",
+              "fromPropertyPath": "clickToggle"
+            }
+          ]
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "RefreshAfterPreInvoiceExec",
+        "options": {
+          "functionName": "execQuery"
+        },
+        "properties": {
+          "args": {
+            "id": "TimesheetsToBeInvoiced",
+            "mode": "enforce"
+          },
+          "triggers": [
+            {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "preInvoiceLabour",
+              "fromPropertyPath": "executedToggle"
+            }
+          ]
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "AutoExec",
+        "options": {
+          "functionName": "bind"
+        },
+        "properties": {
+          "args": {
+            "bindingGroup": "Parameters"
+          }
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "lkpCustomer_displayTextVC",
+        "options": {
+          "functionName": "strFormat"
+        },
+        "properties": {
+          "args": {
+            "Code": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "CustomersInv_dv",
+              "fromPropertyPath": "dataprovider.current.item.Code"
+            },
+            "expr": "$Code $Name",
+            "Name": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "CustomersInv_dv",
+              "fromPropertyPath": "dataprovider.current.item.CTRLVAL"
+            }
+          }
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "lkpCustomer_displayTextVC1",
+        "options": {
+          "functionName": "strFormat"
+        },
+        "properties": {
+          "args": {
+            "expr": "$Code"
+          }
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "lkpCustomer_displayTextVC2",
+        "options": {
+          "functionName": "strFormat"
+        },
+        "properties": {
+          "args": {
+            "Code": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "CustomersInv_dv",
+              "fromPropertyPath": "dataprovider.selected.values.Code"
+            },
+            "expr": "$Code"
+          }
+        },
+        "typeName": "UILogic"
+      }
+    ]
+  }
+}

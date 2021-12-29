@@ -1,0 +1,14 @@
+{
+  "changes": [],
+  "hash": "0362cb757e20711ca7e20ab20fe6e40e9a0d1192720cbd1fbf7c15681a42ea02",
+  "hashes": {
+    "FormCommands\\SubmitTimeSheet": "501381d0e778ad2400d44a9c5daa12e3d96a506206153b86e918e9b35c8eb134",
+    "Queries\\TSLineProjectINV": "a305b66ac6dd9d1d8c445f1a05111fe6d5b0ef128f822497add78ee4cd03b4b9",
+    "Queries\\TSLineTermServiceINV": "859ab9b6e45f2cb4f87c72889a62deee5ae1572d62f1cf65f7a0268e9d083bf5",
+    "Queries\\WorkHourType": "5d22450dd66016cc819ef6309141a74d31dbc6283c276a98bd36ab3d961d9b1b"
+  },
+  "removedAssets": [],
+  "updatedAssets": [
+    "Automations\\Form\\SubmitTimeSheet"
+  ]
+}

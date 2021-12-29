@@ -1,0 +1,3967 @@
+{
+  "hasFixedHeight": true,
+  "id": "ProjectISUD",
+  "items": [
+    {
+      "id": "popItems",
+      "items": [
+        {
+          "id": "AddEditMember",
+          "items": [
+            {
+              "id": "p1",
+              "items": [
+                {
+                  "id": "fPersonGID",
+                  "properties": {
+                    "caption": "Πρόσωπο",
+                    "columns": [
+                      {
+                        "caption": "Κωδικός",
+                        "dataField": "Code",
+                        "dataType": "string"
+                      },
+                      {
+                        "caption": "Περιγραφή",
+                        "dataField": "Description",
+                        "dataType": "string"
+                      }
+                    ],
+                    "dataprovider": {
+                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                      "fromComponent": "Resources_dv",
+                      "fromPropertyPath": "dataprovider"
+                    },
+                    "disabled": {
+                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                      "fromComponent": "ProjectTeam",
+                      "fromPropertyPath": "dataprovider.current.item.fPersonGID_Disabled"
+                    },
+                    "displayText": {
+                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                      "fromComponent": "ProjectTeam",
+                      "fromPropertyPath": "dataprovider.current.item.fPersonGID_Name"
+                    },
+                    "error": {
+                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                      "fromComponent": "ProjectTeam",
+                      "fromPropertyPath": "dataprovider.current.item.fPersonGID_Error"
+                    },
+                    "gridOptions": {
+                      "focusedRowEnabled": true,
+                      "paging": {
+                        "enabled": false,
+                        "pageSize": 30
+                      },
+                      "scrolling": {
+                        "mode": "virtual"
+                      }
+                    },
+                    "overflowMode": "noWrapAndEllipsis",
+                    "popupHeight": "20rem",
+                    "popupWidth": "30rem",
+                    "singleSelectable": true,
+                    "tooltip": {
+                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                      "fromComponent": "ProjectTeam",
+                      "fromPropertyPath": "dataprovider.current.item.fPersonGID_Tip"
+                    },
+                    "value": {
+                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                      "fromComponent": "ProjectTeam",
+                      "fromPropertyPath": "dataprovider.current.item.fPersonGID"
+                    },
+                    "valueMember": "fPersonGID"
+                  },
+                  "typeName": "MulticolumnCombo"
+                },
+                {
+                  "id": "fContactRole",
+                  "options": {
+                    "investigate": {
+                      "assign": {
+                        "serviceOptions": {}
+                      },
+                      "dsEntityId": "dsProject",
+                      "InvField": "fContactRole",
+                      "InvRelation": "FK_ESGOProjectTeam_ESGOProject",
+                      "InvTable": "ESGOProjectTeam",
+                      "results": {
+                        "serviceOptions": {}
+                      }
+                    },
+                    "mode": "ComboBox"
+                  },
+                  "properties": {
+                    "caption": "Ρόλος Επαφής",
+                    "columns": [
+                      {
+                        "caption": "Κωδικός",
+                        "dataField": "Code",
+                        "dataType": "string"
+                      },
+                      {
+                        "caption": "Περιγραφή",
+                        "dataField": "Description",
+                        "dataType": "string"
+                      },
+                      {
+                        "caption": "Display",
+                        "dataField": "Display",
+                        "dataType": "string",
+                        "visible": false
+                      }
+                    ],
+                    "dataprovider": {
+                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                      "fromComponent": "fContactRole",
+                      "fromPropertyPath": "dataprovider"
+                    },
+                    "disabled": {
+                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                      "fromComponent": "ProjectTeam",
+                      "fromPropertyPath": "dataprovider.current.item.fContactRole_Disabled"
+                    },
+                    "displayText": {
+                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                      "fromComponent": "ProjectTeam",
+                      "fromPropertyPath": "dataprovider.current.item.fContactRole"
+                    },
+                    "error": {
+                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                      "fromComponent": "ProjectTeam",
+                      "fromPropertyPath": "dataprovider.current.item.fContactRole_Error"
+                    },
+                    "gridOptions": {
+                      "focusedRowEnabled": true,
+                      "paging": {
+                        "enabled": false,
+                        "pageSize": 30
+                      },
+                      "scrolling": {
+                        "mode": "virtual"
+                      }
+                    },
+                    "investigateParams": {
+                      "params": {
+                        "CTRLVAL": {
+                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                          "fromComponent": "fContactRole",
+                          "fromPropertyPath": "searchText"
+                        }
+                      }
+                    },
+                    "overflowMode": "noWrapAndEllipsis",
+                    "popupHeight": "20rem",
+                    "popupWidth": "30rem",
+                    "singleSelectable": true,
+                    "tooltip": {
+                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                      "fromComponent": "ProjectTeam",
+                      "fromPropertyPath": "dataprovider.current.item.fContactRole_Tip"
+                    },
+                    "value": {
+                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                      "fromComponent": "ProjectTeam",
+                      "fromPropertyPath": "dataprovider.current.item.fContactRole"
+                    },
+                    "valueMember": "Code"
+                  },
+                  "typeName": "MulticolumnCombo"
+                },
+                {
+                  "id": "pActionBtns",
+                  "items": [
+                    {
+                      "id": "AddNew",
+                      "options": {
+                        "btnSize": "small",
+                        "transparent": true
+                      },
+                      "properties": {
+                        "caption": "Νέα εγγραφή",
+                        "captionIcon": "fas fa-user-plus",
+                        "overflowMode": "noWrapAndEllipsis",
+                        "popupHeight": "50vh",
+                        "popupWidth": "50vw"
+                      },
+                      "typeName": "Button"
+                    },
+                    {
+                      "id": "btnClose",
+                      "options": {
+                        "btnSize": "small",
+                        "transparent": true
+                      },
+                      "properties": {
+                        "caption": "Κλείσιμο",
+                        "captionIcon": "fas fa-window-close",
+                        "overflowMode": "noWrapAndEllipsis",
+                        "popupHeight": "50vh",
+                        "popupWidth": "50vw"
+                      },
+                      "typeName": "Button"
+                    }
+                  ],
+                  "options": {},
+                  "properties": {
+                    "align": "center-center",
+                    "aligns": "fill-fill",
+                    "gapx": "0.7rem",
+                    "gapy": "0.7rem",
+                    "orientation": "horizontal",
+                    "sizes": "auto",
+                    "wrap": false
+                  },
+                  "typeName": "Panel"
+                }
+              ],
+              "properties": {
+                "aligns": "fill-fill",
+                "gapx": "0.7rem",
+                "gapy": "0.7rem",
+                "orientation": "vertical",
+                "sizes": "auto",
+                "wrap": false
+              },
+              "typeName": "Panel"
+            }
+          ],
+          "properties": {
+            "autoclose": true,
+            "modal": false,
+            "movable": false,
+            "popupHeight": "auto",
+            "popupWidth": "25",
+            "resizable": false
+          },
+          "typeName": "PopPanel"
+        },
+        {
+          "id": "popEditDoc",
+          "items": [
+            {
+              "extraClasses": null,
+              "id": "gp_ryc",
+              "items": [
+                {
+                  "extraClasses": "move-handle",
+                  "id": "pnlWrkPlace_0xzt",
+                  "items": [
+                    {
+                      "extraClasses": null,
+                      "id": "cap_q89w",
+                      "options": {
+                        "alignment": null,
+                        "b": null,
+                        "height": null,
+                        "l": null,
+                        "r": null,
+                        "rows-gutter": null,
+                        "t": null,
+                        "width": null
+                      },
+                      "properties": {
+                        "align": null,
+                        "caption": "Επεξεργασία σχετικού εγγράφου",
+                        "captionAlignment": null,
+                        "captionColor": null,
+                        "captionIcon": null,
+                        "captionSize": null,
+                        "captionStyle": null,
+                        "captionType": null,
+                        "captionWidth": null,
+                        "colspan": null,
+                        "dateFormat": null,
+                        "numericFormat": null,
+                        "overflowMode": "noWrapAndEllipsis",
+                        "rowspan": null,
+                        "shadow": null,
+                        "size": null,
+                        "visible": null
+                      },
+                      "typeName": "Caption"
+                    }
+                  ],
+                  "options": {
+                    "alignment": null,
+                    "b": null,
+                    "height": null,
+                    "l": null,
+                    "r": null,
+                    "rows-gutter": null,
+                    "t": null,
+                    "width": null
+                  },
+                  "properties": {
+                    "align": null,
+                    "aligns": "fill-fill",
+                    "captionAlignment": null,
+                    "captionColor": null,
+                    "captionSize": null,
+                    "captionStyle": null,
+                    "captionWidth": null,
+                    "colspan": null,
+                    "gapx": "0.7rem",
+                    "gapy": "0.7rem",
+                    "orientation": "horizontal",
+                    "rowspan": null,
+                    "size": null,
+                    "sizes": "1, auto",
+                    "visible": null,
+                    "wrap": null
+                  },
+                  "typeName": "Panel"
+                },
+                {
+                  "extraClasses": null,
+                  "id": "frm_oh0d",
+                  "items": [
+                    {
+                      "id": "pDocFields",
+                      "items": [
+                        {
+                          "id": "Documentfileupload",
+                          "properties": {
+                            "overflowMode": "noWrapAndEllipsis",
+                            "uploadMode": "instantly",
+                            "urlInfo": {
+                              "serviceId": "AddES00Doc",
+                              "urlFormat": "service"
+                            }
+                          },
+                          "typeName": "FileUpload"
+                        },
+                        {
+                          "id": "line",
+                          "properties": {},
+                          "typeName": "Line"
+                        },
+                        {
+                          "id": "Title",
+                          "properties": {
+                            "caption": "Τίτλος",
+                            "disabled": {
+                              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                              "fromComponent": "ES00Documents",
+                              "fromPropertyPath": "dataprovider.current.item.Title_Disabled"
+                            },
+                            "dxOptions": {
+                              "maxLength": 100
+                            },
+                            "error": {
+                              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                              "fromComponent": "ES00Documents",
+                              "fromPropertyPath": "dataprovider.current.item.Title_Error"
+                            },
+                            "overflowMode": "noWrapAndEllipsis",
+                            "tooltip": {
+                              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                              "fromComponent": "ES00Documents",
+                              "fromPropertyPath": "dataprovider.current.item.Title_Tip"
+                            },
+                            "value": {
+                              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                              "fromComponent": "ES00Documents",
+                              "fromPropertyPath": "dataprovider.current.item.Title"
+                            }
+                          },
+                          "typeName": "Field"
+                        },
+                        {
+                          "id": "IsBLOB",
+                          "options": {
+                            "isNullable": false,
+                            "mode": "Checkbox"
+                          },
+                          "properties": {
+                            "caption": "Τρόπος Αποθήκευσης ",
+                            "disabled": {
+                              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                              "fromComponent": "ES00Documents",
+                              "fromPropertyPath": "dataprovider.current.item.IsBLOB_Disabled"
+                            },
+                            "error": {
+                              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                              "fromComponent": "ES00Documents",
+                              "fromPropertyPath": "dataprovider.current.item.IsBLOB_Error"
+                            },
+                            "tooltip": {
+                              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                              "fromComponent": "ES00Documents",
+                              "fromPropertyPath": "dataprovider.current.item.IsBLOB_Tip"
+                            },
+                            "value": {
+                              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                              "fromComponent": "ES00Documents",
+                              "fromPropertyPath": "dataprovider.current.item.IsBLOB"
+                            }
+                          },
+                          "typeName": "Checkbox"
+                        },
+                        {
+                          "id": "fDocCategoryCode",
+                          "options": {
+                            "investigate": {
+                              "assign": {
+                                "serviceOptions": {}
+                              },
+                              "dsEntityId": "dsProject",
+                              "InvField": "fDocCategoryCode",
+                              "InvRelation": "ES00RELDOCS",
+                              "InvTable": "ES00Documents",
+                              "results": {
+                                "serviceOptions": {}
+                              }
+                            }
+                          },
+                          "properties": {
+                            "caption": "Κατηγορία",
+                            "columns": [
+                              {
+                                "caption": "Κωδικός",
+                                "dataField": "Code",
+                                "dataType": "string"
+                              },
+                              {
+                                "caption": "Περιγραφή",
+                                "dataField": "Description",
+                                "dataType": "string"
+                              },
+                              {
+                                "caption": "Display",
+                                "dataField": "Display",
+                                "dataType": "string",
+                                "visible": false
+                              }
+                            ],
+                            "dataprovider": {
+                              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                              "fromComponent": "fDocCategoryCode",
+                              "fromPropertyPath": "dataprovider"
+                            },
+                            "disabled": {
+                              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                              "fromComponent": "ES00Documents",
+                              "fromPropertyPath": "dataprovider.current.item.fDocCategoryCode_Disabled"
+                            },
+                            "displayText": {
+                              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                              "fromComponent": "ES00Documents",
+                              "fromPropertyPath": "dataprovider.current.item.fDocCategoryCode_Text"
+                            },
+                            "error": {
+                              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                              "fromComponent": "ES00Documents",
+                              "fromPropertyPath": "dataprovider.current.item.fDocCategoryCode_Error"
+                            },
+                            "gridOptions": {
+                              "focusedRowEnabled": true,
+                              "paging": {
+                                "enabled": false,
+                                "pageSize": 30
+                              },
+                              "scrolling": {
+                                "mode": "virtual"
+                              }
+                            },
+                            "investigateParams": {
+                              "params": {
+                                "CTRLVAL": {
+                                  "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                  "fromComponent": "fDocCategoryCode",
+                                  "fromPropertyPath": "searchText"
+                                }
+                              }
+                            },
+                            "overflowMode": "noWrapAndEllipsis",
+                            "popupHeight": "20rem",
+                            "popupWidth": "30rem",
+                            "tooltip": {
+                              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                              "fromComponent": "ES00Documents",
+                              "fromPropertyPath": "dataprovider.current.item.fDocCategoryCode_Tip"
+                            },
+                            "value": {
+                              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                              "fromComponent": "ES00Documents",
+                              "fromPropertyPath": "dataprovider.current.item.fDocCategoryCode"
+                            }
+                          },
+                          "typeName": "MulticolumnCombo"
+                        },
+                        {
+                          "id": "fDocGroupCode",
+                          "options": {
+                            "investigate": {
+                              "assign": {
+                                "serviceOptions": {}
+                              },
+                              "dsEntityId": "dsProject",
+                              "InvField": "fDocGroupCode",
+                              "InvRelation": "ES00RELDOCS",
+                              "InvTable": "ES00Documents",
+                              "results": {
+                                "serviceOptions": {}
+                              }
+                            }
+                          },
+                          "properties": {
+                            "caption": "Ομάδα ",
+                            "columns": [
+                              {
+                                "caption": "Κωδικός",
+                                "dataField": "Code",
+                                "dataType": "string"
+                              },
+                              {
+                                "caption": "Περιγραφή",
+                                "dataField": "Description",
+                                "dataType": "string"
+                              },
+                              {
+                                "caption": "Display",
+                                "dataField": "Display",
+                                "dataType": "string",
+                                "visible": false
+                              }
+                            ],
+                            "dataprovider": {
+                              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                              "fromComponent": "fDocGroupCode",
+                              "fromPropertyPath": "dataprovider"
+                            },
+                            "disabled": {
+                              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                              "fromComponent": "ES00Documents",
+                              "fromPropertyPath": "dataprovider.current.item.fDocGroupCode_Disabled"
+                            },
+                            "displayText": {
+                              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                              "fromComponent": "ES00Documents",
+                              "fromPropertyPath": "dataprovider.current.item.fDocGroupCode_Text"
+                            },
+                            "error": {
+                              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                              "fromComponent": "ES00Documents",
+                              "fromPropertyPath": "dataprovider.current.item.fDocGroupCode_Error"
+                            },
+                            "gridOptions": {
+                              "focusedRowEnabled": true,
+                              "paging": {
+                                "enabled": false,
+                                "pageSize": 30
+                              },
+                              "scrolling": {
+                                "mode": "virtual"
+                              }
+                            },
+                            "investigateParams": {
+                              "params": {
+                                "CTRLVAL": {
+                                  "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                  "fromComponent": "fDocGroupCode",
+                                  "fromPropertyPath": "searchText"
+                                }
+                              }
+                            },
+                            "overflowMode": "noWrapAndEllipsis",
+                            "popupHeight": "20rem",
+                            "popupWidth": "30rem",
+                            "tooltip": {
+                              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                              "fromComponent": "ES00Documents",
+                              "fromPropertyPath": "dataprovider.current.item.fDocGroupCode_Tip"
+                            },
+                            "value": {
+                              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                              "fromComponent": "ES00Documents",
+                              "fromPropertyPath": "dataprovider.current.item.fDocGroupCode"
+                            },
+                            "valueMember": "Code"
+                          },
+                          "typeName": "MulticolumnCombo"
+                        },
+                        {
+                          "id": "fDocumentCategoryCode",
+                          "options": {
+                            "mode": "DropdownList"
+                          },
+                          "properties": {
+                            "caption": "Χαρακτηρισμοί",
+                            "columns": [
+                              {
+                                "caption": "Κωδικός",
+                                "dataField": "Code",
+                                "dataType": "string"
+                              },
+                              {
+                                "caption": "Περιγραφή",
+                                "dataField": "Description",
+                                "dataType": "string"
+                              }
+                            ],
+                            "dataprovider": {
+                              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                              "fromComponent": "RelDocTags_dv",
+                              "fromPropertyPath": "dataprovider"
+                            },
+                            "disabled": {
+                              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                              "fromComponent": "ES00Documents",
+                              "fromPropertyPath": "dataprovider.current.item.fDocumentCategoryCode_Disabled"
+                            },
+                            "error": {
+                              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                              "fromComponent": "ES00Documents",
+                              "fromPropertyPath": "dataprovider.current.item.fDocumentCategoryCode_Error"
+                            },
+                            "gridOptions": {
+                              "focusedRowEnabled": true,
+                              "paging": {
+                                "enabled": false,
+                                "pageSize": 30
+                              },
+                              "scrolling": {
+                                "mode": "virtual"
+                              }
+                            },
+                            "overflowMode": "noWrapAndEllipsis",
+                            "popupHeight": "20rem",
+                            "popupWidth": "30rem",
+                            "singleSelectable": false,
+                            "tooltip": {
+                              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                              "fromComponent": "ES00Documents",
+                              "fromPropertyPath": "dataprovider.current.item.fDocumentCategoryCode_Tip"
+                            },
+                            "value": {
+                              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                              "fromComponent": "ES00Documents",
+                              "fromPropertyPath": "dataprovider.current.item.fDocumentCategoryCode"
+                            },
+                            "valueMember": "Code",
+                            "visible": false
+                          },
+                          "typeName": "MulticolumnCombo"
+                        },
+                        {
+                          "id": "pDocActionBtns",
+                          "items": [
+                            {
+                              "id": "btnDocAddNew",
+                              "options": {
+                                "btnSize": "small",
+                                "transparent": true
+                              },
+                              "properties": {
+                                "caption": "Νέα εγγραφή",
+                                "captionIcon": "fas fa-plus",
+                                "overflowMode": "noWrapAndEllipsis",
+                                "popupHeight": "50vh",
+                                "popupWidth": "50vw"
+                              },
+                              "typeName": "Button"
+                            },
+                            {
+                              "id": "btnDocClose",
+                              "options": {
+                                "btnSize": "small",
+                                "transparent": true
+                              },
+                              "properties": {
+                                "caption": "Κλείσιμο",
+                                "captionIcon": "fas fa-window-close",
+                                "overflowMode": "noWrapAndEllipsis",
+                                "popupHeight": "50vh",
+                                "popupWidth": "50vw"
+                              },
+                              "typeName": "Button"
+                            }
+                          ],
+                          "options": {},
+                          "properties": {
+                            "align": "center-center",
+                            "aligns": "fill-fill",
+                            "gapx": "0.7rem",
+                            "gapy": "0.7rem",
+                            "orientation": "horizontal",
+                            "sizes": "auto",
+                            "wrap": false
+                          },
+                          "typeName": "Panel"
+                        }
+                      ],
+                      "options": {},
+                      "properties": {
+                        "aligns": "fill-fill",
+                        "gapx": "0.7rem",
+                        "gapy": "0.7rem",
+                        "orientation": "vertical",
+                        "sizes": "auto",
+                        "wrap": false
+                      },
+                      "typeName": "Panel"
+                    }
+                  ],
+                  "options": {
+                    "alignment": null,
+                    "b": null,
+                    "height": null,
+                    "l": null,
+                    "r": null,
+                    "rows-gutter": null,
+                    "t": null,
+                    "width": null
+                  },
+                  "properties": {
+                    "align": null,
+                    "backgroundStyle": null,
+                    "borderColor": null,
+                    "borderPosition": null,
+                    "borderStyle": null,
+                    "borderWidth": null,
+                    "caption": null,
+                    "captionAlignment": null,
+                    "captionColor": null,
+                    "captionIcon": null,
+                    "captionSize": null,
+                    "captionStyle": null,
+                    "captionType": null,
+                    "captionWidth": null,
+                    "clipped": null,
+                    "colspan": null,
+                    "disabled": null,
+                    "framePadding": null,
+                    "frameStyle": null,
+                    "gradient": null,
+                    "imageUrl": null,
+                    "overflowMode": "noWrapAndEllipsis",
+                    "rowspan": null,
+                    "scrollable": null,
+                    "shadow": null,
+                    "shadowType": null,
+                    "size": null,
+                    "visible": null
+                  },
+                  "typeName": "Frame"
+                }
+              ],
+              "options": {
+                "alignment": null,
+                "b": null,
+                "height": null,
+                "l": null,
+                "r": null,
+                "rows-gutter": null,
+                "t": null,
+                "width": null
+              },
+              "properties": {
+                "align": null,
+                "aligns": "stretch",
+                "captionAlignment": null,
+                "captionColor": null,
+                "captionSize": null,
+                "captionStyle": null,
+                "captionWidth": null,
+                "colspan": null,
+                "gapx": "0.7rem",
+                "gapy": "0.5rem",
+                "orientation": "horizontal",
+                "rowspan": null,
+                "size": null,
+                "sizes": "auto 1fr/ 1fr",
+                "visible": null
+              },
+              "typeName": "GridPanel"
+            }
+          ],
+          "options": {},
+          "properties": {
+            "autoclose": true,
+            "modal": false,
+            "movable": false,
+            "popupHeight": "auto",
+            "popupWidth": "30",
+            "resizable": false
+          },
+          "typeName": "PopPanel"
+        }
+      ],
+      "typeName": "Group"
+    },
+    {
+      "id": "shelvedItems",
+      "items": [],
+      "typeName": "Group"
+    },
+    {
+      "id": "availableItems",
+      "items": [],
+      "typeName": "Group"
+    },
+    {
+      "id": "pageItems",
+      "items": [
+        {
+          "id": "pan_ISUD_Actions",
+          "items": [
+            {
+              "id": "btn_Save",
+              "options": {
+                "btnSize": "small",
+                "transparent": true
+              },
+              "properties": {
+                "caption": "Αποθήκευση",
+                "captionIcon": "save",
+                "overflowMode": "noWrapAndEllipsis",
+                "popupHeight": "50vh",
+                "popupWidth": "50vw",
+                "size": "auto"
+              },
+              "typeName": "Button"
+            },
+            {
+              "id": "btn_New",
+              "options": {
+                "btnSize": "small",
+                "transparent": true
+              },
+              "properties": {
+                "caption": "Νέο",
+                "captionIcon": "fas fa-plus",
+                "overflowMode": "noWrapAndEllipsis",
+                "popupHeight": "50vh",
+                "popupWidth": "50vw",
+                "size": "auto"
+              },
+              "typeName": "Button"
+            },
+            {
+              "id": "btn_Delete",
+              "options": {
+                "btnSize": "small",
+                "transparent": true
+              },
+              "properties": {
+                "caption": "Δισγραφή",
+                "overflowMode": "noWrapAndEllipsis",
+                "popupHeight": "50vh",
+                "popupWidth": "50vw",
+                "size": "auto",
+                "visible": false
+              },
+              "typeName": "Button"
+            }
+          ],
+          "properties": {
+            "aligns": "fill-fill",
+            "gapx": "0.7rem",
+            "gapy": "0.7rem",
+            "orientation": "horizontal",
+            "size": "5%",
+            "sizes": "7,7,7,10",
+            "wrap": false
+          },
+          "typeName": "Panel"
+        },
+        {
+          "id": "Line_1",
+          "typeName": "Line"
+        },
+        {
+          "id": "Project_Header_Details",
+          "items": [
+            {
+              "id": "frm_EditHeader",
+              "items": [
+                {
+                  "id": "pan_HeaderInfo",
+                  "items": [
+                    {
+                      "id": "Code",
+                      "properties": {
+                        "align": "top-left",
+                        "caption": "Κωδικός",
+                        "captionAlignment": "left",
+                        "captionSize": "1",
+                        "disabled": {
+                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                          "fromComponent": "Project",
+                          "fromPropertyPath": "dataprovider.current.item.Code_Disabled"
+                        },
+                        "dxOptions": {
+                          "maxLength": 50
+                        },
+                        "error": {
+                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                          "fromComponent": "Project",
+                          "fromPropertyPath": "dataprovider.current.item.Code_Error"
+                        },
+                        "overflowMode": "noWrapAndEllipsis",
+                        "tooltip": {
+                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                          "fromComponent": "Project",
+                          "fromPropertyPath": "dataprovider.current.item.Code_Tip"
+                        },
+                        "value": {
+                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                          "fromComponent": "Project",
+                          "fromPropertyPath": "dataprovider.current.item.Code"
+                        }
+                      },
+                      "typeName": "Field"
+                    },
+                    {
+                      "id": "Name",
+                      "options": {},
+                      "properties": {
+                        "caption": "Ονομασία",
+                        "captionSize": "1",
+                        "disabled": {
+                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                          "fromComponent": "Project",
+                          "fromPropertyPath": "dataprovider.current.item.Name_Disabled"
+                        },
+                        "dxOptions": {
+                          "maxLength": 255,
+                          "showClearButton": true
+                        },
+                        "error": {
+                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                          "fromComponent": "Project",
+                          "fromPropertyPath": "dataprovider.current.item.Name_Error"
+                        },
+                        "overflowMode": "noWrapAndEllipsis",
+                        "tooltip": {
+                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                          "fromComponent": "Project",
+                          "fromPropertyPath": "dataprovider.current.item.Name_Tip"
+                        },
+                        "value": {
+                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                          "fromComponent": "Project",
+                          "fromPropertyPath": "dataprovider.current.item.Name"
+                        }
+                      },
+                      "typeName": "Field"
+                    },
+                    {
+                      "id": "StartDate",
+                      "properties": {
+                        "align": "top-left",
+                        "caption": "Εναρξη",
+                        "dateType": "date",
+                        "disabled": {
+                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                          "fromComponent": "Project",
+                          "fromPropertyPath": "dataprovider.current.item.StartDate_Disabled"
+                        },
+                        "error": {
+                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                          "fromComponent": "Project",
+                          "fromPropertyPath": "dataprovider.current.item.StartDate_Error"
+                        },
+                        "overflowMode": "noWrapAndEllipsis",
+                        "tooltip": {
+                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                          "fromComponent": "Project",
+                          "fromPropertyPath": "dataprovider.current.item.StartDate_Tip"
+                        },
+                        "value": {
+                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                          "fromComponent": "Project",
+                          "fromPropertyPath": "dataprovider.current.item.StartDate"
+                        }
+                      },
+                      "typeName": "Date"
+                    },
+                    {
+                      "id": "FinishDate",
+                      "properties": {
+                        "align": "top-left",
+                        "caption": "Λήξη",
+                        "dateType": "date",
+                        "disabled": {
+                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                          "fromComponent": "Project",
+                          "fromPropertyPath": "dataprovider.current.item.FinishDate_Disabled"
+                        },
+                        "error": {
+                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                          "fromComponent": "Project",
+                          "fromPropertyPath": "dataprovider.current.item.FinishDate_Error"
+                        },
+                        "overflowMode": "noWrapAndEllipsis",
+                        "tooltip": {
+                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                          "fromComponent": "Project",
+                          "fromPropertyPath": "dataprovider.current.item.FinishDate_Tip"
+                        },
+                        "value": {
+                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                          "fromComponent": "Project",
+                          "fromPropertyPath": "dataprovider.current.item.FinishDate"
+                        }
+                      },
+                      "typeName": "Date"
+                    },
+                    {
+                      "id": "fParentProjectGID",
+                      "options": {
+                        "investigate": {
+                          "assign": {
+                            "serviceOptions": {}
+                          },
+                          "dsEntityId": "dsProject",
+                          "InvField": "fParentProjectGID",
+                          "InvTable": "ESGOProject",
+                          "results": {
+                            "serviceOptions": {}
+                          }
+                        },
+                        "popKind": "popup"
+                      },
+                      "properties": {
+                        "caption": "Ανήκει στο Εργο",
+                        "columns": [
+                          {
+                            "caption": "Κωδικός",
+                            "dataField": "Code",
+                            "dataType": "string"
+                          },
+                          {
+                            "caption": "Ονομασία",
+                            "dataField": "Name",
+                            "dataType": "string"
+                          },
+                          {
+                            "caption": "Εναρξη",
+                            "dataField": "StartDate",
+                            "dataType": "date",
+                            "format": "dd/MM/yyyy"
+                          },
+                          {
+                            "caption": "Λήξη",
+                            "dataField": "FinishDate",
+                            "dataType": "date",
+                            "format": "dd/MM/yyyy"
+                          }
+                        ],
+                        "dataprovider": {
+                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                          "fromComponent": "fParentProjectGID",
+                          "fromPropertyPath": "dataprovider"
+                        },
+                        "disabled": {
+                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                          "fromComponent": "Project",
+                          "fromPropertyPath": "dataprovider.current.item.fParentProjectGID_Disabled"
+                        },
+                        "displayText": {
+                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                          "fromComponent": "Project",
+                          "fromPropertyPath": "dataprovider.current.item.fParentProjectGID_Display"
+                        },
+                        "error": {
+                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                          "fromComponent": "Project",
+                          "fromPropertyPath": "dataprovider.current.item.fParentProjectGID_Error"
+                        },
+                        "gridOptions": {
+                          "focusedRowEnabled": true,
+                          "paging": {
+                            "enabled": false,
+                            "pageSize": 30
+                          },
+                          "scrolling": {
+                            "mode": "virtual"
+                          }
+                        },
+                        "investigateParams": {
+                          "params": {
+                            "CTRLVAL": {
+                              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                              "fromComponent": "fParentProjectGID",
+                              "fromPropertyPath": "searchText"
+                            }
+                          }
+                        },
+                        "overflowMode": "noWrapAndEllipsis",
+                        "popupHeight": "30rem",
+                        "tooltip": {
+                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                          "fromComponent": "Project",
+                          "fromPropertyPath": "dataprovider.current.item.fParentProjectGID_Tip"
+                        }
+                      },
+                      "typeName": "Lookup"
+                    },
+                    {
+                      "id": "fTradeAccountGID",
+                      "options": {
+                        "investigate": {
+                          "assign": {
+                            "serviceOptions": {}
+                          },
+                          "dsEntityId": "dsProject",
+                          "InvField": "fTradeAccountGID",
+                          "InvTable": "ESGOProject",
+                          "results": {
+                            "serviceOptions": {
+                              "enumColumns": {
+                                "Type_Text": "Entersoft.ERP.Financials.Enums.TradeAccountType, ESFIEnums"
+                              }
+                            }
+                          }
+                        },
+                        "popKind": "popup"
+                      },
+                      "properties": {
+                        "caption": "Συναλλασσόμενος",
+                        "columns": [
+                          {
+                            "caption": "Κωδικός",
+                            "dataField": "Code",
+                            "dataType": "string"
+                          },
+                          {
+                            "caption": "Επωνυμία/Ονοματεπώνυμο",
+                            "dataField": "Name",
+                            "dataType": "string"
+                          }
+                        ],
+                        "dataprovider": {
+                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                          "fromComponent": "fTradeAccountGID",
+                          "fromPropertyPath": "dataprovider"
+                        },
+                        "disabled": {
+                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                          "fromComponent": "Project",
+                          "fromPropertyPath": "dataprovider.current.item.fTradeAccountGID_Disabled"
+                        },
+                        "displayText": {
+                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                          "fromComponent": "Project",
+                          "fromPropertyPath": "dataprovider.current.item.fTradeAccountGID_Code"
+                        },
+                        "error": {
+                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                          "fromComponent": "Project",
+                          "fromPropertyPath": "dataprovider.current.item.fTradeAccountGID_Error"
+                        },
+                        "gridOptions": {
+                          "focusedRowEnabled": true,
+                          "paging": {
+                            "enabled": false,
+                            "pageSize": 30
+                          },
+                          "scrolling": {
+                            "mode": "virtual"
+                          }
+                        },
+                        "investigateParams": {
+                          "params": {
+                            "CTRLVAL": {
+                              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                              "fromComponent": "fTradeAccountGID",
+                              "fromPropertyPath": "searchText"
+                            }
+                          }
+                        },
+                        "overflowMode": "noWrapAndEllipsis",
+                        "popupHeight": "30rem",
+                        "tooltip": {
+                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                          "fromComponent": "Project",
+                          "fromPropertyPath": "dataprovider.current.item.fTradeAccountGID_Tip"
+                        }
+                      },
+                      "typeName": "Lookup"
+                    },
+                    {
+                      "id": "fTradeAccountSiteGID",
+                      "options": {
+                        "investigate": {
+                          "assign": {
+                            "serviceOptions": {}
+                          },
+                          "dsEntityId": "dsProject",
+                          "InvField": "fTradeAccountSiteGID",
+                          "InvTable": "ESGOProject",
+                          "results": {
+                            "serviceOptions": {}
+                          }
+                        },
+                        "popKind": "popup"
+                      },
+                      "properties": {
+                        "caption": "Υποκ/μα συν/νου",
+                        "columns": [
+                          {
+                            "caption": "Κωδικός",
+                            "dataField": "Code",
+                            "dataType": "string"
+                          },
+                          {
+                            "caption": "Περιγραφή",
+                            "dataField": "Description",
+                            "dataType": "string"
+                          }
+                        ],
+                        "dataprovider": {
+                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                          "fromComponent": "fTradeAccountSiteGID",
+                          "fromPropertyPath": "dataprovider"
+                        },
+                        "disabled": {
+                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                          "fromComponent": "Project",
+                          "fromPropertyPath": "dataprovider.current.item.fTradeAccountSiteGID_Disabled"
+                        },
+                        "displayText": {
+                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                          "fromComponent": "Project",
+                          "fromPropertyPath": "dataprovider.current.item.fTradeAccountSiteGID_Display"
+                        },
+                        "error": {
+                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                          "fromComponent": "Project",
+                          "fromPropertyPath": "dataprovider.current.item.fTradeAccountSiteGID_Error"
+                        },
+                        "gridOptions": {
+                          "focusedRowEnabled": true,
+                          "paging": {
+                            "enabled": false,
+                            "pageSize": 30
+                          },
+                          "scrolling": {
+                            "mode": "virtual"
+                          }
+                        },
+                        "investigateParams": {
+                          "params": {
+                            "CTRLVAL": {
+                              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                              "fromComponent": "fTradeAccountSiteGID",
+                              "fromPropertyPath": "searchText"
+                            }
+                          }
+                        },
+                        "overflowMode": "noWrapAndEllipsis",
+                        "popupHeight": "30rem",
+                        "tooltip": {
+                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                          "fromComponent": "Project",
+                          "fromPropertyPath": "dataprovider.current.item.fTradeAccountSiteGID_Tip"
+                        }
+                      },
+                      "typeName": "Lookup"
+                    },
+                    {
+                      "id": "fProjectManagerGID",
+                      "options": {
+                        "investigate": {
+                          "assign": {
+                            "serviceOptions": {}
+                          },
+                          "dsEntityId": "dsProject",
+                          "InvField": "fProjectManagerGID",
+                          "InvTable": "ESGOProject",
+                          "results": {
+                            "serviceOptions": {}
+                          }
+                        },
+                        "popKind": "popup"
+                      },
+                      "properties": {
+                        "caption": "Υπεύθυνος έργου",
+                        "columns": [
+                          {
+                            "caption": "Κωδικός",
+                            "dataField": "Code",
+                            "dataType": "string"
+                          },
+                          {
+                            "caption": "Επωνυμία/Ονοματεπώνυμο",
+                            "dataField": "Name",
+                            "dataType": "string"
+                          }
+                        ],
+                        "dataprovider": {
+                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                          "fromComponent": "fProjectManagerGID",
+                          "fromPropertyPath": "dataprovider"
+                        },
+                        "disabled": {
+                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                          "fromComponent": "Project",
+                          "fromPropertyPath": "dataprovider.current.item.fProjectManagerGID_Disabled"
+                        },
+                        "displayText": {
+                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                          "fromComponent": "Project",
+                          "fromPropertyPath": "dataprovider.current.item.fProjectManagerGID_Name"
+                        },
+                        "error": {
+                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                          "fromComponent": "Project",
+                          "fromPropertyPath": "dataprovider.current.item.fProjectManagerGID_Error"
+                        },
+                        "gridOptions": {
+                          "focusedRowEnabled": true,
+                          "paging": {
+                            "enabled": false,
+                            "pageSize": 30
+                          },
+                          "scrolling": {
+                            "mode": "virtual"
+                          }
+                        },
+                        "investigateParams": {
+                          "params": {
+                            "CTRLVAL": {
+                              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                              "fromComponent": "fProjectManagerGID",
+                              "fromPropertyPath": "searchText"
+                            }
+                          }
+                        },
+                        "overflowMode": "noWrapAndEllipsis",
+                        "popupHeight": "30rem",
+                        "tooltip": {
+                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                          "fromComponent": "Project",
+                          "fromPropertyPath": "dataprovider.current.item.fProjectManagerGID_Tip"
+                        }
+                      },
+                      "typeName": "Lookup"
+                    },
+                    {
+                      "id": "fProjectStatusCode",
+                      "options": {
+                        "investigate": {
+                          "assign": {
+                            "serviceOptions": {}
+                          },
+                          "dsEntityId": "dsProject",
+                          "InvField": "fProjectStatusCode",
+                          "InvTable": "ESGOProject",
+                          "results": {
+                            "serviceOptions": {}
+                          }
+                        }
+                      },
+                      "properties": {
+                        "caption": "Κατάσταση",
+                        "columns": [
+                          {
+                            "caption": "Κωδικός",
+                            "dataField": "Code",
+                            "dataType": "string"
+                          },
+                          {
+                            "caption": "Περιγραφή",
+                            "dataField": "Description",
+                            "dataType": "string"
+                          },
+                          {
+                            "caption": "Εναλλακτική περιγραφή",
+                            "dataField": "AlternativeDescription",
+                            "dataType": "string"
+                          },
+                          {
+                            "caption": "Display",
+                            "dataField": "Display",
+                            "dataType": "string",
+                            "visible": false
+                          }
+                        ],
+                        "dataprovider": {
+                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                          "fromComponent": "fProjectStatusCode",
+                          "fromPropertyPath": "dataprovider"
+                        },
+                        "disabled": {
+                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                          "fromComponent": "Project",
+                          "fromPropertyPath": "dataprovider.current.item.fProjectStatusCode_Disabled"
+                        },
+                        "displayText": {
+                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                          "fromComponent": "Project",
+                          "fromPropertyPath": "dataprovider.current.item.fProjectStatusCode_Text"
+                        },
+                        "error": {
+                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                          "fromComponent": "Project",
+                          "fromPropertyPath": "dataprovider.current.item.fProjectStatusCode_Error"
+                        },
+                        "gridOptions": {
+                          "focusedRowEnabled": true,
+                          "paging": {
+                            "enabled": false,
+                            "pageSize": 30
+                          },
+                          "scrolling": {
+                            "mode": "virtual"
+                          }
+                        },
+                        "investigateParams": {
+                          "params": {
+                            "CTRLVAL": {
+                              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                              "fromComponent": "fProjectStatusCode",
+                              "fromPropertyPath": "searchText"
+                            }
+                          }
+                        },
+                        "overflowMode": "noWrapAndEllipsis",
+                        "popupHeight": "20rem",
+                        "popupWidth": "45rem",
+                        "tooltip": {
+                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                          "fromComponent": "Project",
+                          "fromPropertyPath": "dataprovider.current.item.fProjectStatusCode_Tip"
+                        },
+                        "value": {
+                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                          "fromComponent": "Project",
+                          "fromPropertyPath": "dataprovider.current.item.fProjectStatusCode"
+                        },
+                        "valueMember": "Code"
+                      },
+                      "typeName": "MulticolumnCombo"
+                    },
+                    {
+                      "id": "pnlBudgetedCost",
+                      "items": [
+                        {
+                          "id": "BudgetedCost",
+                          "properties": {
+                            "caption": "Προϋπολογισμένο κόστος",
+                            "captionType": "label",
+                            "disabled": {
+                              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                              "fromComponent": "Project",
+                              "fromPropertyPath": "dataprovider.current.item.BudgetedCost_Disabled"
+                            },
+                            "dxOptions": {
+                              "format": {
+                                "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                "fromComponent": "Project",
+                                "fromPropertyPath": "dataprovider.current.item.BudgetedCost_Fmt"
+                              }
+                            },
+                            "error": {
+                              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                              "fromComponent": "Project",
+                              "fromPropertyPath": "dataprovider.current.item.BudgetedCost_Error"
+                            },
+                            "overflowMode": "noWrapAndEllipsis",
+                            "tooltip": {
+                              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                              "fromComponent": "Project",
+                              "fromPropertyPath": "dataprovider.current.item.BudgetedCost_Tip"
+                            },
+                            "value": {
+                              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                              "fromComponent": "Project",
+                              "fromPropertyPath": "dataprovider.current.item.BudgetedCost"
+                            }
+                          },
+                          "typeName": "Numeric"
+                        }
+                      ],
+                      "options": {},
+                      "properties": {
+                        "gapx": "0.7rem",
+                        "gapy": "0.7rem",
+                        "orientation": "horizontal",
+                        "sizes": "auto",
+                        "wrap": false
+                      },
+                      "typeName": "Panel"
+                    },
+                    {
+                      "id": "pnlBudgetedRevenue",
+                      "items": [
+                        {
+                          "id": "BudgetedRevenue",
+                          "properties": {
+                            "caption": "Προϋπολογισμός εσόδων",
+                            "captionType": "label",
+                            "disabled": {
+                              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                              "fromComponent": "Project",
+                              "fromPropertyPath": "dataprovider.current.item.BudgetedRevenue_Disabled"
+                            },
+                            "dxOptions": {
+                              "format": {
+                                "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                "fromComponent": "Project",
+                                "fromPropertyPath": "dataprovider.current.item.BudgetedRevenue_Fmt"
+                              }
+                            },
+                            "error": {
+                              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                              "fromComponent": "Project",
+                              "fromPropertyPath": "dataprovider.current.item.BudgetedRevenue_Error"
+                            },
+                            "overflowMode": "noWrapAndEllipsis",
+                            "tooltip": {
+                              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                              "fromComponent": "Project",
+                              "fromPropertyPath": "dataprovider.current.item.BudgetedRevenue_Tip"
+                            },
+                            "value": {
+                              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                              "fromComponent": "Project",
+                              "fromPropertyPath": "dataprovider.current.item.BudgetedRevenue"
+                            }
+                          },
+                          "typeName": "Numeric"
+                        }
+                      ],
+                      "options": {},
+                      "properties": {
+                        "aligns": "fill-fill",
+                        "gapx": "0.7rem",
+                        "gapy": "0.7rem",
+                        "orientation": "horizontal",
+                        "sizes": "auto",
+                        "wrap": false
+                      },
+                      "typeName": "Panel"
+                    }
+                  ],
+                  "options": {},
+                  "properties": {
+                    "gapx": "0.7rem",
+                    "gapy": "0.7rem",
+                    "orientation": "vertical",
+                    "size": "22%",
+                    "sizes": "auto",
+                    "wrap": false
+                  },
+                  "typeName": "Panel"
+                }
+              ],
+              "options": {},
+              "properties": {
+                "overflowMode": "noWrapAndEllipsis",
+                "scrollable": true,
+                "size": "22%"
+              },
+              "typeName": "Frame"
+            },
+            {
+              "id": "pan_KPI_Activities",
+              "items": [
+                {
+                  "id": "pKpis",
+                  "items": [
+                    {
+                      "id": "gpIndicators",
+                      "items": [
+                        {
+                          "id": "pTurnover",
+                          "items": [
+                            {
+                              "id": "capTurnover",
+                              "properties": {
+                                "caption": "Τζίρος",
+                                "captionSize": "1",
+                                "overflowMode": "noWrapAndEllipsis",
+                                "size": "auto"
+                              },
+                              "typeName": "Caption"
+                            },
+                            {
+                              "id": "capTrnValue",
+                              "properties": {
+                                "caption": {
+                                  "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                  "fromComponent": "capTrnValue_caption",
+                                  "fromPropertyPath": "result"
+                                },
+                                "captionSize": "2",
+                                "numericFormat": "#,##0.##",
+                                "overflowMode": "noWrapAndEllipsis"
+                              },
+                              "typeName": "Caption"
+                            }
+                          ],
+                          "properties": {
+                            "aligns": "top-left",
+                            "gapx": "0.7rem",
+                            "gapy": "0.7rem",
+                            "orientation": "vertical",
+                            "size": "50",
+                            "sizes": "auto",
+                            "wrap": false
+                          },
+                          "typeName": "Panel"
+                        },
+                        {
+                          "id": "pBudgetRev",
+                          "items": [
+                            {
+                              "id": "capBudgetRev",
+                              "properties": {
+                                "caption": "Στόχος τζίρου",
+                                "captionSize": "1",
+                                "overflowMode": "noWrapAndEllipsis",
+                                "size": "auto"
+                              },
+                              "typeName": "Caption"
+                            },
+                            {
+                              "id": "capBgtRevValue",
+                              "properties": {
+                                "caption": {
+                                  "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                  "fromComponent": "capBgtRevValue_caption",
+                                  "fromPropertyPath": "result"
+                                },
+                                "captionSize": "2",
+                                "numericFormat": "#,##0.##",
+                                "overflowMode": "noWrapAndEllipsis"
+                              },
+                              "typeName": "Caption"
+                            }
+                          ],
+                          "properties": {
+                            "aligns": "top-left",
+                            "gapx": "0.7rem",
+                            "gapy": "0.7rem",
+                            "orientation": "vertical",
+                            "size": "50%",
+                            "sizes": "auto",
+                            "wrap": false
+                          },
+                          "typeName": "Panel"
+                        },
+                        {
+                          "id": "pVariance",
+                          "items": [
+                            {
+                              "id": "capVariance",
+                              "properties": {
+                                "caption": "Απόκλιση",
+                                "captionSize": "1",
+                                "overflowMode": "noWrapAndEllipsis",
+                                "size": "auto"
+                              },
+                              "typeName": "Caption"
+                            },
+                            {
+                              "id": "capVarianceValue",
+                              "properties": {
+                                "caption": {
+                                  "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                  "fromComponent": "capVarianceValue_caption",
+                                  "fromPropertyPath": "result"
+                                },
+                                "captionColor": {
+                                  "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                  "fromComponent": "capVarianceValue_captionColor",
+                                  "fromPropertyPath": "result"
+                                },
+                                "captionSize": "2",
+                                "overflowMode": "noWrapAndEllipsis"
+                              },
+                              "typeName": "Caption"
+                            }
+                          ],
+                          "properties": {
+                            "aligns": "top-left",
+                            "gapx": "0.7rem",
+                            "gapy": "0.7rem",
+                            "orientation": "vertical",
+                            "size": "50%",
+                            "sizes": "auto",
+                            "wrap": false
+                          },
+                          "typeName": "Panel"
+                        },
+                        {
+                          "id": "pVariancePct",
+                          "items": [
+                            {
+                              "id": "capVariancePct",
+                              "properties": {
+                                "caption": "Απόκλιση (%)",
+                                "captionSize": "1",
+                                "overflowMode": "noWrapAndEllipsis",
+                                "size": "auto"
+                              },
+                              "typeName": "Caption"
+                            },
+                            {
+                              "id": "capVariancePctValue",
+                              "properties": {
+                                "caption": {
+                                  "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                  "fromComponent": "ContextKPIs_dv",
+                                  "fromPropertyPath": "dataprovider.current.item.VariancePCT"
+                                },
+                                "captionColor": {
+                                  "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                  "fromComponent": "capVariancePctValue_captionColor",
+                                  "fromPropertyPath": "result"
+                                },
+                                "captionSize": "2",
+                                "numericFormat": "#,##0.##%",
+                                "overflowMode": "noWrapAndEllipsis"
+                              },
+                              "typeName": "Caption"
+                            }
+                          ],
+                          "properties": {
+                            "aligns": "top-left",
+                            "gapx": "0.7rem",
+                            "gapy": "0.7rem",
+                            "orientation": "vertical",
+                            "size": "50%",
+                            "sizes": "auto",
+                            "wrap": false
+                          },
+                          "typeName": "Panel"
+                        },
+                        {
+                          "id": "pWorkingHours",
+                          "items": [
+                            {
+                              "id": "capWorkingHours",
+                              "properties": {
+                                "caption": "Ώρες εργασίας",
+                                "captionSize": "1",
+                                "overflowMode": "noWrapAndEllipsis",
+                                "size": "auto"
+                              },
+                              "typeName": "Caption"
+                            },
+                            {
+                              "id": "capWorkingHoursValue",
+                              "properties": {
+                                "caption": {
+                                  "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                  "fromComponent": "ContextKPIs_dv",
+                                  "fromPropertyPath": "dataprovider.current.item.LabourTime"
+                                },
+                                "captionSize": "2",
+                                "numericFormat": "#,##0.##",
+                                "overflowMode": "noWrapAndEllipsis"
+                              },
+                              "typeName": "Caption"
+                            }
+                          ],
+                          "properties": {
+                            "aligns": "top-left",
+                            "gapx": "0.7rem",
+                            "gapy": "0.7rem",
+                            "orientation": "vertical",
+                            "size": "50%",
+                            "sizes": "auto",
+                            "wrap": false
+                          },
+                          "typeName": "Panel"
+                        },
+                        {
+                          "id": "pBillableHours",
+                          "items": [
+                            {
+                              "id": "capBillableHours",
+                              "properties": {
+                                "caption": "Ώρες χρέωσης",
+                                "overflowMode": "noWrapAndEllipsis",
+                                "size": "auto"
+                              },
+                              "typeName": "Caption"
+                            },
+                            {
+                              "id": "capBillableHoursValue",
+                              "properties": {
+                                "caption": {
+                                  "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                  "fromComponent": "ContextKPIs_dv",
+                                  "fromPropertyPath": "dataprovider.current.item.BillableTime"
+                                },
+                                "captionSize": "2",
+                                "numericFormat": "#,##0.##",
+                                "overflowMode": "noWrapAndEllipsis"
+                              },
+                              "typeName": "Caption"
+                            }
+                          ],
+                          "properties": {
+                            "aligns": "top-left",
+                            "gapx": "0.7rem",
+                            "gapy": "0.7rem",
+                            "orientation": "vertical",
+                            "size": "50%",
+                            "sizes": "auto",
+                            "wrap": false
+                          },
+                          "typeName": "Panel"
+                        }
+                      ],
+                      "options": {},
+                      "properties": {
+                        "aligns": "stretch",
+                        "gapx": "0.7rem",
+                        "gapy": "0.7rem",
+                        "orientation": "horizontal",
+                        "size": "50%",
+                        "sizes": "1fr 1fr 1fr / 1fr 1fr"
+                      },
+                      "typeName": "GridPanel"
+                    },
+                    {
+                      "id": "pCharts",
+                      "items": [
+                        {
+                          "id": "pnlTrnBudget",
+                          "items": [
+                            {
+                              "id": "chrtTrnBudget",
+                              "options": {
+                                "rows-gutter": "2-0"
+                              },
+                              "properties": {
+                                "chartType": "bar",
+                                "dataprovider": {
+                                  "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                  "fromComponent": "ContextKPIs_dv",
+                                  "fromPropertyPath": "dataprovider"
+                                },
+                                "dxOptions": {
+                                  "legend": {
+                                    "horizontalAlignment": "right",
+                                    "orientation": "vertical",
+                                    "verticalAlignment": "top",
+                                    "visible": true
+                                  },
+                                  "rotated": true,
+                                  "series": [
+                                    {
+                                      "name": "Τζίρος",
+                                      "type": "bar",
+                                      "valueField": "TurnOver"
+                                    },
+                                    {
+                                      "name": "Στόχος τζίρου",
+                                      "type": "bar",
+                                      "valueField": "BudgetedRevenue"
+                                    }
+                                  ]
+                                },
+                                "overflowMode": "noWrapAndEllipsis",
+                                "selectionMode": "none",
+                                "singleSelectable": false,
+                                "size": "1",
+                                "tooltipExpression": "<b> Τζίρος: </b> $(TurnOver; #,##0.##) $CurrencySymbol <br> <b> Στόχος τζίρου: </b> $(BudgetedRevenue; #,##0.##) $CurrencySymbol ",
+                                "xAxis": "xAxisDummy",
+                                "yAxis": []
+                              },
+                              "typeName": "Chart"
+                            }
+                          ],
+                          "options": {},
+                          "properties": {
+                            "aligns": "fill-fill",
+                            "gapx": "0.7rem",
+                            "gapy": "0.7rem",
+                            "orientation": "horizontal",
+                            "sizes": "auto",
+                            "wrap": false
+                          },
+                          "typeName": "Panel"
+                        },
+                        {
+                          "id": "pnlWorkingBillableHours",
+                          "items": [
+                            {
+                              "id": "chrtWorkingBillableHours",
+                              "options": {
+                                "rows-gutter": "2-0"
+                              },
+                              "properties": {
+                                "chartType": "bar",
+                                "dataprovider": {
+                                  "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                  "fromComponent": "ContextKPIs_dv",
+                                  "fromPropertyPath": "dataprovider"
+                                },
+                                "dxOptions": {
+                                  "legend": {
+                                    "horizontalAlignment": "right",
+                                    "orientation": "vertical",
+                                    "verticalAlignment": "top",
+                                    "visible": true
+                                  },
+                                  "rotated": true,
+                                  "series": [
+                                    {
+                                      "color": "#f0ad4e",
+                                      "name": "Ώρες εργασίας",
+                                      "type": "bar",
+                                      "valueField": "LabourTime"
+                                    },
+                                    {
+                                      "color": "#5cb85c",
+                                      "name": "Ώρες χρέωσης",
+                                      "type": "bar",
+                                      "valueField": "BillableTime"
+                                    }
+                                  ]
+                                },
+                                "overflowMode": "noWrapAndEllipsis",
+                                "selectionMode": "none",
+                                "singleSelectable": false,
+                                "size": "1",
+                                "tooltipExpression": "<b> Ώρες εργασίας: </b> $(LabourTime; #,##0.##)  <br> <b> Ώρες χρέωσης: </b> $(BillableTime; #,##0.##)",
+                                "xAxis": "xAxisDummy",
+                                "yAxis": []
+                              },
+                              "typeName": "Chart"
+                            }
+                          ],
+                          "options": {},
+                          "properties": {
+                            "aligns": "fill-fill",
+                            "gapx": "0.7rem",
+                            "gapy": "0.7rem",
+                            "orientation": "horizontal",
+                            "sizes": "auto",
+                            "wrap": false
+                          },
+                          "typeName": "Panel"
+                        }
+                      ],
+                      "options": {},
+                      "properties": {
+                        "gapx": "0.7rem",
+                        "gapy": "0.7rem",
+                        "orientation": "vertical",
+                        "size": "50%",
+                        "sizes": "auto",
+                        "wrap": false
+                      },
+                      "typeName": "Panel"
+                    }
+                  ],
+                  "options": {},
+                  "properties": {
+                    "aligns": "fill-fill",
+                    "gapx": "0.7rem",
+                    "gapy": "0.7rem",
+                    "orientation": "horizontal",
+                    "size": "35%",
+                    "sizes": "auto",
+                    "wrap": false
+                  },
+                  "typeName": "Panel"
+                },
+                {
+                  "id": "pBillableHours_Timesheets",
+                  "items": [
+                    {
+                      "id": "timesheet_grid",
+                      "items": [
+                        {
+                          "id": "frmDateGroup",
+                          "items": [
+                            {
+                              "id": "capDate",
+                              "options": {},
+                              "properties": {
+                                "caption": {
+                                  "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                  "fromComponent": "scope",
+                                  "fromPropertyPath": "item.Date"
+                                },
+                                "dateFormat": "dd/MM/yyyy",
+                                "overflowMode": "noWrapAndEllipsis"
+                              },
+                              "typeName": "Caption"
+                            }
+                          ],
+                          "options": {},
+                          "properties": {
+                            "overflowMode": "noWrapAndEllipsis"
+                          },
+                          "typeName": "Frame"
+                        },
+                        {
+                          "id": "frm_3gos",
+                          "items": [
+                            {
+                              "id": "pInfo",
+                              "items": [
+                                {
+                                  "id": "pRepInfo",
+                                  "items": [
+                                    {
+                                      "id": "pRepWorkplace",
+                                      "items": [
+                                        {
+                                          "id": "capRepInfo",
+                                          "properties": {
+                                            "align": "top-left",
+                                            "caption": {
+                                              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                              "fromComponent": "scope",
+                                              "fromPropertyPath": "item.Representative"
+                                            },
+                                            "captionSize": "0",
+                                            "overflowMode": "noWrapAndEllipsis"
+                                          },
+                                          "typeName": "Caption"
+                                        }
+                                      ],
+                                      "options": {},
+                                      "properties": {
+                                        "aligns": "top-left",
+                                        "gapx": "0.7rem",
+                                        "gapy": "0.7rem",
+                                        "orientation": "vertical",
+                                        "sizes": "auto",
+                                        "wrap": false
+                                      },
+                                      "typeName": "Panel"
+                                    },
+                                    {
+                                      "id": "emp_hypb",
+                                      "options": {},
+                                      "properties": {
+                                        "size": "5rem"
+                                      },
+                                      "typeName": "Empty"
+                                    },
+                                    {
+                                      "id": "pnlKPIs",
+                                      "items": [
+                                        {
+                                          "id": "pnlWorkingHours",
+                                          "items": [
+                                            {
+                                              "id": "capCtxWorkingHours",
+                                              "properties": {
+                                                "caption": "Ώρες εργασίας",
+                                                "captionSize": "0",
+                                                "overflowMode": "noWrapAndEllipsis",
+                                                "size": "auto"
+                                              },
+                                              "typeName": "Caption"
+                                            },
+                                            {
+                                              "id": "capCtxWorkingHoursValue",
+                                              "properties": {
+                                                "caption": {
+                                                  "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                                  "fromComponent": "scope",
+                                                  "fromPropertyPath": "item.LabourTime"
+                                                },
+                                                "captionSize": "1",
+                                                "numericFormat": "#,##0.##",
+                                                "overflowMode": "noWrapAndEllipsis"
+                                              },
+                                              "typeName": "Caption"
+                                            }
+                                          ],
+                                          "properties": {
+                                            "aligns": "top-left",
+                                            "gapx": "0.7rem",
+                                            "gapy": "0.7rem",
+                                            "orientation": "vertical",
+                                            "size": "auto",
+                                            "sizes": "auto",
+                                            "wrap": false
+                                          },
+                                          "typeName": "Panel"
+                                        },
+                                        {
+                                          "id": "pnlBillableHours",
+                                          "items": [
+                                            {
+                                              "id": "capctxBillableHours",
+                                              "properties": {
+                                                "caption": "Ώρες χρέωσης",
+                                                "captionSize": "0",
+                                                "overflowMode": "noWrapAndEllipsis",
+                                                "size": "auto"
+                                              },
+                                              "typeName": "Caption"
+                                            },
+                                            {
+                                              "id": "capctxBillableHoursValue",
+                                              "properties": {
+                                                "caption": {
+                                                  "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                                  "fromComponent": "scope",
+                                                  "fromPropertyPath": "item.LabourBillable"
+                                                },
+                                                "captionSize": "1",
+                                                "numericFormat": "#,##0.##",
+                                                "overflowMode": "noWrapAndEllipsis"
+                                              },
+                                              "typeName": "Caption"
+                                            }
+                                          ],
+                                          "properties": {
+                                            "aligns": "top-left",
+                                            "gapx": "0.7rem",
+                                            "gapy": "0.7rem",
+                                            "orientation": "vertical",
+                                            "size": "auto",
+                                            "sizes": "auto",
+                                            "wrap": false
+                                          },
+                                          "typeName": "Panel"
+                                        },
+                                        {
+                                          "id": "pnlWrkPlace",
+                                          "items": [
+                                            {
+                                              "id": "capCtxWorkPlace",
+                                              "properties": {
+                                                "caption": "Χώρος εργασίας",
+                                                "captionSize": "0",
+                                                "overflowMode": "noWrapAndEllipsis",
+                                                "size": "auto"
+                                              },
+                                              "typeName": "Caption"
+                                            },
+                                            {
+                                              "id": "capCtxWorkPlaceValue",
+                                              "properties": {
+                                                "caption": {
+                                                  "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                                  "fromComponent": "scope",
+                                                  "fromPropertyPath": "item.WorkplaceCode"
+                                                },
+                                                "captionSize": "1",
+                                                "numericFormat": "#,##0.##",
+                                                "overflowMode": "noWrapAndEllipsis"
+                                              },
+                                              "typeName": "Caption"
+                                            }
+                                          ],
+                                          "properties": {
+                                            "aligns": "top-left",
+                                            "gapx": "0.7rem",
+                                            "gapy": "0.7rem",
+                                            "orientation": "vertical",
+                                            "size": "auto",
+                                            "sizes": "auto",
+                                            "wrap": false
+                                          },
+                                          "typeName": "Panel"
+                                        }
+                                      ],
+                                      "properties": {
+                                        "gapx": "2rem",
+                                        "gapy": "0.7rem",
+                                        "orientation": "horizontal",
+                                        "size": "auto",
+                                        "sizes": "auto",
+                                        "wrap": false
+                                      },
+                                      "typeName": "Panel"
+                                    }
+                                  ],
+                                  "properties": {
+                                    "aligns": "top-left",
+                                    "gapx": "0.7rem",
+                                    "gapy": "0.7rem",
+                                    "orientation": "horizontal",
+                                    "sizes": "auto",
+                                    "wrap": false
+                                  },
+                                  "typeName": "Panel"
+                                }
+                              ],
+                              "properties": {
+                                "aligns": "fill-fill",
+                                "gapx": "0.7rem",
+                                "gapy": "0.7rem",
+                                "orientation": "vertical",
+                                "sizes": "auto",
+                                "wrap": false
+                              },
+                              "typeName": "Panel"
+                            }
+                          ],
+                          "properties": {
+                            "overflowMode": "noWrapAndEllipsis"
+                          },
+                          "typeName": "Frame"
+                        }
+                      ],
+                      "properties": {
+                        "align": "fill-fill",
+                        "autofocused": false,
+                        "caption": "Δραστηριότητες",
+                        "columns": [
+                          {
+                            "dataField": "StateInterID",
+                            "dataType": "icon",
+                            "esInfo": {
+                              "displayMode": "iconOnly",
+                              "mapDataview": {
+                                "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                "fromComponent": "StateIcons",
+                                "fromPropertyPath": "dataprovider"
+                              }
+                            },
+                            "visible": true,
+                            "width": "5%"
+                          },
+                          {
+                            "caption": "Ημ/νία",
+                            "dataField": "Date",
+                            "dataType": "date",
+                            "esInfo": {
+                              "colTemplateId": null,
+                              "groupTemplateId": "frmDateGroup"
+                            },
+                            "format": "dd/MM/yyyy",
+                            "groupIndex": 0,
+                            "visible": false,
+                            "width": ""
+                          },
+                          {
+                            "caption": "Κωδικός έργου",
+                            "dataField": "ProjectCode",
+                            "dataType": "string",
+                            "esInfo": {
+                              "colTemplateId": "frm_3gos",
+                              "groupTemplateId": null
+                            },
+                            "visible": true,
+                            "width": "100%"
+                          }
+                        ],
+                        "dataprovider": {
+                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                          "fromComponent": "ContextTimesheetLines_dv",
+                          "fromPropertyPath": "dataprovider"
+                        },
+                        "dxOptions": {
+                          "focusedRowEnabled": true,
+                          "groupPanel": {
+                            "visible": false
+                          },
+                          "hoverStateEnabled": true,
+                          "pager": {
+                            "visible": false
+                          },
+                          "paging": {
+                            "enabled": false
+                          },
+                          "scrolling": {
+                            "mode": "standard",
+                            "showScrollbar": "always"
+                          },
+                          "searchPanel": {
+                            "placeholder": "Αναζήτηση..",
+                            "visible": false
+                          },
+                          "showBorders": false,
+                          "showColumnHeaders": false,
+                          "showColumnLines": false,
+                          "showRowLines": false
+                        },
+                        "overflowMode": "noWrapAndEllipsis",
+                        "size": "100%"
+                      },
+                      "typeName": "GridXpress"
+                    }
+                  ],
+                  "properties": {
+                    "gapx": "0.7rem",
+                    "gapy": "0.7rem",
+                    "orientation": "horizontal",
+                    "size": "1",
+                    "sizes": "auto",
+                    "wrap": false
+                  },
+                  "typeName": "Panel"
+                }
+              ],
+              "properties": {
+                "aligns": "fill-fill",
+                "gapx": "0.7rem",
+                "gapy": "0.7rem",
+                "orientation": "vertical",
+                "size": "53%",
+                "sizes": "auto"
+              },
+              "typeName": "Panel"
+            },
+            {
+              "id": "pan_ProjectOther",
+              "items": [
+                {
+                  "id": "tabsPrjOthers",
+                  "items": [
+                    {
+                      "id": "TabProjectTeam",
+                      "items": [
+                        {
+                          "id": "pan_ProjectTeam",
+                          "items": [
+                            {
+                              "id": "frm_yon",
+                              "items": [
+                                {
+                                  "id": "pnlPrjTeam",
+                                  "items": [
+                                    {
+                                      "id": "empty1",
+                                      "properties": {
+                                        "size": "1rem"
+                                      },
+                                      "typeName": "Empty"
+                                    },
+                                    {
+                                      "id": "grid_ProjectTeam",
+                                      "items": [
+                                        {
+                                          "id": "frmDelete",
+                                          "items": [
+                                            {
+                                              "id": "pDelete",
+                                              "items": [
+                                                {
+                                                  "id": "btnDeleteRep",
+                                                  "options": {
+                                                    "btnSize": "normal",
+                                                    "transparent": true
+                                                  },
+                                                  "properties": {
+                                                    "captionIcon": "fas fa-trash",
+                                                    "overflowMode": "noWrapAndEllipsis",
+                                                    "popupHeight": "50vh",
+                                                    "popupWidth": "50vw"
+                                                  },
+                                                  "typeName": "Button"
+                                                }
+                                              ],
+                                              "options": {},
+                                              "properties": {
+                                                "aligns": "fill-fill",
+                                                "gapx": "0.7rem",
+                                                "gapy": "0.7rem",
+                                                "orientation": "horizontal",
+                                                "sizes": "auto",
+                                                "wrap": false
+                                              },
+                                              "typeName": "Panel"
+                                            }
+                                          ],
+                                          "options": {},
+                                          "properties": {
+                                            "overflowMode": "noWrapAndEllipsis",
+                                            "size": "10%"
+                                          },
+                                          "typeName": "Frame"
+                                        },
+                                        {
+                                          "id": "frmEdit",
+                                          "items": [
+                                            {
+                                              "id": "pEdit",
+                                              "items": [
+                                                {
+                                                  "id": "btnEditAddRep",
+                                                  "options": {
+                                                    "btnSize": "normal",
+                                                    "transparent": true
+                                                  },
+                                                  "properties": {
+                                                    "captionIcon": "fas fa-edit",
+                                                    "overflowMode": "noWrapAndEllipsis",
+                                                    "popupHeight": "50vh",
+                                                    "popupWidth": "50vw"
+                                                  },
+                                                  "typeName": "Button"
+                                                }
+                                              ],
+                                              "options": {},
+                                              "properties": {
+                                                "aligns": "fill-fill",
+                                                "gapx": "0.7rem",
+                                                "gapy": "0.7rem",
+                                                "orientation": "horizontal",
+                                                "sizes": "auto",
+                                                "wrap": false
+                                              },
+                                              "typeName": "Panel"
+                                            }
+                                          ],
+                                          "options": {},
+                                          "properties": {
+                                            "overflowMode": "noWrapAndEllipsis",
+                                            "size": "10%"
+                                          },
+                                          "typeName": "Frame"
+                                        },
+                                        {
+                                          "id": "frm_PrjTeam",
+                                          "items": [
+                                            {
+                                              "id": "pRepresentative",
+                                              "items": [
+                                                {
+                                                  "id": "pRepPhoto",
+                                                  "items": [
+                                                    {
+                                                      "id": "imgRepPhoto",
+                                                      "options": {},
+                                                      "properties": {
+                                                        "blobKeyId": {
+                                                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                                          "fromComponent": "scope",
+                                                          "fromPropertyPath": "item.fPersonGID"
+                                                        },
+                                                        "imgStyle": "cover",
+                                                        "isCircle": true,
+                                                        "size": "1",
+                                                        "urlType": "blobKey"
+                                                      },
+                                                      "typeName": "Image"
+                                                    }
+                                                  ],
+                                                  "properties": {
+                                                    "aligns": "fill-fill",
+                                                    "gapx": "0.7rem",
+                                                    "gapy": "0.7rem",
+                                                    "orientation": "vertical",
+                                                    "size": "20%",
+                                                    "sizes": "auto",
+                                                    "wrap": false
+                                                  },
+                                                  "typeName": "Panel"
+                                                },
+                                                {
+                                                  "id": "pTeam",
+                                                  "items": [
+                                                    {
+                                                      "id": "capRepName",
+                                                      "options": {},
+                                                      "properties": {
+                                                        "caption": {
+                                                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                                          "fromComponent": "scope",
+                                                          "fromPropertyPath": "item.fPersonGID_Name"
+                                                        },
+                                                        "overflowMode": "noWrapAndEllipsis"
+                                                      },
+                                                      "typeName": "Caption"
+                                                    },
+                                                    {
+                                                      "id": "capRepTitle",
+                                                      "options": {},
+                                                      "properties": {
+                                                        "caption": {
+                                                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                                          "fromComponent": "scope",
+                                                          "fromPropertyPath": "item.fContactRole_Text"
+                                                        },
+                                                        "captionSize": "0",
+                                                        "overflowMode": "noWrapAndEllipsis"
+                                                      },
+                                                      "typeName": "Caption"
+                                                    }
+                                                  ],
+                                                  "options": {},
+                                                  "properties": {
+                                                    "aligns": "fill-fill",
+                                                    "gapx": "0.7rem",
+                                                    "gapy": "0.7rem",
+                                                    "orientation": "vertical",
+                                                    "size": "1",
+                                                    "sizes": "auto",
+                                                    "wrap": false
+                                                  },
+                                                  "typeName": "Panel"
+                                                }
+                                              ],
+                                              "options": {
+                                                "rows-gutter": "1-0"
+                                              },
+                                              "properties": {
+                                                "aligns": "fill-fill",
+                                                "gapx": "0.7rem",
+                                                "gapy": "0.7rem",
+                                                "orientation": "horizontal",
+                                                "sizes": "auto",
+                                                "wrap": false
+                                              },
+                                              "typeName": "Panel"
+                                            }
+                                          ],
+                                          "options": {},
+                                          "properties": {
+                                            "overflowMode": "noWrapAndEllipsis",
+                                            "size": "80%"
+                                          },
+                                          "typeName": "Frame"
+                                        }
+                                      ],
+                                      "properties": {
+                                        "captionSize": "1",
+                                        "columns": [
+                                          {
+                                            "caption": null,
+                                            "dataField": "tempCol",
+                                            "esInfo": {
+                                              "colTemplateId": "frm_PrjTeam",
+                                              "groupTemplateId": null
+                                            },
+                                            "width": "80%"
+                                          },
+                                          {
+                                            "caption": null,
+                                            "dataField": "editRow",
+                                            "esInfo": {
+                                              "colTemplateId": "frmEdit",
+                                              "groupTemplateId": null
+                                            },
+                                            "width": ""
+                                          },
+                                          {
+                                            "caption": null,
+                                            "dataField": "deleteRow",
+                                            "esInfo": {
+                                              "colTemplateId": "frmDelete",
+                                              "groupTemplateId": null
+                                            },
+                                            "width": ""
+                                          }
+                                        ],
+                                        "dataprovider": {
+                                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                          "fromComponent": "ProjectTeam",
+                                          "fromPropertyPath": "dataprovider"
+                                        },
+                                        "dxOptions": {
+                                          "focusedRowEnabled": true,
+                                          "paging": {
+                                            "enabled": false,
+                                            "pageSize": 30
+                                          },
+                                          "scrolling": {
+                                            "mode": "virtual"
+                                          },
+                                          "showBorders": false,
+                                          "showColumnHeaders": false,
+                                          "showColumnLines": false
+                                        },
+                                        "overflowMode": "noWrapAndEllipsis",
+                                        "size": "1"
+                                      },
+                                      "typeName": "GridXpress"
+                                    }
+                                  ],
+                                  "options": {},
+                                  "properties": {
+                                    "aligns": "fill-fill",
+                                    "gapx": "0.7rem",
+                                    "gapy": "0.7rem",
+                                    "orientation": "vertical",
+                                    "size": "1",
+                                    "sizes": "auto",
+                                    "wrap": false
+                                  },
+                                  "typeName": "Panel"
+                                },
+                                {
+                                  "id": "btn_AddReps",
+                                  "options": {
+                                    "btnSize": "normal",
+                                    "r": "0%",
+                                    "t": "0%",
+                                    "transparent": true
+                                  },
+                                  "properties": {
+                                    "captionIcon": "fas fa-plus",
+                                    "captionSize": "1",
+                                    "overflowMode": "noWrapAndEllipsis",
+                                    "popupHeight": "50vh",
+                                    "popupWidth": "50vw",
+                                    "size": "auto"
+                                  },
+                                  "typeName": "Button"
+                                }
+                              ],
+                              "options": {},
+                              "properties": {
+                                "overflowMode": "noWrapAndEllipsis",
+                                "size": "1"
+                              },
+                              "typeName": "Frame"
+                            }
+                          ],
+                          "properties": {
+                            "aligns": "fill-fill",
+                            "gapx": "0.7rem",
+                            "gapy": "0.7rem",
+                            "orientation": "vertical",
+                            "size": "33%",
+                            "wrap": false
+                          },
+                          "typeName": "Panel"
+                        }
+                      ],
+                      "properties": {
+                        "caption": "Ομάδα έργου"
+                      },
+                      "typeName": "TabPage"
+                    },
+                    {
+                      "id": "TabRelDocs",
+                      "items": [
+                        {
+                          "id": "pan_Docs",
+                          "items": [
+                            {
+                              "id": "frmRelDocs",
+                              "items": [
+                                {
+                                  "id": "pRelDocs",
+                                  "items": [
+                                    {
+                                      "id": "emp_66co",
+                                      "options": {},
+                                      "properties": {
+                                        "size": "1rem"
+                                      },
+                                      "typeName": "Empty"
+                                    },
+                                    {
+                                      "id": "gridxpress1",
+                                      "items": [
+                                        {
+                                          "id": "frmDeleteRelDoc",
+                                          "items": [
+                                            {
+                                              "id": "pDeleteRelDoc",
+                                              "items": [
+                                                {
+                                                  "id": "btnDeleteRelDoc",
+                                                  "options": {
+                                                    "btnSize": "normal",
+                                                    "transparent": true
+                                                  },
+                                                  "properties": {
+                                                    "captionIcon": "fas fa-trash",
+                                                    "overflowMode": "noWrapAndEllipsis",
+                                                    "popupHeight": "50vh",
+                                                    "popupWidth": "50vw"
+                                                  },
+                                                  "typeName": "Button"
+                                                }
+                                              ],
+                                              "options": {},
+                                              "properties": {
+                                                "aligns": "fill-fill",
+                                                "gapx": "0.7rem",
+                                                "gapy": "0.7rem",
+                                                "orientation": "horizontal",
+                                                "sizes": "auto",
+                                                "wrap": false
+                                              },
+                                              "typeName": "Panel"
+                                            }
+                                          ],
+                                          "options": {},
+                                          "properties": {
+                                            "overflowMode": "noWrapAndEllipsis"
+                                          },
+                                          "typeName": "Frame"
+                                        },
+                                        {
+                                          "id": "frmEditRelDoc",
+                                          "items": [
+                                            {
+                                              "id": "pEditRelDocBtn",
+                                              "items": [
+                                                {
+                                                  "id": "btnEditRelDoc",
+                                                  "options": {
+                                                    "btnSize": "normal",
+                                                    "transparent": true
+                                                  },
+                                                  "properties": {
+                                                    "captionIcon": "fas fa-edit",
+                                                    "overflowMode": "noWrapAndEllipsis",
+                                                    "popupHeight": "50vh",
+                                                    "popupWidth": "50vw"
+                                                  },
+                                                  "typeName": "Button"
+                                                }
+                                              ],
+                                              "options": {},
+                                              "properties": {
+                                                "aligns": "fill-fill",
+                                                "gapx": "0.7rem",
+                                                "gapy": "0.7rem",
+                                                "orientation": "horizontal",
+                                                "sizes": "auto",
+                                                "wrap": false
+                                              },
+                                              "typeName": "Panel"
+                                            }
+                                          ],
+                                          "options": {},
+                                          "properties": {
+                                            "overflowMode": "noWrapAndEllipsis"
+                                          },
+                                          "typeName": "Frame"
+                                        },
+                                        {
+                                          "id": "frm_6jx",
+                                          "items": [
+                                            {
+                                              "id": "pRelDocInfo",
+                                              "items": [
+                                                {
+                                                  "id": "capFileTypeIcon",
+                                                  "options": {},
+                                                  "properties": {
+                                                    "captionIcon": {
+                                                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                                      "fromComponent": "capFileTypeIcon_captionIcon2",
+                                                      "fromPropertyPath": "result",
+                                                      "templateId": "frm_6jx"
+                                                    },
+                                                    "captionSize": "1",
+                                                    "overflowMode": "noWrapAndEllipsis"
+                                                  },
+                                                  "typeName": "Caption"
+                                                },
+                                                {
+                                                  "id": "btnOpenRelDoc",
+                                                  "options": {
+                                                    "btnSize": "normal",
+                                                    "transparent": true
+                                                  },
+                                                  "properties": {
+                                                    "caption": {
+                                                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                                      "fromComponent": "btnOpenRelDoc_caption",
+                                                      "fromPropertyPath": "result",
+                                                      "templateId": "frm_6jx"
+                                                    },
+                                                    "overflowMode": "noWrapAndEllipsis",
+                                                    "popupHeight": "50vh",
+                                                    "popupWidth": "50vw"
+                                                  },
+                                                  "typeName": "Button"
+                                                }
+                                              ],
+                                              "options": {},
+                                              "properties": {
+                                                "aligns": "top-left",
+                                                "gapx": "0.7rem",
+                                                "gapy": "0.7rem",
+                                                "orientation": "horizontal",
+                                                "sizes": "auto",
+                                                "wrap": false
+                                              },
+                                              "typeName": "Panel"
+                                            }
+                                          ],
+                                          "options": {},
+                                          "properties": {
+                                            "overflowMode": "noWrapAndEllipsis"
+                                          },
+                                          "typeName": "Frame"
+                                        }
+                                      ],
+                                      "properties": {
+                                        "columns": [
+                                          {
+                                            "caption": null,
+                                            "dataField": "tempCol",
+                                            "esInfo": {
+                                              "colTemplateId": "frm_6jx",
+                                              "groupTemplateId": null
+                                            },
+                                            "width": "80%"
+                                          },
+                                          {
+                                            "caption": null,
+                                            "dataField": "tempEditDoc",
+                                            "esInfo": {
+                                              "colTemplateId": "frmEditRelDoc",
+                                              "groupTemplateId": null
+                                            },
+                                            "width": null
+                                          },
+                                          {
+                                            "caption": null,
+                                            "dataField": "tempDeleteDoc",
+                                            "esInfo": {
+                                              "colTemplateId": "frmDeleteRelDoc",
+                                              "groupTemplateId": null
+                                            },
+                                            "width": null
+                                          }
+                                        ],
+                                        "dataprovider": {
+                                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                          "fromComponent": "ES00Documents",
+                                          "fromPropertyPath": "dataprovider"
+                                        },
+                                        "dxOptions": {
+                                          "focusedRowEnabled": true,
+                                          "paging": {
+                                            "enabled": false,
+                                            "pageSize": 30
+                                          },
+                                          "scrolling": {
+                                            "mode": "virtual"
+                                          },
+                                          "showBorders": false,
+                                          "showColumnHeaders": false,
+                                          "showColumnLines": false,
+                                          "showRowLines": false
+                                        },
+                                        "overflowMode": "noWrapAndEllipsis",
+                                        "size": "1"
+                                      },
+                                      "typeName": "GridXpress"
+                                    }
+                                  ],
+                                  "options": {},
+                                  "properties": {
+                                    "aligns": "fill-fill",
+                                    "gapx": "0.7rem",
+                                    "gapy": "0.7rem",
+                                    "orientation": "vertical",
+                                    "size": "1",
+                                    "sizes": "auto",
+                                    "wrap": false
+                                  },
+                                  "typeName": "Panel"
+                                },
+                                {
+                                  "id": "btnAddDoc",
+                                  "options": {
+                                    "btnSize": "normal",
+                                    "r": "0%",
+                                    "t": "0%",
+                                    "transparent": true
+                                  },
+                                  "properties": {
+                                    "captionIcon": "fas fa-plus",
+                                    "captionSize": "1",
+                                    "overflowMode": "noWrapAndEllipsis",
+                                    "popupHeight": "50vh",
+                                    "popupWidth": "50vw"
+                                  },
+                                  "typeName": "Button"
+                                }
+                              ],
+                              "options": {},
+                              "properties": {
+                                "overflowMode": "noWrapAndEllipsis",
+                                "size": "1"
+                              },
+                              "typeName": "Frame"
+                            }
+                          ],
+                          "properties": {
+                            "aligns": "fill-fill",
+                            "gapx": "0.7rem",
+                            "gapy": "0.7rem",
+                            "orientation": "horizontal",
+                            "size": "33%",
+                            "sizes": "auto",
+                            "wrap": false
+                          },
+                          "typeName": "Panel"
+                        }
+                      ],
+                      "properties": {
+                        "caption": "Σχετικά έγγραφα"
+                      },
+                      "typeName": "TabPage"
+                    }
+                  ],
+                  "options": {},
+                  "properties": {
+                    "activetab": "TabProjectTeam",
+                    "size": "1",
+                    "tabsPosition": "top",
+                    "tabsStyle": "radiobuttons"
+                  },
+                  "typeName": "Tabs"
+                },
+                {
+                  "id": "pnlNotesComments",
+                  "items": [
+                    {
+                      "id": "tabsNotesComments",
+                      "items": [
+                        {
+                          "id": "TPComments",
+                          "items": [
+                            {
+                              "id": "Comments",
+                              "options": {
+                                "multiline": true
+                              },
+                              "properties": {
+                                "captionWidth": "1",
+                                "disabled": {
+                                  "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                  "fromComponent": "Project",
+                                  "fromPropertyPath": "dataprovider.current.item.Comments_Disabled"
+                                },
+                                "dxOptions": {
+                                  "maxLength": 2000
+                                },
+                                "error": {
+                                  "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                  "fromComponent": "Project",
+                                  "fromPropertyPath": "dataprovider.current.item.Comments_Error"
+                                },
+                                "overflowMode": "noWrapAndEllipsis",
+                                "size": "1",
+                                "tooltip": {
+                                  "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                  "fromComponent": "Project",
+                                  "fromPropertyPath": "dataprovider.current.item.Comments_Tip"
+                                },
+                                "value": {
+                                  "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                  "fromComponent": "Project",
+                                  "fromPropertyPath": "dataprovider.current.item.Comments"
+                                },
+                                "visible": true
+                              },
+                              "typeName": "Field"
+                            }
+                          ],
+                          "properties": {
+                            "caption": "Παρατηρήσεις"
+                          },
+                          "typeName": "TabPage"
+                        },
+                        {
+                          "id": "TPNotes",
+                          "items": [
+                            {
+                              "id": "htmleditor1",
+                              "properties": {
+                                "captionType": "label",
+                                "overflowMode": "noWrapAndEllipsis",
+                                "popupHeight": "30vh",
+                                "size": "1",
+                                "value": {
+                                  "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                  "fromComponent": "Project",
+                                  "fromPropertyPath": "dataprovider.current.item.nsComments_RTF"
+                                }
+                              },
+                              "typeName": "HtmlEditor"
+                            }
+                          ],
+                          "properties": {
+                            "caption": "Σημειώσεις"
+                          },
+                          "typeName": "TabPage"
+                        }
+                      ],
+                      "properties": {
+                        "size": "1",
+                        "tabsPosition": "top",
+                        "tabsStyle": "radiobuttons"
+                      },
+                      "typeName": "Tabs"
+                    }
+                  ],
+                  "properties": {
+                    "aligns": "fill-fill",
+                    "gapx": "0.7rem",
+                    "gapy": "0.7rem",
+                    "orientation": "vertical",
+                    "size": "50%",
+                    "wrap": false
+                  },
+                  "typeName": "Panel"
+                }
+              ],
+              "properties": {
+                "aligns": "fill-fill",
+                "gapx": "0.7rem",
+                "gapy": "0.7rem",
+                "orientation": "vertical",
+                "size": "25%",
+                "sizes": "auto",
+                "wrap": false
+              },
+              "typeName": "Panel"
+            }
+          ],
+          "properties": {
+            "aligns": "fill-fill",
+            "gapx": "1.2rem",
+            "gapy": "0.7rem",
+            "orientation": "horizontal",
+            "size": "1",
+            "sizes": "auto",
+            "wrap": false
+          },
+          "typeName": "Panel"
+        }
+      ],
+      "properties": {
+        "aligns": "fill-fill",
+        "gapx": "0.7rem",
+        "gapy": "0.7rem",
+        "orientation": "vertical",
+        "sizes": "auto",
+        "wrap": false
+      },
+      "typeName": "Panel"
+    }
+  ],
+  "layoutName": "general",
+  "uilessItems": {
+    "datasources": [
+      {
+        "id": "dsProject",
+        "options": {
+          "dsName": "ESGOProject"
+        },
+        "properties": {
+          "autoRun": true,
+          "entityDef": {
+            "$type": "ESWebApp.Models.EsViewBase+TableDef, ESWebApp",
+            "Columns": [
+              "GID",
+              "Code",
+              "Name",
+              "AlternativeCode",
+              "DetailDescription",
+              "fProjectManagerGID",
+              "fTradePersonGID",
+              "fTradePersonContactGID",
+              "StartDate",
+              "FinishDate",
+              "fProjectStatusCode",
+              "fProjectStatusCode_Text",
+              "fParentProjectGID",
+              "BudgetedCost",
+              "BudgetedRevenue",
+              "fCurrencyCode",
+              "fTableField1Code",
+              "Comments",
+              "fGLSegCode",
+              "fTradeAccountGID",
+              "fTradeAccountSiteGID",
+              "nsComments_RTF",
+              "FK_ESGOProject_ESGOSites.Display",
+              "FK_ESGOProject_ESFITradeAccount.Code",
+              "FK_ESGOProject_ESFITradeAccount.Name",
+              "FK_ESGOProject_ParentProject.Display",
+              "FK_ESGOProject_TradePerson.Code",
+              "FK_ESGOPerson_ProjectManager.Code",
+              "FK_ESGOPerson_ProjectManager.Name"
+            ],
+            "Details": [
+              {
+                "Columns": [
+                  "GID",
+                  "fProjectGID",
+                  "fPersonGID",
+                  "fContactRole",
+                  "fContactRole_Text",
+                  "FK_ESGOProjectTeam_ESGOPerson.GID",
+                  "FK_ESGOProjectTeam_ESGOPerson.Code",
+                  "FK_ESGOProjectTeam_ESGOPerson.Name"
+                ],
+                "Name": "ESGOProjectTeam",
+                "ParentRelation": {
+                  "ColumnNames": [
+                    "fProjectGID"
+                  ],
+                  "Name": "FK_ESGOProjectTeam_ESGOProject",
+                  "ParentColumnNames": [
+                    "GID"
+                  ],
+                  "ParentTableName": "ESGOProject"
+                }
+              },
+              {
+                "Columns": [
+                  "GID",
+                  "fGID",
+                  "Description",
+                  "FType",
+                  "fDocCategoryCode",
+                  "fDocCategoryCode_Text",
+                  "fDocGroupCode",
+                  "fDocGroupCode_Text",
+                  "Title",
+                  "Code",
+                  "TableID",
+                  "Caption",
+                  "TableName",
+                  "IsBLOB",
+                  "fDocumentCategoryCode"
+                ],
+                "Name": "ES00Documents",
+                "ParentRelation": {
+                  "ColumnNames": [
+                    "fGID"
+                  ],
+                  "Name": "ES00RELDOCS",
+                  "ParentColumnNames": [
+                    "GID"
+                  ],
+                  "ParentTableName": "ESGOProject"
+                }
+              }
+            ],
+            "Name": "ESGOProject"
+          }
+        },
+        "typeName": "Entity"
+      },
+      {
+        "id": "Project",
+        "options": {
+          "datamember": "ESGOProject"
+        },
+        "properties": {
+          "dsDataprovider": {
+            "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+            "fromComponent": "dsProject",
+            "fromPropertyPath": "dataprovider"
+          },
+          "firstAutoSelected": true
+        },
+        "typeName": "Dataview"
+      },
+      {
+        "id": "ProjectTeam",
+        "options": {
+          "datamember": "ESGOProjectTeam/FK_ESGOProjectTeam_ESGOProject"
+        },
+        "properties": {
+          "dsDataprovider": {
+            "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+            "fromComponent": "dsProject",
+            "fromPropertyPath": "dataprovider"
+          },
+          "firstAutoSelected": true,
+          "parentCurrent": {
+            "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+            "fromComponent": "Project",
+            "fromPropertyPath": "dataprovider.current"
+          }
+        },
+        "typeName": "Dataview"
+      },
+      {
+        "id": "Resources",
+        "options": {
+          "extraColumns": {},
+          "queryId": "Resources"
+        },
+        "properties": {
+          "autoRun": true,
+          "params": {}
+        },
+        "typeName": "PQ"
+      },
+      {
+        "id": "Resources_dv",
+        "properties": {
+          "dsDataprovider": {
+            "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+            "fromComponent": "Resources",
+            "fromPropertyPath": "dataprovider"
+          }
+        },
+        "typeName": "Dataview"
+      },
+      {
+        "id": "ES00Documents",
+        "options": {
+          "datamember": "ES00Documents/ES00RELDOCS"
+        },
+        "properties": {
+          "dsDataprovider": {
+            "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+            "fromComponent": "dsProject",
+            "fromPropertyPath": "dataprovider"
+          },
+          "firstAutoSelected": true,
+          "parentCurrent": {
+            "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+            "fromComponent": "Project",
+            "fromPropertyPath": "dataprovider.current"
+          }
+        },
+        "typeName": "Dataview"
+      },
+      {
+        "id": "ContextKPIs",
+        "options": {
+          "extraColumns": {},
+          "queryId": "ContextKPIs"
+        },
+        "properties": {
+          "autoRun": false,
+          "params": {
+            "fProjectGID": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "Project",
+              "fromPropertyPath": "dataprovider.current.item.GID"
+            }
+          }
+        },
+        "typeName": "PQ"
+      },
+      {
+        "id": "ContextKPIs_dv",
+        "properties": {
+          "dsDataprovider": {
+            "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+            "fromComponent": "ContextKPIs",
+            "fromPropertyPath": "dataprovider"
+          },
+          "firstAutoSelected": true
+        },
+        "typeName": "Dataview"
+      },
+      {
+        "id": "ContextTimesheetLines",
+        "options": {
+          "extraColumns": {},
+          "queryId": "ContextTimesheetLines"
+        },
+        "properties": {
+          "params": {
+            "fProjectGID": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "Project",
+              "fromPropertyPath": "dataprovider.current.item.GID"
+            }
+          }
+        },
+        "typeName": "PQ"
+      },
+      {
+        "id": "ContextTimesheetLines_dv",
+        "properties": {
+          "dsDataprovider": {
+            "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+            "fromComponent": "ContextTimesheetLines",
+            "fromPropertyPath": "dataprovider"
+          },
+          "firstAutoSelected": true,
+          "sort": [
+            "-Date"
+          ]
+        },
+        "typeName": "Dataview"
+      },
+      {
+        "id": "RelDocTags",
+        "options": {
+          "extraColumns": {},
+          "queryId": "RelDocTags"
+        },
+        "properties": {
+          "autoRun": false,
+          "params": {}
+        },
+        "typeName": "PQ"
+      },
+      {
+        "id": "RelDocTags_dv",
+        "properties": {
+          "dsDataprovider": {
+            "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+            "fromComponent": "RelDocTags",
+            "fromPropertyPath": "dataprovider"
+          }
+        },
+        "typeName": "Dataview"
+      },
+      {
+        "id": "StateIcons",
+        "properties": {
+          "data": {
+            "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+            "fromComponent": "StateIcons",
+            "fromPropertyPath": "data",
+            "initialValue": {
+              "data": [
+                {
+                  "displayText": null,
+                  "icon": "fas fa-thumbs-down",
+                  "value": "ES.TSState_Cancelled"
+                },
+                {
+                  "displayText": null,
+                  "icon": "fas fa-pen",
+                  "value": "ES.TSState_Draft"
+                },
+                {
+                  "displayText": null,
+                  "icon": "fas fa-hand-paper",
+                  "value": "ES.TSState_ToBeApproved"
+                },
+                {
+                  "displayText": null,
+                  "icon": "fas fa-file-upload",
+                  "value": "ES.TSState_Submitted"
+                },
+                {
+                  "displayText": null,
+                  "icon": "fas fa-thumbs-up",
+                  "value": "ES.TSState_Invoiced"
+                }
+              ],
+              "schema": [
+                "value",
+                "displayText"
+              ]
+            }
+          }
+        },
+        "typeName": "Dataview"
+      }
+    ],
+    "otherUIlessItems": [
+      {
+        "id": "viewProps",
+        "properties": {
+          "title": {
+            "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+            "fromComponent": "viewProps_title",
+            "fromPropertyPath": "result"
+          }
+        },
+        "typeName": "ViewProps"
+      }
+    ],
+    "services": [
+      {
+        "id": "AddES00Doc",
+        "options": {
+          "dsEntityId": "dsProject",
+          "serviceFQN": "ESWebApp.Services.UploadES00Document, ESWebAppImpl",
+          "serviceType": "generic"
+        },
+        "properties": {
+          "serviceParams": {
+            "filenames": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "Documentfileupload",
+              "fromPropertyPath": "uploadedFiles"
+            }
+          },
+          "triggers": [
+            {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "Documentfileupload",
+              "fromPropertyPath": "uploadedToggle"
+            }
+          ]
+        },
+        "typeName": "Service"
+      }
+    ],
+    "ui_logic": [
+      {
+        "id": "SaveEntity_btn_Save",
+        "options": {
+          "functionName": "SaveEntity"
+        },
+        "properties": {
+          "args": {
+            "entityName": "dsProject"
+          },
+          "triggers": [
+            {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "btn_Save",
+              "fromPropertyPath": "clickToggle"
+            }
+          ]
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "createEntity_btn_New",
+        "options": {
+          "functionName": "createEntity"
+        },
+        "properties": {
+          "args": {
+            "entityName": "dsProject"
+          },
+          "triggers": [
+            {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "btn_New",
+              "fromPropertyPath": "clickToggle"
+            }
+          ]
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "DeleteRow_btn_Delete",
+        "options": {
+          "functionName": "DeleteRow"
+        },
+        "properties": {
+          "args": {
+            "entityDataviewId": "Project"
+          },
+          "triggers": [
+            {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "btn_Delete",
+              "fromPropertyPath": "clickToggle"
+            }
+          ]
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "addNewRow_AddNew",
+        "options": {
+          "functionName": "addNewRow"
+        },
+        "properties": {
+          "args": {
+            "entityDataviewId": "ProjectTeam"
+          },
+          "triggers": [
+            {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "AddNew",
+              "fromPropertyPath": "clickToggle"
+            }
+          ]
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "DeleteRow_btn",
+        "options": {
+          "functionName": "DeleteRow"
+        },
+        "properties": {
+          "args": {
+            "entityDataviewId": "ProjectTeam"
+          },
+          "triggers": []
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "addNewRow_btnAddDoc",
+        "options": {
+          "functionName": "addNewRow"
+        },
+        "properties": {
+          "args": {
+            "entityDataviewId": "ES00Documents"
+          },
+          "triggers": [
+            {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "btnAddDoc",
+              "fromPropertyPath": "clickToggle"
+            }
+          ]
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "execService_btnAddDoc",
+        "options": {
+          "functionName": "execService"
+        },
+        "properties": {
+          "args": {
+            "id": "AddES00Doc",
+            "mode": "enforce"
+          },
+          "triggers": []
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "capRepInfo_caption",
+        "options": {
+          "functionName": "strFormat",
+          "templateId": "frm_3gos"
+        },
+        "owner": "capRepInfo",
+        "properties": {
+          "args": {
+            "BillableHours": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "scope",
+              "fromPropertyPath": "item.LabourBillable"
+            },
+            "expr": "$Rep",
+            "Rep": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "scope",
+              "fromPropertyPath": "item.Representative"
+            },
+            "WorkingHours": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "scope",
+              "fromPropertyPath": "item.LabourTime"
+            }
+          }
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "capRepInfo_caption_WorkingHours",
+        "options": {
+          "functionName": "fn_inline_CustomerList2_capRepInfo_caption_WorkingHours",
+          "templateId": "frm_3gos"
+        },
+        "owner": "capRepInfo_caption",
+        "properties": {
+          "args": {
+            "WrkHrs": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "scope",
+              "fromPropertyPath": "item.LabourTime"
+            }
+          }
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "addNewRow_btn_AddReps",
+        "options": {
+          "functionName": "addNewRow"
+        },
+        "properties": {
+          "args": {
+            "entityDataviewId": "ProjectTeam"
+          },
+          "triggers": [
+            {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "btn_AddReps",
+              "fromPropertyPath": "clickToggle"
+            }
+          ]
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "ShowPopover_btn_AddReps",
+        "options": {
+          "functionName": "ShowPopover"
+        },
+        "properties": {
+          "args": {
+            "popoverId": "AddEditMember"
+          },
+          "triggers": [
+            {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "btn_AddReps",
+              "fromPropertyPath": "clickToggle"
+            }
+          ]
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "capFileTypeIcon_captionIcon2",
+        "options": {
+          "functionName": "fn_inline_ProjectISUD_capFileTypeIcon_captionIcon2",
+          "templateId": "frm_6jx"
+        },
+        "properties": {
+          "args": {
+            "ftype": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "scope",
+              "fromPropertyPath": "item.FType"
+            }
+          }
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "btnOpenRelDoc_caption",
+        "options": {
+          "functionName": "fn_inline_ProjectISUD_btnOpenRelDoc_caption",
+          "templateId": "frm_6jx"
+        },
+        "properties": {
+          "args": {
+            "DocCaption": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "scope",
+              "fromPropertyPath": "item.Caption"
+            },
+            "DocTitle": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "scope",
+              "fromPropertyPath": "item.Title"
+            }
+          }
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "OpenDocument_btnOpenRelDoc",
+        "options": {
+          "functionName": "OpenDocument",
+          "templateId": "frm_6jx"
+        },
+        "properties": {
+          "args": {
+            "docId": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "scope",
+              "fromPropertyPath": "item.GID"
+            },
+            "download": false,
+            "dsEntityId": "dsProject"
+          },
+          "triggers": [
+            {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "btnOpenRelDoc",
+              "fromPropertyPath": "clickToggle",
+              "templateId": "frm_6jx"
+            }
+          ]
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "ShowPopup_btnEditRelDoc",
+        "options": {
+          "functionName": "ShowPopup"
+        },
+        "properties": {
+          "args": {
+            "popoverId": "popEditDoc"
+          },
+          "triggers": []
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "DeleteRow_btnDeleteRelDoc",
+        "options": {
+          "functionName": "DeleteRow",
+          "templateId": "frmDeleteRelDoc"
+        },
+        "properties": {
+          "args": {
+            "entityDataviewId": "ES00Documents"
+          },
+          "triggers": [
+            {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "btnDeleteRelDoc",
+              "fromPropertyPath": "clickToggle",
+              "templateId": "frmDeleteRelDoc"
+            }
+          ]
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "ShowPopupRelDoc",
+        "options": {
+          "functionName": "ShowPopup"
+        },
+        "properties": {
+          "args": {
+            "popoverId": "popEditDoc"
+          },
+          "triggers": [
+            {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "btnAddDoc",
+              "fromPropertyPath": "clickToggle"
+            },
+            {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "frmEditRelDoc",
+              "fromPropertyPath": "clickToggle",
+              "templateId": "gridxpress1.templates.frmEditRelDoc"
+            }
+          ]
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "ShowRelDocPopUp",
+        "options": {
+          "functionName": "ShowPopup"
+        },
+        "properties": {
+          "args": {
+            "popoverId": "popEditDoc"
+          },
+          "triggers": []
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "ShowPopup_btnEditAddRep",
+        "options": {
+          "functionName": "ShowPopup",
+          "templateId": "frmEdit"
+        },
+        "properties": {
+          "args": {
+            "popoverId": "AddEditMember"
+          },
+          "triggers": [
+            {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "btnEditAddRep",
+              "fromPropertyPath": "clickToggle",
+              "templateId": "frmEdit"
+            }
+          ]
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "DeleteRow_btnDeleteRep",
+        "options": {
+          "functionName": "DeleteRow",
+          "templateId": "frmDelete"
+        },
+        "properties": {
+          "args": {
+            "entityDataviewId": "ProjectTeam"
+          },
+          "triggers": [
+            {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "btnDeleteRep",
+              "fromPropertyPath": "clickToggle",
+              "templateId": "frmDelete"
+            }
+          ]
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "capTrnValue_caption",
+        "options": {
+          "functionName": "strFormat"
+        },
+        "properties": {
+          "args": {
+            "CurrencySymbol": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "ContextKPIs_dv",
+              "fromPropertyPath": "dataprovider.current.item.CurrencySymbol"
+            },
+            "expr": "$(Turnover;#,##0.##) $CurrencySymbol",
+            "Turnover": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "ContextKPIs_dv",
+              "fromPropertyPath": "dataprovider.current.item.TurnOver"
+            }
+          }
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "capBgtRevValue_caption",
+        "options": {
+          "functionName": "strFormat"
+        },
+        "properties": {
+          "args": {
+            "BudgetedRevenue": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "Project",
+              "fromPropertyPath": "dataprovider.current.item.BudgetedRevenue"
+            },
+            "CurrencySymbol": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "ContextKPIs_dv",
+              "fromPropertyPath": "dataprovider.current.item.CurrencySymbol"
+            },
+            "expr": "$(BudgetedRevenue;#,##0.##) $CurrencySymbol"
+          }
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "capVarianceValue_caption",
+        "options": {
+          "functionName": "strFormat"
+        },
+        "properties": {
+          "args": {
+            "CurrencySymbol": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "ContextKPIs_dv",
+              "fromPropertyPath": "dataprovider.current.item.CurrencySymbol"
+            },
+            "expr": "$(Variance;#,##0.##) $CurrencySymbol",
+            "Variance": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "ContextKPIs_dv",
+              "fromPropertyPath": "dataprovider.current.item.Variance"
+            }
+          }
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "capVarianceValue_captionColor",
+        "options": {
+          "functionName": "fn_inline_ProjectISUD_capVarianceValue_captionColor"
+        },
+        "properties": {
+          "args": {
+            "Target": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "ContextKPIs_dv",
+              "fromPropertyPath": "dataprovider.current.item.BudgetedRevenue"
+            },
+            "Variance": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "ContextKPIs_dv",
+              "fromPropertyPath": "dataprovider.current.item.Variance"
+            }
+          }
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "capVariancePctValue_captionColor",
+        "options": {
+          "functionName": "fn_inline_ProjectISUD_capVariancePctValue_captionColor"
+        },
+        "properties": {
+          "args": {
+            "Target": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "ContextKPIs_dv",
+              "fromPropertyPath": "dataprovider.current.item.BudgetedRevenue"
+            },
+            "VariancePct": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "ContextKPIs_dv",
+              "fromPropertyPath": "dataprovider.current.item.VariancePCT"
+            }
+          }
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "HidePopover_btnClose",
+        "options": {
+          "functionName": "HidePopover"
+        },
+        "properties": {
+          "args": {
+            "popoverId": "AddEditMember"
+          },
+          "triggers": [
+            {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "btnClose",
+              "fromPropertyPath": "clickToggle"
+            }
+          ]
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "HidePopover_btnDocClose",
+        "options": {
+          "functionName": "HidePopover"
+        },
+        "properties": {
+          "args": {
+            "popoverId": "popEditDoc"
+          },
+          "triggers": [
+            {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "btnDocClose",
+              "fromPropertyPath": "clickToggle"
+            }
+          ]
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "addNewRow_btnDocAddNew",
+        "options": {
+          "functionName": "addNewRow"
+        },
+        "properties": {
+          "args": {
+            "entityDataviewId": "ES00Documents"
+          },
+          "triggers": [
+            {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "btnDocAddNew",
+              "fromPropertyPath": "clickToggle"
+            }
+          ]
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "viewProps_title",
+        "options": {
+          "functionName": "strFormat"
+        },
+        "properties": {
+          "args": {
+            "Code": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "Project",
+              "fromPropertyPath": "dataprovider.current.item.Code"
+            },
+            "expr": "Έργο: $Code $Name",
+            "Name": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "Project",
+              "fromPropertyPath": "dataprovider.current.item.Name"
+            }
+          }
+        },
+        "typeName": "UILogic"
+      }
+    ]
+  }
+}

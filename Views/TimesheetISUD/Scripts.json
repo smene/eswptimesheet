@@ -1,0 +1,46 @@
+{
+  "@btnDeleteRow_disabled/dsgn": {
+    "functionBody": "if (\r\n  $StateInterID == \"ES.TSState_Draft\" ||\r\n  $StateInterID == \"undefined\" ||\r\n  $StateInterID == null\r\n) {\r\n  return false;\r\n} else {\r\n  return true;\r\n}\r\n",
+    "functionId": "fn_inline_TimesheetISUD_btnDeleteRow_disabled"
+  },
+  "@Button_Edit_disabled/dsgn": {
+    "functionBody": "if (\r\n  $StateInterID == \"ES.TSState_Draft\" ||\r\n  $StateInterID == \"undefined\" ||\r\n  $StateInterID == null\r\n) {\r\n  return false;\r\n} else {\r\n  return true;\r\n}\r\n",
+    "functionId": "fn_inline_TimeSheetISUD_Button_Edit_disabled"
+  },
+  "@capStartEndTime_visible/dsgn": {
+    "functionBody": "if ($WorkingHours >0 ) {\r\n  return true;\r\n} else {\r\n  return false;\r\n}",
+    "functionId": "fn_inline_TimesheetISUD_capStartEndTime_visible"
+  },
+  "@fCategoryValue1GID_visible/dsgn": {
+    "functionBody": "$IsWorkHourType!=='0'",
+    "functionId": "fn_inline_TimeSheetISUD_2_fCategoryValue1GID_visible"
+  },
+  "@fProjectGID_visibilityType/dsgn": {
+    "functionBody": "$IsWorkHourType !== '0'",
+    "functionId": "fn_inline_TimeSheetISUD_2_fProjectGID_visibilityType"
+  },
+  "@fProjectGID_visible/dsgn": {
+    "functionBody": "$IsWorkHourType!=='0'",
+    "functionId": "fn_inline_TimeSheetISUD_2_fProjectGID_visible"
+  },
+  "@pNumbers_visible/dsgn": {
+    "functionBody": "if ($WorkingHours >0 ) {\r\n  return true;\r\n} else {\r\n  return false;\r\n}",
+    "functionId": "fn_inline_TimesheetISUD_pNumbers_visible"
+  },
+  "@pOverall_visible/dsgn": {
+    "functionBody": "if ($WorkingHours >0 ) {\r\n  return true;\r\n} else {\r\n  return false;\r\n}",
+    "functionId": "fn_inline_TimesheetISUD_pOverall_visible"
+  },
+  "@pWorkInfo_visible/dsgn": {
+    "functionBody": "$HourType ==1",
+    "functionId": "fn_inline_TimeSheetISUD_2_pWorkInfo_visible"
+  },
+  "@viewProps_title_Date/dsgn": {
+    "functionBody": "var regDate = new Date($registrationDate);\r\nreturn regDate.getDay() + '/' + regDate.getMonth() + '/'+  regDate.getFullYear();",
+    "functionId": "fn_inline_TimeSheetISUD_2_viewProps_title_Date"
+  },
+  "@viewProps_title_Date1/dsgn": {
+    "functionBody": "\r\nif (!$selectedDate) return '';\r\nvar sDate = new Date($selectedDate);\r\nvar myMonth = sDate.getMonth() + 1;\r\n\r\nreturn \" | \"  + sDate.getDate() + \"/\" + myMonth + \"/\" + sDate.getFullYear();",
+    "functionId": "fn_inline_TimesheetISUD_viewProps_title_Date1"
+  }
+}

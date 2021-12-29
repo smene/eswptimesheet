@@ -1,0 +1,22 @@
+{
+  "@btn_Cancel_visible/dsgn": {
+    "functionBody": "$trans == 0 & $cancel == 0",
+    "functionId": "fn_inline_Orders_btn_qcb4_visible"
+  },
+  "@btn_Show_visible/dsgn": {
+    "functionBody": "$trans != 0",
+    "functionId": "fn_inline_Orders_btn_riu4_visible"
+  },
+  "@cap_Canceled_visible/dsgn": {
+    "functionBody": "$cancel == 2",
+    "functionId": "fn_inline_Orders_cap_4dwf_visible"
+  },
+  "@cap_PartialyTrans_visible/dsgn": {
+    "functionBody": "$trans == 1",
+    "functionId": "fn_inline_Orders_cap_PartialyTrans_visible"
+  },
+  "@grdxLineItems_caption_DocDate/dsgn": {
+    "functionBody": "var sDate = new Date($selectedDate);\r\nvar myD = sDate.getMonth() + 1;\r\nreturn sDate.getDate() + \"/\" + myD + \"/\" + sDate.getFullYear();\r\n",
+    "functionId": "fn_inline_TimesheetInvoiceLabour_grdxLineItems_caption_DocDate"
+  }
+}

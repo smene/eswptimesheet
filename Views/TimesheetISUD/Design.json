@@ -1,0 +1,286 @@
+{
+  "@btn_AddTSLine": {
+    "dsgnInfo": {
+      "visible": null
+    }
+  },
+  "@btnDeleteRow_disabled": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "btnDeleteRow"
+    }
+  },
+  "@Button_Edit_disabled": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "Button_Edit"
+    }
+  },
+  "@cap_ChargeableHoursValue": {
+    "dsgnInfo": {
+      "caption": "7,5"
+    }
+  },
+  "@cap_HourType_WorkPlace_caption": {
+    "dsgn": {
+      "owner": "cap_HourType_WorkPlace"
+    }
+  },
+  "@cap_OvertimeValue": {
+    "dsgnInfo": {
+      "caption": "2"
+    }
+  },
+  "@cap_TaskTypeDescr": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@cap_TSLineAuthCommentValue": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@cap_TSLineAuthorizedResourceValue": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@cap_TSLineAuthReasoningValue": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@cap_WorkingHoursValue": {
+    "dsgnInfo": {
+      "caption": "7,5"
+    }
+  },
+  "@CapChargeableValue": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@capCustomerAddress_caption": {
+    "dsgn": {
+      "owner": "capCustomerAddress"
+    }
+  },
+  "@capStartEndTime_caption": {
+    "dsgn": {
+      "owner": "capStartEndTime"
+    }
+  },
+  "@capStartEndTime_visible": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "capStartEndTime"
+    }
+  },
+  "@dsTimesheet": {
+    "dsgn": {
+      "dsType": "TimeSheet/Δελτίο απασχόλησης"
+    }
+  },
+  "@EnumChargeable": {
+    "dsgn": {
+      "EnumType": "Entersoft.ERP.TaskManagement.Enums.Chargeable, ESTMEnums"
+    }
+  },
+  "@EnumChargeable/properties/data/initialValue": {
+    "dsgn": {
+      "Columns": [
+        {
+          "Caption": "value",
+          "Kind": "Integer",
+          "Name": "value"
+        },
+        {
+          "Caption": "displayText",
+          "Kind": "String",
+          "Name": "displayText"
+        },
+        {
+          "Caption": "name",
+          "Kind": "String",
+          "Name": "name"
+        },
+        {
+          "Caption": null,
+          "Kind": "Icon",
+          "Name": "icon"
+        }
+      ]
+    }
+  },
+  "@fCategoryValue1GID_visible": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "fCategoryValue1GID"
+    }
+  },
+  "@fProjectGID_visibilityType": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "fProjectGID"
+    }
+  },
+  "@fProjectGID_visible": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "fProjectGID"
+    }
+  },
+  "@p_vhmi": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p2": {
+    "dsgnInfo": {
+      "sizesMetric": "empty"
+    }
+  },
+  "@pageItems": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@panelEdit": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pApprovalInfo": {
+    "dsgnInfo": {
+      "sizesMetric": "auto",
+      "visible": null
+    }
+  },
+  "@pBillableHours_nmam": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pBillableHours_toolbar": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null,
+      "us_height": 35,
+      "us_width": 1904
+    }
+  },
+  "@pComments": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pInfo": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pNumbers": {
+    "dsgnInfo": {
+      "visible": false
+    }
+  },
+  "@pNumbers_visible": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "pNumbers"
+    }
+  },
+  "@pOverall": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null,
+      "visible": null
+    }
+  },
+  "@pOverall_visible": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "pOverall"
+    }
+  },
+  "@pTAPrj": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pTimesheetHeaderInfo": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pTimesheetLineForm": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pTop": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pTSLDetailedInfo": {
+    "dsgnInfo": {
+      "visible": false
+    }
+  },
+  "@pWorkInfo_visible": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "pWorkInfo"
+    }
+  },
+  "@StateIcon/properties/data/initialValue": {
+    "dsgn": {
+      "Columns": [
+        {
+          "Caption": "value",
+          "Kind": "String",
+          "Name": "value"
+        },
+        {
+          "Caption": "displayText",
+          "Kind": "String",
+          "Name": "displayText"
+        },
+        {
+          "Caption": "icon",
+          "Kind": "Icon",
+          "Name": "icon"
+        }
+      ]
+    }
+  },
+  "@viewProps_title": {
+    "dsgn": {
+      "owner": "viewProps"
+    }
+  },
+  "@viewProps_title_Date": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "viewProps_title"
+    }
+  },
+  "@viewProps_title_Date1": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "viewProps_title"
+    }
+  }
+}

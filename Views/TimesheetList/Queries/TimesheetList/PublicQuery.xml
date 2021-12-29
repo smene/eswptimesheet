@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<ESPublicQuery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SQL><![CDATA[SELECT Timesheet.TimesheetGID AS TimesheetGID, 
+       Timesheet.fTaskTypeGID AS fTaskTypeGID, 
+       Timesheet.TimePeriod AS TimePeriod, 
+       Timesheet.Code AS Code, 
+       Rep.Code +' '+Rep.Description AS Representative, 
+       SCV.Code AS StatusCode, 
+       Timesheet.Overtime AS Overtime, 
+       Timesheet.WorkingHours AS WorkingHours, 
+       Timesheet.ChargeableHours AS ChargeableHours, 
+       case when Timesheet.ResourceAvailability <> 0 then Timesheet.WorkingHours/Timesheet.ResourceAvailability else null end AS Utilization, 
+       ' ' AS xAxis
+FROM (
+                SELECT TimeSheet.fStatusGID AS fStatusGID, 
+                       TimeSheet.GID AS TimesheetGID, 
+                       TimeSheet.fTaskTypeGID AS fTaskTypeGID, 
+                       TimeSheet.RegistrationDate AS TimePeriod, 
+                       TimeSheet.Code AS Code, 
+                       TimeSheet.fAssignedToGID AS fRepresentativeGID, 
+                       TimeSheet.NumericField2 AS Overtime, 
+                       TimeSheet.NumericField3 AS WorkingHours, 
+                       TimeSheet.NumericField4 AS ChargeableHours, 
+                       TimeSheet.NumericField1 AS ResourceAvailability
+                FROM ESTMTask AS TimeSheet 
+                     INNER JOIN (
+                                SELECT TTG.fTaskTypeGID AS fTaskTypeGID
+                                FROM ESTMTaskTypeGroup AS TTG 
+                                WHERE (TTG.fTaskGroupCode = 'TimeSheet')) AS TimeSheetTaskTypes
+                       ON TimeSheet.fTaskTypeGID = TimeSheetTaskTypes.fTaskTypeGID 
+                WHERE (TimeSheet.fCompanyCode = ##(ESCOMPANY))
+                       AND (ESEqual(TimeSheet.fAssignedToGID, @fRepresentativeGID))
+                       AND (ESEqual(TimeSheet.RegistrationDate, @TimePeriod))
+                       AND (ESEqual(TimeSheet.fStatusGID, @fStatusGID))) AS Timesheet 
+     LEFT JOIN ESTMResource AS Rep
+       ON Timesheet.fRepresentativeGID = Rep.GID 
+     INNER JOIN ESTMStatusCollectionValue AS SCV
+       ON Timesheet.fStatusGID = SCV.GID 
+]]></SQL>
+  <SQLforPaging><![CDATA[]]></SQLforPaging>
+  <Table>Timesheet</Table>
+  <Params>
+    <Param>
+      <ID>fRepresentativeGID</ID>
+      <Type>System.Guid, mscorlib</Type>
+      <ODSTag>93E6CA13-D219-4A19-8EA8-147B2454F82F</ODSTag>
+    </Param>
+    <Param>
+      <ID>TimePeriod</ID>
+      <Type>Entersoft.Framework.Platform.ESDateRange, QueryProcess</Type>
+      <ODSTag>1700363E-F17D-4B4B-8642-E1CE22B6C16C</ODSTag>
+    </Param>
+    <Param>
+      <ID>fStatusGID</ID>
+      <Type>System.Guid, mscorlib</Type>
+      <ODSTag>6525BBF0-4904-4691-B685-9210AA8E5A15</ODSTag>
+    </Param>
+  </Params>
+</ESPublicQuery>

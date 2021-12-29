@@ -1,0 +1,2791 @@
+{
+  "hasFixedHeight": true,
+  "id": "TimesheetISUD",
+  "items": [
+    {
+      "id": "popItems",
+      "items": [
+        {
+          "id": "pop_TimesheetLineForm",
+          "items": [
+            {
+              "id": "p2",
+              "items": [
+                {
+                  "extraClasses": "move-handle",
+                  "id": "pBillableHours_nmam",
+                  "items": [
+                    {
+                      "extraClasses": null,
+                      "id": "cap_su8",
+                      "options": {
+                        "alignment": null,
+                        "b": null,
+                        "height": null,
+                        "l": null,
+                        "r": null,
+                        "rows-gutter": null,
+                        "t": null,
+                        "width": null
+                      },
+                      "properties": {
+                        "align": null,
+                        "caption": "Στοιχεία εγγραφής",
+                        "captionAlignment": null,
+                        "captionColor": null,
+                        "captionIcon": null,
+                        "captionSize": "2",
+                        "captionStyle": null,
+                        "captionType": null,
+                        "captionWidth": null,
+                        "colspan": null,
+                        "dateFormat": null,
+                        "numericFormat": null,
+                        "overflowMode": "noWrapAndEllipsis",
+                        "rowspan": null,
+                        "size": null,
+                        "visible": null
+                      },
+                      "typeName": "Caption"
+                    }
+                  ],
+                  "options": {
+                    "alignment": null,
+                    "b": null,
+                    "height": null,
+                    "l": null,
+                    "r": null,
+                    "rows-gutter": null,
+                    "t": null,
+                    "width": null
+                  },
+                  "properties": {
+                    "align": null,
+                    "aligns": "fill-fill",
+                    "captionAlignment": null,
+                    "captionColor": null,
+                    "captionSize": null,
+                    "captionStyle": null,
+                    "captionWidth": null,
+                    "colspan": null,
+                    "gapx": "0.7rem",
+                    "gapy": "0.7rem",
+                    "orientation": "horizontal",
+                    "rowspan": null,
+                    "size": null,
+                    "sizes": "1, auto",
+                    "visible": null,
+                    "wrap": null
+                  },
+                  "typeName": "Panel"
+                },
+                {
+                  "extraClasses": null,
+                  "id": "frm_jaoq",
+                  "items": [
+                    {
+                      "id": "pTimesheetLineForm",
+                      "items": [
+                        {
+                          "id": "pTSLGeneralInfo",
+                          "items": [
+                            {
+                              "id": "HourTypeSelector",
+                              "options": {
+                                "mode": "DropdownList"
+                              },
+                              "properties": {
+                                "caption": "Τύπος χρόνου",
+                                "columns": [
+                                  {
+                                    "caption": "Κωδικός",
+                                    "dataField": "Code",
+                                    "dataType": "string"
+                                  }
+                                ],
+                                "dataprovider": {
+                                  "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                  "fromComponent": "WorkHourType_dv",
+                                  "fromPropertyPath": "dataprovider"
+                                },
+                                "displayText": {
+                                  "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                  "fromComponent": "WorkHourType_dv",
+                                  "fromPropertyPath": "dataprovider.current.item.Code"
+                                },
+                                "gridOptions": {
+                                  "focusedRowEnabled": true,
+                                  "paging": {
+                                    "enabled": false,
+                                    "pageSize": 30
+                                  },
+                                  "scrolling": {
+                                    "mode": "virtual"
+                                  }
+                                },
+                                "overflowMode": "noWrapAndEllipsis",
+                                "popupHeight": "20rem",
+                                "popupWidth": "45rem",
+                                "singleSelectable": true,
+                                "value": {
+                                  "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                  "fromComponent": "TimesheetLines",
+                                  "fromPropertyPath": "dataprovider.current.item.fCategoryValue2GID"
+                                },
+                                "valueMember": "fTaskCategoryValueGID"
+                              },
+                              "typeName": "MulticolumnCombo"
+                            },
+                            {
+                              "id": "pWorkInfo",
+                              "items": [
+                                {
+                                  "id": "fCategoryValue1GID",
+                                  "options": {
+                                    "investigate": {
+                                      "assign": {
+                                        "serviceOptions": {}
+                                      },
+                                      "dsEntityId": "dsTimesheet",
+                                      "InvField": "fCategoryValue1GID",
+                                      "InvRelation": "FK_ESTMTaskItem_ESTMTask",
+                                      "InvTable": "ESTMTaskItem",
+                                      "results": {
+                                        "serviceOptions": {}
+                                      }
+                                    }
+                                  },
+                                  "properties": {
+                                    "caption": "Τόπος εργασίας",
+                                    "columns": [
+                                      {
+                                        "caption": "Κωδικός",
+                                        "dataField": "Code",
+                                        "dataType": "string"
+                                      }
+                                    ],
+                                    "dataprovider": {
+                                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                      "fromComponent": "fCategoryValue1GID",
+                                      "fromPropertyPath": "dataprovider"
+                                    },
+                                    "disabled": {
+                                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                      "fromComponent": "TimesheetLines",
+                                      "fromPropertyPath": "dataprovider.current.item.fCategoryValue1GID_Disabled"
+                                    },
+                                    "displayText": {
+                                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                      "fromComponent": "TimesheetLines",
+                                      "fromPropertyPath": "dataprovider.current.item.fCategoryValue1GID_Code"
+                                    },
+                                    "error": {
+                                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                      "fromComponent": "TimesheetLines",
+                                      "fromPropertyPath": "dataprovider.current.item.fCategoryValue1GID_Error"
+                                    },
+                                    "gridOptions": {
+                                      "focusedRowEnabled": true,
+                                      "paging": {
+                                        "enabled": false,
+                                        "pageSize": 30
+                                      },
+                                      "scrolling": {
+                                        "mode": "virtual"
+                                      }
+                                    },
+                                    "investigateParams": {
+                                      "params": {
+                                        "CTRLVAL": {
+                                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                          "fromComponent": "fCategoryValue1GID",
+                                          "fromPropertyPath": "searchText"
+                                        }
+                                      }
+                                    },
+                                    "overflowMode": "noWrapAndEllipsis",
+                                    "popupHeight": "40vh",
+                                    "popupWidth": "15vw",
+                                    "tooltip": {
+                                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                      "fromComponent": "TimesheetLines",
+                                      "fromPropertyPath": "dataprovider.current.item.fCategoryValue1GID_Tip"
+                                    },
+                                    "value": {
+                                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                      "fromComponent": "TimesheetLines",
+                                      "fromPropertyPath": "dataprovider.current.item.fCategoryValue1GID"
+                                    },
+                                    "valueMember": "GID"
+                                  },
+                                  "typeName": "MulticolumnCombo"
+                                },
+                                {
+                                  "id": "fProjectGID",
+                                  "options": {
+                                    "mode": "ComboBox"
+                                  },
+                                  "properties": {
+                                    "caption": "Έργο",
+                                    "columns": [
+                                      {
+                                        "caption": "Κωδικός",
+                                        "dataField": "ProjectCode",
+                                        "dataType": "string"
+                                      },
+                                      {
+                                        "caption": "Ονομασία",
+                                        "dataField": "ProjectName",
+                                        "dataType": "string"
+                                      },
+                                      {
+                                        "caption": "Επωνυμία συν/νου",
+                                        "dataField": "TAName",
+                                        "dataType": "string"
+                                      },
+                                      {
+                                        "caption": "Εναρξη",
+                                        "dataField": "StartDate",
+                                        "dataType": "date",
+                                        "format": "dd/MM/yyyy"
+                                      },
+                                      {
+                                        "caption": "Λήξη",
+                                        "dataField": "FinishDate",
+                                        "dataType": "date",
+                                        "format": "dd/MM/yyyy"
+                                      }
+                                    ],
+                                    "dataprovider": {
+                                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                      "fromComponent": "TSLineProjectINV_dv",
+                                      "fromPropertyPath": "dataprovider"
+                                    },
+                                    "disabled": {
+                                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                      "fromComponent": "TimesheetLines",
+                                      "fromPropertyPath": "dataprovider.current.item.fProjectGID_Disabled"
+                                    },
+                                    "displayText": {
+                                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                      "fromComponent": "TimesheetLines",
+                                      "fromPropertyPath": "dataprovider.current.item.fProjectGID_Display"
+                                    },
+                                    "error": {
+                                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                      "fromComponent": "TimesheetLines",
+                                      "fromPropertyPath": "dataprovider.current.item.fProjectGID_Error"
+                                    },
+                                    "gridOptions": {
+                                      "focusedRowEnabled": true,
+                                      "paging": {
+                                        "enabled": false,
+                                        "pageSize": 30
+                                      },
+                                      "scrolling": {
+                                        "mode": "virtual"
+                                      }
+                                    },
+                                    "overflowMode": "noWrapAndEllipsis",
+                                    "popupHeight": "20rem",
+                                    "popupWidth": "70rem",
+                                    "singleSelectable": true,
+                                    "tooltip": {
+                                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                      "fromComponent": "TimesheetLines",
+                                      "fromPropertyPath": "dataprovider.current.item.fProjectGID_Tip"
+                                    },
+                                    "value": {
+                                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                      "fromComponent": "TimesheetLines",
+                                      "fromPropertyPath": "dataprovider.current.item.fProjectGID"
+                                    },
+                                    "valueMember": "fProjectGID"
+                                  },
+                                  "typeName": "MulticolumnCombo"
+                                },
+                                {
+                                  "id": "fTradeAccountGID",
+                                  "options": {
+                                    "investigate": {
+                                      "assign": {
+                                        "serviceOptions": {}
+                                      },
+                                      "dsEntityId": "dsTimesheet",
+                                      "InvField": "fTradeAccountGID",
+                                      "InvRelation": "FK_ESTMTaskItem_ESTMTask",
+                                      "InvTable": "ESTMTaskItem",
+                                      "results": {
+                                        "serviceOptions": {
+                                          "enumColumns": {
+                                            "Type_Text": "Entersoft.ERP.Financials.Enums.TradeAccountType, ESFIEnums"
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "popKind": "popup"
+                                  },
+                                  "properties": {
+                                    "assignments": {
+                                      "destMembers": [
+                                        "fTradeAccountGID"
+                                      ],
+                                      "item": {
+                                        "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                        "fromComponent": "TimesheetLines",
+                                        "fromPropertyPath": "dataprovider.current.item"
+                                      },
+                                      "srcMembers": [
+                                        "GID"
+                                      ]
+                                    },
+                                    "caption": "Συναλλασσόμενος",
+                                    "columns": [
+                                      {
+                                        "caption": "Κωδικός",
+                                        "dataField": "Code",
+                                        "dataType": "string"
+                                      },
+                                      {
+                                        "caption": "Επωνυμία/Ονοματεπώνυμο",
+                                        "dataField": "Name",
+                                        "dataType": "string"
+                                      }
+                                    ],
+                                    "dataprovider": {
+                                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                      "fromComponent": "fTradeAccountGID",
+                                      "fromPropertyPath": "dataprovider"
+                                    },
+                                    "disabled": {
+                                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                      "fromComponent": "TimesheetLines",
+                                      "fromPropertyPath": "dataprovider.current.item.fTradeAccountGID_Disabled"
+                                    },
+                                    "displayText": {
+                                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                      "fromComponent": "TimesheetLines",
+                                      "fromPropertyPath": "dataprovider.current.item.fTradeAccountGID_Name"
+                                    },
+                                    "error": {
+                                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                      "fromComponent": "TimesheetLines",
+                                      "fromPropertyPath": "dataprovider.current.item.fTradeAccountGID_Error"
+                                    },
+                                    "gridOptions": {
+                                      "focusedRowEnabled": true,
+                                      "paging": {
+                                        "enabled": false,
+                                        "pageSize": 30
+                                      },
+                                      "scrolling": {
+                                        "mode": "virtual"
+                                      }
+                                    },
+                                    "investigateParams": {
+                                      "params": {
+                                        "CTRLVAL": {
+                                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                          "fromComponent": "fTradeAccountGID",
+                                          "fromPropertyPath": "searchText"
+                                        }
+                                      }
+                                    },
+                                    "overflowMode": "noWrapAndEllipsis",
+                                    "popupHeight": "30rem",
+                                    "tooltip": {
+                                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                      "fromComponent": "TimesheetLines",
+                                      "fromPropertyPath": "dataprovider.current.item.fTradeAccountGID_Tip"
+                                    }
+                                  },
+                                  "typeName": "Lookup"
+                                },
+                                {
+                                  "id": "fAddressGID",
+                                  "options": {
+                                    "investigate": {
+                                      "assign": {
+                                        "serviceOptions": {}
+                                      },
+                                      "dsEntityId": "dsTimesheet",
+                                      "InvField": "fAddressGID",
+                                      "InvRelation": "FK_ESTMTaskItem_ESTMTask",
+                                      "InvTable": "ESTMTaskItem",
+                                      "results": {
+                                        "serviceOptions": {}
+                                      }
+                                    },
+                                    "popKind": "popup"
+                                  },
+                                  "properties": {
+                                    "assignments": {
+                                      "destMembers": [
+                                        "fAddressGID"
+                                      ],
+                                      "item": {
+                                        "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                        "fromComponent": "TimesheetLines",
+                                        "fromPropertyPath": "dataprovider.current.item"
+                                      },
+                                      "srcMembers": [
+                                        "GID"
+                                      ]
+                                    },
+                                    "caption": "Διεύθυνση",
+                                    "columns": [
+                                      {
+                                        "caption": "Κωδικός",
+                                        "dataField": "Code",
+                                        "dataType": "string"
+                                      },
+                                      {
+                                        "caption": "Περιγραφή",
+                                        "dataField": "Description",
+                                        "dataType": "string"
+                                      },
+                                      {
+                                        "caption": "Τύπος",
+                                        "dataField": "fSiteTypeCode",
+                                        "dataType": "string"
+                                      },
+                                      {
+                                        "caption": "Δ/νση 1",
+                                        "dataField": "Address1",
+                                        "dataType": "string"
+                                      },
+                                      {
+                                        "caption": "Ταχ.Κώδικας",
+                                        "dataField": "fPostalCode",
+                                        "dataType": "string"
+                                      },
+                                      {
+                                        "caption": "Πόλη",
+                                        "dataField": "fCityCode",
+                                        "dataType": "string"
+                                      },
+                                      {
+                                        "caption": "Νομός",
+                                        "dataField": "fDistrictCode",
+                                        "dataType": "string"
+                                      },
+                                      {
+                                        "caption": "Περιοχή",
+                                        "dataField": "Area",
+                                        "dataType": "string"
+                                      },
+                                      {
+                                        "caption": "Χώρα",
+                                        "dataField": "fCountryCode",
+                                        "dataType": "string"
+                                      }
+                                    ],
+                                    "dataprovider": {
+                                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                      "fromComponent": "fAddressGID",
+                                      "fromPropertyPath": "dataprovider"
+                                    },
+                                    "disabled": {
+                                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                      "fromComponent": "TimesheetLines",
+                                      "fromPropertyPath": "dataprovider.current.item.fAddressGID_Disabled"
+                                    },
+                                    "displayText": {
+                                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                      "fromComponent": "TimesheetLines",
+                                      "fromPropertyPath": "dataprovider.current.item.fAddressGID_Code"
+                                    },
+                                    "error": {
+                                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                      "fromComponent": "TimesheetLines",
+                                      "fromPropertyPath": "dataprovider.current.item.fAddressGID_Error"
+                                    },
+                                    "gridOptions": {
+                                      "focusedRowEnabled": true,
+                                      "paging": {
+                                        "enabled": false,
+                                        "pageSize": 30
+                                      },
+                                      "scrolling": {
+                                        "mode": "virtual"
+                                      }
+                                    },
+                                    "investigateParams": {
+                                      "params": {
+                                        "CTRLVAL": {
+                                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                          "fromComponent": "fAddressGID",
+                                          "fromPropertyPath": "searchText"
+                                        }
+                                      }
+                                    },
+                                    "overflowMode": "noWrapAndEllipsis",
+                                    "popupHeight": "30rem",
+                                    "tooltip": {
+                                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                      "fromComponent": "TimesheetLines",
+                                      "fromPropertyPath": "dataprovider.current.item.fAddressGID_Tip"
+                                    }
+                                  },
+                                  "typeName": "Lookup"
+                                },
+                                {
+                                  "id": "fTermServiceGID",
+                                  "options": {},
+                                  "properties": {
+                                    "caption": "Υπηρεσία όρου",
+                                    "columns": [
+                                      {
+                                        "caption": "Κωδικός",
+                                        "dataField": "Code",
+                                        "dataType": "string"
+                                      },
+                                      {
+                                        "caption": "Περιγραφή",
+                                        "dataField": "Description",
+                                        "dataType": "string"
+                                      },
+                                      {
+                                        "caption": "Προβλεπόμενη ημ/νία έναρξης ",
+                                        "dataField": "PlannedStartDate",
+                                        "dataType": "date",
+                                        "format": "dd/MM/yyyy"
+                                      },
+                                      {
+                                        "caption": "Προβλεπόμενη ημ/νία ολοκλήρωσης",
+                                        "dataField": "PlannedClosedDate",
+                                        "dataType": "date",
+                                        "format": "dd/MM/yyyy"
+                                      },
+                                      {
+                                        "caption": "Τύπος",
+                                        "dataField": "TermType",
+                                        "dataType": "string"
+                                      }
+                                    ],
+                                    "dataprovider": {
+                                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                      "fromComponent": "TSLineTermServiceINV_dv",
+                                      "fromPropertyPath": "dataprovider"
+                                    },
+                                    "disabled": {
+                                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                      "fromComponent": "TimesheetLines",
+                                      "fromPropertyPath": "dataprovider.current.item.fTermServiceGID_Disabled"
+                                    },
+                                    "displayText": {
+                                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                      "fromComponent": "TimesheetLines",
+                                      "fromPropertyPath": "dataprovider.current.item.fTermServiceGID_Code"
+                                    },
+                                    "error": {
+                                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                      "fromComponent": "TimesheetLines",
+                                      "fromPropertyPath": "dataprovider.current.item.fTermServiceGID_Error"
+                                    },
+                                    "gridOptions": {
+                                      "focusedRowEnabled": true,
+                                      "paging": {
+                                        "enabled": false,
+                                        "pageSize": 30
+                                      },
+                                      "scrolling": {
+                                        "mode": "virtual"
+                                      }
+                                    },
+                                    "overflowMode": "noWrapAndEllipsis",
+                                    "popupHeight": "20rem",
+                                    "popupWidth": "70rem",
+                                    "singleSelectable": true,
+                                    "tooltip": {
+                                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                      "fromComponent": "TimesheetLines",
+                                      "fromPropertyPath": "dataprovider.current.item.fTermServiceGID_Tip"
+                                    },
+                                    "value": {
+                                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                      "fromComponent": "TimesheetLines",
+                                      "fromPropertyPath": "dataprovider.current.item.fTermServiceGID"
+                                    },
+                                    "valueMember": "fTermServiceGID"
+                                  },
+                                  "typeName": "MulticolumnCombo"
+                                }
+                              ],
+                              "properties": {
+                                "aligns": "fill-fill",
+                                "gapx": "0.7rem",
+                                "gapy": "0.7rem",
+                                "orientation": "vertical",
+                                "sizes": "auto",
+                                "visible": {
+                                  "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                  "fromComponent": "WorkHourType_dv",
+                                  "fromPropertyPath": "dataprovider.current.item.IsWorkingHourType"
+                                },
+                                "wrap": false
+                              },
+                              "typeName": "Panel"
+                            }
+                          ],
+                          "properties": {
+                            "aligns": "fill-fill",
+                            "gapx": "0.7rem",
+                            "gapy": "0.7rem",
+                            "orientation": "vertical",
+                            "size": "50%",
+                            "sizes": "auto",
+                            "visibilityType": {
+                              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                              "fromComponent": "WorkHourType_dv",
+                              "fromPropertyPath": "dataprovider.current.item.IsWorkingHourType"
+                            },
+                            "wrap": false
+                          },
+                          "typeName": "Panel"
+                        },
+                        {
+                          "id": "pTSLDetailedInfo",
+                          "items": [
+                            {
+                              "id": "DateField1",
+                              "properties": {
+                                "caption": "Από",
+                                "dateType": "time",
+                                "disabled": {
+                                  "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                  "fromComponent": "TimesheetLines",
+                                  "fromPropertyPath": "dataprovider.current.item.DateField1_Disabled"
+                                },
+                                "error": {
+                                  "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                  "fromComponent": "TimesheetLines",
+                                  "fromPropertyPath": "dataprovider.current.item.DateField1_Error"
+                                },
+                                "format": "HH:mm",
+                                "overflowMode": "noWrapAndEllipsis",
+                                "tooltip": {
+                                  "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                  "fromComponent": "TimesheetLines",
+                                  "fromPropertyPath": "dataprovider.current.item.DateField1_Tip"
+                                },
+                                "value": {
+                                  "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                  "fromComponent": "TimesheetLines",
+                                  "fromPropertyPath": "dataprovider.current.item.DateField1"
+                                }
+                              },
+                              "typeName": "Date"
+                            },
+                            {
+                              "id": "DateField2",
+                              "properties": {
+                                "caption": "Έως",
+                                "dateType": "time",
+                                "disabled": {
+                                  "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                  "fromComponent": "TimesheetLines",
+                                  "fromPropertyPath": "dataprovider.current.item.DateField2_Disabled"
+                                },
+                                "error": {
+                                  "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                  "fromComponent": "TimesheetLines",
+                                  "fromPropertyPath": "dataprovider.current.item.DateField2_Error"
+                                },
+                                "format": "HH:mm",
+                                "overflowMode": "noWrapAndEllipsis",
+                                "tooltip": {
+                                  "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                  "fromComponent": "TimesheetLines",
+                                  "fromPropertyPath": "dataprovider.current.item.DateField2_Tip"
+                                },
+                                "value": {
+                                  "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                  "fromComponent": "TimesheetLines",
+                                  "fromPropertyPath": "dataprovider.current.item.DateField2"
+                                }
+                              },
+                              "typeName": "Date"
+                            },
+                            {
+                              "id": "NumericField1",
+                              "properties": {
+                                "caption": "Ώρες εργασίας",
+                                "disabled": {
+                                  "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                  "fromComponent": "TimesheetLines",
+                                  "fromPropertyPath": "dataprovider.current.item.NumericField1_Disabled"
+                                },
+                                "error": {
+                                  "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                  "fromComponent": "TimesheetLines",
+                                  "fromPropertyPath": "dataprovider.current.item.NumericField1_Error"
+                                },
+                                "overflowMode": "noWrapAndEllipsis",
+                                "tooltip": {
+                                  "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                  "fromComponent": "TimesheetLines",
+                                  "fromPropertyPath": "dataprovider.current.item.NumericField1_Tip"
+                                },
+                                "value": {
+                                  "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                  "fromComponent": "TimesheetLines",
+                                  "fromPropertyPath": "dataprovider.current.item.NumericField1"
+                                }
+                              },
+                              "typeName": "Numeric"
+                            },
+                            {
+                              "id": "NumericField2",
+                              "properties": {
+                                "caption": "Χρεώσιμες ώρες",
+                                "disabled": {
+                                  "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                  "fromComponent": "TimesheetLines",
+                                  "fromPropertyPath": "dataprovider.current.item.NumericField2_Disabled"
+                                },
+                                "error": {
+                                  "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                  "fromComponent": "TimesheetLines",
+                                  "fromPropertyPath": "dataprovider.current.item.NumericField2_Error"
+                                },
+                                "overflowMode": "noWrapAndEllipsis",
+                                "tooltip": {
+                                  "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                  "fromComponent": "TimesheetLines",
+                                  "fromPropertyPath": "dataprovider.current.item.NumericField2_Tip"
+                                },
+                                "value": {
+                                  "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                  "fromComponent": "TimesheetLines",
+                                  "fromPropertyPath": "dataprovider.current.item.NumericField2"
+                                }
+                              },
+                              "typeName": "Numeric"
+                            },
+                            {
+                              "id": "Chargeable",
+                              "options": {
+                                "mode": "DropdownList"
+                              },
+                              "properties": {
+                                "bitwise": 0,
+                                "caption": "Χρεώσιμο",
+                                "columns": [
+                                  {
+                                    "caption": "value",
+                                    "dataField": "value",
+                                    "dataType": "string",
+                                    "visible": false
+                                  },
+                                  {
+                                    "caption": "displayText",
+                                    "dataField": "displayText",
+                                    "dataType": "string"
+                                  }
+                                ],
+                                "dataprovider": {
+                                  "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                  "fromComponent": "EnumChargeable",
+                                  "fromPropertyPath": "dataprovider"
+                                },
+                                "disabled": {
+                                  "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                  "fromComponent": "TimesheetLines",
+                                  "fromPropertyPath": "dataprovider.current.item.Chargeable_Disabled"
+                                },
+                                "displayText": {
+                                  "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                  "fromComponent": "EnumChargeable",
+                                  "fromPropertyPath": "dataprovider.current.item.displayText"
+                                },
+                                "error": {
+                                  "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                  "fromComponent": "TimesheetLines",
+                                  "fromPropertyPath": "dataprovider.current.item.Chargeable_Error"
+                                },
+                                "gridOptions": {
+                                  "focusedRowEnabled": true,
+                                  "paging": {
+                                    "enabled": false,
+                                    "pageSize": 30
+                                  },
+                                  "scrolling": {
+                                    "mode": "virtual"
+                                  },
+                                  "showColumnHeaders": false
+                                },
+                                "overflowMode": "noWrapAndEllipsis",
+                                "popupHeight": "20vh",
+                                "popupWidth": "15vw",
+                                "tooltip": {
+                                  "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                  "fromComponent": "TimesheetLines",
+                                  "fromPropertyPath": "dataprovider.current.item.Chargeable_Tip"
+                                },
+                                "value": {
+                                  "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                  "fromComponent": "TimesheetLines",
+                                  "fromPropertyPath": "dataprovider.current.item.Chargeable"
+                                },
+                                "valueMember": "value"
+                              },
+                              "typeName": "MulticolumnCombo"
+                            }
+                          ],
+                          "properties": {
+                            "aligns": "fill-fill",
+                            "gapx": "0.7rem",
+                            "gapy": "0.7rem",
+                            "orientation": "vertical",
+                            "size": "50%",
+                            "sizes": "auto",
+                            "visible": {
+                              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                              "fromComponent": "WorkHourType_dv",
+                              "fromPropertyPath": "dataprovider.current.item.IsWorkingHourType"
+                            },
+                            "wrap": false
+                          },
+                          "typeName": "Panel"
+                        }
+                      ],
+                      "options": {},
+                      "properties": {
+                        "aligns": "fill-fill",
+                        "gapx": "1rem",
+                        "gapy": "1rem",
+                        "orientation": "horizontal",
+                        "sizes": "auto",
+                        "wrap": false
+                      },
+                      "typeName": "Panel"
+                    }
+                  ],
+                  "options": {
+                    "alignment": null,
+                    "b": null,
+                    "height": null,
+                    "l": null,
+                    "r": null,
+                    "rows-gutter": null,
+                    "t": null,
+                    "width": null
+                  },
+                  "properties": {
+                    "align": null,
+                    "borderColor": null,
+                    "borderPosition": "topAndBottom",
+                    "borderStyle": null,
+                    "borderWidth": null,
+                    "caption": null,
+                    "captionAlignment": null,
+                    "captionColor": null,
+                    "captionIcon": null,
+                    "captionSize": null,
+                    "captionStyle": null,
+                    "captionType": null,
+                    "captionWidth": null,
+                    "clipped": null,
+                    "colspan": null,
+                    "disabled": null,
+                    "framePadding": null,
+                    "imageUrl": null,
+                    "overflowMode": "noWrapAndEllipsis",
+                    "rowspan": null,
+                    "scrollable": false,
+                    "size": null,
+                    "visible": null
+                  },
+                  "typeName": "Frame"
+                },
+                {
+                  "id": "Comments",
+                  "options": {
+                    "multiline": true
+                  },
+                  "properties": {
+                    "caption": "Σχόλια",
+                    "disabled": {
+                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                      "fromComponent": "TimesheetLines",
+                      "fromPropertyPath": "dataprovider.current.item.Comments_Disabled"
+                    },
+                    "dxOptions": {
+                      "maxLength": 100
+                    },
+                    "error": {
+                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                      "fromComponent": "TimesheetLines",
+                      "fromPropertyPath": "dataprovider.current.item.Comments_Error"
+                    },
+                    "overflowMode": "noWrapAndEllipsis",
+                    "tooltip": {
+                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                      "fromComponent": "TimesheetLines",
+                      "fromPropertyPath": "dataprovider.current.item.Comments_Tip"
+                    },
+                    "value": {
+                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                      "fromComponent": "TimesheetLines",
+                      "fromPropertyPath": "dataprovider.current.item.Comments"
+                    }
+                  },
+                  "typeName": "Field"
+                },
+                {
+                  "id": "p1",
+                  "items": [
+                    {
+                      "id": "btn_hve",
+                      "options": {
+                        "btnSize": "normal",
+                        "transparent": true
+                      },
+                      "properties": {
+                        "caption": "Κλείσιμο",
+                        "captionIcon": "fas fa-window-close",
+                        "overflowMode": "noWrapAndEllipsis",
+                        "popupHeight": "50vh",
+                        "popupWidth": "50vw"
+                      },
+                      "typeName": "Button"
+                    },
+                    {
+                      "id": "btn2",
+                      "options": {
+                        "btnSize": "normal",
+                        "transparent": true
+                      },
+                      "properties": {
+                        "caption": "Νέα εγγραφή",
+                        "captionIcon": "fas fa-plus",
+                        "isCircleButton": true,
+                        "overflowMode": "noWrapAndEllipsis",
+                        "popupHeight": "50vh",
+                        "popupWidth": "50vw"
+                      },
+                      "typeName": "Button"
+                    }
+                  ],
+                  "properties": {
+                    "align": "fill-center",
+                    "aligns": "fill-fill",
+                    "gapx": "0.7rem",
+                    "gapy": "0.7rem",
+                    "orientation": "horizontal",
+                    "wrap": false
+                  },
+                  "typeName": "Panel"
+                }
+              ],
+              "properties": {
+                "aligns": "fill-fill",
+                "gapx": "0.7rem",
+                "gapy": "0.7rem",
+                "orientation": "vertical",
+                "wrap": false
+              },
+              "typeName": "Panel"
+            }
+          ],
+          "options": {},
+          "properties": {
+            "autoclose": true,
+            "modal": false,
+            "movable": true,
+            "popupHeight": "auto",
+            "popupWidth": "40",
+            "resizable": false
+          },
+          "typeName": "PopPanel"
+        }
+      ],
+      "typeName": "Group"
+    },
+    {
+      "id": "shelvedItems",
+      "items": [],
+      "typeName": "Group"
+    },
+    {
+      "id": "availableItems",
+      "items": [],
+      "typeName": "Group"
+    },
+    {
+      "id": "pageItems",
+      "items": [
+        {
+          "id": "pBillableHours_toolbar",
+          "items": [
+            {
+              "id": "btn_SaveTimesheet",
+              "options": {
+                "btnSize": "small",
+                "transparent": true
+              },
+              "properties": {
+                "caption": "Αποθήκευση",
+                "captionIcon": "fas fa-save",
+                "isCircleButton": false,
+                "overflowMode": "noWrapAndEllipsis",
+                "popupHeight": "50vh",
+                "popupWidth": "50vw",
+                "size": "auto"
+              },
+              "typeName": "Button"
+            },
+            {
+              "id": "btn_NewTimesheet",
+              "options": {
+                "btnSize": "small",
+                "transparent": true
+              },
+              "properties": {
+                "caption": "Νέο",
+                "captionIcon": "fas fa-plus",
+                "overflowMode": "noWrapAndEllipsis",
+                "popupHeight": "50vh",
+                "popupWidth": "50vw",
+                "size": "auto"
+              },
+              "typeName": "Button"
+            },
+            {
+              "id": "btn_SubmitTimesheet",
+              "options": {
+                "btnSize": "normal",
+                "transparent": true
+              },
+              "properties": {
+                "caption": "Υποβολή",
+                "captionIcon": "fas fa-paper-plane",
+                "overflowMode": "noWrapAndEllipsis",
+                "popupHeight": "50vh",
+                "popupWidth": "50vw",
+                "size": "auto"
+              },
+              "typeName": "Button"
+            }
+          ],
+          "options": {},
+          "properties": {
+            "align": "top-left",
+            "aligns": "fill-fill",
+            "gapx": "0.3rem",
+            "gapy": "0.7rem",
+            "orientation": "horizontal",
+            "sizes": "auto",
+            "wrap": false
+          },
+          "typeName": "Panel"
+        },
+        {
+          "id": "lnToolBar",
+          "options": {},
+          "properties": {
+            "size": 0,
+            "visible": true
+          },
+          "typeName": "Line"
+        },
+        {
+          "id": "pTimesheetHeaderInfo",
+          "items": [
+            {
+              "id": "pBillableHours_BasicInfo",
+              "items": [
+                {
+                  "id": "cap_TaskTypeDescr",
+                  "options": {},
+                  "properties": {
+                    "caption": {
+                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                      "fromComponent": "Timesheet",
+                      "fromPropertyPath": "dataprovider.current.item.fTaskTypeGID_Description"
+                    },
+                    "captionSize": "2",
+                    "overflowMode": "noWrapAndEllipsis",
+                    "size": "auto"
+                  },
+                  "typeName": "Caption"
+                },
+                {
+                  "id": "cap_TSCode",
+                  "options": {},
+                  "properties": {
+                    "caption": {
+                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                      "fromComponent": "Timesheet",
+                      "fromPropertyPath": "dataprovider.current.item.Code"
+                    },
+                    "overflowMode": "noWrapAndEllipsis",
+                    "size": "auto"
+                  },
+                  "typeName": "Caption"
+                },
+                {
+                  "id": "cap_Representative",
+                  "options": {},
+                  "properties": {
+                    "caption": {
+                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                      "fromComponent": "Timesheet",
+                      "fromPropertyPath": "dataprovider.current.item.fAssignedToGID_Display"
+                    },
+                    "overflowMode": "noWrapAndEllipsis",
+                    "size": "auto"
+                  },
+                  "typeName": "Caption"
+                },
+                {
+                  "id": "cap_Status",
+                  "options": {},
+                  "properties": {
+                    "caption": {
+                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                      "fromComponent": "Timesheet",
+                      "fromPropertyPath": "dataprovider.current.item.fStatusGID_Code"
+                    },
+                    "overflowMode": "noWrapAndEllipsis"
+                  },
+                  "typeName": "Caption"
+                },
+                {
+                  "id": "RegistrationDate",
+                  "properties": {
+                    "align": "top-left",
+                    "caption": "Ημερομηνία",
+                    "dateType": "date",
+                    "disabled": {
+                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                      "fromComponent": "Timesheet",
+                      "fromPropertyPath": "dataprovider.current.item.RegistrationDate_Disabled"
+                    },
+                    "error": {
+                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                      "fromComponent": "Timesheet",
+                      "fromPropertyPath": "dataprovider.current.item.RegistrationDate_Error"
+                    },
+                    "overflowMode": "noWrapAndEllipsis",
+                    "tooltip": {
+                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                      "fromComponent": "Timesheet",
+                      "fromPropertyPath": "dataprovider.current.item.RegistrationDate_Tip"
+                    },
+                    "value": {
+                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                      "fromComponent": "Timesheet",
+                      "fromPropertyPath": "dataprovider.current.item.RegistrationDate"
+                    }
+                  },
+                  "typeName": "Date"
+                }
+              ],
+              "properties": {
+                "align": "top-fill",
+                "captionSize": "1",
+                "gapx": "0.7rem",
+                "gapy": "0.7rem",
+                "orientation": "vertical",
+                "size": "20%",
+                "sizes": "auto",
+                "wrap": false
+              },
+              "typeName": "Panel"
+            },
+            {
+              "id": "pBillableHours_KPIs",
+              "items": [
+                {
+                  "id": "pBillableHours_WorkingHours",
+                  "items": [
+                    {
+                      "id": "cap_WorkingHours",
+                      "options": {},
+                      "properties": {
+                        "caption": "Ώρες εργασίας",
+                        "captionColor": "1",
+                        "captionSize": "1",
+                        "overflowMode": "noWrapAndEllipsis"
+                      },
+                      "typeName": "Caption"
+                    },
+                    {
+                      "id": "cap_WorkingHoursValue",
+                      "options": {},
+                      "properties": {
+                        "caption": {
+                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                          "fromComponent": "Timesheet",
+                          "fromPropertyPath": "dataprovider.current.item.NumericField3"
+                        },
+                        "captionSize": "2",
+                        "overflowMode": "noWrapAndEllipsis"
+                      },
+                      "typeName": "Caption"
+                    }
+                  ],
+                  "properties": {
+                    "aligns": "fill-fill",
+                    "gapx": "0.7rem",
+                    "gapy": "0.7rem",
+                    "orientation": "vertical",
+                    "sizes": "auto",
+                    "wrap": false
+                  },
+                  "typeName": "Panel"
+                },
+                {
+                  "id": "pBillableHours_ChargeableHours",
+                  "items": [
+                    {
+                      "id": "cap_ChargeableHours",
+                      "options": {},
+                      "properties": {
+                        "caption": "Ώρες χρέωσης",
+                        "captionSize": "1",
+                        "overflowMode": "noWrapAndEllipsis"
+                      },
+                      "typeName": "Caption"
+                    },
+                    {
+                      "id": "cap_ChargeableHoursValue",
+                      "options": {},
+                      "properties": {
+                        "caption": {
+                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                          "fromComponent": "Timesheet",
+                          "fromPropertyPath": "dataprovider.current.item.NumericField4"
+                        },
+                        "captionSize": "2",
+                        "overflowMode": "noWrapAndEllipsis"
+                      },
+                      "typeName": "Caption"
+                    }
+                  ],
+                  "properties": {
+                    "aligns": "fill-fill",
+                    "gapx": "0.7rem",
+                    "gapy": "0.7rem",
+                    "orientation": "vertical",
+                    "sizes": "auto",
+                    "wrap": false
+                  },
+                  "typeName": "Panel"
+                },
+                {
+                  "id": "pBillableHours_Overtime",
+                  "items": [
+                    {
+                      "id": "cap_Overtime",
+                      "options": {},
+                      "properties": {
+                        "caption": "Υπερωρίες",
+                        "captionColor": "1",
+                        "captionSize": "1",
+                        "overflowMode": "noWrapAndEllipsis"
+                      },
+                      "typeName": "Caption"
+                    },
+                    {
+                      "id": "cap_OvertimeValue",
+                      "options": {},
+                      "properties": {
+                        "caption": {
+                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                          "fromComponent": "Timesheet",
+                          "fromPropertyPath": "dataprovider.current.item.NumericField2"
+                        },
+                        "captionColor": "2",
+                        "captionSize": "2",
+                        "overflowMode": "noWrapAndEllipsis"
+                      },
+                      "typeName": "Caption"
+                    }
+                  ],
+                  "properties": {
+                    "aligns": "fill-fill",
+                    "gapx": "0.7rem",
+                    "gapy": "0.7rem",
+                    "orientation": "vertical",
+                    "sizes": "auto",
+                    "wrap": false
+                  },
+                  "typeName": "Panel"
+                }
+              ],
+              "properties": {
+                "align": "top-fill",
+                "gapx": "3rem",
+                "gapy": "0.7rem",
+                "orientation": "horizontal",
+                "sizes": "auto",
+                "wrap": false
+              },
+              "typeName": "Panel"
+            }
+          ],
+          "options": {},
+          "properties": {
+            "gapx": "0.7rem",
+            "gapy": "0.7rem",
+            "orientation": "horizontal",
+            "size": "auto",
+            "sizes": "auto",
+            "wrap": false
+          },
+          "typeName": "Panel"
+        },
+        {
+          "id": "lnDetailsCaption",
+          "options": {},
+          "properties": {
+            "visible": true
+          },
+          "typeName": "Line"
+        },
+        {
+          "id": "frmTSLines",
+          "items": [
+            {
+              "id": "gridxprs_TimesheetLines",
+              "items": [
+                {
+                  "id": "frm_o8wd",
+                  "items": [
+                    {
+                      "id": "pTop",
+                      "items": [
+                        {
+                          "id": "p_vhmi",
+                          "items": [
+                            {
+                              "id": "capStartEndTime",
+                              "options": {},
+                              "properties": {
+                                "caption": {
+                                  "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                  "fromComponent": "capStartEndTime_caption",
+                                  "fromPropertyPath": "result",
+                                  "templateId": "frm_o8wd"
+                                },
+                                "captionSize": "1",
+                                "overflowMode": "noWrapAndEllipsis",
+                                "size": "auto",
+                                "visible": {
+                                  "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                  "fromComponent": "capStartEndTime_visible",
+                                  "fromPropertyPath": "result",
+                                  "templateId": "frm_o8wd"
+                                }
+                              },
+                              "typeName": "Caption"
+                            },
+                            {
+                              "id": "cap_HourType_WorkPlace",
+                              "options": {},
+                              "properties": {
+                                "caption": {
+                                  "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                  "fromComponent": "cap_HourType_WorkPlace_caption",
+                                  "fromPropertyPath": "result",
+                                  "templateId": "frm_o8wd"
+                                },
+                                "captionType": "label",
+                                "overflowMode": "noWrapAndEllipsis"
+                              },
+                              "typeName": "Caption"
+                            }
+                          ],
+                          "options": {},
+                          "properties": {
+                            "aligns": "fill-fill",
+                            "gapx": "0.7rem",
+                            "gapy": "0.7rem",
+                            "orientation": "horizontal",
+                            "size": "auto",
+                            "sizes": "auto",
+                            "wrap": false
+                          },
+                          "typeName": "Panel"
+                        },
+                        {
+                          "id": "pOverall",
+                          "items": [
+                            {
+                              "id": "pInfo",
+                              "items": [
+                                {
+                                  "id": "pTAPrj",
+                                  "items": [
+                                    {
+                                      "id": "capCustomerAddress",
+                                      "options": {},
+                                      "properties": {
+                                        "caption": {
+                                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                          "fromComponent": "capCustomerAddress_caption",
+                                          "fromPropertyPath": "result",
+                                          "templateId": "frm_o8wd"
+                                        },
+                                        "overflowMode": "noWrapAndEllipsis"
+                                      },
+                                      "typeName": "Caption"
+                                    },
+                                    {
+                                      "id": "capProject",
+                                      "options": {},
+                                      "properties": {
+                                        "caption": {
+                                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                          "fromComponent": "scope",
+                                          "fromPropertyPath": "item.fProjectGID_Display"
+                                        },
+                                        "overflowMode": "noWrapAndEllipsis"
+                                      },
+                                      "typeName": "Caption"
+                                    }
+                                  ],
+                                  "options": {},
+                                  "properties": {
+                                    "aligns": "fill-fill",
+                                    "gapx": "0.7rem",
+                                    "gapy": "0.7rem",
+                                    "orientation": "horizontal",
+                                    "sizes": "auto",
+                                    "wrap": false
+                                  },
+                                  "typeName": "Panel"
+                                },
+                                {
+                                  "id": "pComments",
+                                  "items": [
+                                    {
+                                      "id": "capComments",
+                                      "properties": {
+                                        "caption": {
+                                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                          "fromComponent": "scope",
+                                          "fromPropertyPath": "item.Comments"
+                                        },
+                                        "overflowMode": "noWrapAndEllipsis",
+                                        "size": "auto"
+                                      },
+                                      "typeName": "Caption"
+                                    }
+                                  ],
+                                  "options": {},
+                                  "properties": {
+                                    "aligns": "fill-fill",
+                                    "gapx": "0.7rem",
+                                    "gapy": "0.7rem",
+                                    "orientation": "horizontal",
+                                    "size": "auto",
+                                    "sizes": "auto",
+                                    "wrap": true
+                                  },
+                                  "typeName": "Panel"
+                                }
+                              ],
+                              "options": {},
+                              "properties": {
+                                "aligns": "fill-fill",
+                                "gapx": "0.7rem",
+                                "gapy": "0.7rem",
+                                "orientation": "vertical",
+                                "size": "30%",
+                                "sizes": "auto",
+                                "wrap": true
+                              },
+                              "typeName": "Panel"
+                            },
+                            {
+                              "id": "pNumbers",
+                              "items": [
+                                {
+                                  "id": "pWorkingHours",
+                                  "items": [
+                                    {
+                                      "id": "WrkHrs",
+                                      "properties": {
+                                        "caption": "Ώρες εργασίας",
+                                        "overflowMode": "noWrapAndEllipsis"
+                                      },
+                                      "typeName": "Caption"
+                                    },
+                                    {
+                                      "id": "WrkHrsValue",
+                                      "properties": {
+                                        "caption": {
+                                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                          "fromComponent": "scope",
+                                          "fromPropertyPath": "item.NumericField1"
+                                        },
+                                        "captionSize": "1",
+                                        "numericFormat": "#,##0.##",
+                                        "overflowMode": "noWrapAndEllipsis"
+                                      },
+                                      "typeName": "Caption"
+                                    }
+                                  ],
+                                  "properties": {
+                                    "aligns": "fill-fill",
+                                    "gapx": "0.7rem",
+                                    "gapy": "0.7rem",
+                                    "orientation": "vertical",
+                                    "sizes": "auto",
+                                    "wrap": false
+                                  },
+                                  "typeName": "Panel"
+                                },
+                                {
+                                  "id": "pBillableHours",
+                                  "items": [
+                                    {
+                                      "id": "capBillHrs",
+                                      "properties": {
+                                        "caption": "Ώρες Χρέωσης",
+                                        "overflowMode": "noWrapAndEllipsis"
+                                      },
+                                      "typeName": "Caption"
+                                    },
+                                    {
+                                      "id": "capBillHrsValue",
+                                      "properties": {
+                                        "caption": {
+                                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                          "fromComponent": "scope",
+                                          "fromPropertyPath": "item.NumericField2"
+                                        },
+                                        "captionSize": "1",
+                                        "numericFormat": "#,##0.##",
+                                        "overflowMode": "noWrapAndEllipsis"
+                                      },
+                                      "typeName": "Caption"
+                                    }
+                                  ],
+                                  "properties": {
+                                    "aligns": "fill-fill",
+                                    "gapx": "0.7rem",
+                                    "gapy": "0.7rem",
+                                    "orientation": "vertical",
+                                    "sizes": "auto",
+                                    "wrap": false
+                                  },
+                                  "typeName": "Panel"
+                                },
+                                {
+                                  "id": "pChargeable",
+                                  "items": [
+                                    {
+                                      "id": "capChargeable",
+                                      "properties": {
+                                        "caption": "Χρεώσιμο",
+                                        "overflowMode": "noWrapAndEllipsis"
+                                      },
+                                      "typeName": "Caption"
+                                    },
+                                    {
+                                      "id": "CapChargeableValue",
+                                      "properties": {
+                                        "caption": {
+                                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                          "fromComponent": "scope",
+                                          "fromPropertyPath": "item.Chargeable_Text"
+                                        },
+                                        "captionSize": "1",
+                                        "numericFormat": "#,##0.##",
+                                        "overflowMode": "noWrapAndEllipsis"
+                                      },
+                                      "typeName": "Caption"
+                                    }
+                                  ],
+                                  "properties": {
+                                    "aligns": "fill-fill",
+                                    "gapx": "0.7rem",
+                                    "gapy": "0.7rem",
+                                    "orientation": "vertical",
+                                    "sizes": "auto",
+                                    "wrap": false
+                                  },
+                                  "typeName": "Panel"
+                                }
+                              ],
+                              "properties": {
+                                "aligns": "fill-fill",
+                                "gapx": "0.7rem",
+                                "gapy": "0.7rem",
+                                "orientation": "horizontal",
+                                "size": "30%",
+                                "sizes": "auto",
+                                "visible": {
+                                  "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                  "fromComponent": "pNumbers_visible",
+                                  "fromPropertyPath": "result",
+                                  "templateId": "frm_o8wd"
+                                },
+                                "wrap": false
+                              },
+                              "typeName": "Panel"
+                            },
+                            {
+                              "id": "pApprovalInfo",
+                              "items": [
+                                {
+                                  "id": "cap_Supervisor",
+                                  "properties": {
+                                    "caption": "Στοιχεία έγκρισης",
+                                    "overflowMode": "noWrapAndEllipsis",
+                                    "size": "auto"
+                                  },
+                                  "typeName": "Caption"
+                                },
+                                {
+                                  "id": "pApprDetails",
+                                  "items": [
+                                    {
+                                      "id": "cap_TSLineAuthorizedResourceValue",
+                                      "options": {},
+                                      "properties": {
+                                        "caption": {
+                                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                          "fromComponent": "scope",
+                                          "fromPropertyPath": "item.fResourceGID_Description"
+                                        },
+                                        "captionIcon": "fas fa-user-check",
+                                        "captionSize": "0",
+                                        "overflowMode": "noWrapAndEllipsis",
+                                        "size": "auto"
+                                      },
+                                      "typeName": "Caption"
+                                    },
+                                    {
+                                      "id": "cap_TSLineAuthReasoningValue",
+                                      "options": {},
+                                      "properties": {
+                                        "caption": {
+                                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                          "fromComponent": "scope",
+                                          "fromPropertyPath": "item.fCategoryValue5GID_Code"
+                                        },
+                                        "captionSize": "0",
+                                        "overflowMode": "wrapAndEllipsis"
+                                      },
+                                      "typeName": "Caption"
+                                    },
+                                    {
+                                      "id": "cap_TSLineAuthCommentValue",
+                                      "options": {},
+                                      "properties": {
+                                        "caption": {
+                                          "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                          "fromComponent": "scope",
+                                          "fromPropertyPath": "item.StringField1"
+                                        },
+                                        "captionSize": "0",
+                                        "overflowMode": "wrapAndEllipsis",
+                                        "size": "auto"
+                                      },
+                                      "typeName": "Caption"
+                                    }
+                                  ],
+                                  "properties": {
+                                    "aligns": "fill-fill",
+                                    "gapx": "0.7rem",
+                                    "gapy": "0.7rem",
+                                    "orientation": "horizontal",
+                                    "sizes": "auto",
+                                    "wrap": false
+                                  },
+                                  "typeName": "Panel"
+                                }
+                              ],
+                              "properties": {
+                                "aligns": "fill-fill",
+                                "gapx": "0.7rem",
+                                "gapy": "0.7rem",
+                                "orientation": "vertical",
+                                "sizes": "auto",
+                                "visible": {
+                                  "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                                  "fromComponent": "scope",
+                                  "fromPropertyPath": "item.fResourceGID"
+                                },
+                                "wrap": false
+                              },
+                              "typeName": "Panel"
+                            }
+                          ],
+                          "options": {},
+                          "properties": {
+                            "aligns": "fill-fill",
+                            "gapx": "0.7rem",
+                            "gapy": "0rem",
+                            "orientation": "horizontal",
+                            "sizes": "auto",
+                            "wrap": false
+                          },
+                          "typeName": "Panel"
+                        }
+                      ],
+                      "options": {},
+                      "properties": {
+                        "aligns": "fill-fill",
+                        "gapx": "0.7rem",
+                        "gapy": "0rem",
+                        "orientation": "vertical",
+                        "sizes": "auto",
+                        "wrap": true
+                      },
+                      "typeName": "Panel"
+                    }
+                  ],
+                  "options": {},
+                  "properties": {
+                    "overflowMode": "noWrapAndEllipsis"
+                  },
+                  "typeName": "Frame"
+                },
+                {
+                  "id": "frm_n0uw",
+                  "items": [
+                    {
+                      "id": "panelEdit",
+                      "items": [
+                        {
+                          "id": "Button_Edit",
+                          "options": {
+                            "btnSize": "small",
+                            "transparent": true
+                          },
+                          "properties": {
+                            "align": "center-center",
+                            "captionIcon": "fas fa-edit",
+                            "disabled": {
+                              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                              "fromComponent": "Button_Edit_disabled",
+                              "fromPropertyPath": "result",
+                              "templateId": "frm_n0uw"
+                            },
+                            "isCircleButton": true,
+                            "overflowMode": "noWrapAndEllipsis",
+                            "popupHeight": "50vh",
+                            "popupWidth": "50vw",
+                            "size": "auto"
+                          },
+                          "typeName": "Button"
+                        },
+                        {
+                          "id": "btnDeleteRow",
+                          "options": {
+                            "btnSize": "normal",
+                            "transparent": true
+                          },
+                          "properties": {
+                            "captionIcon": "fas fa-trash",
+                            "disabled": {
+                              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                              "fromComponent": "btnDeleteRow_disabled",
+                              "fromPropertyPath": "result",
+                              "templateId": "frm_n0uw"
+                            },
+                            "isCircleButton": true,
+                            "overflowMode": "noWrapAndEllipsis",
+                            "popupHeight": "50vh",
+                            "popupWidth": "50vw",
+                            "size": "auto"
+                          },
+                          "typeName": "Button"
+                        }
+                      ],
+                      "options": {},
+                      "properties": {
+                        "aligns": "center-left",
+                        "gapx": "0rem",
+                        "gapy": "0rem",
+                        "orientation": "horizontal",
+                        "sizes": "auto",
+                        "wrap": false
+                      },
+                      "typeName": "Panel"
+                    }
+                  ],
+                  "options": {},
+                  "properties": {
+                    "overflowMode": "noWrapAndEllipsis"
+                  },
+                  "typeName": "Frame"
+                }
+              ],
+              "properties": {
+                "caption": "Εγγραφές",
+                "columns": [
+                  {
+                    "dataField": "fCategoryValue3GID_InternationalID",
+                    "dataType": "icon",
+                    "esInfo": {
+                      "displayMode": "iconOnly",
+                      "mapDataview": {
+                        "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                        "fromComponent": "StateIcon",
+                        "fromPropertyPath": "dataprovider"
+                      }
+                    },
+                    "width": "3%"
+                  },
+                  {
+                    "caption": null,
+                    "dataField": "tempCol",
+                    "esInfo": {
+                      "colTemplateId": "frm_o8wd",
+                      "groupTemplateId": null
+                    },
+                    "width": "85%"
+                  },
+                  {
+                    "esInfo": {
+                      "colTemplateId": "frm_n0uw",
+                      "groupTemplateId": null
+                    },
+                    "width": "auto"
+                  }
+                ],
+                "dataprovider": {
+                  "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                  "fromComponent": "TimesheetLines",
+                  "fromPropertyPath": "dataprovider"
+                },
+                "dxOptions": {
+                  "allowColumnResizing": true,
+                  "columnAutoWidth": false,
+                  "focusedRowEnabled": true,
+                  "paging": {
+                    "enabled": false,
+                    "pageSize": 30
+                  },
+                  "scrolling": {
+                    "showScrollbar": "always"
+                  },
+                  "showBorders": false,
+                  "showColumnHeaders": false,
+                  "showColumnLines": false,
+                  "showRowLines": true
+                },
+                "overflowMode": "noWrapAndEllipsis",
+                "singleSelectable": true,
+                "size": "1"
+              },
+              "typeName": "GridXpress"
+            },
+            {
+              "id": "pTimesheetHeaderTool",
+              "items": [
+                {
+                  "id": "btn_AddTSLine",
+                  "options": {
+                    "btnSize": "normal",
+                    "transparent": true
+                  },
+                  "properties": {
+                    "captionIcon": "fas fa-plus",
+                    "disabled": {
+                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                      "fromComponent": "Timesheet",
+                      "fromPropertyPath": "dataprovider.current.item.RegistrationDate_Error"
+                    },
+                    "isCircleButton": true,
+                    "overflowMode": "noWrapAndEllipsis",
+                    "popupHeight": "50vh",
+                    "popupWidth": "50vw",
+                    "visible": {
+                      "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+                      "fromComponent": "Timesheet",
+                      "fromPropertyPath": "dataprovider.current.item.RegistrationDate"
+                    }
+                  },
+                  "typeName": "Button"
+                }
+              ],
+              "options": {
+                "r": "0%",
+                "t": "0%"
+              },
+              "properties": {
+                "aligns": "fill-fill",
+                "gapx": "0.7rem",
+                "gapy": "0.7rem",
+                "orientation": "horizontal",
+                "sizes": "auto",
+                "wrap": false
+              },
+              "typeName": "Panel"
+            }
+          ],
+          "options": {},
+          "properties": {
+            "overflowMode": "noWrapAndEllipsis",
+            "scrollable": false,
+            "size": "1"
+          },
+          "typeName": "Frame"
+        }
+      ],
+      "options": {},
+      "properties": {
+        "aligns": "fill-fill",
+        "gapx": "0.7rem",
+        "gapy": "0.7rem",
+        "orientation": "vertical",
+        "sizes": "auto",
+        "wrap": false
+      },
+      "typeName": "Panel"
+    }
+  ],
+  "layoutName": "general",
+  "uilessItems": {
+    "datasources": [
+      {
+        "id": "dsTimesheet",
+        "options": {
+          "dsName": "ESTMServiceRequest",
+          "dsType": "ES.TimeSheet"
+        },
+        "properties": {
+          "autoRun": true,
+          "entityDef": {
+            "$type": "ESWebApp.Models.EsViewBase+TableDef, ESWebApp",
+            "Columns": [
+              "GID",
+              "Code",
+              "fTaskTypeGID",
+              "fStatusGID",
+              "fAssignedToGID",
+              "NumericField1",
+              "NumericField2",
+              "NumericField3",
+              "NumericField4",
+              "NumericField5",
+              "RegistrationDate",
+              "fCompanyCode",
+              "FK_ESTMTask_ESTMResource_fAssignedToGID.Code",
+              "FK_ESTMTask_ESTMResource_fAssignedToGID.Description",
+              "FK_ESTMTask_ESTMResource_fAssignedToGID.Display",
+              "FK_ESTMTask_ESTMStatusCollectionValue.Code",
+              "FK_ESTMTask_ESTMTaskType.Description"
+            ],
+            "Details": [
+              {
+                "Columns": [
+                  "fTaskGID"
+                ],
+                "Name": "ESTMServiceRequest",
+                "ParentRelation": {
+                  "ColumnNames": [
+                    "fTaskGID"
+                  ],
+                  "Name": "FK_ESTMTask_ESTMServiceRequest",
+                  "ParentColumnNames": [
+                    "GID"
+                  ],
+                  "ParentTableName": "ESTMTask"
+                }
+              },
+              {
+                "Columns": [
+                  "GID",
+                  "LineNumber",
+                  "LineClass",
+                  "fTaskGID",
+                  "fItemGID",
+                  "fCategoryValue1GID",
+                  "fCategoryValue2GID",
+                  "fCategoryValue3GID",
+                  "fCategoryValue4GID",
+                  "fCategoryValue5GID",
+                  "StringField1",
+                  "NumericField1",
+                  "NumericField2",
+                  "NumericField3",
+                  "DateField1",
+                  "DateField2",
+                  "fTermServiceGID",
+                  "Chargeable",
+                  "Chargeable_Text",
+                  "fAddressGID",
+                  "Comments",
+                  "fResourceGID",
+                  "fTradeAccountGID",
+                  "fProjectGID",
+                  "fCompanyCode",
+                  "FK_ESTMTaskItem_ESGOProject.Code",
+                  "FK_ESTMTaskItem_ESGOProject.Display",
+                  "FK_ESTMTaskItem_ESFITradeAccount.Code",
+                  "FK_ESTMTaskItem_ESFITradeAccount.Name",
+                  "FK_ESTMTaskItem_ESTMResource.Description",
+                  "FK_ESTMTaskItem_ESGOSites_fAddressGID.Code",
+                  "FK_ESTMTaskItem_ESTMTermService.Code",
+                  "FK_ESTMTaskItem_ESTMTaskCategoryValue5GID.Code",
+                  "FK_ESTMTaskItem_ESTMTaskCategoryValue4GID.Code",
+                  "FK_ESTMTaskItem_ESTMTaskCategoryValue3GID.Code",
+                  "FK_ESTMTaskItem_ESTMTaskCategoryValue3GID.InternationalID",
+                  "FK_ESTMTaskItem_ESTMTaskCategoryValue2GID.Code",
+                  "FK_ESTMTaskItem_ESTMTaskCategoryValue1GID.Code",
+                  "FK_ESTMTaskItem_ESFIItem.Code"
+                ],
+                "Name": "ESTMTaskItem",
+                "ParentRelation": {
+                  "ColumnNames": [
+                    "fTaskGID"
+                  ],
+                  "Name": "FK_ESTMTaskItem_ESTMTask",
+                  "ParentColumnNames": [
+                    "GID"
+                  ],
+                  "ParentTableName": "ESTMTask"
+                }
+              }
+            ],
+            "Name": "ESTMTask"
+          }
+        },
+        "typeName": "Entity"
+      },
+      {
+        "id": "Timesheet",
+        "options": {
+          "datamember": "ESTMTask"
+        },
+        "properties": {
+          "dsDataprovider": {
+            "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+            "fromComponent": "dsTimesheet",
+            "fromPropertyPath": "dataprovider"
+          },
+          "firstAutoSelected": true
+        },
+        "typeName": "Dataview"
+      },
+      {
+        "id": "TimesheetLines",
+        "options": {
+          "datamember": "ESTMTaskItem/FK_ESTMTaskItem_ESTMTask"
+        },
+        "properties": {
+          "dsDataprovider": {
+            "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+            "fromComponent": "dsTimesheet",
+            "fromPropertyPath": "dataprovider"
+          },
+          "firstAutoSelected": true,
+          "parentCurrent": {
+            "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+            "fromComponent": "Timesheet",
+            "fromPropertyPath": "dataprovider.current"
+          }
+        },
+        "typeName": "Dataview"
+      },
+      {
+        "id": "EnumChargeable",
+        "properties": {
+          "data": {
+            "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+            "fromComponent": "EnumChargeable",
+            "fromPropertyPath": "data",
+            "initialValue": {
+              "data": [
+                {
+                  "displayText": "Όχι",
+                  "icon": null,
+                  "name": "No",
+                  "value": 0
+                },
+                {
+                  "displayText": "Ναι",
+                  "icon": "fas fa-money-bill",
+                  "name": "Yes",
+                  "value": 1
+                },
+                {
+                  "displayText": "Παρεχόμενη υπηρεσία",
+                  "icon": null,
+                  "name": "TermService",
+                  "value": 2
+                }
+              ],
+              "schema": [
+                "value",
+                "displayText",
+                "name",
+                "icon"
+              ]
+            }
+          }
+        },
+        "typeName": "Dataview"
+      },
+      {
+        "id": "TSLineProjectINV",
+        "options": {
+          "extraColumns": {},
+          "queryId": "TSLineProjectINV"
+        },
+        "properties": {
+          "autoRun": false,
+          "params": {
+            "CTRLVAL": null,
+            "TopN": 200
+          }
+        },
+        "typeName": "PQ"
+      },
+      {
+        "id": "TSLineProjectINV_dv",
+        "properties": {
+          "dsDataprovider": {
+            "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+            "fromComponent": "TSLineProjectINV",
+            "fromPropertyPath": "dataprovider"
+          }
+        },
+        "typeName": "Dataview"
+      },
+      {
+        "id": "TSLineTermServiceINV",
+        "options": {
+          "extraColumns": {},
+          "queryId": "TSLineTermServiceINV"
+        },
+        "properties": {
+          "autoRun": false,
+          "params": {
+            "CTRLVAL": null,
+            "fTradeAccountGID": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "TimesheetLines",
+              "fromPropertyPath": "dataprovider.current.item.fTradeAccountGID"
+            }
+          }
+        },
+        "typeName": "PQ"
+      },
+      {
+        "id": "TSLineTermServiceINV_dv",
+        "properties": {
+          "dsDataprovider": {
+            "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+            "fromComponent": "TSLineTermServiceINV",
+            "fromPropertyPath": "dataprovider"
+          }
+        },
+        "typeName": "Dataview"
+      },
+      {
+        "id": "ServiceRequest",
+        "options": {
+          "datamember": "ESTMServiceRequest/FK_ESTMTask_ESTMServiceRequest"
+        },
+        "properties": {
+          "dsDataprovider": {
+            "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+            "fromComponent": "dsTimesheet",
+            "fromPropertyPath": "dataprovider"
+          },
+          "firstAutoSelected": true,
+          "parentCurrent": {
+            "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+            "fromComponent": "Timesheet",
+            "fromPropertyPath": "dataprovider.current"
+          }
+        },
+        "typeName": "Dataview"
+      },
+      {
+        "id": "WorkHourType",
+        "options": {
+          "extraColumns": {},
+          "queryId": "WorkHourType"
+        },
+        "properties": {
+          "autoRun": true,
+          "params": {}
+        },
+        "typeName": "PQ"
+      },
+      {
+        "id": "WorkHourType_dv",
+        "properties": {
+          "dsDataprovider": {
+            "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+            "fromComponent": "WorkHourType",
+            "fromPropertyPath": "dataprovider"
+          },
+          "sort": [
+            "-IsWorkingHourType"
+          ]
+        },
+        "typeName": "Dataview"
+      },
+      {
+        "id": "StateIcon",
+        "properties": {
+          "data": {
+            "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+            "fromComponent": "StateIcon",
+            "fromPropertyPath": "data",
+            "initialValue": {
+              "data": [
+                {
+                  "displayText": null,
+                  "icon": "fas fa-thumbs-down",
+                  "value": "ES.TSState_Cancelled"
+                },
+                {
+                  "displayText": null,
+                  "icon": "fas fa-pen",
+                  "value": "ES.TSState_Draft"
+                },
+                {
+                  "displayText": null,
+                  "icon": "fas fa-hand-paper",
+                  "value": "ES.TSState_ToBeApproved"
+                },
+                {
+                  "displayText": null,
+                  "icon": "fas fa-file-upload",
+                  "value": "ES.TSState_Submitted"
+                },
+                {
+                  "displayText": null,
+                  "icon": "fas fa-thumbs-up",
+                  "value": "ES.TSState_Invoiced"
+                }
+              ],
+              "schema": [
+                "value",
+                "displayText",
+                "icon"
+              ]
+            }
+          }
+        },
+        "typeName": "Dataview"
+      }
+    ],
+    "otherUIlessItems": [
+      {
+        "id": "viewProps",
+        "properties": {
+          "title": {
+            "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+            "fromComponent": "viewProps_title",
+            "fromPropertyPath": "result"
+          }
+        },
+        "typeName": "ViewProps"
+      }
+    ],
+    "services": [
+      {
+        "id": "SubmitTimesheet",
+        "options": {
+          "automationId": "SubmitTimeSheet",
+          "automationKind": "Form",
+          "dsEntityId": "dsTimesheet",
+          "serviceType": "automation"
+        },
+        "properties": {
+          "serviceParams": {
+            "cacheTargetDataset": false
+          },
+          "triggers": []
+        },
+        "typeName": "Service"
+      }
+    ],
+    "ui_logic": [
+      {
+        "id": "createEntity_btn_NewTimesheet",
+        "options": {
+          "functionName": "createEntity"
+        },
+        "properties": {
+          "args": {
+            "entityName": "dsTimesheet"
+          },
+          "triggers": [
+            {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "btn_NewTimesheet",
+              "fromPropertyPath": "clickToggle"
+            }
+          ]
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "SaveEntity_btn_SaveTimesheet",
+        "options": {
+          "functionName": "SaveEntity"
+        },
+        "properties": {
+          "args": {
+            "entityName": "dsTimesheet"
+          },
+          "triggers": [
+            {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "btn_SaveTimesheet",
+              "fromPropertyPath": "clickToggle"
+            }
+          ]
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "Edit_Button_Edit",
+        "options": {
+          "functionName": "ShowPopover",
+          "templateId": "frm_n0uw"
+        },
+        "properties": {
+          "args": {
+            "entityDataviewId": "TimesheetLines",
+            "popoverId": "pop_TimesheetLineForm"
+          },
+          "triggers": [
+            {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "Button_Edit",
+              "fromPropertyPath": "clickToggle",
+              "templateId": "frm_n0uw"
+            }
+          ]
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "execService_btn_SubmitTimesheet",
+        "options": {
+          "functionName": "execService"
+        },
+        "properties": {
+          "args": {
+            "id": "SubmitTimesheet"
+          },
+          "triggers": [
+            {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "btn_SubmitTimesheet",
+              "fromPropertyPath": "clickToggle"
+            }
+          ]
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "addNewRow_btn_AddTSLine",
+        "options": {
+          "functionName": "addNewRow"
+        },
+        "properties": {
+          "args": {
+            "entityDataviewId": "TimesheetLines"
+          },
+          "triggers": [
+            {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "btn_AddTSLine",
+              "fromPropertyPath": "clickToggle"
+            }
+          ]
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "ShowPopover_btn_AddTSLine",
+        "options": {
+          "functionName": "ShowPopover"
+        },
+        "properties": {
+          "args": {
+            "popoverId": "pop_TimesheetLineForm"
+          },
+          "triggers": [
+            {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "btn_AddTSLine",
+              "fromPropertyPath": "clickToggle"
+            }
+          ]
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "HidePopover_btn_10i",
+        "options": {
+          "functionName": "HidePopover"
+        },
+        "properties": {
+          "args": {
+            "popoverId": "pop_TimesheetLineForm"
+          },
+          "triggers": []
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "addNewRow_btn1",
+        "options": {
+          "functionName": "addNewRow"
+        },
+        "properties": {
+          "args": {
+            "entityDataviewId": "TimesheetLines"
+          },
+          "triggers": []
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "addNewRow_btn2",
+        "options": {
+          "functionName": "addNewRow"
+        },
+        "properties": {
+          "args": {
+            "entityDataviewId": "TimesheetLines"
+          },
+          "triggers": [
+            {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "btn2",
+              "fromPropertyPath": "clickToggle"
+            }
+          ]
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "HidePopover_btn_hve",
+        "options": {
+          "functionName": "HidePopover"
+        },
+        "properties": {
+          "args": {
+            "popoverId": "pop_TimesheetLineForm"
+          },
+          "triggers": [
+            {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "btn_hve",
+              "fromPropertyPath": "clickToggle"
+            }
+          ]
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "Button_Edit_disabled",
+        "options": {
+          "functionName": "fn_inline_TimeSheetISUD_Button_Edit_disabled",
+          "templateId": "frm_n0uw"
+        },
+        "properties": {
+          "args": {
+            "StateInterID": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "scope",
+              "fromPropertyPath": "item.fCategoryValue3GID_InternationalID",
+              "negative": false
+            }
+          }
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "fCategoryValue1GID_visible",
+        "options": {
+          "functionName": "fn_inline_TimeSheetISUD_2_fCategoryValue1GID_visible"
+        },
+        "properties": {
+          "args": {
+            "IsWorkHourType": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "WorkHourType_dv",
+              "fromPropertyPath": "dataprovider.current.item.IsWorkingHourType"
+            }
+          }
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "fProjectGID_visibilityType",
+        "options": {
+          "functionName": "fn_inline_TimeSheetISUD_2_fProjectGID_visibilityType"
+        },
+        "properties": {
+          "args": {
+            "IsWorkHourType": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "WorkHourType_dv",
+              "fromPropertyPath": "dataprovider.current.item.fTaskCategoryValueGID"
+            }
+          }
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "fProjectGID_visible",
+        "options": {
+          "functionName": "fn_inline_TimeSheetISUD_2_fProjectGID_visible"
+        },
+        "properties": {
+          "args": {
+            "IsWorkHourType": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "WorkHourType_dv",
+              "fromPropertyPath": "dataprovider.current.item.IsWorkingHourType"
+            }
+          }
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "pWorkInfo_visible",
+        "options": {
+          "functionName": "fn_inline_TimeSheetISUD_2_pWorkInfo_visible"
+        },
+        "properties": {
+          "args": {}
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "viewProps_title",
+        "options": {
+          "functionName": "strFormat"
+        },
+        "properties": {
+          "args": {
+            "expr": "$TaskTypeDescr | $RepCode $(TSDate;dd/MM/yyyy)",
+            "RepCode": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "Timesheet",
+              "fromPropertyPath": "dataprovider.current.item.fAssignedToGID_Display"
+            },
+            "TaskTypeDescr": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "Timesheet",
+              "fromPropertyPath": "dataprovider.current.item.fTaskTypeGID_Description"
+            },
+            "TSDate": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "Timesheet",
+              "fromPropertyPath": "dataprovider.current.item.RegistrationDate"
+            }
+          }
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "viewProps_title_Date",
+        "options": {
+          "functionName": "fn_inline_TimeSheetISUD_2_viewProps_title_Date"
+        },
+        "properties": {
+          "args": {
+            "registrationDate": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "Timesheet",
+              "fromPropertyPath": "dataprovider.current.item.RegistrationDate"
+            }
+          }
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "viewProps_title_Date1",
+        "options": {
+          "functionName": "fn_inline_TimesheetISUD_viewProps_title_Date1"
+        },
+        "properties": {
+          "args": {
+            "selectedDate": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "Timesheet",
+              "fromPropertyPath": "dataprovider.current.item.RegistrationDate"
+            }
+          }
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "capStartEndTime_caption",
+        "options": {
+          "functionName": "strFormat",
+          "templateId": "frm_o8wd"
+        },
+        "properties": {
+          "args": {
+            "EndD": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "scope",
+              "fromPropertyPath": "item.DateField2"
+            },
+            "expr": "$(StartD; HH:mm)  $(EndD; HH:mm)",
+            "HourType": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "scope",
+              "fromPropertyPath": "item.fCategoryValue2GID_Code"
+            },
+            "StartD": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "scope",
+              "fromPropertyPath": "item.DateField1"
+            },
+            "Workplace": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "scope",
+              "fromPropertyPath": "item.fCategoryValue1GID_Code"
+            }
+          }
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "capCustomerAddress_caption",
+        "options": {
+          "functionName": "strFormat",
+          "templateId": "frm_o8wd"
+        },
+        "properties": {
+          "args": {
+            "CustomerInfo": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "scope",
+              "fromPropertyPath": "item.fTradeAccountGID_Name"
+            },
+            "expr": "$CustomerInfo"
+          }
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "DeleteRow_btnDeleteRow",
+        "options": {
+          "functionName": "DeleteRow",
+          "templateId": "frm_n0uw"
+        },
+        "properties": {
+          "args": {
+            "entityDataviewId": "TimesheetLines"
+          },
+          "triggers": [
+            {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "btnDeleteRow",
+              "fromPropertyPath": "clickToggle",
+              "templateId": "frm_n0uw"
+            }
+          ]
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "btnDeleteRow_disabled",
+        "options": {
+          "functionName": "fn_inline_TimesheetISUD_btnDeleteRow_disabled",
+          "templateId": "frm_n0uw"
+        },
+        "properties": {
+          "args": {
+            "StateInterID": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "scope",
+              "fromPropertyPath": "item.fCategoryValue3GID_InternationalID"
+            }
+          }
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "pOverall_visible",
+        "options": {
+          "functionName": "fn_inline_TimesheetISUD_pOverall_visible",
+          "templateId": "frm_o8wd"
+        },
+        "properties": {
+          "args": {
+            "WorkingHours": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "scope",
+              "fromPropertyPath": "item.NumericField1"
+            }
+          }
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "capStartEndTime_visible",
+        "options": {
+          "functionName": "fn_inline_TimesheetISUD_capStartEndTime_visible",
+          "templateId": "frm_o8wd"
+        },
+        "properties": {
+          "args": {
+            "WorkingHours": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "scope",
+              "fromPropertyPath": "item.NumericField1"
+            }
+          }
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "pNumbers_visible",
+        "options": {
+          "functionName": "fn_inline_TimesheetISUD_pNumbers_visible",
+          "templateId": "frm_o8wd"
+        },
+        "properties": {
+          "args": {
+            "WorkingHours": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "scope",
+              "fromPropertyPath": "item.NumericField1"
+            }
+          }
+        },
+        "typeName": "UILogic"
+      },
+      {
+        "id": "cap_HourType_WorkPlace_caption",
+        "options": {
+          "functionName": "strFormat",
+          "templateId": "frm_o8wd"
+        },
+        "properties": {
+          "args": {
+            "expr": "$HourType $Workplace",
+            "HourType": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "scope",
+              "fromPropertyPath": "item.fCategoryValue2GID_Code"
+            },
+            "Workplace": {
+              "$type": "ESWebApp.Models.EsViewBase+Binding, ESWebApp",
+              "fromComponent": "scope",
+              "fromPropertyPath": "item.fCategoryValue1GID_Code"
+            }
+          }
+        },
+        "typeName": "UILogic"
+      }
+    ]
+  }
+}

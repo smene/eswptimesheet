@@ -1,0 +1,269 @@
+{
+  "@capBgtRevValue": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@capBgtRevValue_caption": {
+    "dsgn": {
+      "owner": "capBgtRevValue"
+    }
+  },
+  "@capBillableHours": {
+    "dsgnInfo": {
+      "us_height": 24,
+      "us_width": 300
+    }
+  },
+  "@capBillableHoursValue": {
+    "dsgnInfo": {
+      "caption": null,
+      "us_height": 36,
+      "us_width": 300
+    }
+  },
+  "@capBudgetRev": {
+    "dsgnInfo": {
+      "us_height": 24,
+      "us_width": 300
+    }
+  },
+  "@capPrjInfo": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@capPrjInfo_caption": {
+    "dsgn": {
+      "owner": "capPrjInfo"
+    }
+  },
+  "@capPrjTimePeriod_caption": {
+    "dsgn": {
+      "owner": "capPrjTimePeriod"
+    }
+  },
+  "@capPrjTimePeriod_caption_EndD": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "capPrjTimePeriod_caption"
+    }
+  },
+  "@capPrjTimePeriod_caption_StartD": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "capPrjTimePeriod_caption"
+    }
+  },
+  "@capProject": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@capProject_caption": {
+    "dsgn": {
+      "owner": "capProject"
+    }
+  },
+  "@capRepInfo": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@capRepInfo_caption": {
+    "dsgn": {
+      "owner": "capRepInfo"
+    }
+  },
+  "@capRepInfo_caption_WorkingHours": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "capRepInfo_caption"
+    }
+  },
+  "@capStateIcon_captionColor": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "capStateIcon"
+    }
+  },
+  "@capStateIcon_captionIcon": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "capStateIcon"
+    }
+  },
+  "@capTrnValue": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@capTrnValue_caption": {
+    "dsgn": {
+      "owner": "capTrnValue"
+    }
+  },
+  "@capTurnover": {
+    "dsgnInfo": {
+      "us_height": 24,
+      "us_width": 300
+    }
+  },
+  "@capVariance": {
+    "dsgnInfo": {
+      "us_height": 24,
+      "us_width": 300
+    }
+  },
+  "@capVariancePct": {
+    "dsgnInfo": {
+      "us_height": 24,
+      "us_width": 300
+    }
+  },
+  "@capVariancePctValue_captionColor": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "capVariancePctValue"
+    }
+  },
+  "@capVarianceValue": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@capVarianceValue_caption": {
+    "dsgn": {
+      "owner": "capVarianceValue"
+    }
+  },
+  "@capVarianceValue_captionColor": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "capVarianceValue"
+    }
+  },
+  "@capWorkingHours": {
+    "dsgnInfo": {
+      "us_height": 24,
+      "us_width": 300
+    }
+  },
+  "@capWorkingHoursValue": {
+    "dsgnInfo": {
+      "caption": null,
+      "us_height": 36,
+      "us_width": 300
+    }
+  },
+  "@Drawer": {
+    "dsgnInfo": {
+      "us_height": 905,
+      "us_width": 36
+    }
+  },
+  "@grdxProjectList": {
+    "dsgnInfo": {
+      "maxSampleData": "20",
+      "minSampleData": "1"
+    }
+  },
+  "@LnrP_KPIs": {
+    "dsgnInfo": {
+      "sizesMetric": "empty",
+      "us_height": 905,
+      "us_width": 729.59375
+    }
+  },
+  "@pageItems": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pBillableHours": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null,
+      "us_height": 71.1875,
+      "us_width": 300
+    }
+  },
+  "@pBillableHours_PrjContactInfo": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pBillableHours_Timesheets": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pKpi": {
+    "dsgnInfo": {
+      "sizesMetric": "auto",
+      "us_height": 78.71875,
+      "us_width": 974.859375
+    }
+  },
+  "@pnlKPIs": {
+    "dsgnInfo": {
+      "sizesMetric": "empty"
+    }
+  },
+  "@pParamFields": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pParams": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null,
+      "us_height": 748,
+      "us_width": 38
+    }
+  },
+  "@pPrjInfo": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pProjectInfo": {
+    "dsgnInfo": {
+      "sizesMetric": "auto"
+    }
+  },
+  "@prjList": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pTurnoverSymbol": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pWorkingHours": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null,
+      "us_height": 71.1875,
+      "us_width": 300
+    }
+  },
+  "@timesheet_grid": {
+    "dsgnInfo": {
+      "maxSampleData": "10",
+      "minSampleData": null,
+      "us_height": 892,
+      "us_width": 653.171875
+    }
+  }
+}

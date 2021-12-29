@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<ESPublicQuery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SQL><![CDATA[SELECT ESTMTaskCategoryValue.Code AS Code, 
+       ESTMTaskCategoryValue.GID AS fTaskCategoryValueGID, 
+       case when ESTMTaskCategoryValue.StringField1='1' then 1 else 0 end AS IsWorkingHourType, 
+       case when ESTMTaskCategoryValue.StringField1='1' then '1' else null end AS IsWorkingHourType_null
+FROM ESTMTaskCategoryValue AS ESTMTaskCategoryValue 
+WHERE (ESTMTaskCategoryValue.fTaskCategoryGID = (Select GID from ESTMTaskCategory where code='TimeSheet_HourType'))
+      
+]]></SQL>
+  <SQLforPaging><![CDATA[]]></SQLforPaging>
+  <Table>ESTMTaskCategoryValue</Table>
+  <Params />
+</ESPublicQuery>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<ESPublicQuery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SQL><![CDATA[SELECT ESTopN(@TopN) Customers.GID AS GID, 
+       Customers.Code AS CustomerCode, 
+       Customers.Name AS Name
+FROM ESFITradeAccount AS Customers 
+WHERE (Customers.fCompanyCode = ##(ESCOMPANY))
+       AND (Customers.Inactive = 0)
+       AND (ESEqual(Customers.Name, @Name))
+      
+
+
+]]></SQL>
+  <SQLforPaging><![CDATA[]]></SQLforPaging>
+  <Table>Query_ESFITradeAccount</Table>
+  <Params>
+    <Param>
+      <ID>Name</ID>
+      <Type>System.String, mscorlib</Type>
+      <ODSTag>7699C12E-3B5F-47E8-B509-7AF97F4560B1</ODSTag>
+    </Param>
+    <Param>
+      <ID>TopN</ID>
+      <Type>System.Int32, mscorlib</Type>
+    </Param>
+  </Params>
+</ESPublicQuery>

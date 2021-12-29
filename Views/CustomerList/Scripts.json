@@ -1,0 +1,42 @@
+{
+  "@btn_Map_visible/dsgn": {
+    "functionBody": "var Longitude = $Longitude;\r\nvar Latitude = $Latitude;\r\n\r\nif ((Longitude == null || Longitude == 'undefined' || Longitude == 0) && (Latitude == null || Latitude == 'undefined' || Latitude == 0)) {\r\n    return false;\r\n} else {\r\n    return true;\r\n}",
+    "functionId": "fn_inline_CustomerList_btn_Map_visible"
+  },
+  "@capActivity_caption/dsgn": {
+    "functionBody": "ISNULL($Act,' ')",
+    "functionId": "fn_inline_CustomerList2_capActivity_caption"
+  },
+  "@capBuBa_caption_BA/dsgn": {
+    "functionBody": "ISNULL($BU,' ')",
+    "functionId": "fn_inline_CustomerList_capBuBa_caption_BA"
+  },
+  "@capBuBa_caption_BU/dsgn": {
+    "functionBody": "ISNULL($BA,' ')",
+    "functionId": "fn_inline_CustomerList_capBuBa_caption_BU"
+  },
+  "@capBuBa_caption_Sep/dsgn": {
+    "functionBody": "let bu = $BU;\r\nlet ba = $BA;\r\n\r\nif ((bu == null && ba == null) || (bu == 'undefined' && ba == 'undefined'))  {\r\n  return \"\";\r\n} else {\r\n  return \" | \";\r\n} ",
+    "functionId": "fn_inline_CustomerList_capBuBa_caption_Sep"
+  },
+  "@capBuBa_visible/dsgn": {
+    "functionBody": "let bu = $BU;\r\nlet ba = $BA;\r\n\r\nif ((bu == null && ba == null) || (bu == 'undefined' && ba == 'undefined'))  {\r\n return 0;\r\n} else {\r\n  return 1;\r\n} ",
+    "functionId": "fn_inline_CustomerList_capBuBa_visible"
+  },
+  "@capRepInfo_caption_WorkingHours/dsgn": {
+    "functionBody": "return $WrkHrs.toFixed(2);",
+    "functionId": "fn_inline_CustomerList2_capRepInfo_caption_WorkingHours"
+  },
+  "@capSalesPerson_caption_Code/dsgn": {
+    "functionBody": "ISNULL($Code,' ')",
+    "functionId": "fn_inline_CustomerList2_capSalesPerson_caption_Code"
+  },
+  "@capSalesPerson_caption_Name/dsgn": {
+    "functionBody": "ISNULL($Name,' ')",
+    "functionId": "fn_inline_CustomerList2_capSalesPerson_caption_Name"
+  },
+  "@TimesheetLinesFilteredByState_Linestate_InterID/dsgn": {
+    "functionBody": "ISNULL($State,'*')",
+    "functionId": "fn_inline_Home2_TimesheetLinesFilteredByState_Linestate_InterID"
+  }
+}

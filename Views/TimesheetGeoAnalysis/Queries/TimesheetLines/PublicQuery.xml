@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<ESPublicQuery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SQL><![CDATA[SELECT TimeSheetLines.Date AS Date, 
+       ESGOProject.Code AS Project, 
+       ESTMResource.Description AS Representative, 
+       ESFITradeAccount.Code+' '+ESFITradeAccount.Name AS Customer, 
+       TimeSheetLines.LabourTime AS LabourTime, 
+       TimeSheetLines.LabourBillable AS LabourBillable, 
+       TimeSheetLines.Overtime AS Overtime, 
+       TimeSheetLines.LabourwithoutProject AS LabourwithoutProject
+FROM (
+                SELECT TimeSheets.Date AS Date, 
+                       TimeSheets.fAssignedToGID AS fAssignedToGID, 
+                       TI.fProjectGID AS fProjectGID, 
+                       TI.fTradeAccountGID AS fTradeAccountGID, 
+                       Sum(TI.NumericField1) AS LabourTime, 
+                       Sum(TI.NumericField2) AS LabourBillable, 
+                       Sum(TI.NumericField3) AS Overtime, 
+                       Sum(case when TI.fProjectGID is null then TI.NumericField1 else 0 end) AS LabourwithoutProject
+                FROM ESTMTaskItem AS TI 
+                     INNER JOIN (
+                                SELECT T.GID AS fTaskGID, 
+                                       T.fAssignedToGID AS fAssignedToGID, 
+                                       cast(T.RegistrationDate as date) AS Date
+                                FROM ESTMTask AS T 
+                                     INNER JOIN (
+                                                SELECT ESTMTaskTypeGroup.fTaskTypeGID AS fTaskTypeGID
+                                                FROM ESTMTaskTypeGroup AS ESTMTaskTypeGroup 
+                                                WHERE (ESTMTaskTypeGroup.fTaskGroupCode = 'Timesheet')) AS TTG
+                                       ON T.fTaskTypeGID = TTG.fTaskTypeGID 
+                                WHERE (T.fCompanyCode = ##(ESCOMPANY))
+                                       AND (ESEqual(T.RegistrationDate, @RegistrationDate))) AS TimeSheets
+                       ON TI.fTaskGID = TimeSheets.fTaskGID 
+                     LEFT JOIN ESTMTaskCategoryValue AS TCV2
+                       ON TI.fCategoryValue2GID = TCV2.GID 
+                     INNER JOIN (
+                                SELECT TCV.GID AS GID
+                                FROM ESTMTaskCategoryValue AS TCV 
+                                     INNER JOIN (
+                                                SELECT TC.GID AS GID
+                                                FROM ESTMTaskCategory AS TC 
+                                                WHERE (TC.Code = 'TimeSheet_State')) AS TC
+                                       ON TCV.fTaskCategoryGID = TC.GID 
+                                WHERE (TCV.InternationalID IN ('ES.TSState_Submitted', 'ES.TSState_Invoiced') )) AS SCV
+                       ON TI.fCategoryValue3GID = SCV.GID 
+                     LEFT JOIN ESGOSites AS FK_ESTMTaskItem_ESGOSites_fAddressGID
+                       ON TI.fAddressGID = FK_ESTMTaskItem_ESGOSites_fAddressGID.GID 
+                     LEFT JOIN ESGOZCity AS C
+                       ON FK_ESTMTaskItem_ESGOSites_fAddressGID.fCityCode = C.Code 
+                     LEFT JOIN ESGOZRegionGroup AS R
+                       ON FK_ESTMTaskItem_ESGOSites_fAddressGID.fRegionGroupCode = R.Code 
+                     LEFT JOIN ESGOZCountry AS CN
+                       ON FK_ESTMTaskItem_ESGOSites_fAddressGID.fCountryCode = CN.Code 
+                     LEFT JOIN ESGOZDistrict AS D
+                       ON FK_ESTMTaskItem_ESGOSites_fAddressGID.fDistrictCode = D.Code 
+                WHERE (TCV2.StringField1 = '1')
+                       AND (ESEqual(ESStrToken(@AreaGrouping,R.Description), @Area))
+                      
+                GROUP BY TimeSheets.Date, TimeSheets.fAssignedToGID, TI.fProjectGID, TI.fTradeAccountGID) AS TimeSheetLines 
+     LEFT JOIN ESGOProject AS ESGOProject
+       ON TimeSheetLines.fProjectGID = ESGOProject.GID 
+     LEFT JOIN ESTMResource AS ESTMResource
+       ON TimeSheetLines.fAssignedToGID = ESTMResource.GID 
+     LEFT JOIN ESFITradeAccount AS ESFITradeAccount
+       ON TimeSheetLines.fTradeAccountGID = ESFITradeAccount.GID 
+]]></SQL>
+  <SQLforPaging><![CDATA[]]></SQLforPaging>
+  <Table>TimeSheetLines</Table>
+  <Params>
+    <Param>
+      <ID>AreaGrouping</ID>
+      <Type>System.String, mscorlib</Type>
+    </Param>
+    <Param>
+      <ID>Area</ID>
+      <Type>System.String, mscorlib</Type>
+    </Param>
+    <Param>
+      <ID>RegistrationDate</ID>
+      <Type>Entersoft.Framework.Platform.ESDateRange, QueryProcess</Type>
+      <ODSTag>1700363E-F17D-4B4B-8642-E1CE22B6C16C</ODSTag>
+    </Param>
+  </Params>
+</ESPublicQuery>

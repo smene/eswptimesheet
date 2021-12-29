@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<ESPublicQuery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SQL><![CDATA[SELECT ##(ESFICALYEARBASECURRENCYSYMBOL)
+WHERE 1=@PARAM
+
+]]></SQL>
+  <SQLforPaging><![CDATA[]]></SQLforPaging>
+  <Table>ESGOCompany</Table>
+  <Params />
+</ESPublicQuery>

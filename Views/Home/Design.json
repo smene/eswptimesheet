@@ -1,0 +1,437 @@
+{
+  "@Billable_Value": {
+    "dsgnInfo": {
+      "caption": null,
+      "us_height": 36,
+      "us_width": 300
+    }
+  },
+  "@btn_ermw_caption": {
+    "dsgn": {
+      "owner": "btn_ermw"
+    }
+  },
+  "@btn_ShowMap_visible": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "btn_ShowMap"
+    }
+  },
+  "@cap_email": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@cap_email_caption": {
+    "dsgn": {
+      "owner": "cap_email"
+    }
+  },
+  "@cap_Phone": {
+    "dsgnInfo": {
+      "caption": "Τηλέφωνι: $Phone"
+    }
+  },
+  "@cap_Phone_caption": {
+    "dsgn": {
+      "owner": "cap_Phone"
+    }
+  },
+  "@cap_ProjectCustomer": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@cap_ProjectCustomer_caption": {
+    "dsgn": {
+      "owner": "cap_ProjectCustomer"
+    }
+  },
+  "@cap_ProjectInfo": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@cap_ProjectInfo_caption": {
+    "dsgn": {
+      "owner": "cap_ProjectInfo"
+    }
+  },
+  "@cap_ProjectInfo_caption_From": {
+    "dsgn": {
+      "owner": "cap_ProjectInfo_caption"
+    }
+  },
+  "@cap_ProjectInfo_caption_From1": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "cap_ProjectInfo_caption"
+    }
+  },
+  "@cap_ProjectInfo_caption_To": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "cap_ProjectInfo_caption"
+    }
+  },
+  "@cap_WorkInfo": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@cap_WorkInfo_caption": {
+    "dsgn": {
+      "owner": "cap_WorkInfo"
+    }
+  },
+  "@cap_WorkInfo_caption1": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "cap_WorkInfo"
+    }
+  },
+  "@cap_WorkInfo_caption1_Expr": {
+    "dsgn": {
+      "owner": "cap_WorkInfo_caption1"
+    }
+  },
+  "@capChrgHrs": {
+    "dsgnInfo": {
+      "us_height": 24,
+      "us_width": 300
+    }
+  },
+  "@capChrgHrsValue": {
+    "dsgnInfo": {
+      "caption": null,
+      "us_height": 36,
+      "us_width": 300
+    }
+  },
+  "@capKPILabel": {
+    "dsgnInfo": {
+      "us_height": 24,
+      "us_width": 300
+    }
+  },
+  "@capOvertime": {
+    "dsgnInfo": {
+      "us_height": 24,
+      "us_width": 300
+    }
+  },
+  "@capOvertimeValue": {
+    "dsgnInfo": {
+      "caption": null,
+      "us_height": 36,
+      "us_width": 300
+    }
+  },
+  "@capPrjInfo_caption": {
+    "dsgn": {
+      "owner": "capPrjInfo"
+    }
+  },
+  "@capStateIcon_captionColor": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "capStateIcon"
+    }
+  },
+  "@capStateIcon_captionIcon": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "capStateIcon"
+    }
+  },
+  "@capWorkingHrs": {
+    "dsgnInfo": {
+      "us_height": 24,
+      "us_width": 300
+    }
+  },
+  "@capWorkingHrsValue": {
+    "dsgnInfo": {
+      "caption": null,
+      "us_height": 36,
+      "us_width": 300
+    }
+  },
+  "@chart_houranalysis_tooltipColumns": {
+    "dsgn": {
+      "owner": "chart_houranalysis"
+    }
+  },
+  "@ColorScale/properties/data/initialValue": {
+    "dsgn": {
+      "Columns": [
+        {
+          "Caption": null,
+          "Kind": "String",
+          "Name": "value"
+        },
+        {
+          "Caption": null,
+          "Kind": "String",
+          "Name": "displayText"
+        },
+        {
+          "Caption": null,
+          "Kind": "Decimal",
+          "Name": "Min"
+        },
+        {
+          "Caption": null,
+          "Kind": "Decimal",
+          "Name": "Max"
+        }
+      ]
+    }
+  },
+  "@ColorScale_filter": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "ColorScale"
+    }
+  },
+  "@itm1": {
+    "dsgnInfo": {
+      "us_height": 24,
+      "us_width": 300
+    }
+  },
+  "@itm3": {
+    "dsgnInfo": {
+      "us_height": 24,
+      "us_width": 300
+    }
+  },
+  "@itm4": {
+    "dsgnInfo": {
+      "caption": null,
+      "us_height": 36,
+      "us_width": 300
+    }
+  },
+  "@KPI_Panel": {
+    "dsgnInfo": {
+      "sizesMetric": "auto"
+    }
+  },
+  "@Labour_Value": {
+    "dsgnInfo": {
+      "caption": null,
+      "us_height": 36,
+      "us_width": 300
+    }
+  },
+  "@LineState/properties/data/initialValue": {
+    "dsgn": {
+      "Columns": [
+        {
+          "Caption": "value",
+          "Kind": "String",
+          "Name": "value"
+        },
+        {
+          "Caption": "displayText",
+          "Kind": "String",
+          "Name": "displayText"
+        }
+      ]
+    }
+  },
+  "@MyActivities_caption": {
+    "dsgn": {
+      "owner": "MyActivities"
+    }
+  },
+  "@MyProjectChart_xAxis": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "MyProjectChart"
+    }
+  },
+  "@MyTSLbyPrjConsolidated_filter": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "MyTSLbyPrjConsolidated"
+    }
+  },
+  "@MyTSLbyPrjDetailed_filter": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "MyTSLbyPrjDetailed"
+    }
+  },
+  "@NoProjectHours_Value_captionColor": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "NoProjectHours_Value"
+    }
+  },
+  "@Overtime_Value": {
+    "dsgnInfo": {
+      "caption": null,
+      "us_height": 36,
+      "us_width": 300
+    }
+  },
+  "@pageItems": {
+    "dsgnInfo": {
+      "sizesMetric": "empty"
+    }
+  },
+  "@Panel_Bullet": {
+    "dsgnInfo": {
+      "sizesMetric": "empty"
+    }
+  },
+  "@panel_ChargeableHours": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null,
+      "us_height": 845.8125,
+      "us_width": 128.46875
+    }
+  },
+  "@Panel_Chart": {
+    "dsgnInfo": {
+      "sizesMetric": "empty"
+    }
+  },
+  "@Panel_OverTime": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null,
+      "us_height": 845.8125,
+      "us_width": 128.46875
+    }
+  },
+  "@panel_WorkingHours": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null,
+      "us_height": 845.8125,
+      "us_width": 128.46875
+    }
+  },
+  "@Panel_WorkingHours_NoProject": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null,
+      "us_height": 845.8125,
+      "us_width": 128.46875
+    }
+  },
+  "@Parameter_Panel": {
+    "dsgnInfo": {
+      "sizesMetric": "empty",
+      "us_height": 35,
+      "us_width": 429.28125
+    }
+  },
+  "@pnlAddressInfo": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pnlChrgHrs": {
+    "dsgnInfo": {
+      "sizesMetric": "empty",
+      "sizesVal": "10%,90%",
+      "us_height": 71.1875,
+      "us_width": 300
+    }
+  },
+  "@pnlChrgHrs_elo8": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pnlChrgHrs_fntr": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pnlChrgHrs_i3n": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pnlChrgHrs_ProjectInfo": {
+    "dsgnInfo": {
+      "sizesMetric": "empty"
+    }
+  },
+  "@pnlGrid": {
+    "dsgnInfo": {
+      "sizesMetric": "empty",
+      "sizesVal": "auto,10%,80%"
+    }
+  },
+  "@pnlOvertime": {
+    "dsgnInfo": {
+      "sizesMetric": "empty",
+      "us_height": 71.1875,
+      "us_width": 300
+    }
+  },
+  "@pnlProjectCaptionDrill": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pnlRepKPIs": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pnlWrkHrs": {
+    "dsgnInfo": {
+      "sizesMetric": "empty",
+      "us_height": 71.1875,
+      "us_width": 300
+    }
+  },
+  "@StateSelector_Panel": {
+    "dsgnInfo": {
+      "sizesMetric": "auto"
+    }
+  },
+  "@Template_GroupPanel": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@Timesheet": {
+    "dsgn": {
+      "dsType": "TimeSheet/Δελτίο απασχόλησης"
+    }
+  },
+  "@timesheet_grid": {
+    "dsgnInfo": {
+      "maxSampleData": "10",
+      "minSampleData": "1"
+    }
+  },
+  "@TimesheetLinesFilteredByState_Linestate_InterID": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "TimesheetLinesFilteredByState"
+    }
+  },
+  "@WorkingHours_NoProject_Caption": {
+    "dsgnInfo": {
+      "us_height": 24,
+      "us_width": 300
+    }
+  }
+}

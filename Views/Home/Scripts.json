@@ -1,0 +1,38 @@
+{
+  "@cap_ProjectInfo_caption_From/dsgn": {
+    "functionBody": "new Date($FromDate).toLocaleDateString();",
+    "functionId": "fn_inline_Home_cap_ProjectInfo_caption_From"
+  },
+  "@cap_ProjectInfo_caption_From1/dsgn": {
+    "functionBody": "var StartDate = new Date($SD);\r\nreturn StartDate.getDay() +'/'+ StartDate.getMonth() +'/'+ StartDate.getFullYear();",
+    "functionId": "fn_inline_Home2_cap_ProjectInfo_caption_From1"
+  },
+  "@cap_ProjectInfo_caption_To/dsgn": {
+    "functionBody": "var endDate = new Date($endD);\r\nreturn endDate.getDay() + '/' + endDate.getMonth() + '/'+  endDate.getFullYear();",
+    "functionId": "fn_inline_Home2_cap_ProjectInfo_caption_To"
+  },
+  "@cap_WorkInfo_caption1/dsgn": {
+    "functionBody": "var customer = $CustomerData;\r\nvar prj = $ProjectData;\r\n\r\nif (\r\n  (customer === null || customer === \"undefined\") &&\r\n  (prj === null || prj === \"undefined\")\r\n) {\r\n  return $OutOfWork;\r\n} else {\r\n  return $Expr;\r\n}\r\n",
+    "functionId": "fn_inline_Home_cap_WorkInfo_caption1"
+  },
+  "@ColorScale_filter/dsgn": {
+    "functionBody": "return row => $MyPerformance >= row.min && $MyPerformance < row.max ;",
+    "functionId": "fn_inline_Home_ColorScale_filter"
+  },
+  "@MyProjectChart_xAxis/dsgn": {
+    "functionBody": "return ' ';",
+    "functionId": "fn_inline_Home_MyProjectChart_xAxis"
+  },
+  "@MyTSLbyPrjConsolidated_filter/dsgn": {
+    "functionBody": "row=>!row.RegistrationDate",
+    "functionId": "fn_inline_Home_MyTSLbyPrjConsolidated_filter"
+  },
+  "@MyTSLbyPrjDetailed_filter/dsgn": {
+    "functionBody": "row=>row.RegistrationDate",
+    "functionId": "fn_inline_Home_MyTSLbyPrjDetailed_filter"
+  },
+  "@TimesheetLinesFilteredByState_Linestate_InterID/dsgn": {
+    "functionBody": "ISNULL($State,'*')",
+    "functionId": "fn_inline_Home2_TimesheetLinesFilteredByState_Linestate_InterID"
+  }
+}

@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<ESPublicQuery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SQL><![CDATA[SELECT Progress.LabourHours AS LabourHours, 
+       Progress.BillableHours AS BillableHours, 
+       Progress.OrderQty AS OrderQty, 
+       Progress.OrderNetValue AS OrderNetValue, 
+       Progress.InvoiceQty AS InvoiceQty, 
+       case when Progress.BillableHours>0 then Progress.OrderQty/Progress.BillableHours else null end AS OrderQty_PCT, 
+       Progress.Turnover AS Turnover, 
+       case when Progress.OrderNetValue>0 then Progress.Turnover/Progress.OrderNetValue else null end AS Turnover_PCT, 
+       ' ' AS xAxis, 
+       ##(ESFICALYEARBASECURRENCYSYMBOL)  AS Currency
+FROM (
+                SELECT Sum(TS_Lines.LabourHours) AS LabourHours, 
+                       Sum(TS_Lines.BillableHours) AS BillableHours, 
+                       Sum(LI.Quantity) AS OrderQty, 
+                       Sum(LI.NetValue) AS OrderNetValue, 
+                       Sum(case when ESFIDocumentTrade.GID is not null then LI.Quantity else null end) AS InvoiceQty, 
+                       Sum(case when ESFIDocumentTrade.GID is not null then LI.NetValue else null end) AS Turnover
+                FROM (
+                                SELECT ESTMTaskItem.GID AS fTaskItemGID, 
+                                       StateCategoryValue.Inter_State AS Inter_State, 
+                                       ESTMTaskItem.NumericField1 AS LabourHours, 
+                                       ESTMTaskItem.NumericField2 AS BillableHours
+                                FROM ESTMTaskItem AS ESTMTaskItem 
+                                     INNER JOIN (
+                                                SELECT ESTMTaskCategoryValue.GID AS GID, 
+                                                       ESTMTaskCategoryValue.Code AS State, 
+                                                       ESTMTaskCategoryValue.InternationalID AS Inter_State
+                                                FROM ESTMTaskCategoryValue AS ESTMTaskCategoryValue 
+                                                     INNER JOIN (
+                                                                SELECT TC.GID AS GID
+                                                                FROM ESTMTaskCategory AS TC 
+                                                                WHERE (TC.Code = 'TimeSheet_State')) AS TaskCategory
+                                                       ON ESTMTaskCategoryValue.fTaskCategoryGID = TaskCategory.GID 
+                                                WHERE (ESTMTaskCategoryValue.InternationalID IN ('ES.TSState_Submitted', 'ES.TSState_Invoiced') )) AS StateCategoryValue
+                                       ON ESTMTaskItem.fCategoryValue3GID = StateCategoryValue.GID 
+                                     INNER JOIN (
+                                                SELECT ESTMTask.GID AS fTaskGID, 
+                                                       ESTMTask.RegistrationDate AS WorkDate, 
+                                                       ESTMTask.fAssignedToGID AS fAssignedToGID
+                                                FROM ESTMTask AS ESTMTask 
+                                                     INNER JOIN (
+                                                                SELECT ESTMTaskTypeGroup.fTaskTypeGID AS fTaskTypeGID
+                                                                FROM ESTMTaskTypeGroup AS ESTMTaskTypeGroup 
+                                                                WHERE (ESTMTaskTypeGroup.fTaskGroupCode = 'Timesheet')) AS TaskTypeGroup
+                                                       ON ESTMTask.fTaskTypeGID = TaskTypeGroup.fTaskTypeGID 
+                                                WHERE (ESEqual(ESTMTask.RegistrationDate, @RegistrationDate))
+                                                       AND (ESTMTask.fCompanyCode = ##(ESCOMPANY))
+                                                       AND (ESEqual(ESTMTask.fAssignedToGID, @fAssignedToGID))) AS Timesheets
+                                       ON ESTMTaskItem.fTaskGID = Timesheets.fTaskGID 
+                                WHERE (ESEqual(ESTMTaskItem.fProjectGID, @fProjectGID))
+                                       AND (ESEqual(ESTMTaskItem.fTradeAccountGID, @fTradeAccountGID))
+                                       AND (ESTMTaskItem.fTradeAccountGID is not null)) AS TS_Lines 
+                     LEFT JOIN ESFILineItemEx AS LIX
+                       ON TS_Lines.fTaskItemGID = LIX.fTaskItemGID 
+                     LEFT JOIN ESFILineItem AS LI
+                       ON LIX.fLineItemGID = LI.GID 
+                     LEFT JOIN ESFIDocumentTrade AS DTOR
+                       ON LI.fDocumentGID = DTOR.GID AND 0 = DTOR.ADCancelState 
+                     LEFT JOIN ESFIDocumentType AS DT
+                       ON DTOR.fADDocumentTypeGID = DT.GID 
+                     LEFT JOIN ESFILineRelatedDocument AS LRD
+                       ON DTOR.GID = LRD.fRefDocGID 
+                     LEFT JOIN ESFIDocumentTrade AS ESFIDocumentTrade
+                       ON LRD.fDocumentGID = ESFIDocumentTrade.GID AND 0 = ESFIDocumentTrade.ADCancelState 
+                WHERE (DT.MenuEntry = 1)
+                       OR (TS_Lines.Inter_State = 'ES.TSState_Submitted')) AS Progress 
+]]></SQL>
+  <SQLforPaging><![CDATA[]]></SQLforPaging>
+  <Table>Progress</Table>
+  <Params>
+    <Param>
+      <ID>fProjectGID</ID>
+      <Type>System.Guid, mscorlib</Type>
+      <ODSTag>E108316F-D461-428D-A9DA-58E508F0DA39</ODSTag>
+    </Param>
+    <Param>
+      <ID>fTradeAccountGID</ID>
+      <Type>System.Guid, mscorlib</Type>
+      <ODSTag>D912BFF1-6B81-4594-84EA-3BBD412650B7</ODSTag>
+    </Param>
+    <Param>
+      <ID>RegistrationDate</ID>
+      <Type>Entersoft.Framework.Platform.ESDateRange, QueryProcess</Type>
+      <ODSTag>1700363E-F17D-4B4B-8642-E1CE22B6C16C</ODSTag>
+    </Param>
+    <Param>
+      <ID>fAssignedToGID</ID>
+      <Type>System.Guid, mscorlib</Type>
+      <ODSTag>93E6CA13-D219-4A19-8EA8-147B2454F82F</ODSTag>
+    </Param>
+  </Params>
+</ESPublicQuery>

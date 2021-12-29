@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<ESPublicQuery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SQL><![CDATA[SELECT TimeSheetLines.AreaGrouping AS Area, 
+       TimeSheetLines.LabourTime AS LabourTime, 
+       CASE WHEN TimeSheetLines.LabourTime>0 THEN TimeSheetLines.LabourTime/(SUM(TimeSheetLines.LabourTime) OVER (PARTITION BY 1)) ELSE 0 END AS LabourTimePCT, 
+       TimeSheetLines.LabourBillable AS LabourBillable, 
+       CASE WHEN TimeSheetLines.LabourBillable>0 THEN TimeSheetLines.LabourBillable/(SUM(TimeSheetLines.LabourBillable) OVER (PARTITION BY 1)) ELSE 0 END AS LabourBillablePCT, 
+       TimeSheetLines.Turnover AS Turnover, 
+       CASE WHEN TimeSheetLines.Turnover>0 then TimeSheetLines.Turnover/(sum(TimeSheetLines.Turnover) over(partition by 1)) else 0 end AS TurnoverPCT, 
+       TimeSheetLines.Latitude AS Latitude, 
+       TimeSheetLines.Longitude AS Longitude, 
+       ##(ESFICALYEARBASECURRENCYSYMBOL)  AS Currency, 
+       ' ' AS xAxis
+FROM (
+                SELECT ESStrToken(@AreaGrouping,R.Description) AS AreaGrouping, 
+                       Sum(ESTMTaskItem.NumericField1) AS LabourTime, 
+                       Sum(ESTMTaskItem.NumericField2) AS LabourBillable, 
+                       Avg(FK_ESTMTaskItem_ESGOSites_fAddressGID.Latitude) AS Latitude, 
+                       Avg(FK_ESTMTaskItem_ESGOSites_fAddressGID.Longitude) AS Longitude, 
+                       Max(TurnoverByGeoDim.Turnover) AS Turnover
+                FROM ESTMTaskItem AS ESTMTaskItem 
+                     LEFT JOIN ESTMTaskCategoryValue AS FK_ESTMTaskItem_ESTMTaskCategoryValue2GID
+                       ON ESTMTaskItem.fCategoryValue2GID = FK_ESTMTaskItem_ESTMTaskCategoryValue2GID.GID 
+                     LEFT JOIN ESGOSites AS FK_ESTMTaskItem_ESGOSites_fAddressGID
+                       ON ESTMTaskItem.fAddressGID = FK_ESTMTaskItem_ESGOSites_fAddressGID.GID 
+                     INNER JOIN (
+                                SELECT ESTMTask.GID AS fTaskGID
+                                FROM ESTMTask AS ESTMTask 
+                                     INNER JOIN (
+                                                SELECT ESTMTaskTypeGroup.fTaskTypeGID AS fTaskTypeGID
+                                                FROM ESTMTaskTypeGroup AS ESTMTaskTypeGroup 
+                                                WHERE (ESTMTaskTypeGroup.fTaskGroupCode = 'Timesheet')) AS TaskTypeGroup
+                                       ON ESTMTask.fTaskTypeGID = TaskTypeGroup.fTaskTypeGID 
+                                WHERE (ESTMTask.fCompanyCode = ##(ESCOMPANY))
+                                       AND (ESEqual(ESTMTask.RegistrationDate, @Date))) AS TimeSheets
+                       ON ESTMTaskItem.fTaskGID = TimeSheets.fTaskGID 
+                     INNER JOIN (
+                                SELECT ESTMTaskCategoryValue.GID AS GID
+                                FROM ESTMTaskCategoryValue AS ESTMTaskCategoryValue 
+                                     INNER JOIN (
+                                                SELECT TC.GID AS GID
+                                                FROM ESTMTaskCategory AS TC 
+                                                WHERE (TC.Code = 'TimeSheet_State')) AS TaskCategory
+                                       ON ESTMTaskCategoryValue.fTaskCategoryGID = TaskCategory.GID 
+                                WHERE (ESTMTaskCategoryValue.InternationalID IN ('ES.TSState_Submitted', 'ES.TSState_Invoiced') )) AS StateCategoryValue
+                       ON ESTMTaskItem.fCategoryValue3GID = StateCategoryValue.GID 
+                     LEFT JOIN ESGOZRegionGroup AS R
+                       ON FK_ESTMTaskItem_ESGOSites_fAddressGID.fRegionGroupCode = R.Code 
+                     LEFT JOIN ESGOZDistrict AS D
+                       ON FK_ESTMTaskItem_ESGOSites_fAddressGID.fDistrictCode = D.Code 
+                     LEFT JOIN ESGOZCity AS C
+                       ON FK_ESTMTaskItem_ESGOSites_fAddressGID.fCityCode = C.Code 
+                     LEFT JOIN ESGOZCountry AS CN
+                       ON FK_ESTMTaskItem_ESGOSites_fAddressGID.fCountryCode = CN.Code 
+                     left join (SELECT ESStrToken(@AreaGrouping,R.Description) AS AreaGrouping, 
+                            Sum(IE.ESFIItemPeriodics_TurnOver) AS TurnOver
+                     FROM ESFISalesItemEntry_ESFIItemPeriodics AS IE 
+                          INNER JOIN ESGOSites AS ESGOSites
+                            ON IE.fTradeAccountSiteGID = ESGOSites.GID 
+                          LEFT JOIN ESGOZRegionGroup AS R
+                            ON ESGOSites.fRegionGroupCode = R.Code 
+                          LEFT JOIN ESGOZCity AS C
+                            ON ESGOSites.fCityCode = C.Code 
+                          LEFT JOIN ESGOZCountry AS CN
+                            ON ESGOSites.fCountryCode = CN.Code 
+                          LEFT JOIN ESGOZDistrict AS D
+                            ON ESGOSites.fDistrictCode = D.Code 
+                     WHERE (IE.fCompanyCode = ##(ESCOMPANY))
+                            AND (ESEqual(IE.RegistrationDate, @Date))
+                           
+                     GROUP BY ESStrToken(@AreaGrouping,R.Description)
+                     ) TurnoverByGeoDim on TurnoverByGeoDim.AreaGrouping = ESStrToken(@AreaGrouping,R.Description)
+                WHERE (FK_ESTMTaskItem_ESTMTaskCategoryValue2GID.StringField1 = '1')
+                       AND (FK_ESTMTaskItem_ESGOSites_fAddressGID.Latitude <> 0)
+                       AND (FK_ESTMTaskItem_ESGOSites_fAddressGID.Longitude <> 0)
+                      
+                GROUP BY ESStrToken(@AreaGrouping,R.Description)) AS TimeSheetLines 
+WHERE (TimeSheetLines.AreaGrouping is not null)
+      
+]]></SQL>
+  <SQLforPaging><![CDATA[]]></SQLforPaging>
+  <Table>TimeSheetLines</Table>
+  <Params>
+    <Param>
+      <ID>AreaGrouping</ID>
+      <Type>System.String, mscorlib</Type>
+    </Param>
+    <Param>
+      <ID>Date</ID>
+      <Type>Entersoft.Framework.Platform.ESDateRange, QueryProcess</Type>
+      <ODSTag>1700363E-F17D-4B4B-8642-E1CE22B6C16C</ODSTag>
+    </Param>
+  </Params>
+</ESPublicQuery>

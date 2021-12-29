@@ -1,0 +1,13 @@
+{
+  "args": [
+    {
+      "displayName": "Longitude",
+      "name": "Longitude"
+    },
+    {
+      "displayName": "Latitude",
+      "name": "Latitude"
+    }
+  ],
+  "id": "MapPinVisibility"
+}

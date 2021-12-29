@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<ESPublicQuery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SQL><![CDATA[SELECT ESFIDocumentSeries.GID AS fSeriesGID, 
+       ESFIDocumentSeries.Code AS Code, 
+       ESFIDocumentSeries.Description AS Description
+FROM ESFIDocumentSeries AS ESFIDocumentSeries 
+WHERE (ESFIDocumentSeries.Inactive = 0)
+       AND (ESFIDocumentSeries.Canceling = 1)
+       AND (ESFIDocumentSeries.fDocumentTypeGID in (SELECT TOP 1 fInvoiceServiceDocTypeGID fDocumentTypeGID                  FROM ESGOServiceProfile SP                       INNER JOIN (                                  SELECT US.fServiceProfileGID                                  FROM ESGOUserSite AS US                                   WHERE US.fUserGID = ##(ESUSERGID)                                          AND US.fCompanySiteGID = ##(ESBranchGID)) US on US.fServiceProfileGID=SP.GID))
+      
+ORDER BY ESFIDocumentSeries.Code
+]]></SQL>
+  <SQLforPaging><![CDATA[]]></SQLforPaging>
+  <Table>ESFIDocumentSeries</Table>
+  <Params />
+</ESPublicQuery>

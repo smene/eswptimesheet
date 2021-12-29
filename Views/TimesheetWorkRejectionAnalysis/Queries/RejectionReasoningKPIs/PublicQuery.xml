@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<ESPublicQuery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SQL><![CDATA[SELECT TS_Lines.fRejectReasonGID AS fRejectReasonGID, 
+       ESTMTaskCategoryValue.Code AS RejectReason, 
+       TS_Lines.LabourHours AS LabourHours, 
+       TS_Lines.BillableHours AS BillableHours
+FROM (
+                SELECT TI.fCategoryValue5GID AS fRejectReasonGID, 
+                       Sum(TI.NumericField1) AS LabourHours, 
+                       Sum(TI.NumericField2) AS BillableHours
+                FROM ESTMTaskItem AS TI 
+                     INNER JOIN (
+                                SELECT ESTMTaskCategoryValue.GID AS fStateGID
+                                FROM ESTMTaskCategoryValue AS ESTMTaskCategoryValue 
+                                WHERE (ESTMTaskCategoryValue.InternationalID = 'ES.TSState_Cancelled')) AS SCV
+                       ON TI.fCategoryValue3GID = SCV.fStateGID 
+                     INNER JOIN (
+                                SELECT ESTMTask.GID AS fTaskGID
+                                FROM ESTMTask AS ESTMTask 
+                                     INNER JOIN (
+                                                SELECT ESTMTaskTypeGroup.fTaskTypeGID AS fTaskTypeGID
+                                                FROM ESTMTaskTypeGroup AS ESTMTaskTypeGroup 
+                                                WHERE (ESTMTaskTypeGroup.fTaskGroupCode = 'Timesheet')) AS TaskTypeGroup
+                                       ON ESTMTask.fTaskTypeGID = TaskTypeGroup.fTaskTypeGID 
+                                WHERE (ESTMTask.fCompanyCode = ##(ESCOMPANY))
+                                       AND (ESEqual(ESTMTask.fAssignedToGID, @fAssignedToGID1))
+                                       AND (ESEqual(ESTMTask.RegistrationDate, @RegistrationDate1))) AS Timesheets
+                       ON TI.fTaskGID = Timesheets.fTaskGID 
+                WHERE (ESEqual(TI.fTradeAccountGID, @fTradeAccountGID))
+                       AND (ESEqual(TI.fProjectGID, @fProjectGID))
+                      
+                GROUP BY TI.fCategoryValue5GID) AS TS_Lines 
+     LEFT JOIN ESTMTaskCategoryValue AS ESTMTaskCategoryValue
+       ON TS_Lines.fRejectReasonGID = ESTMTaskCategoryValue.GID 
+]]></SQL>
+  <SQLforPaging><![CDATA[]]></SQLforPaging>
+  <Table>TS_Lines</Table>
+  <Params>
+    <Param>
+      <ID>fTradeAccountGID</ID>
+      <Type>System.String, mscorlib</Type>
+      <ODSTag>D912BFF1-6B81-4594-84EA-3BBD412650B7</ODSTag>
+    </Param>
+    <Param>
+      <ID>fProjectGID</ID>
+      <Type>System.Guid, mscorlib</Type>
+      <ODSTag>E108316F-D461-428D-A9DA-58E508F0DA39</ODSTag>
+    </Param>
+    <Param>
+      <ID>fAssignedToGID1</ID>
+      <Type>System.Guid, mscorlib</Type>
+      <ODSTag>93E6CA13-D219-4A19-8EA8-147B2454F82F</ODSTag>
+    </Param>
+    <Param>
+      <ID>RegistrationDate1</ID>
+      <Type>Entersoft.Framework.Platform.ESDateRange, QueryProcess</Type>
+      <ODSTag>1700363E-F17D-4B4B-8642-E1CE22B6C16C</ODSTag>
+    </Param>
+  </Params>
+</ESPublicQuery>

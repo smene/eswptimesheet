@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<ESPublicQuery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SQL><![CDATA[SELECT P.GID AS fProjectGID, 
+       P.Code AS Code, 
+       P.Name AS Name, 
+       PM.Name AS ProjectManagerName, 
+       TradePerson.Name AS CustomerName, 
+       TradePersonContact.Name AS ContactPersonName, 
+       P.StartDate AS StartDate, 
+       P.FinishDate AS FinishDate, 
+       PStatus.Description AS Description, 
+       P.ContractNumber AS ContractNumber
+FROM ESGOProject AS P 
+     LEFT JOIN ESGOPerson AS PM
+       ON P.fProjectManagerGID = PM.GID 
+     LEFT JOIN ESGOPerson AS TradePerson
+       ON P.fTradePersonGID = TradePerson.GID 
+     LEFT JOIN ESGOPerson AS TradePersonContact
+       ON P.fTradePersonContactGID = TradePersonContact.GID 
+     LEFT JOIN ESGOZProjectStatus AS PStatus
+       ON P.fProjectStatusCode = PStatus.Code 
+WHERE (P.fCompanyCode = ##(ESCOMPANY))
+       AND (P.Inactive = 0)
+       AND (ESEqual(P.GID, @fProjectGID))
+      
+ORDER BY P.Code
+]]></SQL>
+  <SQLforPaging><![CDATA[]]></SQLforPaging>
+  <Table>ESGOProject</Table>
+  <Params>
+    <Param>
+      <ID>fProjectGID</ID>
+      <Type>System.Guid, mscorlib</Type>
+      <ODSTag>31923FDF-1FB7-49D4-851F-12A2A207F9D6</ODSTag>
+    </Param>
+  </Params>
+</ESPublicQuery>

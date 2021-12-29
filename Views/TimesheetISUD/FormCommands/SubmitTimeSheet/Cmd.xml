@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ShowMultiFormFOCommand RootNodeType="Entersoft.Framework.Windows.CustomCommands.ShowMultiFormFOCommand, ESCtxCmds" Version="2" CGID="d3f6dd5c-72ea-4108-a45e-32fa3616e33a" HasMenuEntry="False" FormMode="NONE" PreAutoSaveSource="True" PostAutoSaveSource="True" uiless_in_transaction="True">
+  <ParamsNode CGID="c821b71d-06ff-479c-b78c-4366bc339604" ControlsWidth="200" />
+  <Profiles CGID="c59fe77c-9561-4030-9abe-36f97d37b212">
+    <Profile CGID="6b5b48b9-868b-44e4-bccd-6e2f6ed81add" UILess="True" Save="False">
+      <SourceEntity EntityID="ESTMServiceRequest_TimeSheet_DEF" />
+      <TargetEntity EntityID="ESTMServiceRequest_TimeSheet_DEF" />
+      <SaveExpression CGID="31c0c038-9d72-4650-ba95-b4a77e8a4f85">
+        <Supplier>
+          <EnumValue Type="Entersoft.Framework.Platform.Helper.SaveEnum, ESEntity" Value="NONE" />
+        </Supplier>
+      </SaveExpression>
+      <RootRule CGID="b3c97972-2d00-4380-8605-c73e30ddc0d4" Source="ESTMTask" Target="ESTMTask" TargetKey="GID">
+        <ExecuteSimpleConditions CGID="cc66d435-a2f8-4722-ac0b-cc6c8949f9b6" />
+        <Variables CGID="afef8962-0dd9-4a56-a68f-4433952c83f5" />
+        <Rules CGID="1b8ea422-f14d-4851-901f-3ca91f1e44eb" />
+        <Conditions CGID="60169747-9305-418b-a163-0e88ee907a99" />
+        <Assignments CGID="eebc6f3d-497c-4e20-b2e1-2125b3b533f3">
+          <Assign CGID="390fc571-9678-44dc-83f5-1f20f137de72" Column="GID">
+            <Supplier>
+              <SourceValue>GID</SourceValue>
+            </Supplier>
+            <Conditions CGID="87539eba-4ed3-4ab2-b091-1b637e59260e" />
+          </Assign>
+          <Assign CGID="b3c94701-65d5-4dc3-ada5-ae8388e99724" Column="fStatusGID">
+            <Supplier CGID="cf124f38-e7cf-436f-bf55-58c0c1e7b219">
+              <SQLSelectValue>SELECT
+  GID
+FROM ESTMStatusCollectionValue SCV
+WHERE InternationalID = 'ES.TS_Submitted'</SQLSelectValue>
+            </Supplier>
+            <Conditions CGID="10a4ba7d-93d2-45c7-86f8-10a56099ed95" />
+          </Assign>
+        </Assignments>
+        <OrderByNodes CGID="7e43b204-68a9-47bb-a0e9-112a71f18a84" />
+        <GroupByNodes CGID="45b5cc42-4bd7-465a-8d44-b278aada79fa">
+          <GroupAtMostEntries CGID="f0c94015-cb0f-4cde-84b6-d3bfe19a2280">
+            <Supplier>
+              <ConstantValue>0</ConstantValue>
+            </Supplier>
+          </GroupAtMostEntries>
+        </GroupByNodes>
+        <MultiplyByNodes CGID="4decb3aa-9dd4-487a-9638-c93509be1ce3" />
+        <RowActions CGID="bc938a09-f5f9-4189-9ac6-0500c388d9af" />
+      </RootRule>
+      <MapExceptions CGID="085b549c-6170-4608-9bbe-6a80ff0e5808" />
+      <LoginCredentials CGID="75b89862-95b8-40d7-beef-1c91654d0efb" />
+    </Profile>
+  </Profiles>
+  <ExecuteConditions CGID="2c0c8a4f-baed-4a25-a777-00c956c90d65" />
+  <ShowSimpleConditions CGID="1af7216b-288b-4d72-95ee-2179e72deabc" />
+  <ExecuteMessageConditions CGID="f19977b9-17bc-4ab5-80da-78e0bb3246e0">
+    <MessageCondition CGID="ccb86c1b-e11c-40c5-a340-98faeb776cd5">
+      <Supplier CGID="daccdfee-4a5a-4efe-b70a-ee1710c3507f">
+        <Param CGID="ca466d33-af28-4d78-b867-e3c40990798b" AggregateFunction="Count" AggregateTable="FK_ESTMTaskItem_ESTMTask" ParamName="$CountLinesNotSubmitted">
+          <Supplier>
+            <ConstantValue>&lt;dummy value&gt;</ConstantValue>
+          </Supplier>
+          <AggregateConditions CGID="56cf1bd3-95de-411b-aaa9-d289a6ebb31a">
+            <AggregateCondition CGID="aae31ba3-aad9-4e1f-8e2a-f6d1066b9178">
+              <Supplier CGID="1c025728-4e91-467c-9b0d-dfa926fd3f70">
+                <Param CGID="15d8c4b1-4733-41e0-b0df-2c9db945a766" ParamName="$State">
+                  <Supplier>
+                    <SourceValue Path="FK_ESTMTaskItem_ESTMTaskCategoryValue3GID">InternationalID</SourceValue>
+                  </Supplier>
+                </Param>
+                <ExpressionValue>safestr($State)="ES.TSState_Draft"</ExpressionValue>
+              </Supplier>
+            </AggregateCondition>
+          </AggregateConditions>
+        </Param>
+        <ExpressionValue>SafeInt($CountLinesNotSubmitted)&gt;0</ExpressionValue>
+      </Supplier>
+      <FormatParams CGID="c0f066e8-88e3-4383-aa23-95c6d69e4a04" />
+    </MessageCondition>
+  </ExecuteMessageConditions>
+  <ValidityConditions CGID="4ff4c16a-8aae-4c75-a314-5d8d80a409cc" />
+  <UserGroups>
+  </UserGroups>
+  <CommandAvailability />
+  <SourceEntity EntityID="ESTMServiceRequest_TimeSheet_DEF" />
+  <Translations>
+    <ESCaptionsDS xmlns="http://tempuri.org/ESCaptionsDS.xsd">
+  <Captions>
+    <ID>d3f6dd5c-72ea-4108-a45e-32fa3616e33a</ID>
+    <Suffix>Caption</Suffix>
+    <LangID>el</LangID>
+    <Caption>Submit timesheet</Caption>
+  </Captions>
+  <Captions>
+    <ID>6b5b48b9-868b-44e4-bccd-6e2f6ed81add</ID>
+    <Suffix>Title</Suffix>
+    <LangID>el</LangID>
+    <Caption>Assign timesheet status</Caption>
+  </Captions>
+  <Captions>
+    <ID>f0c94015-cb0f-4cde-84b6-d3bfe19a2280</ID>
+    <Suffix>Title</Suffix>
+    <LangID>el</LangID>
+    <Caption>Maximum Entries</Caption>
+  </Captions>
+  <Captions>
+    <ID>ccb86c1b-e11c-40c5-a340-98faeb776cd5</ID>
+    <Suffix>Message</Suffix>
+    <LangID>el</LangID>
+    <Caption>Δεν υπάρχουν εγγραφές προς υποβολή</Caption>
+  </Captions>
+</ESCaptionsDS>
+  </Translations>
+</ShowMultiFormFOCommand>

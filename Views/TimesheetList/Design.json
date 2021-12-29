@@ -1,0 +1,183 @@
+{
+  "@btn_EditTimesheet": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@btn_EditTimesheet_caption": {
+    "dsgn": {
+      "owner": "btn_EditTimesheet"
+    }
+  },
+  "@bullet_target": {
+    "dsgn": {
+      "owner": "bullet"
+    }
+  },
+  "@bullet_targetColor": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "bullet"
+    }
+  },
+  "@capChargeableHours": {
+    "dsgnInfo": {
+      "caption": "8"
+    }
+  },
+  "@capOvertimeValue": {
+    "dsgnInfo": {
+      "caption": "8"
+    }
+  },
+  "@capTSInfo": {
+    "dsgnInfo": {
+      "caption": null
+    }
+  },
+  "@capTSInfo_caption": {
+    "dsgn": {
+      "owner": "capTSInfo"
+    }
+  },
+  "@capTSInfo_caption_TSHourDate": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "capTSInfo_caption"
+    }
+  },
+  "@capUtilizationValue": {
+    "dsgnInfo": {
+      "caption": "8",
+      "captionColor": null
+    }
+  },
+  "@capUtilizationValue_captionColor": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "capUtilizationValue"
+    }
+  },
+  "@capUtilizationValue_captionColor1": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "capUtilizationValue"
+    }
+  },
+  "@capWorkingHoursValue": {
+    "dsgnInfo": {
+      "caption": "8"
+    }
+  },
+  "@chrtKPIs": {
+    "dsgnInfo": {
+      "maxSampleData": null,
+      "minSampleData": null
+    }
+  },
+  "@chrtKPIs_xAxis": {
+    "dsgn": {
+      "actionKind": "function",
+      "owner": "chrtKPIs"
+    }
+  },
+  "@Drawer": {
+    "dsgnInfo": {
+      "us_height": 748,
+      "us_width": 38
+    }
+  },
+  "@EnumResourceType": {
+    "dsgn": {
+      "EnumType": "Entersoft.ERP.TaskManagement.Enums.ResourceType, ESTMEnums"
+    }
+  },
+  "@EnumResourceType/properties/data/initialValue": {
+    "dsgn": {
+      "Columns": [
+        {
+          "Caption": null,
+          "Kind": "Integer",
+          "Name": "value"
+        },
+        {
+          "Caption": null,
+          "Kind": "",
+          "Name": "name"
+        },
+        {
+          "Caption": null,
+          "Kind": "",
+          "Name": "displayText"
+        }
+      ]
+    }
+  },
+  "@p_0bt9": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_Edit": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_jfc": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@p_xxdr": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pageItems": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pHoursKPI": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pHrsKpis": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pParamFields": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  },
+  "@pParams": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null,
+      "us_height": 748,
+      "us_width": 38
+    }
+  },
+  "@pTimesheetHours": {
+    "dsgnInfo": {
+      "sizesMetric": "empty"
+    }
+  },
+  "@pTimesheetList": {
+    "dsgnInfo": {
+      "sizesMetric": null,
+      "sizesVal": null
+    }
+  }
+}

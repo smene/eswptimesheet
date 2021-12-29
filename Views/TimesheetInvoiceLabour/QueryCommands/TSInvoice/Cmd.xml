@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataSetCommand RootNodeType="Entersoft.Framework.Windows.CustomCommands.DataSetCommand, ESCtxCmds" Version="2" CGID="498d3611-41e8-4401-b52a-ffbd1bec65b7" HasMenuEntry="False" FormMode="NONE">
+  <ParamsNode CGID="ba0a68af-ba63-42fc-bd2b-a6e71b8682dd" ControlsWidth="200" />
+  <Profiles CGID="4652a38e-5ff6-4f79-aa42-4eb125fc75ff">
+    <Profile CGID="ce040184-1287-4dd3-80ff-5b5e6bf7f4f5" Save="False">
+      <SourceDataSet />
+      <TargetEntity EntityID="ESFIDocumentTrade" />
+      <SaveExpression CGID="eba1c63c-8f41-42aa-bb59-96937fe9a6e7">
+        <Supplier>
+          <EnumValue Type="Entersoft.Framework.Platform.Helper.SaveEnum, ESEntity" Value="SAVE_AND_ACTIONS" />
+        </Supplier>
+      </SaveExpression>
+      <RootRule CGID="f021a506-985c-480a-be06-e5f7aa4e3b45" Inactive="True" Source="TimesheetInvoiceLabour" Target="ESFIDocumentTrade" TargetKey="GID">
+        <ExecuteSimpleConditions CGID="412d795c-11d3-4c1a-9e06-36830f96af01" />
+        <Variables CGID="402639bc-c835-4fb1-8930-c0c2ff38dc7e" />
+        <Rules CGID="3dc536cb-2a5d-4a4b-8ade-1b133b572ea7" />
+        <Conditions CGID="60e9c2ae-e943-4034-ab75-b12132d6ef41" />
+        <Assignments CGID="33f4eec8-eeb6-4cae-8574-13105935edc4">
+          <Assign CGID="db97f55b-47f4-42f4-8c60-cfa787ab2c3c" Column="GID">
+            <Supplier>
+              <SourceValue>fDocumentGID</SourceValue>
+            </Supplier>
+            <Conditions CGID="189ef15c-6e35-415e-96e8-3344710716ba" />
+          </Assign>
+        </Assignments>
+        <OrderByNodes CGID="171ef65c-393d-4a5d-b0a6-0e2c14fda56a" />
+        <GroupByNodes CGID="359cfe7b-b60a-4f60-8d07-32f5b93fa3c4">
+          <GroupAtMostEntries CGID="eca5ca7f-2349-44e1-bcd1-8052cb2bb1ba">
+            <Supplier>
+              <ConstantValue>0</ConstantValue>
+            </Supplier>
+          </GroupAtMostEntries>
+        </GroupByNodes>
+        <MultiplyByNodes CGID="dc09dcb4-e64a-4983-bed5-cddd61dccccc" />
+        <RowActions CGID="bcad0880-c4e6-42b4-9f00-02e6cd29170f">
+          <RowAction CGID="134ca090-955c-4b45-abe6-415cfde36cf0" ExecLevel="Dataset" trigger="TargetOnPreSave">
+            <Conditions CGID="66544e81-96e2-4d20-82d9-dd28b3ab89b1" />
+            <CommandRowAction Type="SingleTransitionRowAction" CGID="8f8d2b79-dbdb-4630-8093-1b40754d4c18">
+              <Param CGID="cbd6e1bc-ea54-41c6-af27-ed241a0968c5" ParamName="TransitionGID">
+                <Supplier CGID="01fa6674-87ef-4a49-87d0-dc853ce27141">
+                  <SQLSelectValue>SELECT GID from ESFIDocumentTransition
+WHERE InternationalID = ##(Timesheet_ServiceInvoiceTransitionCode) AND fCompanyCode = ##(ESCOMPANY)</SQLSelectValue>
+                </Supplier>
+              </Param>
+              <Param CGID="638bfd99-5c2d-4df4-b65c-f934ca5d45ae" ParamName="DocumentSeriesGID">
+                <Supplier CGID="b1b616d6-43eb-40d9-9506-2223ff7c6cc6">
+                  <SQLSelectValue>SELECT
+  SP.fInvoiceServiceDocSeriesGID
+FROM ESGOServiceProfile SP
+INNER JOIN (SELECT
+  US.fServiceProfileGID
+FROM ESGOUserSite US
+WHERE US.fUserGID = ##(ESUSERGID)
+AND US.fCompanySiteGID = ##(ESBranchGID)) USP
+  ON USP.fServiceProfileGID = SP.GID</SQLSelectValue>
+                </Supplier>
+              </Param>
+              <Param CGID="d700749f-2f1a-4bc6-925f-f225996d50cd" ParamName="SourceDocumentGID">
+                <Supplier>
+                  <SourceValue>fDocumentGID</SourceValue>
+                </Supplier>
+              </Param>
+              <Param CGID="713fb0df-88ef-4e1a-984b-c526e7ca633d" ParamName="Reasoning">
+                <Supplier>
+                  <NullValue />
+                </Supplier>
+              </Param>
+              <Param CGID="90c3b577-9f70-47dc-b5d3-a1d24176ca0d" ParamName="RegistrationDate">
+                <Supplier>
+                  <BuiltInFunction Type="LoginDateFunction" />
+                </Supplier>
+              </Param>
+            </CommandRowAction>
+          </RowAction>
+        </RowActions>
+      </RootRule>
+      <MapExceptions CGID="eba7db9e-d639-4d68-a783-c8e95d6c00e5" />
+      <LoginCredentials CGID="4e70316d-61fa-41fc-842d-f22d49a92cfd" />
+      <ShowFormConditions CGID="c01e3c21-6c1c-443d-a299-b8d2e79586bc" />
+    </Profile>
+    <Profile CGID="0f194224-5541-458b-95bb-500b8a6ebc0b" Save="False" ContinueOnError="True">
+      <SourceDataSet />
+      <TargetEntity EntityID="ES00List" />
+      <SaveExpression CGID="804a3314-5ab2-4187-be23-d6ff7c6609ce">
+        <Supplier>
+          <EnumValue Type="Entersoft.Framework.Platform.Helper.SaveEnum, ESEntity" Value="SAVE_AND_ACTIONS" />
+        </Supplier>
+      </SaveExpression>
+      <RootRule CGID="b707fc7f-03cb-44bb-b5a0-06f45c41cb76" Source="TimesheetInvoiceLabour" Target="ES00List">
+        <ExecuteSimpleConditions CGID="492b3dd3-228a-47c2-af5e-e09ed36d3f64" />
+        <Variables CGID="1784ff01-c84b-4635-9c4f-4f9bf5078309" />
+        <Rules CGID="efe15f9b-04cb-4916-9db2-57d706f0cb70" />
+        <Conditions CGID="03de4d4a-1d56-4326-b298-524f17a2f201" />
+        <Assignments CGID="fe6ec05c-55ed-41ba-a141-d83c50ea2242" />
+        <OrderByNodes CGID="633fdbed-1d0f-486d-b90e-96689f420402" />
+        <GroupByNodes CGID="a287b84f-fe8d-4c67-b055-972fdfabede3">
+          <GroupAtMostEntries CGID="21c92bd5-55f5-436d-beae-8f1691e2240d">
+            <Supplier>
+              <ConstantValue>0</ConstantValue>
+            </Supplier>
+          </GroupAtMostEntries>
+        </GroupByNodes>
+        <MultiplyByNodes CGID="2bf6b9db-d711-4e4d-a6dc-95ffbfcb5b62" />
+        <RowActions CGID="39b382c8-02e0-4702-beaf-7ca006e57911">
+          <RowAction CGID="cda95c9d-1230-4016-bbdc-4e4bc4dd5893" ExecLevel="Dataset" trigger="TargetOnPreSave">
+            <Conditions CGID="a3ca41b7-c2a5-4561-a906-d36967ef2336" />
+            <CommandRowAction Type="SingleTransitionRowAction" CGID="bdedb5df-f24b-4aee-9002-8b796c0bc9d6">
+              <Param CGID="f5c0cf00-c93c-4169-9368-ec075a4ffd02" ParamName="TransitionGID">
+                <Supplier CGID="2de52fef-f447-4218-8a75-acf240c8bea5">
+                  <SQLSelectValue>SELECT GID from ESFIDocumentTransition
+WHERE InternationalID = ##(Timesheet_ServiceInvoiceTransitionCode) AND fCompanyCode = ##(ESCOMPANY)</SQLSelectValue>
+                </Supplier>
+              </Param>
+              <Param CGID="df5b6f83-d94c-4b32-a03b-0768fb8e83d3" ParamName="DocumentSeriesGID">
+                <Supplier CGID="9e10884d-138e-4a68-a8bd-2c6dd22614b2">
+                  <SQLSelectValue>SELECT
+  SP.fInvoiceServiceDocSeriesGID
+FROM ESGOServiceProfile SP
+INNER JOIN (SELECT
+  US.fServiceProfileGID
+FROM ESGOUserSite US
+WHERE US.fUserGID = ##(ESUSERGID)
+AND US.fCompanySiteGID = ##(ESBranchGID)) USP
+  ON USP.fServiceProfileGID = SP.GID</SQLSelectValue>
+                </Supplier>
+              </Param>
+              <Param CGID="615bc71f-b685-4431-979b-faeb268752e2" ParamName="SourceDocumentGID">
+                <Supplier>
+                  <SourceValue>fDocumentGID</SourceValue>
+                </Supplier>
+              </Param>
+              <Param CGID="82f60d11-2c09-4737-a1c3-901a28256e62" ParamName="Reasoning">
+                <Supplier>
+                  <NullValue />
+                </Supplier>
+              </Param>
+              <Param CGID="8b22ab95-7632-43be-a855-4626dfc1937c" ParamName="RegistrationDate">
+                <Supplier>
+                  <BuiltInFunction Type="LoginDateFunction" />
+                </Supplier>
+              </Param>
+            </CommandRowAction>
+          </RowAction>
+        </RowActions>
+      </RootRule>
+      <MapExceptions CGID="a1636670-cdd8-4b6f-9f1b-74e3027c4f3c" />
+      <LoginCredentials CGID="5e08e1bc-3036-4b99-aa4f-78459745921d" />
+      <ShowFormConditions CGID="10da1992-0bed-43ee-9478-6ea329cc91f2" />
+    </Profile>
+  </Profiles>
+  <ExecuteConditions CGID="499d6b72-1e93-48f8-9f15-2df32ae8c251" />
+  <ShowSimpleConditions CGID="c665dc64-771b-4762-99e2-f6f654e9f8dc" />
+  <ExecuteMessageConditions CGID="7a83e689-9d98-4bf7-85e8-7d5be13805c1" />
+  <ValidityConditions CGID="004e23cc-563f-4c21-9516-9b3d9e903980" />
+  <UserGroups>
+  </UserGroups>
+  <CommandAvailability />
+  <SourceDataSet />
+  <Translations>
+    <ESCaptionsDS xmlns="http://tempuri.org/ESCaptionsDS.xsd">
+  <Captions>
+    <ID>498d3611-41e8-4401-b52a-ffbd1bec65b7</ID>
+    <Suffix>Caption</Suffix>
+    <LangID>el</LangID>
+    <Caption>TSInvoice</Caption>
+  </Captions>
+  <Captions>
+    <ID>ce040184-1287-4dd3-80ff-5b5e6bf7f4f5</ID>
+    <Suffix>Title</Suffix>
+    <LangID>el</LangID>
+    <Caption>Invoice eash selected pro forma invoice oder</Caption>
+  </Captions>
+  <Captions>
+    <ID>eca5ca7f-2349-44e1-bcd1-8052cb2bb1ba</ID>
+    <Suffix>Title</Suffix>
+    <LangID>el</LangID>
+    <Caption>Maximum Entries</Caption>
+  </Captions>
+  <Captions>
+    <ID>134ca090-955c-4b45-abe6-415cfde36cf0</ID>
+    <Suffix>Title</Suffix>
+    <LangID>el</LangID>
+    <Caption>Exec Transition</Caption>
+  </Captions>
+  <Captions>
+    <ID>0f194224-5541-458b-95bb-500b8a6ebc0b</ID>
+    <Suffix>Title</Suffix>
+    <LangID>el</LangID>
+    <Caption>New dummy list</Caption>
+  </Captions>
+  <Captions>
+    <ID>cda95c9d-1230-4016-bbdc-4e4bc4dd5893</ID>
+    <Suffix>Title</Suffix>
+    <LangID>el</LangID>
+    <Caption>Exec Transition</Caption>
+  </Captions>
+  <Captions>
+    <ID>21c92bd5-55f5-436d-beae-8f1691e2240d</ID>
+    <Suffix>Title</Suffix>
+    <LangID>el</LangID>
+    <Caption>Maximum Entries</Caption>
+  </Captions>
+</ESCaptionsDS>
+  </Translations>
+</DataSetCommand>

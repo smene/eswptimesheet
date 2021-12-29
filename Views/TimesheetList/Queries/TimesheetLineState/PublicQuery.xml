@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<ESPublicQuery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SQL><![CDATA[SELECT SCV.GID AS fStatusGID, 
+       SCV.Code AS Code
+FROM ESTMStatusCollectionValue AS SCV 
+     INNER JOIN ESTMStatusCollection AS SC
+       ON SCV.fStatusCollectionGID = SC.GID 
+WHERE (SC.Code = 'TimeSheetStatus')
+       AND (SCV.Inactive = 0)
+      
+ORDER BY SCV.SeqNum
+]]></SQL>
+  <SQLforPaging><![CDATA[]]></SQLforPaging>
+  <Table>ESTMStatusCollectionValue</Table>
+  <Params />
+</ESPublicQuery>

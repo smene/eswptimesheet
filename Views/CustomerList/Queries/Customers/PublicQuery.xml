@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<ESPublicQuery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SQL><![CDATA[SELECT Customers.fTradeAccountGID AS fTradeAccountGID, 
+       Customers.CustomerCode AS CustomerCode, 
+       Customers.Name AS Name, 
+       Customers.fRegionGroupCode AS fRegionGroupCode, 
+       Customers.Latitude AS Latitude, 
+       Customers.Longitude AS Longitude, 
+       Customers.Address1 AS Address1, 
+       Customers.fPostalCode AS fPostalCode, 
+       Customers.fCityCode AS fCityCode, 
+       Customers.Telephone1 AS Telephone1, 
+       Customers.EMailAddress AS EMailAddress, 
+       Blob.GID AS Photo, 
+       CONVERT(NVARCHAR(16), CONVERT(BINARY(8), Blob.TS), 2) AS ImgVersion, 
+       SP.Code AS SalesPersonCode, 
+       SP.Name AS SalesPersonName, 
+       Customers.fBusinessUnitCode AS fBusinessUnitCode, 
+       Customers.fBusinessActivityCode AS fBusinessActivityCode, 
+       Act.fIndustryCode AS fIndustryCode
+FROM (
+                SELECT ESTopN(@TopN) TA.fPersonCodeGID AS fPersonCodeGID, 
+                       TA.GID AS fTradeAccountGID, 
+                       TA.Code AS CustomerCode, 
+                       TA.Name AS Name, 
+                       Sites.fRegionGroupCode AS fRegionGroupCode, 
+                       Sites.Latitude AS Latitude, 
+                       Sites.Longitude AS Longitude, 
+                       Sites.Address1 AS Address1, 
+                       Sites.fPostalCode AS fPostalCode, 
+                       Sites.fCityCode AS fCityCode, 
+                       Sites.Telephone1 AS Telephone1, 
+                       P.EMailAddress AS EMailAddress, 
+                       TA.fSalesPersonGID AS fSalesPersonGID, 
+                       TA.fBusinessUnitCode AS fBusinessUnitCode, 
+                       TA.fBusinessActivityCode AS fBusinessActivityCode
+                FROM ESFITradeAccount AS TA 
+                     LEFT JOIN ESGOPerson AS P
+                       ON TA.fPersonCodeGID = P.GID 
+                     INNER JOIN ESGOSites AS Sites
+                       ON P.fMainAddressGID = Sites.GID 
+                WHERE (TA.fCompanyCode = ##(ESCOMPANY))
+                       AND (ESEqual(Sites.fRegionGroupCode, @fRegionGroupCode))
+                       AND (TA.Type = 0)
+                       AND (ESEqual(TA.Code, @CustomerCode))
+                       AND (ESEqual(TA.Name, @Name))
+                      
+                ORDER BY TA.Name) AS Customers 
+     LEFT JOIN ESFISalesPerson AS SP
+       ON Customers.fSalesPersonGID = SP.GID 
+     INNER JOIN ESGOPerson AS P
+       ON Customers.fPersonCodeGID = P.GID 
+     LEFT JOIN ESGOZActivity AS Act
+       ON P.fActivityCode = Act.Code 
+     LEFT JOIN ES00Blob Blob
+     ON cast(KeyID as uniqueidentifier) = Customers.fPersonCodeGID
+     AND Blob.ObjectID = 'ESGOPerson'
+     AND Blob.TypeID = 0
+     
+]]></SQL>
+  <SQLforPaging><![CDATA[]]></SQLforPaging>
+  <Table>Customers</Table>
+  <Params>
+    <Param>
+      <ID>fRegionGroupCode</ID>
+      <Type>System.String, mscorlib</Type>
+      <ODSTag>0A4E1034-EF5A-4334-9E4C-D0E13D22DCCC</ODSTag>
+    </Param>
+    <Param>
+      <ID>CustomerCode</ID>
+      <Type>System.String, mscorlib</Type>
+      <ODSTag>11AA2299-3F5E-4B2A-B530-6222866A7601</ODSTag>
+    </Param>
+    <Param>
+      <ID>Name</ID>
+      <Type>System.String, mscorlib</Type>
+      <ODSTag>7699C12E-3B5F-47E8-B509-7AF97F4560B1</ODSTag>
+    </Param>
+    <Param>
+      <ID>TopN</ID>
+      <Type>System.Int32, mscorlib</Type>
+    </Param>
+  </Params>
+</ESPublicQuery>

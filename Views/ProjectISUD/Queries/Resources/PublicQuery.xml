@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<ESPublicQuery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SQL><![CDATA[SELECT R.fPersonGID AS fPersonGID, 
+       R.Code AS Code, 
+       R.Description AS Description
+FROM ESTMResource AS R 
+     INNER JOIN ESTMResourceRelRole AS RRL
+       ON R.GID = RRL.fResourceGID 
+WHERE (R.Inactive = 0)
+       AND (R.fCompanyCode = ##(ESCOMPANY))
+       AND (RRL.fResRoleCode = 'TimeSheet')
+      
+]]></SQL>
+  <SQLforPaging><![CDATA[]]></SQLforPaging>
+  <Table>ESTMResource</Table>
+  <Params />
+</ESPublicQuery>

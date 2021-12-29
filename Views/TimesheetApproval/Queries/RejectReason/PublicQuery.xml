@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<ESPublicQuery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SQL><![CDATA[SELECT TCV.GID AS fCategoryValueGID, 
+       TCV.Code AS Code
+FROM ESTMTaskCategoryValue AS TCV 
+WHERE (TCV.fTaskCategoryGID = (Select GID from ESTMTaskCategory where code='TimeSheet_RejectionReasoning'))
+      
+ORDER BY TCV.SeqNum
+]]></SQL>
+  <SQLforPaging><![CDATA[]]></SQLforPaging>
+  <Table>ESTMTaskCategoryValue</Table>
+  <Params />
+</ESPublicQuery>

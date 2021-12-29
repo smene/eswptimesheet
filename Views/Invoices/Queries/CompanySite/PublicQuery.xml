@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<ESPublicQuery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SQL><![CDATA[SELECT ESGOSites.GID AS GID, 
+       ESGOSites.Code AS Code, 
+       ESGOSites.Description AS Description
+FROM ESGOSites AS ESGOSites 
+     LEFT JOIN ESGOPerson AS FK_ESGOPerson_PersonCode
+       ON ESGOSites.fPersonCodeGID = FK_ESGOPerson_PersonCode.GID 
+     INNER JOIN ESGOCompany AS FK_ESGOCompany_ESGOPerson
+       ON FK_ESGOPerson_PersonCode.GID = FK_ESGOCompany_ESGOPerson.fPersonCodeGID 
+WHERE (ESEqual(ESGOSites.Code, @SiteCode))
+       AND (ESGOSites.KindSite = 1)
+       AND (ESEqual(FK_ESGOCompany_ESGOPerson.Code, ##(ESCOMPANY)))
+      
+]]></SQL>
+  <SQLforPaging><![CDATA[]]></SQLforPaging>
+  <Table>ESGOSites</Table>
+  <Params />
+</ESPublicQuery>

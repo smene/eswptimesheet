@@ -1,0 +1,22 @@
+{
+  "@capPrjTimePeriod_caption_EndD/dsgn": {
+    "functionBody": "var sDate = new Date($selectedDate);\r\nvar myD = sDate.getMonth() + 1;\r\nreturn sDate.getDate() + \"/\" + myD + \"/\" + sDate.getFullYear();\r\n",
+    "functionId": "fn_inline_ProjectList_capPrjTimePeriod_caption_EndD"
+  },
+  "@capPrjTimePeriod_caption_StartD/dsgn": {
+    "functionBody": "var sDate = new Date($selectedDate);\r\nvar myD = sDate.getMonth() + 1;\r\nreturn sDate.getDate() + \"/\" + myD + \"/\" + sDate.getFullYear();\r\n",
+    "functionId": "fn_inline_ProjectList_capPrjTimePeriod_caption_StartD"
+  },
+  "@capRepInfo_caption_WorkingHours/dsgn": {
+    "functionBody": "return $WrkHrs.toFixed(2);",
+    "functionId": "fn_inline_CustomerList2_capRepInfo_caption_WorkingHours"
+  },
+  "@capVariancePctValue_captionColor/dsgn": {
+    "functionBody": "if ($VariancePct < 0) {\r\n  return 2;\r\n} else if ($VariancePct > 0 && $Target > 0) {\r\n  return 3;\r\n} else {\r\n  return null;\r\n}",
+    "functionId": "fn_inline_ProjectList_capVariancePctValue_captionColor"
+  },
+  "@capVarianceValue_captionColor/dsgn": {
+    "functionBody": "if ($Variance < 0) {\r\n  return 2;\r\n} else if ($Variance > 0 && $Target > 0) {\r\n  return 3;\r\n} else {\r\n  return null;\r\n}",
+    "functionId": "fn_inline_ProjectList_capVarianceValue_captionColor"
+  }
+}

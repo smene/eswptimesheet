@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<ESPublicQuery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SQL><![CDATA[SELECT ESGLZReasonings.Code AS Code, 
+       ESGLZReasonings.Description AS Description
+FROM ESGLZReasonings AS ESGLZReasonings 
+WHERE (ESGLZReasonings.fCompanyCode = ##(ESCOMPANY))
+       AND (ESGLZReasonings.Inactive = 0)
+      
+]]></SQL>
+  <SQLforPaging><![CDATA[]]></SQLforPaging>
+  <Table>ESGLZReasonings</Table>
+  <Params />
+</ESPublicQuery>

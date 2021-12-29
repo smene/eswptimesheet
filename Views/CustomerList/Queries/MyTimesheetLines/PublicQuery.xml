@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<ESPublicQuery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SQL><![CDATA[SELECT TI.GID AS fTimeSheetLineGID, 
+       TimeSheets.fAssignedToGID AS fAssignedToGID, 
+       TI.fTaskGID AS fTimeSheetGID, 
+       TimeSheets.TimePeriod AS Date, 
+       Rep.Description AS Representative, 
+       TI.NumericField1 AS LabourTime, 
+       TI.NumericField2 AS LabourBillable, 
+       Prj.Code AS ProjectCode, 
+       Prj.Name AS PorjectName, 
+       TCV3.InternationalID AS Linestate_InterID, 
+       TCV5.Code AS Code, 
+       TCV1.Code AS WorkplaceCode
+FROM ESTMTaskItem AS TI 
+     INNER JOIN (
+                SELECT ESTMTask.GID AS fTaskGID, 
+                       ESTMTask.fAssignedToGID AS fAssignedToGID, 
+                       ESTMTask.RegistrationDate AS TimePeriod
+                FROM ESTMTask AS ESTMTask 
+                     INNER JOIN (
+                                SELECT ESTMTaskTypeGroup.fTaskTypeGID AS fTaskTypeGID
+                                FROM ESTMTaskTypeGroup AS ESTMTaskTypeGroup 
+                                WHERE (ESTMTaskTypeGroup.fTaskGroupCode = 'Timesheet')) AS TaskTypeGroup
+                       ON ESTMTask.fTaskTypeGID = TaskTypeGroup.fTaskTypeGID 
+                WHERE (ESTMTask.fCompanyCode = ##(ESCOMPANY))
+                       AND (ESEqual(ESTMTask.RegistrationDate, @TimePeriod))) AS TimeSheets
+       ON TI.fTaskGID = TimeSheets.fTaskGID 
+     LEFT JOIN ESTMTaskCategoryValue AS TCV2
+       ON TI.fCategoryValue2GID = TCV2.GID 
+     LEFT JOIN ESGOProject AS Prj
+       ON TI.fProjectGID = Prj.GID 
+     LEFT JOIN ESTMTaskCategoryValue AS TCV3
+       ON TI.fCategoryValue3GID = TCV3.GID 
+     LEFT JOIN ESFITradeAccount AS TA
+       ON TI.fTradeAccountGID = TA.GID 
+     LEFT JOIN ESTMTaskCategoryValue AS TCV5
+       ON TI.fCategoryValue5GID = TCV5.GID 
+     LEFT JOIN ESTMTaskCategoryValue AS TCV1
+       ON TI.fCategoryValue1GID = TCV1.GID 
+     INNER JOIN ESTMResource AS Rep
+       ON TimeSheets.fAssignedToGID = Rep.GID 
+WHERE (TCV2.StringField1 = '1')
+       AND (TI.fTradeAccountGID = @fTradeAccountGID)
+      
+]]></SQL>
+  <SQLforPaging><![CDATA[]]></SQLforPaging>
+  <Table>ESTMTaskItem</Table>
+  <Params>
+    <Param>
+      <ID>fTradeAccountGID</ID>
+      <Type>System.Guid, mscorlib</Type>
+      <ODSTag>D912BFF1-6B81-4594-84EA-3BBD412650B7</ODSTag>
+    </Param>
+    <Param>
+      <ID>TimePeriod</ID>
+      <Type>Entersoft.Framework.Platform.ESDateRange, QueryProcess</Type>
+      <ODSTag>1700363E-F17D-4B4B-8642-E1CE22B6C16C</ODSTag>
+    </Param>
+  </Params>
+</ESPublicQuery>
